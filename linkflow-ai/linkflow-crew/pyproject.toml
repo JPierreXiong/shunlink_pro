@@ -1,0 +1,29 @@
+[tool.uv]
+dev-dependencies = []
+
+[project]
+name = "linkflow-crew"
+version = "0.1.0"
+description = "LinkFlow AI — Python Worker (CrewAI + Playwright backlink automation)"
+requires-python = ">=3.11"
+dependencies = [
+    "crewai>=0.80.0",
+    "crewai-tools>=0.20.0",
+    "playwright>=1.44.0",
+    "psycopg2-binary>=2.9.9",
+    "python-dotenv>=1.0.0",
+    "requests>=2.31.0",
+    "cloudinary>=1.40.0",
+    "pydantic>=2.7.0",
+    "tenacity>=8.3.0",
+    "rich>=13.7.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project.scripts]
+worker = "main:run_worker"
+
+

@@ -1,0 +1,54 @@
+# ============================================================
+# LinkFlow AI — Python CrewAI Worker
+# Base: python:3.11-slim  (keeps image lean)
+# Playwright Chromium is installed AFTER pip deps so layer
+# cache is preserved when only Python code changes.
+# ============================================================
+
+FROM python:3.11-slim
+
+# System deps for Playwright + psycopg2
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    # Chromium system libraries
+    libnss3 libatk1.0-0 libatk-bridge2.0-0 libcups2 \
+    libdrm2 libxkbcommon0 libxcomposite1 libxdamage1 \
+    libxfixes3 libxrandr2 libgbm1 libasound2 \
+    libpango-1.0-0 libcairo2 libnspr4 \
+    # psycopg2 build deps
+    libpq-dev gcc \
+    # General utilities
+    curl ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+
+# ── Layer cache trick: copy requirements FIRST ───────────────
+# Only re-runs pip install if requirements.txt changes.
+# If you only edit main.py, this layer is served from cache.
+COPY linkflow-crew/requirements.txt ./requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
+
+# ── Install Playwright browsers (after pip — separate cache layer) ──
+RUN playwright install chromium --with-deps
+
+# ── Copy application code ────────────────────────────────────
+COPY linkflow-crew/ ./
+# Copy shared SQL schema for reference
+COPY shared/ ./shared/
+
+# Non-root user
+RUN useradd --system --uid 1001 --no-create-home crewai
+RUN chown -R crewai:crewai /app
+USER crewai
+
+# Logs directory (mapped to a Docker volume)
+RUN mkdir -p /app/logs
+
+EXPOSE 8080
+
+# Health-check: verify the worker process is alive
+HEALTHCHECK --interval=30s --timeout=10s --start-period=15s --retries=3 \
+    CMD python -c "import psycopg2, cloudinary, playwright; print('ok')" || exit 1
+
+CMD ["python", "main.py"]
+

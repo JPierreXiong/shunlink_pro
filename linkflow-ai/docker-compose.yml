@@ -1,0 +1,85 @@
+# ============================================================
+# LinkFlow AI — Docker Compose
+# Starts both services with one command: docker compose up
+#
+# IMPORTANT: Copy .env.example to .env and fill in your values
+# before running.
+# ============================================================
+
+version: "3.9"
+
+services:
+
+  # ── Next.js Web Frontend ──────────────────────────────────
+  linkflow-web:
+    build:
+      context: ..          # root of linkflow-ai folder
+      dockerfile: linkflow-ai/Dockerfile.web
+    container_name: linkflow-web
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      # Database — Neon requires sslmode=require in the URL
+      DATABASE_URL: ${DATABASE_URL}
+      NEXTAUTH_SECRET: ${NEXTAUTH_SECRET}
+      NEXTAUTH_URL: ${NEXTAUTH_URL:-http://localhost:3000}
+      GITHUB_ID: ${GITHUB_ID}
+      GITHUB_SECRET: ${GITHUB_SECRET}
+      GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID:-}
+      GOOGLE_CLIENT_SECRET: ${GOOGLE_CLIENT_SECRET:-}
+      RESEND_API_KEY: ${RESEND_API_KEY}
+      CREEM_API_KEY: ${CREEM_API_KEY}
+      CREEM_WEBHOOK_SECRET: ${CREEM_WEBHOOK_SECRET}
+      NEXT_PUBLIC_APP_URL: ${NEXT_PUBLIC_APP_URL:-http://localhost:3000}
+      # Internal service URL — Web calls Crew via Docker DNS name
+      # DO NOT use localhost:8080 — use the service name below
+      CREW_API_URL: http://linkflow-crew:8080
+    depends_on:
+      linkflow-crew:
+        condition: service_healthy
+    networks:
+      - linkflow-net
+
+  # ── Python CrewAI Worker ──────────────────────────────────
+  linkflow-crew:
+    build:
+      context: ..
+      dockerfile: linkflow-ai/Dockerfile.crew
+    container_name: linkflow-crew
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      # Database — must include ?sslmode=require for Neon
+      DATABASE_URL: ${DATABASE_URL}
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
+      CLOUDINARY_URL: ${CLOUDINARY_URL}
+      APP_URL: http://linkflow-web:3000
+      HEADLESS: ${HEADLESS:-true}
+      POLL_INTERVAL_SECONDS: ${POLL_INTERVAL_SECONDS:-10}
+      MAX_RETRIES: ${MAX_RETRIES:-3}
+      WORKER_LOG_LEVEL: ${WORKER_LOG_LEVEL:-INFO}
+    volumes:
+      # Persist worker logs across container restarts
+      - crew-logs:/app/logs
+    healthcheck:
+      test: ["CMD", "python", "-c", "import psycopg2, cloudinary; print('ok')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 20s
+    networks:
+      - linkflow-net
+
+# ── Named volumes ─────────────────────────────────────────────
+volumes:
+  crew-logs:
+    driver: local
+
+# ── Internal network ──────────────────────────────────────────
+# Web and Crew communicate via service name DNS (not localhost)
+networks:
+  linkflow-net:
+    driver: bridge
+
