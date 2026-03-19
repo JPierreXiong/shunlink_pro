@@ -8,11 +8,6 @@
     "nav": {
       "items": [
         {
-          "title": "Comment ça marche",
-          "url": "/#how-it-works",
-          "icon": "Zap"
-        },
-        {
           "title": "Plateformes",
           "url": "/platforms",
           "icon": "Globe"

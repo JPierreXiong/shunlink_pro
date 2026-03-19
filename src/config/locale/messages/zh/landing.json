@@ -8,11 +8,6 @@
     "nav": {
       "items": [
         {
-          "title": "工作原理",
-          "url": "/#how-it-works",
-          "icon": "Zap"
-        },
-        {
           "title": "支持平台",
           "url": "/platforms",
           "icon": "Globe"
