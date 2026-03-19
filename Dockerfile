@@ -24,8 +24,11 @@ ENV QSTASH_URL=https://qstash.upstash.io
 ENV QSTASH_TOKEN=build-time-placeholder
 ENV QSTASH_CURRENT_SIGNING_KEY=build-time-placeholder
 ENV QSTASH_NEXT_SIGNING_KEY=build-time-placeholder
-ENV DATABASE_URL=build-time-placeholder
+ENV DATABASE_URL=postgres://user:pass@localhost:5432/db
 ENV BLOB_READ_WRITE_TOKEN=build-time-placeholder
+ENV AUTH_URL=http://localhost:3000
+ENV NEXT_PUBLIC_APP_URL=http://localhost:3000
+ENV AUTH_SECRET=placeholder_secret_32_characters_long_min_ok
 
 RUN pnpm build
 

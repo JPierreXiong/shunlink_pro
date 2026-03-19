@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import { NextRequest, NextResponse } from 'next/server';
 import { desc, eq, and } from 'drizzle-orm';
 import { db } from '@/core/db';
@@ -6,7 +8,7 @@ import { getUuid } from '@/shared/lib/hash';
 import { getRemainingCredits, consumeCredits } from '@/shared/models/credit';
 import { auth } from '@/shared/lib/auth';
 
-// GET /api/backlink/tasks â€” list current user's tasks
+// GET /api/backlink/tasks â€?list current user's tasks
 export async function GET(req: NextRequest) {
   try {
     const session = await auth.api.getSession({ headers: req.headers });
@@ -68,7 +70,7 @@ export async function GET(req: NextRequest) {
   }
 }
 
-// POST /api/backlink/tasks â€” create a new task (deducts 1 credit)
+// POST /api/backlink/tasks â€?create a new task (deducts 1 credit)
 export async function POST(req: NextRequest) {
   try {
     const session = await auth.api.getSession({ headers: req.headers });

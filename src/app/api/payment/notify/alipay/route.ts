@@ -1,5 +1,7 @@
+export const dynamic = 'force-dynamic';
+
 /**
- * 支付宝 Webhook 处理
+ * 支付�?Webhook 处理
  */
 
 import { NextRequest } from 'next/server';
@@ -9,8 +11,7 @@ import {
   createAlipayProvider
 } from '@/extensions/payment';
 
-// 初始化支付宝提供商
-function initializeAlipay() {
+// 初始化支付宝提供�?function initializeAlipay() {
   if (process.env.ALIPAY_APP_ID) {
     const alipayProvider = createAlipayProvider({
       appId: process.env.ALIPAY_APP_ID,
@@ -36,8 +37,7 @@ export async function POST(req: NextRequest) {
 
     console.log('Alipay event type:', event.eventType);
 
-    // 处理不同的事件类型
-    switch (event.eventType) {
+    // 处理不同的事件类�?    switch (event.eventType) {
       case PaymentEventType.PAYMENT_SUCCESS:
         await handlePaymentSuccess(event);
         break;
@@ -75,21 +75,18 @@ export async function POST(req: NextRequest) {
 async function handlePaymentSuccess(event: any) {
   const { paymentInfo, metadata } = event.paymentSession || {};
 
-  console.log('支付宝支付成功:', {
-    交易号: paymentInfo?.transactionId,
+  console.log('支付宝支付成�?', {
+    交易�? paymentInfo?.transactionId,
     金额: paymentInfo?.paymentAmount,
     货币: paymentInfo?.paymentCurrency,
     用户ID: metadata?.userId,
     支付时间: paymentInfo?.paidAt
   });
 
-  // TODO: 更新数据库
-  // 1. 更新订单状态
-  // 2. 发放积分/权益
+  // TODO: 更新数据�?  // 1. 更新订单状�?  // 2. 发放积分/权益
   // 3. 发送通知邮件
 
-  // 示例：发放积分
-  if (metadata?.userId && metadata?.credits) {
+  // 示例：发放积�?  if (metadata?.userId && metadata?.credits) {
     // await grantCredits(metadata.userId, metadata.credits);
     console.log(`发放积分: 用户 ${metadata.userId} 获得 ${metadata.credits} 积分`);
   }
@@ -99,8 +96,8 @@ async function handlePaymentSuccess(event: any) {
 async function handlePaymentFailed(event: any) {
   const { paymentInfo, metadata } = event.paymentSession || {};
 
-  console.log('支付宝支付失败:', {
-    交易号: paymentInfo?.transactionId,
+  console.log('支付宝支付失�?', {
+    交易�? paymentInfo?.transactionId,
     用户ID: metadata?.userId
   });
 

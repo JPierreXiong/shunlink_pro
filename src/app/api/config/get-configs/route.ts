@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import { respData, respErr } from '@/shared/lib/resp';
 import { getPublicConfigs } from '@/shared/models/config';
 

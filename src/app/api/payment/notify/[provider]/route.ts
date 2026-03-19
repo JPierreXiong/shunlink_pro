@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import { PaymentEventType, SubscriptionCycleType } from '@/extensions/payment';
 import { findOrderByOrderNo } from '@/shared/models/order';
 import { findSubscriptionByProviderSubscriptionId } from '@/shared/models/subscription';

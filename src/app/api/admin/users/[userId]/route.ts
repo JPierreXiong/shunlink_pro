@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 /**
  * 管理员查看用户详情 API
  * 查看单个用户的完整信息

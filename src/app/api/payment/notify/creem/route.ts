@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import { NextRequest, NextResponse } from 'next/server';
 import { createCreemProvider } from '@/extensions/payment/creem';
 import { db } from '@/core/db';
@@ -14,13 +16,13 @@ export async function POST(req: NextRequest) {
   });
 
   try {
-    // 1. 检查 Creem 配置
+    // 1. 检�?Creem 配置
     const creemApiKey = process.env.CREEM_API_KEY;
     const creemSigningSecret = process.env.CREEM_SIGNING_SECRET;
     const creemEnvironment = process.env.CREEM_ENVIRONMENT as 'sandbox' | 'production';
 
     if (!creemApiKey || !creemSigningSecret) {
-      console.error('❌ [Webhook] Creem not configured:', {
+      console.error('�?[Webhook] Creem not configured:', {
         hasApiKey: !!creemApiKey,
         hasSigningSecret: !!creemSigningSecret,
       });
@@ -30,7 +32,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    console.log('✅ [Webhook] Creem configuration found');
+    console.log('�?[Webhook] Creem configuration found');
 
     // 2. 创建 Creem Provider
     const creemProvider = createCreemProvider({
@@ -39,11 +41,11 @@ export async function POST(req: NextRequest) {
       environment: creemEnvironment || 'production',
     });
 
-    // 3. 验证并解析 Webhook
+    // 3. 验证并解�?Webhook
     console.log('🔍 [Webhook] Verifying webhook signature...');
     const paymentEvent = await creemProvider.getPaymentEvent({ req });
 
-    console.log('✅ [Webhook] Webhook verified successfully:', {
+    console.log('�?[Webhook] Webhook verified successfully:', {
       eventType: paymentEvent.eventType,
       sessionId: paymentEvent.paymentSession?.paymentInfo?.transactionId,
       subscriptionId: paymentEvent.paymentSession?.subscriptionId,
@@ -51,8 +53,7 @@ export async function POST(req: NextRequest) {
       currency: paymentEvent.paymentSession?.paymentInfo?.currency,
     });
 
-    // 4. 处理不同的事件类型
-    let handlerResult;
+    // 4. 处理不同的事件类�?    let handlerResult;
     if (paymentEvent.eventType === PaymentEventType.CHECKOUT_SUCCESS) {
       console.log('📦 [Webhook] Processing CHECKOUT_SUCCESS event...');
       handlerResult = await handleCheckoutSuccess(paymentEvent);
@@ -70,7 +71,7 @@ export async function POST(req: NextRequest) {
     }
 
     const duration = Date.now() - startTime;
-    console.log('✅ [Webhook] Webhook processed successfully:', {
+    console.log('�?[Webhook] Webhook processed successfully:', {
       eventType: paymentEvent.eventType,
       duration: `${duration}ms`,
       result: handlerResult,
@@ -84,13 +85,13 @@ export async function POST(req: NextRequest) {
 
   } catch (error: any) {
     const duration = Date.now() - startTime;
-    console.error('❌ [Webhook] Webhook processing failed:', {
+    console.error('�?[Webhook] Webhook processing failed:', {
       error: error.message,
       stack: error.stack,
       duration: `${duration}ms`,
     });
     
-    // 返回 500 让 Creem 重试
+    // 返回 500 �?Creem 重试
     return NextResponse.json(
       { 
         error: 'Webhook processing failed',
@@ -131,11 +132,10 @@ async function handleCheckoutSuccess(paymentEvent: any) {
       
       if (users.length > 0) {
         userId = users[0].id;
-        console.log('✅ [CheckoutSuccess] Found user by email:', { userId, email: userEmail });
+        console.log('�?[CheckoutSuccess] Found user by email:', { userId, email: userEmail });
       } else {
         console.warn('⚠️ [CheckoutSuccess] User not found by email, will create new user');
-        // 创建新用户
-        const newUserId = `user_${Date.now()}_${Math.random().toString(36).substring(7)}`;
+        // 创建新用�?        const newUserId = `user_${Date.now()}_${Math.random().toString(36).substring(7)}`;
         const newUser = await db().insert(user).values({
           id: newUserId,
           email: userEmail,
@@ -147,10 +147,10 @@ async function handleCheckoutSuccess(paymentEvent: any) {
         }).returning();
         
         userId = newUser[0].id;
-        console.log('✅ [CheckoutSuccess] Created new user:', { userId, email: userEmail });
+        console.log('�?[CheckoutSuccess] Created new user:', { userId, email: userEmail });
       }
     } catch (error: any) {
-      console.error('❌ [CheckoutSuccess] Error finding/creating user:', error);
+      console.error('�?[CheckoutSuccess] Error finding/creating user:', error);
     }
   }
 
@@ -165,15 +165,15 @@ async function handleCheckoutSuccess(paymentEvent: any) {
       
       if (orders.length > 0) {
         orderId = orders[0].id;
-        console.log('✅ [CheckoutSuccess] Found order by transactionId:', orderId);
+        console.log('�?[CheckoutSuccess] Found order by transactionId:', orderId);
       }
     } catch (error: any) {
-      console.error('❌ [CheckoutSuccess] Error finding order:', error);
+      console.error('�?[CheckoutSuccess] Error finding order:', error);
     }
   }
 
   if (!userId) {
-    console.error('❌ [CheckoutSuccess] Cannot determine userId:', { metadata, userEmail });
+    console.error('�?[CheckoutSuccess] Cannot determine userId:', { metadata, userEmail });
     throw new Error('Cannot determine userId from webhook data');
   }
 
@@ -182,8 +182,7 @@ async function handleCheckoutSuccess(paymentEvent: any) {
   }
 
   try {
-    // 如果有订单ID，更新订单状态
-    if (orderId) {
+    // 如果有订单ID，更新订单状�?    if (orderId) {
       console.log('📝 [CheckoutSuccess] Updating order status to paid...');
       const updateResult = await db().update(order)
         .set({
@@ -207,7 +206,7 @@ async function handleCheckoutSuccess(paymentEvent: any) {
       if (updateResult.length === 0) {
         console.warn('⚠️ [CheckoutSuccess] Order not found, continuing without order update');
       } else {
-        console.log('✅ [CheckoutSuccess] Order updated to paid:', {
+        console.log('�?[CheckoutSuccess] Order updated to paid:', {
           orderId,
           orderNo: updateResult[0].orderNo,
           amount: updateResult[0].amount,
@@ -257,14 +256,13 @@ async function handleCheckoutSuccess(paymentEvent: any) {
           updatedAt: new Date(),
         }).returning();
 
-        console.log('✅ [CheckoutSuccess] Subscription created successfully:', {
+        console.log('�?[CheckoutSuccess] Subscription created successfully:', {
           subscriptionId: insertResult[0].subscriptionId,
           subscriptionNo: insertResult[0].subscriptionNo,
           planType: insertResult[0].planType,
         });
 
-        // 更新用户的计划类型
-        console.log('👤 [CheckoutSuccess] Upgrading user plan...');
+        // 更新用户的计划类�?        console.log('👤 [CheckoutSuccess] Upgrading user plan...');
         const userUpdateResult = await db().update(user)
           .set({
             planType: planType,
@@ -273,7 +271,7 @@ async function handleCheckoutSuccess(paymentEvent: any) {
           .where(eq(user.id, userId))
           .returning();
 
-        console.log('✅ [CheckoutSuccess] User upgraded successfully:', {
+        console.log('�?[CheckoutSuccess] User upgraded successfully:', {
           userId,
           planType,
           userName: userUpdateResult[0]?.name,
@@ -287,7 +285,7 @@ async function handleCheckoutSuccess(paymentEvent: any) {
         };
 
       } catch (subError: any) {
-        console.error('❌ [CheckoutSuccess] Failed to create subscription:', {
+        console.error('�?[CheckoutSuccess] Failed to create subscription:', {
           error: subError.message,
           code: subError.code,
           detail: subError.detail,
@@ -325,7 +323,7 @@ async function handleCheckoutSuccess(paymentEvent: any) {
       };
     }
   } catch (error: any) {
-    console.error('❌ [CheckoutSuccess] Error processing checkout:', {
+    console.error('�?[CheckoutSuccess] Error processing checkout:', {
       error: error.message,
       stack: error.stack,
       userId,
@@ -342,8 +340,7 @@ async function handlePaymentSuccess(paymentEvent: any) {
 
   if (!subInfo) return;
 
-  // 更新订阅状态
-  await db().update(subscription)
+  // 更新订阅状�?  await db().update(subscription)
     .set({
       status: subInfo.status,
       currentPeriodStart: subInfo.currentPeriodStart,
@@ -381,8 +378,7 @@ async function handleSubscriptionCanceled(paymentEvent: any) {
 
   if (!subInfo) return;
 
-  // 更新订阅状态
-  await db().update(subscription)
+  // 更新订阅状�?  await db().update(subscription)
     .set({
       status: 'canceled',
       canceledAt: subInfo.canceledAt,
@@ -390,8 +386,7 @@ async function handleSubscriptionCanceled(paymentEvent: any) {
     })
     .where(eq(subscription.subscriptionId, session.subscriptionId));
 
-  // 查找订阅对应的用户
-  const subs = await db().select()
+  // 查找订阅对应的用�?  const subs = await db().select()
     .from(subscription)
     .where(eq(subscription.subscriptionId, session.subscriptionId))
     .limit(1);

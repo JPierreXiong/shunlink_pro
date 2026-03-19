@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@/core/auth';
 import { createCreemProvider } from '@/extensions/payment/creem';
@@ -19,8 +21,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // 2. 解析请求体
-    const body = await req.json();
+    // 2. 解析请求�?    const body = await req.json();
     const { productId, provider = 'creem', successUrl, cancelUrl } = body;
 
     if (!productId) {
@@ -30,7 +31,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // 3. 检查 Creem 配置
+    // 3. 检�?Creem 配置
     const creemApiKey = process.env.CREEM_API_KEY;
     const creemSigningSecret = process.env.CREEM_SIGNING_SECRET;
     const creemEnvironment = process.env.CREEM_ENVIRONMENT as 'sandbox' | 'production';
@@ -49,8 +50,7 @@ export async function POST(req: NextRequest) {
       environment: creemEnvironment || 'production',
     });
 
-    // 5. 生成订单号
-    const orderId = nanoid();
+    // 5. 生成订单�?    const orderId = nanoid();
     const orderNo = `ORD-${Date.now()}-${orderId.substring(0, 8)}`;
 
     // 6. 创建支付会话
@@ -81,8 +81,7 @@ export async function POST(req: NextRequest) {
       userId: session.user.id,
       userEmail: session.user.email,
       status: 'created',
-      amount: 0, // 将在 webhook 中更新
-      currency: 'USD',
+      amount: 0, // 将在 webhook 中更�?      currency: 'USD',
       productId,
       paymentType: 'subscription',
       paymentProvider: provider,

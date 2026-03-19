@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 /**
  * PayPal Webhook 处理
  */
@@ -9,8 +11,7 @@ import {
   createPayPalProvider
 } from '@/extensions/payment';
 
-// 初始化 PayPal 提供商
-function initializePayPal() {
+// 初始�?PayPal 提供�?function initializePayPal() {
   if (process.env.PAYPAL_CLIENT_ID) {
     const paypalProvider = createPayPalProvider({
       clientId: process.env.PAYPAL_CLIENT_ID,
@@ -36,8 +37,7 @@ export async function POST(req: NextRequest) {
 
     console.log('PayPal event type:', event.eventType);
 
-    // 处理不同的事件类型
-    const eventType = event.eventType as string;
+    // 处理不同的事件类�?    const eventType = event.eventType as string;
     switch (eventType) {
       case 'PAYMENT.CAPTURE.COMPLETED':
         await handlePaymentCompleted(event);
@@ -78,9 +78,7 @@ export async function POST(req: NextRequest) {
 async function handlePaymentCompleted(event: any) {
   console.log('PayPal 支付完成:', event.eventResult);
 
-  // TODO: 更新数据库
-  // 1. 更新订单状态
-  // 2. 发放积分/权益
+  // TODO: 更新数据�?  // 1. 更新订单状�?  // 2. 发放积分/权益
   // 3. 发送通知邮件
 }
 
@@ -98,12 +96,10 @@ async function handleSubscriptionCreated(event: any) {
   // TODO: 记录订阅信息
 }
 
-// 处理订阅激活
-async function handleSubscriptionActivated(event: any) {
-  console.log('PayPal 订阅激活:', event.eventResult);
+// 处理订阅激�?async function handleSubscriptionActivated(event: any) {
+  console.log('PayPal 订阅激�?', event.eventResult);
 
-  // TODO: 激活用户订阅权益
-}
+  // TODO: 激活用户订阅权�?}
 
 // 处理订阅取消
 async function handleSubscriptionCancelled(event: any) {

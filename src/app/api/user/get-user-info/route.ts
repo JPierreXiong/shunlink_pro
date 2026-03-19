@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import { PERMISSIONS } from '@/core/rbac';
 import { respData, respErr } from '@/shared/lib/resp';
 import { getRemainingCredits } from '@/shared/models/credit';

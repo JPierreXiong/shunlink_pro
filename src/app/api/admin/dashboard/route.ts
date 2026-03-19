@@ -3,6 +3,8 @@
  * 显示系统概览和统计数据
  */
 
+export const dynamic = 'force-dynamic';
+
 import { NextRequest, NextResponse } from 'next/server';
 import { db } from '@/core/db';
 import { user, order, subscription } from '@/config/db/schema';

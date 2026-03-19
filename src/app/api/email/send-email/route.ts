@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import { VerificationCode } from '@/shared/blocks/email/verification-code';
 import { respData, respErr } from '@/shared/lib/resp';
 import { getEmailService } from '@/shared/services/email';

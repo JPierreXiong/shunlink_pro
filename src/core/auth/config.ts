@@ -7,6 +7,17 @@ import * as schema from '@/config/db/schema';
 import { getUuid } from '@/shared/lib/hash';
 import { getAllConfigs } from '@/shared/models/config';
 
+// Safe base URL getter - prevents new URL() crash during Docker build
+function getBaseURL(): string {
+  if (process.env.AUTH_URL && process.env.AUTH_URL !== 'build-time-placeholder') {
+    return process.env.AUTH_URL;
+  }
+  if (process.env.NEXT_PUBLIC_APP_URL && process.env.NEXT_PUBLIC_APP_URL !== 'build-time-placeholder') {
+    return process.env.NEXT_PUBLIC_APP_URL;
+  }
+  return 'http://localhost:3000';
+}
+
 // Helper function to get database provider
 export function getDatabaseProvider(
   provider: string
@@ -29,13 +40,13 @@ export function getDatabaseProvider(
 // This ensures auth works properly in all environments
 export const authOptions = {
   appName: envConfigs.app_name,
-  baseURL: envConfigs.auth_url,
+  baseURL: getBaseURL(),
   secret: envConfigs.auth_secret,
   trustedOrigins: [
     envConfigs.app_url,
-    'https://solo-board-command-center-a.vercel.app',
-    'https://solo-board-command-center-a-git-master-xiongjpcn-4932s-projects.vercel.app',
-    'https://soloboard-command-center-b.vercel.app',
+    'https://linkflowai.app',
+    'http://localhost:3003',
+    'http://localhost:3000',
   ].filter(Boolean),
   // Add database connection for session persistence
   database: envConfigs.database_url

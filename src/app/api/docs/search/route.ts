@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import { createElement } from 'react';
 import { docs } from '@/.source';
 import type { I18nConfig } from 'fumadocs-core/i18n';

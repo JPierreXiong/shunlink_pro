@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@/core/auth';
 import { db } from '@/core/db';
@@ -42,8 +44,7 @@ export async function GET(req: NextRequest) {
       .orderBy(desc(subscription.createdAt))
       .limit(1);
 
-    // 找到活跃的订阅
-    const activeSubscription = subscriptions.find(sub => 
+    // 找到活跃的订�?    const activeSubscription = subscriptions.find(sub => 
       sub.status === 'active' || sub.status === 'trialing' || sub.status === 'pending_cancel'
     );
 

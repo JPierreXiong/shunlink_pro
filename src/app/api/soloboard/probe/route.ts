@@ -1,8 +1,8 @@
+export const dynamic = 'force-dynamic';
+
 /**
  * Domain Probe API - 域名探测接口
- * 功能：
- * 1. 检测网站是否在线
- * 2. 自动抓取网站 Logo (favicon)
+ * 功能�? * 1. 检测网站是否在�? * 2. 自动抓取网站 Logo (favicon)
  * 3. 返回响应时间
  */
 
@@ -22,8 +22,7 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    // 标准化域名
-    const normalizedDomain = domain.startsWith('http') 
+    // 标准化域�?    const normalizedDomain = domain.startsWith('http') 
       ? domain 
       : `https://${domain}`;
 
@@ -33,14 +32,12 @@ export async function GET(request: NextRequest) {
       // 探测网站是否在线
       const response = await fetch(normalizedDomain, {
         method: 'HEAD',
-        signal: AbortSignal.timeout(5000), // 5秒超时
-      });
+        signal: AbortSignal.timeout(5000), // 5秒超�?      });
 
       const responseTime = Date.now() - startTime;
 
       // 使用 Google Favicon Service 获取 Logo
-      // 这是最可靠的方式，支持所有网站
-      const cleanDomain = normalizedDomain.replace(/^https?:\/\//, '').split('/')[0];
+      // 这是最可靠的方式，支持所有网�?      const cleanDomain = normalizedDomain.replace(/^https?:\/\//, '').split('/')[0];
       const logoUrl = `https://www.google.com/s2/favicons?domain=${cleanDomain}&sz=128`;
 
       return NextResponse.json({
@@ -49,11 +46,10 @@ export async function GET(request: NextRequest) {
         responseTime,
         logoUrl,
         domain: cleanDomain,
-        message: '✓ Website is online',
+        message: '�?Website is online',
       });
     } catch (error) {
-      // 网站离线或无法访问
-      const cleanDomain = normalizedDomain.replace(/^https?:\/\//, '').split('/')[0];
+      // 网站离线或无法访�?      const cleanDomain = normalizedDomain.replace(/^https?:\/\//, '').split('/')[0];
       const logoUrl = `https://www.google.com/s2/favicons?domain=${cleanDomain}&sz=128`;
 
       return NextResponse.json({
@@ -62,7 +58,7 @@ export async function GET(request: NextRequest) {
         responseTime: null,
         logoUrl,
         domain: cleanDomain,
-        message: '✗ Website is unreachable',
+        message: '�?Website is unreachable',
       });
     }
   } catch (error) {
