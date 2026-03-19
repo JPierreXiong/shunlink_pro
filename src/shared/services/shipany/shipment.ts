@@ -1,24 +1,30 @@
 /**
- * ShipAny API 服务
- * 用于 SoloBoard 物理资产寄�? * 
- * 注意：此服务不修�?ShipAny 核心结构，仅作为调用封装
- * 遵循 ShipAny API 文档规范，严格按照参数要�? */
+ * ShipAny API Service
+ * Used for SoloBoard physical asset shipping
+ *
+ * Note: This service does not modify the ShipAny core structure,
+ * it only serves as a calling wrapper following the ShipAny API spec.
+ */
 
 import { envConfigs } from '@/config';
 
 // ============================================
-// TypeScript 类型定义（基�?ShipAny API 规范�?// ============================================
+// TypeScript type definitions (based on ShipAny API spec)
+// ============================================
 
 /**
- * ShipAny 创建订单请求载荷
- * 严格按照 ShipAny API 文档结构
+ * ShipAny create order request payload
+ * Strictly follows the ShipAny API documentation structure
  */
 export interface ShipAnyCreateOrderPayload {
-  // 承运�?ID（必须对�?ShipAny 支持的承运商�?  courierId: string; // 'sf_express' | 'dhl' | 'fedex' | �?  
-  // 订单类型（预付模式，费用从平台账号扣除）
+  // Courier ID (must match ShipAny supported couriers)
+  courierId: string; // 'sf_express' | 'dhl' | 'fedex' | etc.
+
+  // Order type (prepaid mode, cost deducted from platform account)
   type: 'prepaid';
-  
-  // 发件人信息（你的仓库/办公地址�?  sender: {
+
+  // Sender info (your warehouse/office address)
+  sender: {
     name: string;
     phone: string;
     email?: string;
@@ -31,8 +37,9 @@ export interface ShipAnyCreateOrderPayload {
       countryCode: string;
     };
   };
-  
-  // 收件人信息（受益人地址�?  receiver: {
+
+  // Recipient info (beneficiary address)
+  receiver: {
     name: string;
     phone: string;
     email?: string;
@@ -45,60 +52,62 @@ export interface ShipAnyCreateOrderPayload {
       countryCode: string;
     };
   };
-  
-  // 包裹信息（必须是数组结构，即使只有一个包裹）
+
+  // Parcel info (must be an array even for a single parcel)
   parcels: Array<{
-    weight: number; // 重量（kg），建议 0.1-0.5kg 用于物理卡片/备份
-    container_type?: string; // 'BOX' | 'ENVELOPE' | �?    content: string; // 物品描述
-    dimensions?: { // 尺寸（可选，单位：cm�?      length: number;
+    weight: number; // Weight in kg, suggest 0.1-0.5kg for physical cards/backups
+    container_type?: string; // 'BOX' | 'ENVELOPE' | etc.
+    content: string; // Item description
+    dimensions?: { // Dimensions in cm (optional)
+      length: number;
       width: number;
       height: number;
     };
   }>;
-  
-  // 海关申报（即使是同国模式也建议包含）
+
+  // Customs declaration (recommended even for domestic shipments)
   customs_declaration?: {
     currency: string; // 'HKD' | 'CNY' | 'USD'
-    total_declared_value: number; // 象征性申报，建议 10.0 左右
+    total_declared_value: number; // Symbolic declaration, suggest ~10.0
   };
-  
-  // 其他选项
-  insurance?: boolean; // 是否需要保�?  cod_amount?: number; // 货到付款金额（如需要）
-  reference_number?: string; // 商户订单号（用于关联�?}
+
+  insurance?: boolean; // Whether to purchase insurance
+  cod_amount?: number; // Cash on delivery amount (if needed)
+  reference_number?: string; // Merchant order number (for correlation)
+}
 
 /**
- * ShipAny API 响应
+ * ShipAny API response
  */
 export interface ShipAnyOrderResponse {
-  // ShipAny 内部单号（重要）
+  // ShipAny internal order number (important)
   uid: string;
-  
-  // 快递追踪号（重要）
+
+  // Express tracking number (important)
   tracking_number: string;
-  
-  // 追踪链接
+
   tracking_url?: string;
-  
-  // 物流面单 URL（PDF�?  label_url?: string;
-  
-  // 物流面单 Base64（备选）
+
+  // Shipping label URL (PDF)
+  label_url?: string;
+
+  // Shipping label Base64 (alternative)
   label_base64?: string;
-  
-  // 订单状�?  status: string;
-  
-  // 预计送达日期
+
+  // Order status
+  status: string;
+
   estimated_delivery_date?: string;
-  
-  // 费用信息
+
   shipping_cost?: number;
   currency?: string;
-  
-  // 原始响应数据（用于调试）
+
+  // Raw response data (for debugging)
   raw_response?: any;
 }
 
 /**
- * ShipAny API 错误响应
+ * ShipAny API error response
  */
 export interface ShipAnyErrorResponse {
   error: {
@@ -109,37 +118,41 @@ export interface ShipAnyErrorResponse {
 }
 
 // ============================================
-// ShipAny API 配置
+// ShipAny API configuration
 // ============================================
 
 /**
- * 获取 ShipAny API 配置
+ * Get ShipAny API configuration
  */
 function getShipAnyConfig() {
-  // �?Node.js 环境中（Next.js API Routes�?  const apiKey = process.env.SHIPANY_API_KEY;
-  // �?Edge Function 环境中（Deno�?  // const apiKey = Deno.env.get('SHIPANY_API_KEY');
-  
+  // In Node.js environment (Next.js API Routes)
+  const apiKey = process.env.SHIPANY_API_KEY;
+  // In Edge Function environment (Deno):
+  // const apiKey = Deno.env.get('SHIPANY_API_KEY');
+
   const apiUrl = process.env.SHIPANY_API_URL || 'https://api.shipany.io/v1';
   const merchandiseId = process.env.SHIPANY_MERCHANDISE_ID;
-  const shopId = process.env.SHIPANY_SHOP_ID; // 如果 API 需�?  
+  const shopId = process.env.SHIPANY_SHOP_ID; // if API requires it
+
   if (!apiKey) {
     throw new Error('SHIPANY_API_KEY environment variable is not set. Please configure it in .env.local');
   }
-  
+
   if (!merchandiseId) {
     throw new Error('SHIPANY_MERCHANDISE_ID environment variable is not set. Please configure it in .env.local');
   }
-  
+
   return {
     apiKey,
     apiUrl,
-    merchandiseId, // ShipAny Merchandise ID (用于创建订单时关联商�?
+    merchandiseId, // ShipAny Merchandise ID (used to associate merchandise when creating order)
     shopId,
   };
 }
 
 /**
- * 获取默认发件人信息（从环境变量或配置文件�? */
+ * Get default sender info (from environment variables or config file)
+ */
 function getDefaultSender() {
   return {
     name: process.env.SHIPANY_SENDER_NAME || 'SoloBoard Vault',
@@ -157,27 +170,29 @@ function getDefaultSender() {
 }
 
 // ============================================
-// ShipAny API 客户�?// ============================================
+// ShipAny API client
+// ============================================
 
 /**
- * 创建 ShipAny 物流订单
- * 严格按照 ShipAny API 文档规范
- * 
- * @param payload 订单载荷
- * @returns ShipAny 订单响应
- * @throws Error 如果 API 调用失败
+ * Create a ShipAny logistics order
+ * Strictly follows the ShipAny API documentation spec
+ *
+ * @param payload Order payload
+ * @returns ShipAny order response
+ * @throws Error if API call fails
  */
 export async function createShipAnyOrder(
   payload: ShipAnyCreateOrderPayload
 ): Promise<ShipAnyOrderResponse> {
   const config = getShipAnyConfig();
-  
+
   try {
-    // 构建请求 URL（根�?ShipAny 实际 API 端点调整�?    const url = `${config.apiUrl}/orders/create`;
-    // 或者可能是: `${config.apiUrl}/create_order`
-    // 或�? `${config.apiUrl}/v1/shipments/create`
-    
-    // 验证必填字段
+    // Build request URL (adjust based on actual ShipAny API endpoint)
+    const url = `${config.apiUrl}/orders/create`;
+    // Alternative: `${config.apiUrl}/create_order`
+    // Alternative: `${config.apiUrl}/v1/shipments/create`
+
+    // Validate required fields
     if (!payload.courierId) {
       throw new Error('courierId is required');
     }
@@ -187,27 +202,30 @@ export async function createShipAnyOrder(
     if (!payload.receiver || !payload.receiver.address) {
       throw new Error('receiver address is required');
     }
-    
-    // 构建请求�?    const headers: Record<string, string> = {
+
+    // Build request headers
+    const headers: Record<string, string> = {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${config.apiKey}`,
-      // 或者根�?ShipAny 文档: 'X-API-Key': config.apiKey
+      // Or per ShipAny docs: 'X-API-Key': config.apiKey
     };
-    
-    // 如果 API 需�?Shop ID
+
+    // If API requires Shop ID
     if (config.shopId) {
       headers['X-Shop-Id'] = config.shopId;
     }
-    
-    // 构建请求体（严格按照 ShipAny API 文档结构�?    const requestBody: any = {
-      // 承运�?ID（必须）
+
+    // Build request body (strictly per ShipAny API documentation)
+    const requestBody: any = {
+      // Courier ID (required)
       courier_id: payload.courierId,
-      // 或�? courierId (驼峰命名，根�?ShipAny 文档确认)
-      
-      // 订单类型（必须）
+      // Alternative: courierId (camelCase, confirm per ShipAny docs)
+
+      // Order type (required)
       type: payload.type || 'prepaid',
-      
-      // 发件人信�?      sender: {
+
+      // Sender info
+      sender: {
         name: payload.sender.name,
         phone: payload.sender.phone,
         email: payload.sender.email,
@@ -220,8 +238,9 @@ export async function createShipAnyOrder(
           country_code: payload.sender.address.countryCode,
         },
       },
-      
-      // 收件人信�?      receiver: {
+
+      // Receiver info
+      receiver: {
         name: payload.receiver.name,
         phone: payload.receiver.phone,
         email: payload.receiver.email,
@@ -234,8 +253,8 @@ export async function createShipAnyOrder(
           country_code: payload.receiver.address.countryCode,
         },
       },
-      
-      // 包裹信息（必须是数组，即使只有一个）
+
+      // Parcel info (must be array, even for a single parcel)
       parcels: payload.parcels.map(parcel => ({
         weight: parcel.weight,
         container_type: parcel.container_type || 'BOX',
@@ -246,39 +265,35 @@ export async function createShipAnyOrder(
           height: parcel.dimensions.height,
         }),
       })),
-      
-      // 海关申报（即使是同国模式也建议包含）
+
+      // Customs declaration (recommended even for domestic shipments)
       ...(payload.customs_declaration && {
         customs_declaration: {
           currency: payload.customs_declaration.currency || 'HKD',
           total_declared_value: payload.customs_declaration.total_declared_value || 10.0,
         },
       }),
-      
-      // 其他选项
+
       ...(payload.insurance !== undefined && { insurance: payload.insurance }),
       ...(payload.cod_amount !== undefined && { cod_amount: payload.cod_amount }),
       ...(payload.reference_number && { reference_number: payload.reference_number }),
     };
-    
-    // 移除 undefined 字段（确�?JSON 序列化正确）
+
+    // Remove undefined fields (ensure JSON serialization is correct)
     const cleanRequestBody = JSON.parse(JSON.stringify(requestBody));
-    
-    // 发�?API 请求
+
     console.log(`[ShipAny] Creating order with courier: ${payload.courierId}`);
     console.log(`[ShipAny] Request URL: ${url}`);
     console.log(`[ShipAny] Parcels count: ${payload.parcels.length}`);
-    
+
     const response = await fetch(url, {
       method: 'POST',
       headers,
       body: JSON.stringify(cleanRequestBody),
     });
-    
-    // 解析响应
+
     const responseData = await response.json();
-    
-    // 处理错误响应
+
     if (!response.ok) {
       const error: ShipAnyErrorResponse = responseData;
       console.error(`[ShipAny] API Error (${response.status}):`, error);
@@ -286,12 +301,11 @@ export async function createShipAnyOrder(
         `ShipAny API Error: ${error.error?.message || response.statusText} (Code: ${error.error?.code || response.status})`
       );
     }
-    
-    // 解析成功响应（捕�?uid �?tracking_number�?    // 注意：字段名可能根据 ShipAny 实际响应调整
+
+    // Parse success response (capture uid and tracking_number)
+    // Note: field names may need adjustment based on actual ShipAny response
     const result: ShipAnyOrderResponse = {
-      // ShipAny 内部单号（重要）
       uid: responseData.uid || responseData.id || responseData.order_id,
-      // 快递追踪号（重要）
       tracking_number: responseData.tracking_number || responseData.trackingNumber || responseData.tracking,
       tracking_url: responseData.tracking_url || responseData.trackingUrl,
       label_url: responseData.label_url || responseData.labelUrl || responseData.shipping_label_url,
@@ -300,28 +314,26 @@ export async function createShipAnyOrder(
       estimated_delivery_date: responseData.estimated_delivery_date || responseData.estimatedDeliveryDate,
       shipping_cost: responseData.shipping_cost || responseData.cost,
       currency: responseData.currency || 'HKD',
-      raw_response: responseData, // 保留原始响应用于调试
+      raw_response: responseData,
     };
-    
-    // 验证必要字段
+
     if (!result.uid) {
       console.warn('[ShipAny] Response missing uid field');
     }
     if (!result.tracking_number) {
       console.warn('[ShipAny] Response missing tracking_number field');
     }
-    
+
     console.log(`[ShipAny] Order created successfully:`);
     console.log(`  - UID: ${result.uid}`);
     console.log(`  - Tracking Number: ${result.tracking_number}`);
     console.log(`  - Status: ${result.status}`);
-    
+
     return result;
-    
   } catch (error) {
     console.error('[ShipAny] Failed to create order:', error);
-    
-    // 重新抛出错误，让调用者处�?    if (error instanceof Error) {
+    // Re-throw error for caller to handle
+    if (error instanceof Error) {
       throw error;
     }
     throw new Error(`ShipAny API call failed: ${String(error)}`);
@@ -329,18 +341,20 @@ export async function createShipAnyOrder(
 }
 
 /**
- * 查询 ShipAny 订单状�? * 
- * @param orderUid ShipAny 订单 UID 或追踪号
- * @returns 订单状态信�? */
+ * Query ShipAny order status
+ *
+ * @param orderUid ShipAny order UID or tracking number
+ * @returns Order status info
+ */
 export async function getShipAnyOrderStatus(
   orderUid: string
 ): Promise<ShipAnyOrderResponse> {
   const config = getShipAnyConfig();
-  
+
   try {
     const url = `${config.apiUrl}/orders/${orderUid}`;
-    // 或�? `${config.apiUrl}/track/${orderUid}`
-    
+    // Alternative: `${config.apiUrl}/track/${orderUid}`
+
     const response = await fetch(url, {
       method: 'GET',
       headers: {
@@ -348,19 +362,18 @@ export async function getShipAnyOrderStatus(
         'Content-Type': 'application/json',
       },
     });
-    
+
     if (!response.ok) {
       throw new Error(`ShipAny API Error: ${response.statusText}`);
     }
-    
+
     const data = await response.json();
-    
+
     return {
       uid: data.uid || data.id,
       tracking_number: data.tracking_number || data.tracking,
       status: data.status,
       tracking_url: data.tracking_url,
-      // ... 其他字段
     };
   } catch (error) {
     console.error(`[ShipAny] Failed to get order status: ${orderUid}`, error);
@@ -369,15 +382,17 @@ export async function getShipAnyOrderStatus(
 }
 
 // ============================================
-// SoloBoard 专用封装函数
+// SoloBoard-specific wrapper functions
 // ============================================
 
 /**
- * �?SoloBoard 创建物流订单
- * 封装了从受益人信息到 ShipAny 订单的转换逻辑
- * 
- * @param beneficiary 受益人信息（从数据库获取�? * @param assetDescription 物理资产描述
- * @param courierId 承运�?ID（默�?'sf_express'�? * @returns ShipAny 订单响应
+ * Create a logistics order for SoloBoard
+ * Wraps the conversion from beneficiary info to ShipAny order
+ *
+ * @param beneficiary Beneficiary info (from database)
+ * @param assetDescription Physical asset description
+ * @param courierId Courier ID (default: 'sf_express')
+ * @returns ShipAny order response
  */
 export async function createLegacyAssetShipment(
   beneficiary: {
@@ -393,31 +408,30 @@ export async function createLegacyAssetShipment(
     physicalAssetDescription?: string | null;
   },
   assetDescription?: string,
-  courierId: string = 'sf_express' // 默认使用顺丰
+  courierId: string = 'sf_express'
 ): Promise<ShipAnyOrderResponse> {
-  // 验证必填字段
-  if (!beneficiary.receiverName || !beneficiary.addressLine1 || !beneficiary.city || 
+  if (!beneficiary.receiverName || !beneficiary.addressLine1 || !beneficiary.city ||
       !beneficiary.zipCode || !beneficiary.countryCode) {
     throw new Error('Incomplete recipient address information');
   }
-  
+
   if (!beneficiary.phone) {
     throw new Error('Recipient phone number is required');
   }
-  
-  // 获取默认发件人信�?  const sender = getDefaultSender();
-  
-  // 验证发件人信�?  if (!sender.address.line1 || !sender.address.city || !sender.address.zipCode) {
+
+  const sender = getDefaultSender();
+
+  if (!sender.address.line1 || !sender.address.city || !sender.address.zipCode) {
     throw new Error('Sender address configuration is incomplete. Please set SHIPANY_SENDER_* environment variables.');
   }
-  
-  // 构建 ShipAny 订单载荷（严格按�?API 规范�?  const payload: ShipAnyCreateOrderPayload = {
-    courierId: courierId, // 'sf_express' | 'dhl' | 'fedex'
-    type: 'prepaid', // 预付模式
-    
-    // 发件人（仓库/办公地址�?    sender: sender,
-    
-    // 收件人（受益人地址�?    receiver: {
+
+  const payload: ShipAnyCreateOrderPayload = {
+    courierId: courierId,
+    type: 'prepaid',
+
+    sender: sender,
+
+    receiver: {
       name: beneficiary.receiverName,
       phone: beneficiary.phone,
       email: beneficiary.email,
@@ -428,24 +442,25 @@ export async function createLegacyAssetShipment(
         countryCode: beneficiary.countryCode || 'HKG',
       },
     },
-    
-    // 包裹信息（必须是数组结构�?    parcels: [
+
+    // Parcel info (must be array structure)
+    parcels: [
       {
-        weight: 0.5, // 默认重量 0.5kg（物理卡�?U盘等�?        container_type: 'BOX', // 盒子
+        weight: 0.5, // Default 0.5kg for physical cards/USB drives
+        container_type: 'BOX',
         content: assetDescription || beneficiary.physicalAssetDescription || 'Legacy Asset: Encrypted Recovery Kit',
       },
     ],
-    
-    // 海关申报（即使是同国模式也建议包含）
+
     customs_declaration: {
-      currency: 'HKD', // 根据实际货币调整
-      total_declared_value: 10.0, // 象征性申报，避免保价�?    },
-    
-    // 建议为遗产资产购买保�?    insurance: true,
-    
-    // 商户订单号（用于关联�?    reference_number: `HEIR-${Date.now()}-${beneficiary.id.substring(0, 8)}`,
+      currency: 'HKD',
+      total_declared_value: 10.0, // Symbolic declaration
+    },
+
+    insurance: true,
+
+    reference_number: `HEIR-${Date.now()}-${beneficiary.id.substring(0, 8)}`,
   };
-  
+
   return createShipAnyOrder(payload);
 }
-

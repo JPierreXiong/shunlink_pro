@@ -1,8 +1,9 @@
 export const dynamic = 'force-dynamic';
 
 /**
- * 管理员用户管�?API
- * 查看和管理所有用�? */
+ * Admin Users API
+ * View and manage all users
+ */
 
 import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@/core/auth';
@@ -12,11 +13,11 @@ import { isAdmin } from '@/config/admin';
 import { eq, like, or, sql } from 'drizzle-orm';
 
 /**
- * 获取用户列表
+ * GET user list
  */
 export async function GET(req: NextRequest) {
   try {
-    // 验证管理�?    const session = await auth.api.getSession({
+    const session = await auth.api.getSession({
       headers: req.headers,
     });
 
@@ -27,19 +28,17 @@ export async function GET(req: NextRequest) {
       );
     }
 
-    // 获取查询参数
     const { searchParams } = new URL(req.url);
     const page = parseInt(searchParams.get('page') || '1');
     const limit = parseInt(searchParams.get('limit') || '20');
     const search = searchParams.get('search') || '';
     const planFilter = searchParams.get('plan') || '';
-    
+
     const offset = (page - 1) * limit;
     const database = db();
-    
-    // 构建查询条件
+
     let whereConditions: any[] = [];
-    
+
     if (search) {
       whereConditions.push(
         or(
@@ -48,12 +47,11 @@ export async function GET(req: NextRequest) {
         )
       );
     }
-    
+
     if (planFilter) {
       whereConditions.push(eq(user.planType, planFilter));
     }
-    
-    // 查询用户
+
     const users = await database
       .select({
         id: user.id,
@@ -69,13 +67,12 @@ export async function GET(req: NextRequest) {
       .orderBy(sql`${user.createdAt} DESC`)
       .limit(limit)
       .offset(offset);
-    
-    // 获取总数
+
     const totalCount = await database
       .select({ count: sql<number>`count(*)` })
       .from(user)
       .where(whereConditions.length > 0 ? sql`${whereConditions.join(' AND ')}` : undefined);
-    
+
     return NextResponse.json({
       users,
       pagination: {
@@ -85,7 +82,6 @@ export async function GET(req: NextRequest) {
         totalPages: Math.ceil(Number(totalCount[0]?.count || 0) / limit),
       },
     });
-
   } catch (error: any) {
     console.error('Admin users list error:', error);
     return NextResponse.json(
@@ -96,10 +92,11 @@ export async function GET(req: NextRequest) {
 }
 
 /**
- * 更新用户计划（管理员操作�? */
+ * PATCH - Update user plan (admin action)
+ */
 export async function PATCH(req: NextRequest) {
   try {
-    // 验证管理�?    const session = await auth.api.getSession({
+    const session = await auth.api.getSession({
       headers: req.headers,
     });
 
@@ -112,24 +109,23 @@ export async function PATCH(req: NextRequest) {
 
     const body = await req.json();
     const { userId, planType, reason } = body;
-    
+
     if (!userId || !planType) {
       return NextResponse.json(
         { error: 'userId and planType are required' },
         { status: 400 }
       );
     }
-    
+
     if (!['free', 'base', 'pro'].includes(planType)) {
       return NextResponse.json(
         { error: 'Invalid plan type' },
         { status: 400 }
       );
     }
-    
+
     const database = db();
-    
-    // 更新用户计划
+
     await database
       .update(user)
       .set({
@@ -137,8 +133,8 @@ export async function PATCH(req: NextRequest) {
         updatedAt: new Date(),
       })
       .where(eq(user.id, userId));
-    
-    // 记录管理员操作日�?    console.log('Admin action:', {
+
+    console.log('Admin action:', {
       admin: session.user.email,
       action: 'update_user_plan',
       userId,
@@ -146,12 +142,11 @@ export async function PATCH(req: NextRequest) {
       reason,
       timestamp: new Date().toISOString(),
     });
-    
+
     return NextResponse.json({
       success: true,
       message: 'User plan updated successfully',
     });
-
   } catch (error: any) {
     console.error('Admin update user error:', error);
     return NextResponse.json(
@@ -160,13 +155,3 @@ export async function PATCH(req: NextRequest) {
     );
   }
 }
-
-
-
-
-
-
-
-
-
-

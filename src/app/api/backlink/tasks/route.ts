@@ -8,7 +8,7 @@ import { getUuid } from '@/shared/lib/hash';
 import { getRemainingCredits, consumeCredits } from '@/shared/models/credit';
 import { auth } from '@/shared/lib/auth';
 
-// GET /api/backlink/tasks â€?list current user's tasks
+// GET /api/backlink/tasks - list current user's tasks
 export async function GET(req: NextRequest) {
   try {
     const session = await auth.api.getSession({ headers: req.headers });
@@ -57,20 +57,14 @@ export async function GET(req: NextRequest) {
 
     const remainingCredits = await getRemainingCredits(user.id);
 
-    return NextResponse.json({
-      success: true,
-      tasks,
-      remainingCredits,
-      page,
-      limit,
-    });
+    return NextResponse.json({ success: true, tasks, remainingCredits, page, limit });
   } catch (error) {
     console.error('[backlink/tasks GET]', error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 }
 
-// POST /api/backlink/tasks â€?create a new task (deducts 1 credit)
+// POST /api/backlink/tasks - create a new task (deducts 1 credit)
 export async function POST(req: NextRequest) {
   try {
     const session = await auth.api.getSession({ headers: req.headers });
@@ -82,7 +76,6 @@ export async function POST(req: NextRequest) {
     const body = await req.json();
     const { targetUrl, anchorText, platformId, agentPersona = 'professional', aiOptimize = true } = body;
 
-    // Validate required fields
     if (!targetUrl || !anchorText) {
       return NextResponse.json(
         { error: 'targetUrl and anchorText are required' },
@@ -90,14 +83,12 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // Validate URL format
     try {
       new URL(targetUrl);
     } catch {
       return NextResponse.json({ error: 'Invalid URL format' }, { status: 400 });
     }
 
-    // Server-side credit check
     const remaining = await getRemainingCredits(user.id);
     if (remaining < 1) {
       return NextResponse.json(
@@ -106,7 +97,6 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // Deduct 1 credit atomically
     await consumeCredits({
       userId: user.id,
       credits: 1,
@@ -115,11 +105,9 @@ export async function POST(req: NextRequest) {
       metadata: JSON.stringify({ targetUrl, anchorText, platformId }),
     });
 
-    // Calculate SLA (48 hours from now)
     const slaDue = new Date();
     slaDue.setHours(slaDue.getHours() + 48);
 
-    // Create task
     const taskId = getUuid();
     const [task] = await db()
       .insert(backlinkTasks)
@@ -147,5 +135,3 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 }
-
-

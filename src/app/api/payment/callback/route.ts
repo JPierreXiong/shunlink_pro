@@ -56,8 +56,6 @@ export async function GET(req: Request) {
       sessionId: order.paymentSessionId,
     });
 
-    // console.log('callback payment session', session);
-
     await handleCheckoutSuccess({
       order,
       session,
@@ -68,11 +66,11 @@ export async function GET(req: Request) {
       (order.paymentType === PaymentType.SUBSCRIPTION
         ? `${envConfigs.app_url}/settings/billing`
         : `${envConfigs.app_url}/settings/payments`);
-    
+
     console.log('[Payment Callback] Success - Redirecting to:', redirectUrl);
   } catch (e: any) {
     console.error('[Payment Callback] Error:', e);
-    // 修复：错误时也跳转到 billing，让用户看到订阅状�?    redirectUrl = `${envConfigs.app_url}/settings/billing`;
+    redirectUrl = `${envConfigs.app_url}/settings/billing`;
   }
 
   redirect(redirectUrl);
