@@ -1,0 +1,34 @@
+﻿{
+  "metadata": {
+    "title": "Avertissement - LinkFlow AI",
+    "description": "Lisez l'avertissement de LinkFlow AI concernant les résultats SEO, les classements dans les moteurs de recherche, les actions des plateformes tierces et la limitation de responsabilité."
+  },
+  "last_updated": "Dernière mise à jour : 18 mars 2026",
+  "sections": [
+    {
+      "title": "Aucune Garantie de Classement SEO",
+      "content": "LinkFlow AI fournit des services de déploiement de backlinks propulsés par l'IA. Bien que les backlinks soient un pilier fondamental du référencement naturel, nous ne garantissons pas de classements spécifiques sur Google, Bing, Baidu ou tout autre moteur de recherche. Les classements sont déterminés par des algorithmes complexes et en constante évolution qui prennent en compte des centaines de facteurs au-delà de la construction de liens, notamment la qualité du contenu, l'autorité du domaine, l'engagement des utilisateurs et le SEO technique. Les résultats varient selon la niche, le niveau de concurrence et l'autorité de domaine de base."
+    },
+    {
+      "title": "Actions des Plateformes Tierces",
+      "content": "LinkFlow AI exploite des agents IA qui soumettent du contenu à des plateformes tierces (notamment Blogger, Reddit, Medium et sites similaires). Notre service est réputé complet et un crédit est consommé dès la livraison réussie d'une URL en direct et d'une preuve de capture d'écran. Nous ne sommes pas responsables si une plateforme tierce supprime ultérieurement le contenu ou les liens soumis après une soumission réussie. Les politiques de modération de contenu des plateformes sont hors de notre contrôle."
+    },
+    {
+      "title": "Prise en Charge des Risques",
+      "content": "Le SEO est un domaine en constante évolution. Les algorithmes des moteurs de recherche changent fréquemment et sans préavis. Vous reconnaissez et acceptez tous les risques associés aux activités automatisées de création de liens, y compris les changements potentiels dans l'évaluation des liens par les moteurs de recherche. Vous assumez l'entière responsabilité de vous assurer que votre stratégie SEO est conforme aux directives des moteurs de recherche sur lesquels vous souhaitez vous positionner.",
+      "items": [
+        "Les stratégies de backlinks comportent des risques SEO inhérents qui varient selon la plateforme et le secteur",
+        "La prospection automatisée peut être évaluée différemment par différents algorithmes de moteurs de recherche",
+        "Nous ne sommes pas responsables des pénalités résultant de changements dans les directives des moteurs de recherche"
+      ]
+    },
+    {
+      "title": "Limitation de Responsabilité",
+      "content": "Dans toute la mesure permise par la loi, LinkFlow AI ne sera pas responsable des dommages indirects, accessoires, spéciaux ou consécutifs — y compris la perte de revenus, la perte de données ou la perte d'opportunités commerciales — découlant de ou en relation avec votre utilisation du Service, même si nous avons été informés de la possibilité de tels dommages."
+    }
+  ],
+  "transparency_note": {
+    "content": "Des questions sur notre avertissement ? Contactez-nous à",
+    "link_text": "support@linkflowai.app"
+  }
+}

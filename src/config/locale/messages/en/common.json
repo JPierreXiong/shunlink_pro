@@ -1,0 +1,283 @@
+{
+  "metadata": {
+    "title": "SoloBoard — Multi-Site Monitoring Dashboard for Solo Entrepreneurs",
+    "description": "Monitor GA4 traffic, Stripe & Creem revenue, and uptime for up to 10 websites — all in one dashboard. Save 2+ hours daily. Free plan available.",
+    "keywords": "multi-site monitoring dashboard, GA4 analytics dashboard, Stripe revenue tracker, uptime monitoring tool, solopreneur tools, website analytics aggregator, SaaS dashboard, Creem revenue tracking, website uptime monitor, solo founder dashboard"
+  },
+  "sign": {
+    "sign_in_title": "Sign In",
+    "sign_in_description": "Sign in to your account",
+    "sign_up_title": "Sign Up",
+    "sign_up_description": "Create an account",
+    "email_title": "Email",
+    "email_placeholder": "Input your email here",
+    "password_title": "Password",
+    "password_placeholder": "Input your password here",
+    "forgot_password": "Forgot password?",
+    "or": "Or",
+    "continue": "Continue",
+    "no_account": "Don't have an account?",
+    "already_have_account": "Already have an account?",
+    "email_sign_in": "Sign in with Email",
+    "google_sign_in_title": "Sign in with Google",
+    "github_sign_in_title": "Sign in with GitHub",
+    "close_title": "Close",
+    "cancel_title": "Cancel",
+    "sign_out_title": "Sign Out",
+    "billing_title": "Billing",
+    "name_title": "Name",
+    "name_placeholder": "Input your name here",
+    "admin_title": "Admin System",
+    "credits_title": "Credits: {credits}",
+    "email_already_registered": "This email is already registered",
+    "redirecting_to_signin": "Redirecting to sign in page...",
+    "password_requirements_error": "Password must be at least 8 characters long",
+    "email_invalid_error": "Please enter a valid email address"
+  },
+  "payment": {
+    "choose_payment_method": "Choose Payment Method",
+    "choose_payment_method_description": "",
+    "cancel_title": "Cancel"
+  },
+  "locale_detector": {
+    "title": "We detected your browser language is {locale}. Switch to it?",
+    "switch_to": "Switch to {locale}"
+  },
+  "shipany": {
+    "page": {
+      "title": "Add Website",
+      "subtitle": "Monitor your website"
+    }
+  },
+  "soloboard": {
+    "title": "SoloBoard Dashboard",
+    "description": "Monitor all your sites in one place. Track GA4 analytics, payment revenue, and uptime status.",
+    "enter_dashboard": "Enter Dashboard",
+    "view_pricing": "View Pricing",
+    "page": {
+      "title": "Monitor All Your Sites",
+      "subtitle": "Track revenue, traffic, and uptime status for all your websites in one place"
+    },
+    "refresh": "Refresh",
+    "loading": "Loading sites...",
+    "error": {
+      "title": "Failed to Load Sites",
+      "retry": "Try Again"
+    },
+    "empty_state": {
+      "title": "No websites yet",
+      "description": "Add your first website to start monitoring revenue, traffic, and uptime status.",
+      "add_button": "Add Your First Website"
+    },
+    "add_button": "Add Website",
+    "add_single_site": "Add Single Site",
+    "batch_add_sites": "Batch Add Sites",
+    "site_card": {
+      "today_revenue": "Today's Revenue",
+      "today_visitors": "Today's Visitors",
+      "status": "Status",
+      "view_details": "View Details"
+    },
+    "status": {
+      "online": "Online",
+      "offline": "Offline",
+      "warning": "Warning",
+      "checking": "Checking..."
+    },
+    "alerts": {
+      "offline": "Website is offline",
+      "no_sales": "No sales today (usually has sales)",
+      "low_traffic": "Traffic is 30% below average"
+    },
+    "summary": {
+      "total_sites": "Total Sites",
+      "total_revenue": "Total Revenue Today",
+      "total_visitors": "Total Visitors Today",
+      "sites_online": "Sites Online"
+    },
+    "site_details": {
+      "title": "Site Details",
+      "description": "View detailed metrics and history for your website",
+      "back": "Back to Dashboard",
+      "settings": "Settings",
+      "avg_revenue": "Avg Revenue (7d)",
+      "trend": "Trend",
+      "history": "History",
+      "export": "Export",
+      "date": "Date",
+      "revenue": "Revenue",
+      "visitors": "Visitors",
+      "avg_order": "Avg Order Value",
+      "platforms": "Connected Platforms"
+    },
+    "features": {
+      "ga4": {
+        "title": "GA4 Analytics",
+        "description": "Track visitors, page views, and user behavior in real-time"
+      },
+      "revenue": {
+        "title": "Payment Revenue",
+        "description": "Monitor today's sales, MRR, and transaction counts from Stripe, Creem, Alipay, PayPal"
+      },
+      "uptime": {
+        "title": "Uptime Monitoring",
+        "description": "Get instant alerts when your sites go down"
+      }
+    },
+    "upgrade_dialog": {
+      "title": "Upgrade to Add More Sites",
+      "description": "Your {plan} plan has reached the limit of {limit} sites",
+      "current_limit": "Current Limit",
+      "usage": "Used {current} / {limit} site quota",
+      "recommended": "Recommended",
+      "most_powerful": "Most Powerful",
+      "base_plan": {
+        "title": "Base Plan",
+        "description": "Perfect for small projects and indie developers",
+        "price": "$19.9",
+        "period": "/month",
+        "billing": "Billed monthly, cancel anytime",
+        "features": {
+          "sites": "Up to 5 sites",
+          "monitoring": "Real-time monitoring and alerts",
+          "email": "Email notifications",
+          "stats": "Revenue and traffic statistics",
+          "credits": "1000 credits/month",
+          "history": "7-day data history"
+        }
+      },
+      "pro_plan": {
+        "title": "Pro Plan",
+        "description": "Perfect for professionals and teams",
+        "price": "$39.9",
+        "period": "/month",
+        "billing": "Billed monthly, cancel anytime",
+        "features": {
+          "sites": "Unlimited sites",
+          "all_base": "All Base features",
+          "advanced": "Advanced analytics and reports",
+          "api": "API access",
+          "credits": "5000 credits/month",
+          "history": "90-day data history",
+          "support": "Priority support"
+        }
+      },
+      "upgrade_now": "Upgrade Now",
+      "comparison": {
+        "title": "Feature Comparison",
+        "feature": "Feature",
+        "free": "Free",
+        "base": "Base",
+        "pro": "Pro",
+        "sites": "Number of Sites",
+        "email_alerts": "Email Alerts",
+        "api_access": "API Access",
+        "data_history": "Data History",
+        "days": "days"
+      },
+      "footer": "💡 All plans support cancellation anytime, no long-term commitment required",
+      "contact": "Questions?",
+      "contact_us": "Contact Us"
+    },
+    "batch_add": {
+      "title": "Batch Add Websites",
+      "description": "Add up to 10 websites at once, supports batch paste of domain list",
+      "quick_import_title": "💡 Quick Import Tips",
+      "quick_import_description": "Copy domain list from Excel or Notepad, paste into the first input box to batch import. Supported formats: one domain per line, or \"Name, Domain\"",
+      "batch_config_title": "Batch Configure API Keys (Optional)",
+      "stripe_key_label": "Stripe Key (Revenue)",
+      "stripe_key_placeholder": "sk_live_...",
+      "ga4_property_label": "GA4 Property ID (Traffic)",
+      "ga4_property_placeholder": "G-XXXXXX",
+      "apply_button": "Apply",
+      "add_row_button": "Add Row ({current}/{max})",
+      "progress_text": "Adding sites... {success} succeeded / {error} failed",
+      "security_title": "Data Encryption Protection Activated",
+      "security_description": "API Keys will be stored with AES-256 military-grade encryption",
+      "cancel_button": "Cancel",
+      "submit_button": "Add {count} Sites",
+      "submitting_button": "Adding...",
+      "domain_label": "Domain",
+      "domain_placeholder": "example.com",
+      "name_label": "Name",
+      "name_placeholder": "My Website",
+      "platform_label": "Platform",
+      "delete_button": "Delete",
+      "status_pending": "Pending",
+      "status_validating": "Validating",
+      "status_success": "Success",
+      "status_error": "Error",
+      "toast_limit_error": "Site count exceeds limit",
+      "toast_batch_error": "Batch add failed",
+      "toast_network_error": "Network error, please try again",
+      "toast_success": "Successfully added {count} sites"
+    },
+    "settings_dialog": {
+      "title": "Site Settings",
+      "description": "Configure your website monitoring and integrations",
+      "basic_info": "Basic Information",
+      "site_name": "Site Name",
+      "site_name_placeholder": "My Awesome Website",
+      "domain": "Domain (Read-only)",
+      "integrations": "Integrations",
+      "stripe_api_key": "Stripe API Key",
+      "ga4_property_id": "GA4 Property ID",
+      "shopify": "Shopify",
+      "test_button": "Test",
+      "add_shopify": "+ Add Shopify Integration",
+      "monitoring": "Monitoring",
+      "sync_interval": "Sync Interval",
+      "sync_1h": "1 hour",
+      "sync_6h": "6 hours",
+      "sync_24h": "24 hours",
+      "sync_48h": "48 hours",
+      "danger_zone": "Danger Zone",
+      "delete_website": "Delete Website",
+      "cancel": "Cancel",
+      "save_changes": "Save Changes",
+      "saving": "Saving...",
+      "status_connected": "Connected",
+      "status_not_configured": "Not configured",
+      "status_error": "Error",
+      "status_testing": "Testing...",
+      "toast_load_error": "Failed to load site settings",
+      "toast_save_success": "Settings saved successfully",
+      "toast_save_error": "Failed to save settings",
+      "toast_delete_success": "Website deleted successfully",
+      "toast_delete_error": "Failed to delete website",
+      "toast_test_success": "{platform} connection successful",
+      "toast_test_error": "{platform} connection failed",
+      "toast_webhook_copied": "Webhook URL copied to clipboard",
+      "toast_domain_mismatch": "Domain name does not match",
+      "delete_dialog_title": "Delete Website",
+      "delete_dialog_description": "This action cannot be undone. This will permanently delete your website and all associated data.",
+      "delete_dialog_confirm_label": "Type {domain} to confirm:",
+      "delete_dialog_cancel": "Cancel",
+      "delete_dialog_delete": "Delete Website",
+      "delete_dialog_deleting": "Deleting..."
+    },
+    "sync_dialog": {
+      "title": "Syncing Data",
+      "description": "Please wait while we sync your website data...",
+      "progress_complete": "Sync completed!",
+      "progress_percent": "{percent}% complete",
+      "step_stripe": "Stripe Revenue",
+      "step_ga4": "GA4 Visitors",
+      "step_uptime": "Website Status",
+      "step_database": "Update Database",
+      "status_pending": "Waiting...",
+      "status_running": "Running...",
+      "status_success": "Success",
+      "status_error": "Error",
+      "stripe_success": "Stripe sync completed. Revenue: ${amount}",
+      "stripe_error": "Stripe sync failed",
+      "ga4_success": "GA4 sync completed. Visitors: {count}",
+      "ga4_error": "GA4 sync failed",
+      "uptime_success": "Website is online. Response time: {time}ms",
+      "uptime_error": "Website is offline",
+      "database_success": "Database updated successfully",
+      "database_error": "Database update failed",
+      "complete_message": "Sync completed successfully"
+    }
+  }
+}

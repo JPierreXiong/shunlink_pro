@@ -1,0 +1,46 @@
+﻿{
+  "metadata": {
+    "title": "联系我们 - LinkFlow AI",
+    "description": "联系 LinkFlow AI 团队。我们在 12-24 个工作小时内回复所有咨询。"
+  },
+  "hero": {
+    "title": "一起构建未来",
+    "description": "有关于任务的问题、功能建议，或需要外链策略方面的帮助？我们的团队随时为您服务。"
+  },
+  "channels": {
+    "items": [
+      {
+        "title": "技术支持",
+        "description": "针对失败任务，请在邮件中附上您的任务 ID 以便更快解决。",
+        "email": "support@linkflowai.app"
+      },
+      {
+        "title": "工作时间",
+        "description": "周一至周五，上午 9:00 – 下午 6:00（UTC+8）",
+        "url": "mailto:support@linkflowai.app",
+        "handle": "support@linkflowai.app"
+      },
+      {
+        "title": "商务合作",
+        "description": "代理商合作或经销商咨询",
+        "email": "partners@linkflow.ai"
+      }
+    ]
+  },
+  "location": {
+    "text": "服务全球 SEO 专业人士和创业者"
+  },
+  "response_times": {
+    "title": "响应时间",
+    "items": [
+      {
+        "title": "支持请求",
+        "time": "12–24 个工作小时内"
+      },
+      {
+        "title": "合作咨询",
+        "time": "2 个工作日内"
+      }
+    ]
+  }
+}

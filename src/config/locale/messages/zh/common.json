@@ -1,0 +1,277 @@
+{
+  "metadata": {
+    "title": "SoloBoard — 独立创业者的多站点监控仪表盘",
+    "description": "一个仪表盘同时监控最多 10 个网站的 GA4 流量、Stripe/Creem 收入和在线状态。每天节省 2 小时以上。免费方案可用。",
+    "keywords": "多站点监控仪表盘, GA4分析仪表盘, Stripe收入追踪, 在线监控工具, 独立创业者工具, 网站分析聚合, SaaS仪表盘, 网站收入追踪, 网站在线监控, 独立开发者工具"
+  },
+  "sign": {
+    "sign_in_title": "登录",
+    "sign_in_description": "登录您的账户",
+    "sign_up_title": "注册",
+    "sign_up_description": "创建账户",
+    "email_title": "邮箱",
+    "email_placeholder": "请输入您的邮箱",
+    "password_title": "密码",
+    "password_placeholder": "请输入您的密码",
+    "forgot_password": "忘记密码？",
+    "or": "或",
+    "continue": "继续",
+    "no_account": "还没有账户？",
+    "already_have_account": "已有账户？",
+    "email_sign_in": "使用邮箱登录",
+    "google_sign_in_title": "使用 Google 登录",
+    "github_sign_in_title": "使用 GitHub 登录",
+    "close_title": "关闭",
+    "cancel_title": "取消",
+    "sign_out_title": "退出登录",
+    "billing_title": "账单",
+    "name_title": "姓名",
+    "name_placeholder": "请输入您的姓名",
+    "admin_title": "管理系统",
+    "credits_title": "积分: {credits}",
+    "email_already_registered": "该邮箱已被注册",
+    "redirecting_to_signin": "正在跳转到登录页面...",
+    "password_requirements_error": "密码长度至少为 8 个字符",
+    "email_invalid_error": "请输入有效的邮箱地址"
+  },
+  "payment": {
+    "choose_payment_method": "选择支付方式",
+    "choose_payment_method_description": "",
+    "cancel_title": "取消"
+  },
+  "locale_detector": {
+    "title": "我们检测到您的浏览器语言是 {locale}。是否切换？",
+    "switch_to": "切换到 {locale}"
+  },
+  "soloboard": {
+    "title": "SoloBoard 仪表盘",
+    "description": "在一个地方监控所有网站。追踪 GA4 分析、支付收入和在线状态。",
+    "enter_dashboard": "进入仪表盘",
+    "view_pricing": "查看定价",
+    "page": {
+      "title": "监控所有网站",
+      "subtitle": "在一个地方追踪所有网站的收入、流量和在线状态"
+    },
+    "refresh": "刷新",
+    "loading": "加载中...",
+    "error": {
+      "title": "加载失败",
+      "retry": "重试"
+    },
+    "empty_state": {
+      "title": "还没有网站",
+      "description": "添加您的第一个网站，开始监控收入、流量和在线状态。",
+      "add_button": "添加第一个网站"
+    },
+    "add_button": "添加网站",
+    "add_single_site": "添加单个站点",
+    "batch_add_sites": "批量添加站点",
+    "site_card": {
+      "today_revenue": "今日收入",
+      "today_visitors": "今日访客",
+      "status": "状态",
+      "view_details": "查看详情"
+    },
+    "status": {
+      "online": "在线",
+      "offline": "离线",
+      "warning": "警告",
+      "checking": "检查中..."
+    },
+    "alerts": {
+      "offline": "网站离线",
+      "no_sales": "今日无销售（通常有销售）",
+      "low_traffic": "流量比平均值低 30%"
+    },
+    "summary": {
+      "total_sites": "总站点数",
+      "total_revenue": "今日总收入",
+      "total_visitors": "今日总访客",
+      "sites_online": "在线站点"
+    },
+    "site_details": {
+      "title": "站点详情",
+      "description": "查看网站的详细指标和历史数据",
+      "back": "返回仪表盘",
+      "settings": "设置",
+      "avg_revenue": "平均收入（7天）",
+      "trend": "趋势",
+      "history": "历史记录",
+      "export": "导出",
+      "date": "日期",
+      "revenue": "收入",
+      "visitors": "访客",
+      "avg_order": "平均订单价值",
+      "platforms": "已连接平台"
+    },
+    "features": {
+      "ga4": {
+        "title": "GA4 分析",
+        "description": "实时追踪访客、页面浏览量和用户行为"
+      },
+      "revenue": {
+        "title": "支付收入",
+        "description": "监控来自 Stripe、Creem、支付宝、PayPal 的今日销售、MRR 和交易数量"
+      },
+      "uptime": {
+        "title": "在线监控",
+        "description": "网站宕机时立即收到警报"
+      }
+    },
+    "upgrade_dialog": {
+      "title": "升级以添加更多站点",
+      "description": "您的 {plan} 套餐已达到 {limit} 个站点的限制",
+      "current_limit": "当前限制",
+      "usage": "已使用 {current} / {limit} 个站点配额",
+      "recommended": "推荐",
+      "most_powerful": "最强大",
+      "base_plan": {
+        "title": "Base 套餐",
+        "description": "适合小型项目和个人开发者",
+        "price": "¥99",
+        "period": "/月",
+        "billing": "按月计费，随时取消",
+        "features": {
+          "sites": "最多 5 个站点",
+          "monitoring": "实时监控和告警",
+          "email": "邮件通知",
+          "stats": "收入和流量统计",
+          "credits": "1000 积分/月",
+          "history": "7天数据历史"
+        }
+      },
+      "pro_plan": {
+        "title": "Pro 套餐",
+        "description": "适合专业用户和团队",
+        "price": "¥199",
+        "period": "/月",
+        "billing": "按月计费，随时取消",
+        "features": {
+          "sites": "无限站点",
+          "all_base": "全部 Base 功能",
+          "advanced": "高级分析和报告",
+          "api": "API 访问权限",
+          "credits": "5000 积分/月",
+          "history": "90天数据历史",
+          "support": "优先技术支持"
+        }
+      },
+      "upgrade_now": "立即升级",
+      "comparison": {
+        "title": "功能对比",
+        "feature": "功能",
+        "free": "免费",
+        "base": "Base",
+        "pro": "Pro",
+        "sites": "站点数量",
+        "email_alerts": "邮件告警",
+        "api_access": "API 访问",
+        "data_history": "数据历史",
+        "days": "天"
+      },
+      "footer": "💡 所有套餐都支持随时取消，无需长期承诺",
+      "contact": "有问题？",
+      "contact_us": "联系我们"
+    },
+    "batch_add": {
+      "title": "批量添加网站",
+      "description": "一次性添加最多 10 个网站，支持批量粘贴域名列表",
+      "quick_import_title": "💡 快速导入技巧",
+      "quick_import_description": "从 Excel 或记事本复制域名列表，粘贴到第一个输入框即可批量导入。支持格式：每行一个域名，或 \"名称, 域名\"",
+      "batch_config_title": "批量配置 API Key (可选)",
+      "stripe_key_label": "Stripe Key (收入)",
+      "stripe_key_placeholder": "sk_live_...",
+      "ga4_property_label": "GA4 Property ID (流量)",
+      "ga4_property_placeholder": "G-XXXXXX",
+      "apply_button": "应用",
+      "add_row_button": "添加一行 ({current}/{max})",
+      "progress_text": "正在添加站点... {success} 成功 / {error} 失败",
+      "security_title": "数据加密保护已激活",
+      "security_description": "API Keys 将通过 AES-256 军事级加密存储",
+      "cancel_button": "取消",
+      "submit_button": "添加 {count} 个站点",
+      "submitting_button": "添加中...",
+      "domain_label": "域名",
+      "domain_placeholder": "example.com",
+      "name_label": "名称",
+      "name_placeholder": "我的网站",
+      "platform_label": "平台",
+      "delete_button": "删除",
+      "status_pending": "待处理",
+      "status_validating": "验证中",
+      "status_success": "成功",
+      "status_error": "错误",
+      "toast_limit_error": "站点数量超过限制",
+      "toast_batch_error": "批量添加失败",
+      "toast_network_error": "网络错误，请重试",
+      "toast_success": "成功添加 {count} 个站点"
+    },
+    "settings_dialog": {
+      "title": "站点设置",
+      "description": "配置您的网站监控和集成",
+      "basic_info": "基本信息",
+      "site_name": "站点名称",
+      "site_name_placeholder": "我的超棒网站",
+      "domain": "域名（只读）",
+      "integrations": "集成配置",
+      "stripe_api_key": "Stripe API Key",
+      "ga4_property_id": "GA4 Property ID",
+      "shopify": "Shopify",
+      "test_button": "测试",
+      "add_shopify": "+ 添加 Shopify 集成",
+      "monitoring": "监控设置",
+      "sync_interval": "同步间隔",
+      "sync_1h": "1 小时",
+      "sync_6h": "6 小时",
+      "sync_24h": "24 小时",
+      "sync_48h": "48 小时",
+      "danger_zone": "危险区域",
+      "delete_website": "删除网站",
+      "cancel": "取消",
+      "save_changes": "保存更改",
+      "saving": "保存中...",
+      "status_connected": "已连接",
+      "status_not_configured": "未配置",
+      "status_error": "错误",
+      "status_testing": "测试中...",
+      "toast_load_error": "加载站点设置失败",
+      "toast_save_success": "设置保存成功",
+      "toast_save_error": "保存设置失败",
+      "toast_delete_success": "网站删除成功",
+      "toast_delete_error": "删除网站失败",
+      "toast_test_success": "{platform} 连接成功",
+      "toast_test_error": "{platform} 连接失败",
+      "toast_webhook_copied": "Webhook URL 已复制到剪贴板",
+      "toast_domain_mismatch": "域名不匹配",
+      "delete_dialog_title": "删除网站",
+      "delete_dialog_description": "此操作无法撤销。这将永久删除您的网站及所有相关数据。",
+      "delete_dialog_confirm_label": "输入 {domain} 以确认：",
+      "delete_dialog_cancel": "取消",
+      "delete_dialog_delete": "删除网站",
+      "delete_dialog_deleting": "删除中..."
+    },
+    "sync_dialog": {
+      "title": "同步数据中",
+      "description": "请稍候，我们正在同步您的网站数据...",
+      "progress_complete": "同步完成！",
+      "progress_percent": "{percent}% 完成",
+      "step_stripe": "Stripe 收入",
+      "step_ga4": "GA4 访客",
+      "step_uptime": "网站状态",
+      "step_database": "更新数据库",
+      "status_pending": "等待中...",
+      "status_running": "运行中...",
+      "status_success": "成功",
+      "status_error": "错误",
+      "stripe_success": "Stripe 同步完成。收入：${amount}",
+      "stripe_error": "Stripe 同步失败",
+      "ga4_success": "GA4 同步完成。访客：{count}",
+      "ga4_error": "GA4 同步失败",
+      "uptime_success": "网站在线。响应时间：{time}ms",
+      "uptime_error": "网站离线",
+      "database_success": "数据库更新成功",
+      "database_error": "数据库更新失败",
+      "complete_message": "同步成功完成"
+    }
+  }
+}

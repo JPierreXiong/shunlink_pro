@@ -1,0 +1,339 @@
+{
+  "header": {
+    "id": "header",
+    "brand": {
+      "title": "LinkFlow AI",
+      "url": "/"
+    },
+    "nav": {
+      "items": [
+        {
+          "title": "工作原理",
+          "url": "/#how-it-works",
+          "icon": "Zap"
+        },
+        {
+          "title": "支持平台",
+          "url": "/platforms",
+          "icon": "Globe"
+        },
+        {
+          "title": "定价",
+          "url": "/pricing",
+          "icon": "DollarSign"
+        },
+        {
+          "title": "博客",
+          "url": "/blog",
+          "icon": "BookOpen"
+        }
+      ]
+    },
+    "buttons": [],
+    "user_nav": {
+      "show_name": true,
+      "show_credits": true,
+      "show_sign_out": true,
+      "items": [
+        {
+          "title": "任务中心",
+          "url": "/dashboard/tasks",
+          "icon": "LayoutDashboard"
+        },
+        {
+          "title": "账单",
+          "url": "/settings/billing",
+          "icon": "CreditCard"
+        },
+        {
+          "title": "活动记录",
+          "url": "/activity",
+          "icon": "Activity"
+        }
+      ]
+    },
+    "show_sign": true,
+    "show_theme": true,
+    "show_locale": true
+  },
+  "hero": {
+    "id": "hero",
+    "title": "外链发布全自动，每一条都有据可查",
+    "highlight_text": "全自动",
+    "description": "48 小时内在高权重网站部署外链。无需繁琐沟通，无需手动操作——AI 智能体为您打造透明、安全的 SEO 增长，并附带实时截图证明。",
+    "announcement": {
+      "badge": "新用户",
+      "title": "⚡ 注册即送 1 个免费积分，无需信用卡",
+      "url": "/sign-up"
+    },
+    "tip": "<span style=\"font-size: 0.75rem; font-weight: 300;\">无需信用卡</span>",
+    "buttons": [
+      {
+        "title": "免费领取 1 个积分，立即开始",
+        "icon": "Zap",
+        "url": "/sign-up",
+        "target": "_self",
+        "variant": "default",
+        "className": ""
+      }
+    ],
+    "show_avatars": false,
+    "avatars_tip": "",
+    "show_award": false,
+    "image": {
+      "src": "/imgs/features/admin.png",
+      "alt": "LinkFlow AI 任务中心"
+    },
+    "image_invert": {
+      "src": "/imgs/features/admin-dark.png",
+      "alt": "LinkFlow AI 任务中心"
+    }
+  },
+  "how-it-works": {
+    "id": "how-it-works",
+    "title": "工作原理",
+    "description": "三步实现一条实时外链",
+    "items": [
+      {
+        "title": "提交目标信息",
+        "description": "输入目标 URL 和锔文本。选择平台或让 AI 自动筛选最优质的高权重网站。",
+        "icon": "Link"
+      },
+      {
+        "title": "AI 智能体自动部署",
+        "description": "由 CrewAI 驱动的智能体模拟真实人类行为——滚动、点击、自然速度输入——在 48 小时内安全发布外链。",
+        "icon": "Cpu"
+      },
+      {
+        "title": "接收证明报告",
+        "description": "获取包含实时 URL 和高清截图的《证明报告》，安全存储于云端。您的证据，随时可查。",
+        "icon": "FileCheck"
+      }
+    ]
+  },
+  "features": {
+    "id": "features",
+    "title": "为什么选择 LinkFlow AI",
+    "description": "建立在透明、精准和证据基础之上的外链平台",
+    "items": [
+      {
+        "title": "100% 透明交付",
+        "description": "打破外链行业“黑盒”现状。每一条外链均附带实时截图，看得见的成果，才值得信赖。",
+        "icon": "Eye"
+      },
+      {
+        "title": "AI 智能体模拟人工",
+        "description": "拒绝低质量群发。CrewAI 驱动的智能体模拟真实人类点击、滚动和输入行为，完美规避搜索引擎算法惩罚。",
+        "icon": "Bot"
+      },
+      {
+        "title": "48 小时必达承诺",
+        "description": "从下单到交付仅需 48 小时。若因技术原因未成功，系统自动退还积分，零风险。",
+        "icon": "Clock"
+      },
+      {
+        "title": "精选高权重平台",
+        "description": "维护经过审核的 DA 50+ 网站库，包括 Blogger、Reddit、Medium 等。可在平台页面查看实时成功率。",
+        "icon": "Star"
+      },
+      {
+        "title": "锔文本完全控制",
+        "description": "您设定目标 URL 和锔文本。我们的 AI 生成自然的周边内容，让每条链接看起来 100% 真实。",
+        "icon": "PenTool"
+      },
+      {
+        "title": "隐私优先安全",
+        "description": "仅 OAuth 注册，不存密码。任务数据加密存储。可随时从仪表板申请全量数据删除。",
+        "icon": "Shield"
+      }
+    ]
+  },
+  "faq": {
+    "id": "faq",
+    "title": "常见问题",
+    "description": "部署前您需要了解的一切",
+    "tip": "还有其他问题？我们的工程师在 12 小时内回复：<a href=\"mailto:support@linkflowai.app\" class=\"text-primary font-medium hover:underline\">support@linkflowai.app</a>",
+    "items": [
+      {
+        "question": "这些外链会导致我的网站被惩罚吗？",
+        "answer": "不会。与批量机器人工具不同，LinkFlow AI 使用模拟自然人类交互的 Agentic 工作流——鼠标移动、滚动和延迟。我们专注于高质量平台和上下文相关性放置，确保搜索引擎安全。"
+      },
+      {
+        "question": "支持哪些平台？",
+        "answer": "我们维护一个精选的高权重网站库，包括 Blogger、Reddit、Medium 等。您可在平台页面查看实时成功率。"
+      },
+      {
+        "question": "我如何确认外链已上线？",
+        "answer": "每个成功任务均生成一份《证明报告》，包含实时 URL 和存储在安全云端的高清截图。您可独立验证，随时可查。"
+      },
+      {
+        "question": "可以自定义锔文本吗？",
+        "answer": "当然可以。您对目标 URL 和锔文本拥有完全控制权。我们的 AI 生成周边内容，让链接看起来 100% 自然。"
+      },
+      {
+        "question": "什么是 48 小时承诺？",
+        "answer": "从您提交任务那一刻起，AI 立即开始部署。我们保证在 48 小时内完成提交并提供实时截图证明。如果任务因平台问题失败，积分将立即退还。"
+      },
+      {
+        "question": "有免费试用吗？",
+        "answer": "有。每个新账户注册即送 1 个免费积分——无需信用卡——可用于在真实外链任务上体验我们 AI 的精准度。"
+      }
+    ]
+  },
+  "cta": {
+    "id": "cta",
+    "title": "立即部署您的第一条外链",
+    "description": "加入信赖 LinkFlow AI 进行透明、自动化外链部署的 SEO 专业人士行列。",
+    "tip": "<span style=\"font-size: 0.75rem; font-weight: 300;\">无需信用卡 • 注册即送 1 个免费积分</span>",
+    "buttons": [
+      {
+        "title": "免费开始",
+        "url": "/sign-up",
+        "target": "_self",
+        "icon": "Zap",
+        "variant": "default",
+        "className": ""
+      }
+    ]
+  },
+  "subscribe": {
+    "id": "subscribe",
+    "title": "订阅我们的通讯",
+    "description": "获取 SEO 洞察、平台更新和 LinkFlow AI 使用技巧。",
+    "submit": {
+      "input": {
+        "placeholder": "输入您的邮筱"
+      },
+      "button": {
+        "title": "订阅"
+      },
+      "action": "/api/subscribe"
+    }
+  },
+  "footer": {
+    "id": "footer",
+    "brand": {
+      "title": "LinkFlow AI",
+      "description": "LinkFlow AI 使用 AI 智能体自动化高权重外链部署。每条提交均附带实时 URL 和截图证据。由 SEO 老兵和 AI 工程师打造。",
+      "url": "/"
+    },
+    "copyright": "LinkFlow AI — 外链发布全自动，每一条都有据可查",
+    "nav": {
+      "items": [
+        {
+          "title": "产品",
+          "children": [
+            {
+              "title": "部署代理",
+              "url": "/dashboard/tasks",
+              "target": "_self"
+            },
+            {
+              "title": "支持平台",
+              "url": "/platforms",
+              "target": "_self"
+            },
+            {
+              "title": "定价",
+              "url": "/pricing",
+              "target": "_self"
+            },
+            {
+              "title": "常见问题",
+              "url": "/#faq",
+              "target": "_self"
+            }
+          ]
+        },
+        {
+          "title": "公司",
+          "children": [
+            {
+              "title": "关于我们",
+              "url": "/about",
+              "target": "_self"
+            },
+            {
+              "title": "联系我们",
+              "url": "/contact",
+              "target": "_self"
+            },
+            {
+              "title": "博客",
+              "url": "/blog",
+              "target": "_self"
+            }
+          ]
+        },
+        {
+          "title": "法律",
+          "children": [
+            {
+              "title": "隐私政策",
+              "url": "/privacy-policy",
+              "target": "_self"
+            },
+            {
+              "title": "服务条款",
+              "url": "/terms-of-service",
+              "target": "_self"
+            },
+            {
+              "title": "免责声明",
+              "url": "/disclaimer",
+              "target": "_self"
+            }
+          ]
+        },
+        {
+          "title": "技术支持",
+          "children": [
+            {
+              "title": "Creem",
+              "url": "https://www.creem.io",
+              "target": "_blank"
+            },
+            {
+              "title": "Vercel",
+              "url": "https://vercel.com",
+              "target": "_blank"
+            },
+            {
+              "title": "Neon",
+              "url": "https://neon.tech",
+              "target": "_blank"
+            }
+          ]
+        }
+      ]
+    },
+    "social": {
+      "items": [
+        {
+          "title": "邮筱",
+          "icon": "Mail",
+          "url": "mailto:support@linkflowai.app",
+          "target": "_self"
+        }
+      ]
+    },
+    "agreement": {
+      "items": [
+        {
+          "title": "隐私政策",
+          "url": "/privacy-policy"
+        },
+        {
+          "title": "服务条款",
+          "url": "/terms-of-service"
+        },
+        {
+          "title": "免责声明",
+          "url": "/disclaimer"
+        }
+      ]
+    },
+    "show_theme": true,
+    "show_locale": true
+  }
+}

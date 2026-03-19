@@ -1,0 +1,34 @@
+﻿{
+  "metadata": {
+    "title": "Disclaimer - LinkFlow AI",
+    "description": "Read LinkFlow AI's disclaimer regarding SEO results, search engine rankings, third-party platform actions, and limitation of liability."
+  },
+  "last_updated": "Last Updated: March 18, 2026",
+  "sections": [
+    {
+      "title": "No SEO Ranking Guarantee",
+      "content": "LinkFlow AI provides AI-powered backlink deployment services. While backlinks are a core pillar of search engine optimization, we do not guarantee specific rankings on Google, Bing, Baidu, or any other search engine. Search engine rankings are determined by complex, ever-changing algorithms that consider hundreds of factors beyond link building, including content quality, domain authority, user engagement, and technical SEO. Results will vary by niche, competition level, and baseline domain authority."
+    },
+    {
+      "title": "Third-Party Platform Actions",
+      "content": "LinkFlow AI operates AI agents that submit content to third-party platforms (including Blogger, Reddit, Medium, and similar sites). Our service is deemed complete and a credit is consumed upon successful delivery of a Live URL and Screenshot Proof. We are not responsible if a third-party platform subsequently removes the submitted content or links after a successful submission. Platform content moderation policies are outside our control."
+    },
+    {
+      "title": "Risk Assumption",
+      "content": "SEO is an ever-evolving field. Search engine algorithms change frequently and without notice. You acknowledge and accept all risks associated with automated link-building activities, including potential changes in link valuation by search engines. You assume full responsibility for ensuring your SEO strategy complies with the guidelines of search engines you wish to rank on.",
+      "items": [
+        "Backlink strategies carry inherent SEO risk that vary by platform and industry",
+        "Automated outreach may be evaluated differently by different search engine algorithms",
+        "We are not responsible for any penalties resulting from search engine guideline changes"
+      ]
+    },
+    {
+      "title": "Limitation of Liability",
+      "content": "To the maximum extent permitted by law, LinkFlow AI shall not be liable for any indirect, incidental, special, or consequential damages — including loss of revenue, loss of data, or loss of business opportunity — arising out of or in connection with your use of the Service, even if we have been advised of the possibility of such damages."
+    }
+  ],
+  "transparency_note": {
+    "content": "Have questions about our disclaimer? Contact us at",
+    "link_text": "support@linkflowai.app"
+  }
+}

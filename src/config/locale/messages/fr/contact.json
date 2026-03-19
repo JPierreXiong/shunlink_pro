@@ -1,0 +1,46 @@
+﻿{
+  "metadata": {
+    "title": "Contactez-nous - LinkFlow AI",
+    "description": "Contactez l'équipe LinkFlow AI. Nous répondons à toutes les demandes sous 12 à 24 heures ouvrables."
+  },
+  "hero": {
+    "title": "Construisons Ensemble",
+    "description": "Une question sur votre tâche, une demande de fonctionnalité ou besoin d'aide avec votre stratégie de backlinks ? Notre équipe est là pour vous."
+  },
+  "channels": {
+    "items": [
+      {
+        "title": "Support Technique",
+        "description": "Pour les tâches échouées, incluez votre ID de Tâche pour une résolution plus rapide.",
+        "email": "support@linkflowai.app"
+      },
+      {
+        "title": "Heures de Bureau",
+        "description": "Lundi – Vendredi, 9h00 – 18h00 (UTC+8)",
+        "url": "mailto:support@linkflowai.app",
+        "handle": "support@linkflowai.app"
+      },
+      {
+        "title": "Partenariats",
+        "description": "Pour les collaborations d'agences ou demandes de revendeurs",
+        "email": "partners@linkflow.ai"
+      }
+    ]
+  },
+  "location": {
+    "text": "Au service des professionnels SEO et des fondateurs du monde entier"
+  },
+  "response_times": {
+    "title": "Délais de Réponse",
+    "items": [
+      {
+        "title": "Demandes de Support",
+        "time": "Sous 12 à 24 heures ouvrables"
+      },
+      {
+        "title": "Demandes de Partenariat",
+        "time": "Sous 2 jours ouvrables"
+      }
+    ]
+  }
+}

@@ -1,0 +1,67 @@
+﻿{
+  "metadata": {
+    "title": "Terms of Service - LinkFlow AI",
+    "description": "Read LinkFlow AI's Terms of Service covering account usage, the credit system, prohibited content, and service availability."
+  },
+  "last_updated": "Last Updated: March 18, 2026",
+  "sections": [
+    {
+      "number": "1",
+      "title": "Acceptance of Terms",
+      "content": "By accessing or using LinkFlow AI ('the Service'), you agree to be bound by these legally binding Terms of Service. LinkFlow AI is operated by LinkFlow AI ('we,' 'us,' or 'our'). If you do not agree to these terms, please discontinue use of the Service immediately."
+    },
+    {
+      "number": "2",
+      "title": "Credit System",
+      "content": "LinkFlow AI operates on a credit-based system. Credits are a digital currency used exclusively within the platform. 1 Credit = 1 Successful Backlink Submission. Credits are consumed only upon successful deployment — defined as a live published URL with screenshot proof. If a task fails due to external platform downtime or technical error not attributable to your input, your credit is instantly and automatically refunded to your account.",
+      "items": [
+        {
+          "subtitle": "Credit Purchases",
+          "content": "Credits are purchased via Creem, our payment partner. Credits purchased are non-refundable once a task has been successfully executed with proof of a live URL and screenshot. This policy is in place because the AI agent has already performed real-world outreach on your behalf."
+        },
+        {
+          "subtitle": "Free Trial Credit",
+          "content": "Every new account receives 1 Free Credit upon signup. No credit card is required to claim your free trial. This credit allows you to test the full AI deployment workflow before any financial commitment."
+        }
+      ]
+    },
+    {
+      "number": "3",
+      "title": "Prohibited Content",
+      "content": "You are solely responsible for the URLs and anchor texts you submit. LinkFlow AI strictly prohibits the use of the Service for promoting any of the following: illegal substances or controlled drugs; adult or sexually explicit content; gambling or unlicensed wagering services; hate speech, discrimination, or content that promotes violence; malware, phishing, or fraudulent websites; any content that violates applicable local, national, or international law. Violation of this policy results in immediate account termination without refund of any remaining credits."
+    },
+    {
+      "number": "4",
+      "title": "Service Availability",
+      "content": "While LinkFlow AI strives for maximum uptime, we operate AI agents across third-party platforms (including Blogger, Reddit, Medium, and others). We are not responsible for external platform downtime, algorithm changes, or policy changes by these third-party platforms. In the event a target platform becomes unavailable during your task, your credit will be automatically refunded. We do not guarantee the permanent persistence of submitted links, as third-party platforms may remove content at their discretion."
+    },
+    {
+      "number": "5",
+      "title": "Account Security",
+      "items": [
+        {
+          "subtitle": "User Responsibility",
+          "content": "You are solely responsible for maintaining the confidentiality and security of your LinkFlow AI account credentials. Do not share your login credentials with others."
+        },
+        {
+          "subtitle": "Account Termination",
+          "content": "We reserve the right to suspend or terminate accounts that violate these Terms, engage in abusive behavior, or attempt to circumvent platform security measures. Upon termination for violations, no credit refund will be issued."
+        }
+      ]
+    },
+    {
+      "number": "6",
+      "title": "Payments & Subscriptions",
+      "content": "All payments are processed securely through Creem (creem.io). By making a purchase, you agree to Creem's Terms of Service in addition to these Terms. Subscription plans include a monthly credit allocation. Unused credits from a subscription cycle do not roll over to the next period unless otherwise stated in your plan details."
+    },
+    {
+      "number": "7",
+      "title": "Limitation of Liability",
+      "content": "LinkFlow AI is provided 'as is.' We are not liable for any indirect, incidental, or consequential damages arising from your use of the Service, including but not limited to loss of business revenue, SEO ranking changes, or decisions made based on backlink deployment results."
+    }
+  ],
+  "transparency_note": {
+    "content": "Have questions about our Terms of Service? Contact us at support@linkflowai.app. We aim to respond within 2 business days.",
+    "link_text": "support@linkflowai.app"
+  }
+}

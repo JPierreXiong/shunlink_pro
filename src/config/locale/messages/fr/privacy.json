@@ -1,0 +1,73 @@
+﻿{
+  "metadata": {
+    "title": "Politique de Confidentialité - LinkFlow AI",
+    "description": "Découvrez comment LinkFlow AI protège votre vie privée grâce à une collecte minimale de données, la conformité RGPD et des principes de confidentialité totale."
+  },
+  "last_updated": "Dernière mise à jour : 18 mars 2026",
+  "introduction": {
+    "title": "Introduction",
+    "content": "LinkFlow AI (\"nous\") respecte votre vie privée et s'engage à protéger vos données personnelles. Cette Politique de Confidentialité explique comment nous collectons, utilisons et protégeons les informations lorsque vous utilisez notre plateforme de déploiement de backlinks propulsée par l'IA. Nous opérons selon des principes stricts de minimisation des données — nous ne collectons que ce qui est nécessaire pour fournir le service."
+  },
+  "data_collection": {
+    "title": "Données que Nous Collectons",
+    "items": [
+      {
+        "subtitle": "Informations de Compte",
+        "content": "Lors de l'inscription, nous collectons uniquement votre adresse e-mail via Google OAuth ou GitHub OAuth. Nous ne collectons ni ne stockons votre mot de passe. Toutes les données de paiement sont traitées exclusivement par notre processeur de paiement Creem et ne sont pas conservées sur nos serveurs."
+      },
+      {
+        "subtitle": "Données de Tâches et de Backlinks",
+        "content": "Lorsque vous soumettez une tâche de backlink, nous stockons votre URL cible et votre texte d'ancrage pour réaliser le déploiement. Les captures d'écran et URL de preuve en direct générées lors d'une soumission réussie sont stockées via Cloudinary. Ces données ne sont conservées que tant que votre compte est actif."
+      },
+      {
+        "subtitle": "Données d'Utilisation",
+        "content": "Nous collectons des données techniques anonymes (type de navigateur, type d'appareil, interactions avec les pages) pour optimiser les performances de la plateforme et améliorer la qualité du service. Ces données ne peuvent pas être utilisées pour vous identifier personnellement."
+      },
+      {
+        "subtitle": "Cookies et Sessions",
+        "content": "Nous utilisons uniquement les cookies essentiels pour la gestion de sessions via NextAuth. Nous n'utilisons pas de cookies publicitaires, de suivi comportemental ou de pixels marketing tiers."
+      }
+    ]
+  },
+  "data_usage": {
+    "title": "Comment Nous Utilisons Vos Données",
+    "items": [
+      {
+        "subtitle": "Prestation de Service",
+        "content": "Votre e-mail et vos données de tâches sont utilisés uniquement pour exploiter la plateforme, authentifier votre compte et vous fournir des résultats de déploiement de backlinks avec preuve de capture d'écran."
+      },
+      {
+        "subtitle": "Gestion du Système de Crédits",
+        "content": "Nous suivons les soldes de crédits et les historiques de tâches pour gérer avec précision votre compte. Les transactions de crédits sont enregistrées pour la transparence de facturation et la résolution des litiges."
+      },
+      {
+        "subtitle": "Aucune Vente de Données",
+        "content": "Nous ne vendons, ne louons, ne partageons jamais vos données, et ne les utilisons pas à des fins d'analyse de marché ou à toute fin commerciale autre que la fourniture du service LinkFlow AI. Vos URL cibles et textes d'ancrage sont privés et ne sont jamais divulgués à des tiers."
+      }
+    ]
+  },
+  "third_party": {
+    "title": "Services Tiers",
+    "content": "LinkFlow AI utilise les services tiers suivants pour fonctionner : Cloudinary pour le stockage des captures d'écran et des images, Neon pour l'hébergement de la base de données chiffrée, et Creem pour le traitement sécurisé des paiements. Chaque fournisseur est contractuellement tenu de traiter vos données en conformité avec les lois de confidentialité applicables. Nous ne partageons vos données qu'au strict minimum nécessaire au bon fonctionnement de ces services."
+  },
+  "data_minimization": {
+    "title": "Principe de Minimisation des Données",
+    "content": "Nous nous engageons à ne collecter que ce dont nous avons besoin. Nous ne stockons pas vos mots de passe. Nous ne stockons pas vos données de carte bancaire. Nous ne surveillons pas le contenu des sites web pour lesquels vous soumettez des tâches. Les agents IA opèrent sur les cibles de prospection que vous fournissez, et ces données opérationnelles ne sont jamais partagées, analysées à des fins publicitaires, ni vendues."
+  },
+  "data_retention": {
+    "title": "Conservation des Données",
+    "content": "Vos données de tâches de backlinks, captures d'écran et informations de compte ne sont conservées que tant que votre compte est actif. Après suppression du compte, toutes les données associées sont définitivement effacées de nos serveurs et du stockage Cloudinary dans un délai de 30 jours. Vous pouvez demander la suppression complète de vos données à tout moment via votre tableau de bord ou en écrivant à support@linkflowai.app."
+  },
+  "compliance": {
+    "title": "Conformité RGPD et Internationale",
+    "content": "LinkFlow AI s'engage à respecter le Règlement Général sur la Protection des Données (RGPD) et les normes mondiales de confidentialité applicables. Vous avez le droit d'accéder, de corriger, d'exporter ou de supprimer définitivement vos données personnelles à tout moment. Pour exercer ces droits, contactez-nous à support@linkflowai.app. Nous répondrons dans les 2 jours ouvrables."
+  },
+  "cookies": {
+    "title": "Cookies et Stockage Local",
+    "content": "LinkFlow AI utilise les cookies et le stockage local du navigateur uniquement pour maintenir votre session authentifiée et mémoriser vos préférences. Nous n'utilisons aucun cookie publicitaire tiers ni aucune technologie de suivi comportemental."
+  },
+  "transparency_note": {
+    "content": "Des questions sur nos pratiques de confidentialité ? Contactez-nous à support@linkflowai.app. Nous répondrons dans les 2 jours ouvrables.",
+    "link_text": "support@linkflowai.app"
+  }
+}

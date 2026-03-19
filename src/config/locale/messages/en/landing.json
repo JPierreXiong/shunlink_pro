@@ -1,0 +1,339 @@
+﻿{
+  "header": {
+    "id": "header",
+    "brand": {
+      "title": "LinkFlow AI",
+      "url": "/"
+    },
+    "nav": {
+      "items": [
+        {
+          "title": "How it Works",
+          "url": "/#how-it-works",
+          "icon": "Zap"
+        },
+        {
+          "title": "Platforms",
+          "url": "/platforms",
+          "icon": "Globe"
+        },
+        {
+          "title": "Pricing",
+          "url": "/pricing",
+          "icon": "DollarSign"
+        },
+        {
+          "title": "Blog",
+          "url": "/blog",
+          "icon": "BookOpen"
+        }
+      ]
+    },
+    "buttons": [],
+    "user_nav": {
+      "show_name": true,
+      "show_credits": true,
+      "show_sign_out": true,
+      "items": [
+        {
+          "title": "Dashboard",
+          "url": "/dashboard/tasks",
+          "icon": "LayoutDashboard"
+        },
+        {
+          "title": "Billing",
+          "url": "/settings/billing",
+          "icon": "CreditCard"
+        },
+        {
+          "title": "Activity",
+          "url": "/activity",
+          "icon": "Activity"
+        }
+      ]
+    },
+    "show_sign": true,
+    "show_theme": true,
+    "show_locale": true
+  },
+  "hero": {
+    "id": "hero",
+    "title": "Backlinks on Autopilot. Proof in Every Post.",
+    "highlight_text": "Autopilot",
+    "description": "Deploy AI Agents to secure high-authority backlinks in 48 hours. No black boxes, no manual outreach \u2014 just transparent results with real-time screenshot evidence.",
+    "announcement": {
+      "badge": "New",
+      "title": "\u26a1 1 Free Credit on Signup \u2014 No Card Needed",
+      "url": "/sign-up"
+    },
+    "tip": "<span style=\"font-size: 0.75rem; font-weight: 300;\">No credit card required</span>",
+    "buttons": [
+      {
+        "title": "Get Started with 1 Free Credit",
+        "icon": "Zap",
+        "url": "/sign-up",
+        "target": "_self",
+        "variant": "default",
+        "className": ""
+      }
+    ],
+    "show_avatars": false,
+    "avatars_tip": "",
+    "show_award": false,
+    "image": {
+      "src": "/imgs/features/admin.png",
+      "alt": "LinkFlow AI Dashboard"
+    },
+    "image_invert": {
+      "src": "/imgs/features/admin-dark.png",
+      "alt": "LinkFlow AI Dashboard"
+    }
+  },
+  "how-it-works": {
+    "id": "how-it-works",
+    "title": "How It Works",
+    "description": "Three steps from zero to live backlink",
+    "items": [
+      {
+        "title": "Submit Your Target",
+        "description": "Enter your target URL and anchor text. Choose a platform or let our AI auto-select the highest-authority site for your niche.",
+        "icon": "Link"
+      },
+      {
+        "title": "AI Agent Deploys",
+        "description": "Our CrewAI-powered agent mimics real human behavior \u2014 scrolling, clicking, and typing at natural speeds \u2014 to publish your backlink safely within 48 hours.",
+        "icon": "Cpu"
+      },
+      {
+        "title": "Receive Proof Report",
+        "description": "Get a Proof Report with the live URL and a high-resolution screenshot stored securely on the cloud. Your evidence, always accessible.",
+        "icon": "FileCheck"
+      }
+    ]
+  },
+  "features": {
+    "id": "features",
+    "title": "Why LinkFlow AI",
+    "description": "The backlink platform built on transparency, precision, and proof",
+    "items": [
+      {
+        "title": "100% Transparent Delivery",
+        "description": "Every backlink comes with a live URL and a cloud-hosted screenshot. No guesswork \u2014 see exactly where your link landed.",
+        "icon": "Eye"
+      },
+      {
+        "title": "Human-Like AI Agents",
+        "description": "Powered by CrewAI, our agents simulate authentic human interactions \u2014 mouse movements, scrolling, natural typing delays \u2014 to stay invisible to search engine algorithms.",
+        "icon": "Bot"
+      },
+      {
+        "title": "48-Hour Guarantee",
+        "description": "From submission to live proof in under 48 hours. If the task fails due to platform downtime, your credit is automatically refunded. Zero risk.",
+        "icon": "Clock"
+      },
+      {
+        "title": "Curated High-Authority Platforms",
+        "description": "We maintain a vetted library of DA 50+ sites including Blogger, Reddit, Medium, and more. View live success rates on our Platforms page.",
+        "icon": "Star"
+      },
+      {
+        "title": "Full Anchor Text Control",
+        "description": "You set the target URL and anchor text. Our AI generates contextual surrounding content to make every link look 100% organic.",
+        "icon": "PenTool"
+      },
+      {
+        "title": "Privacy-First Security",
+        "description": "OAuth-only signup \u2014 no passwords stored. Task data encrypted at rest. Request full data deletion anytime from your dashboard.",
+        "icon": "Shield"
+      }
+    ]
+  },
+  "faq": {
+    "id": "faq",
+    "title": "Frequently Asked Questions",
+    "description": "Everything you need to know before your first deployment.",
+    "tip": "Still have questions? Our engineers respond within 12 hours at <a href='mailto:support@linkflowai.app' class='text-primary font-medium hover:underline'>support@linkflowai.app</a>",
+    "items": [
+      {
+        "question": "Will these links get my site penalized?",
+        "answer": "No. Unlike bulk bot tools, LinkFlow AI uses Agentic Workflows that mimic natural human interactions \u2014 mouse movements, scrolling, and delays. We focus on quality platforms and contextual placements to ensure search engine safety."
+      },
+      {
+        "question": "What kind of platforms do you support?",
+        "answer": "We maintain a curated library of high-authority sites including Blogger, Reddit, Medium, and more. You can view live success rates on the Platforms page."
+      },
+      {
+        "question": "How do I know the link is live?",
+        "answer": "Every successful task generates a Proof Report containing the Live URL and a high-resolution screenshot stored on our secure cloud. Evidence you can verify independently at any time."
+      },
+      {
+        "question": "Can I use my own anchor texts?",
+        "answer": "Absolutely. You have full control over target URLs and anchor texts. Our AI even assists in generating surrounding content to make the link look 100% natural."
+      },
+      {
+        "question": "What is the 48-Hour Guarantee?",
+        "answer": "From the moment you submit a task, our AI starts deployment immediately. We guarantee a successful submission with a live screenshot proof within 48 hours. If the task fails due to platform downtime, your credit is instantly refunded."
+      },
+      {
+        "question": "Do you offer a free trial?",
+        "answer": "Yes. Every new account gets 1 Free Credit on signup \u2014 no credit card required \u2014 to experience our AI's precision on a real backlink task."
+      }
+    ]
+  },
+  "cta": {
+    "id": "cta",
+    "title": "Deploy Your First Backlink Today",
+    "description": "Join SEO professionals who trust LinkFlow AI for transparent, automated backlink deployment with proof.",
+    "tip": "<span style=\"font-size: 0.75rem; font-weight: 300;\">No credit card required \u2022 1 free credit on signup</span>",
+    "buttons": [
+      {
+        "title": "Get Started Free",
+        "url": "/sign-up",
+        "target": "_self",
+        "icon": "Zap",
+        "variant": "default",
+        "className": ""
+      }
+    ]
+  },
+  "subscribe": {
+    "id": "subscribe",
+    "title": "Stay Ahead of the Algorithm",
+    "description": "Get SEO insights, platform updates, and LinkFlow AI tips delivered to your inbox.",
+    "submit": {
+      "input": {
+        "placeholder": "Enter your email"
+      },
+      "button": {
+        "title": "Subscribe"
+      },
+      "action": "/api/subscribe"
+    }
+  },
+  "footer": {
+    "id": "footer",
+    "brand": {
+      "title": "LinkFlow AI",
+      "description": "LinkFlow AI automates high-authority backlink deployment using AI agents. Every submission comes with a live URL and screenshot proof. Built by SEO veterans and AI engineers.",
+      "url": "/"
+    },
+    "copyright": "LinkFlow AI \u2014 Backlinks on Autopilot. Proof in Every Post.",
+    "nav": {
+      "items": [
+        {
+          "title": "Product",
+          "children": [
+            {
+              "title": "Deploy Agent",
+              "url": "/dashboard/tasks",
+              "target": "_self"
+            },
+            {
+              "title": "Platforms",
+              "url": "/platforms",
+              "target": "_self"
+            },
+            {
+              "title": "Pricing",
+              "url": "/pricing",
+              "target": "_self"
+            },
+            {
+              "title": "FAQ",
+              "url": "/#faq",
+              "target": "_self"
+            }
+          ]
+        },
+        {
+          "title": "Company",
+          "children": [
+            {
+              "title": "About Us",
+              "url": "/about",
+              "target": "_self"
+            },
+            {
+              "title": "Contact Us",
+              "url": "/contact",
+              "target": "_self"
+            },
+            {
+              "title": "Blog",
+              "url": "/blog",
+              "target": "_self"
+            }
+          ]
+        },
+        {
+          "title": "Legal",
+          "children": [
+            {
+              "title": "Privacy Policy",
+              "url": "/privacy-policy",
+              "target": "_self"
+            },
+            {
+              "title": "Terms of Service",
+              "url": "/terms-of-service",
+              "target": "_self"
+            },
+            {
+              "title": "Disclaimer",
+              "url": "/disclaimer",
+              "target": "_self"
+            }
+          ]
+        },
+        {
+          "title": "Powered By",
+          "children": [
+            {
+              "title": "Creem",
+              "url": "https://www.creem.io",
+              "target": "_blank"
+            },
+            {
+              "title": "Vercel",
+              "url": "https://vercel.com",
+              "target": "_blank"
+            },
+            {
+              "title": "Neon",
+              "url": "https://neon.tech",
+              "target": "_blank"
+            }
+          ]
+        }
+      ]
+    },
+    "social": {
+      "items": [
+        {
+          "title": "Email",
+          "icon": "Mail",
+          "url": "mailto:support@linkflowai.app",
+          "target": "_self"
+        }
+      ]
+    },
+    "agreement": {
+      "items": [
+        {
+          "title": "Privacy Policy",
+          "url": "/privacy-policy"
+        },
+        {
+          "title": "Terms of Service",
+          "url": "/terms-of-service"
+        },
+        {
+          "title": "Disclaimer",
+          "url": "/disclaimer"
+        }
+      ]
+    },
+    "show_theme": true,
+    "show_locale": true
+  }
+}

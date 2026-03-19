@@ -1,0 +1,73 @@
+﻿{
+  "metadata": {
+    "title": "Privacy Policy - LinkFlow AI",
+    "description": "Learn how LinkFlow AI protects your privacy with minimal data collection, GDPR compliance, and zero-knowledge principles."
+  },
+  "last_updated": "Last Updated: March 18, 2026",
+  "introduction": {
+    "title": "Introduction",
+    "content": "LinkFlow AI ('we,' 'us,' or 'our') respects your privacy and is committed to protecting your personal data. This Privacy Policy explains how we collect, use, and safeguard information when you use our AI-powered backlink deployment platform. We operate under strict data minimization principles — we collect only what is necessary to deliver the service."
+  },
+  "data_collection": {
+    "title": "Data We Collect",
+    "items": [
+      {
+        "subtitle": "Account Information",
+        "content": "When you sign up, we collect your email address via Google OAuth or GitHub OAuth only. We do not collect or store your password. No credit card information is retained on our servers — all payment data is handled exclusively by our payment processor, Creem."
+      },
+      {
+        "subtitle": "Task & Backlink Data",
+        "content": "When you submit a backlink task, we store your target URL and anchor text to fulfill the deployment. Screenshots and live proof URLs generated upon successful submission are stored via Cloudinary. This data is retained only while your account is active."
+      },
+      {
+        "subtitle": "Usage Data",
+        "content": "We collect anonymous technical data (browser type, device type, page interactions) to optimize platform performance and improve service quality. This data cannot be used to identify you personally."
+      },
+      {
+        "subtitle": "Cookies & Sessions",
+        "content": "We use essential cookies exclusively for session management via NextAuth. We do not use advertising cookies, behavioral tracking, or third-party marketing pixels."
+      }
+    ]
+  },
+  "data_usage": {
+    "title": "How We Use Your Data",
+    "items": [
+      {
+        "subtitle": "Service Delivery",
+        "content": "Your email and task data are used solely to operate the platform, authenticate your account, and deliver backlink deployment results with screenshot proof."
+      },
+      {
+        "subtitle": "Credit System Management",
+        "content": "We track credit balances and task histories to accurately maintain your account. Credit transactions are logged for billing transparency and dispute resolution."
+      },
+      {
+        "subtitle": "No Data Selling",
+        "content": "We never sell, rent, share, or use your data for market analysis or any commercial purpose beyond providing the LinkFlow AI service. Your target URLs and anchor texts are private and never disclosed to third parties."
+      }
+    ]
+  },
+  "third_party": {
+    "title": "Third-Party Services",
+    "content": "LinkFlow AI uses the following third-party services to operate: Cloudinary for screenshot and image storage, Neon for our encrypted database hosting, and Creem for secure payment processing. Each provider is contractually obligated to handle your data in compliance with applicable privacy laws. We do not share your data beyond what is necessary for these services to function."
+  },
+  "data_minimization": {
+    "title": "Data Minimization Principle",
+    "content": "We are committed to collecting only what we need. We do not store your passwords. We do not store your payment card details. We do not monitor the content of websites you submit tasks for. Our AI agents operate on outreach targets you provide, and this operational data is never shared, analyzed for advertising, or sold."
+  },
+  "data_retention": {
+    "title": "Data Retention",
+    "content": "Your backlink task data, screenshots, and account information are retained only while your account is active. Upon account deletion, all associated data is permanently purged from our servers and Cloudinary storage within 30 days. You may request full data deletion at any time via your dashboard or by emailing support@linkflowai.app."
+  },
+  "compliance": {
+    "title": "GDPR & Global Privacy Compliance",
+    "content": "LinkFlow AI is committed to complying with the General Data Protection Regulation (GDPR) and applicable global privacy standards. You have the right to access, correct, export, or permanently delete your personal data at any time. To exercise these rights, contact us at support@linkflowai.app. We will respond within 2 business days."
+  },
+  "cookies": {
+    "title": "Cookies & Local Storage",
+    "content": "LinkFlow AI uses cookies and browser session storage solely to maintain your authenticated session and remember your preferences. We do not use third-party advertising cookies or behavioral tracking technologies of any kind."
+  },
+  "transparency_note": {
+    "content": "Have questions about our privacy practices? Contact us at support@linkflowai.app. We believe in full transparency and will respond within 2 business days.",
+    "link_text": "support@linkflowai.app"
+  }
+}

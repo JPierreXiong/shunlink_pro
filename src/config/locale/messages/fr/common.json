@@ -1,0 +1,210 @@
+{
+  "metadata": {
+    "title": "SoloBoard — Tableau de bord de surveillance multi-sites pour solopreneurs",
+    "description": "Surveillez le trafic GA4, les revenus Stripe & Creem et la disponibilité de 10 sites en un seul tableau de bord. Économisez 2h+ par jour. Plan gratuit disponible.",
+    "keywords": "tableau de bord surveillance multi-sites, tableau de bord GA4, suivi revenus Stripe, outil surveillance disponibilité, outils solopreneur, agrégateur analytics, tableau de bord SaaS, suivi revenus Creem, surveillance uptime, tableau de bord fondateur"
+  },
+  "sign": {
+    "sign_in_title": "Se connecter",
+    "sign_in_description": "Connectez-vous à votre compte",
+    "sign_up_title": "S'inscrire",
+    "sign_up_description": "Créer un compte",
+    "email_title": "E-mail",
+    "email_placeholder": "Entrez votre e-mail",
+    "password_title": "Mot de passe",
+    "password_placeholder": "Entrez votre mot de passe",
+    "forgot_password": "Mot de passe oublié ?",
+    "or": "Ou",
+    "continue": "Continuer",
+    "no_account": "Vous n'avez pas de compte ?",
+    "already_have_account": "Vous avez déjà un compte ?",
+    "email_sign_in": "Se connecter avec e-mail",
+    "google_sign_in_title": "Se connecter avec Google",
+    "github_sign_in_title": "Se connecter avec GitHub",
+    "close_title": "Fermer",
+    "cancel_title": "Annuler",
+    "sign_out_title": "Se déconnecter",
+    "billing_title": "Facturation",
+    "name_title": "Nom",
+    "name_placeholder": "Entrez votre nom",
+    "admin_title": "Système d'administration",
+    "credits_title": "Crédits: {credits}",
+    "email_already_registered": "Cet e-mail est déjà enregistré",
+    "redirecting_to_signin": "Redirection vers la page de connexion...",
+    "password_requirements_error": "Le mot de passe doit contenir au moins 8 caractères",
+    "email_invalid_error": "Veuillez entrer une adresse e-mail valide"
+  },
+  "payment": {
+    "choose_payment_method": "Choisir le mode de paiement",
+    "choose_payment_method_description": "",
+    "cancel_title": "Annuler"
+  },
+  "locale_detector": {
+    "title": "Nous avons détecté que la langue de votre navigateur est {locale}. Voulez-vous changer ?",
+    "switch_to": "Passer à {locale}"
+  },
+  "soloboard": {
+    "title": "Tableau de bord SoloBoard",
+    "description": "Surveillez tous vos sites en un seul endroit. Suivez les analyses GA4, les revenus de paiement et l'état en ligne.",
+    "enter_dashboard": "Accéder au tableau de bord",
+    "view_pricing": "Voir les tarifs",
+    "page": {
+      "title": "Surveillez tous vos sites",
+      "subtitle": "Suivez les revenus, le trafic et l'état en ligne de tous vos sites web en un seul endroit"
+    },
+    "refresh": "Actualiser",
+    "loading": "Chargement...",
+    "error": {
+      "title": "Échec du chargement",
+      "retry": "Réessayer"
+    },
+    "empty_state": {
+      "title": "Aucun site web pour le moment",
+      "description": "Ajoutez votre premier site web pour commencer à surveiller les revenus, le trafic et l'état en ligne.",
+      "add_button": "Ajouter votre premier site web"
+    },
+    "add_button": "Ajouter un site",
+    "add_single_site": "Ajouter un seul site",
+    "batch_add_sites": "Ajouter des sites en lot",
+    "site_card": {
+      "today_revenue": "Revenus d'aujourd'hui",
+      "today_visitors": "Visiteurs d'aujourd'hui",
+      "status": "Statut",
+      "view_details": "Voir les détails"
+    },
+    "status": {
+      "online": "En ligne",
+      "offline": "Hors ligne",
+      "warning": "Avertissement",
+      "checking": "Vérification..."
+    },
+    "alerts": {
+      "offline": "Le site web est hors ligne",
+      "no_sales": "Aucune vente aujourd'hui (a généralement des ventes)",
+      "low_traffic": "Le trafic est 30% inférieur à la moyenne"
+    },
+    "summary": {
+      "total_sites": "Total des sites",
+      "total_revenue": "Revenus totaux aujourd'hui",
+      "total_visitors": "Visiteurs totaux aujourd'hui",
+      "sites_online": "Sites en ligne"
+    },
+    "site_details": {
+      "title": "Détails du site",
+      "description": "Voir les métriques détaillées et l'historique de votre site web",
+      "back": "Retour au tableau de bord",
+      "settings": "Paramètres",
+      "avg_revenue": "Revenu moyen (7j)",
+      "trend": "Tendance",
+      "history": "Historique",
+      "export": "Exporter",
+      "date": "Date",
+      "revenue": "Revenu",
+      "visitors": "Visiteurs",
+      "avg_order": "Valeur moyenne de commande",
+      "platforms": "Plateformes connectées"
+    },
+    "features": {
+      "ga4": {
+        "title": "Analyses GA4",
+        "description": "Suivez les visiteurs, les pages vues et le comportement des utilisateurs en temps réel"
+      },
+      "revenue": {
+        "title": "Revenus de paiement",
+        "description": "Surveillez les ventes du jour, le MRR et le nombre de transactions depuis Stripe, Creem, Alipay, PayPal"
+      },
+      "uptime": {
+        "title": "Surveillance de disponibilité",
+        "description": "Recevez des alertes instantanées lorsque vos sites tombent en panne"
+      }
+    },
+    "upgrade_dialog": {
+      "title": "Mettre à niveau pour ajouter plus de sites",
+      "description": "Votre plan {plan} a atteint la limite de {limit} sites",
+      "current_limit": "Limite actuelle",
+      "usage": "Utilisé {current} / {limit} quota de sites",
+      "recommended": "Recommandé",
+      "most_powerful": "Le plus puissant",
+      "base_plan": {
+        "title": "Plan Base",
+        "description": "Parfait pour les petits projets et les développeurs indépendants",
+        "price": "19,9€",
+        "period": "/mois",
+        "billing": "Facturation mensuelle, annulation à tout moment",
+        "features": {
+          "sites": "Jusqu'à 5 sites",
+          "monitoring": "Surveillance et alertes en temps réel",
+          "email": "Notifications par e-mail",
+          "stats": "Statistiques de revenus et de trafic",
+          "credits": "1000 crédits/mois",
+          "history": "Historique de 7 jours"
+        }
+      },
+      "pro_plan": {
+        "title": "Plan Pro",
+        "description": "Parfait pour les professionnels et les équipes",
+        "price": "39,9€",
+        "period": "/mois",
+        "billing": "Facturation mensuelle, annulation à tout moment",
+        "features": {
+          "sites": "Sites illimités",
+          "all_base": "Toutes les fonctionnalités Base",
+          "advanced": "Analyses et rapports avancés",
+          "api": "Accès API",
+          "credits": "5000 crédits/mois",
+          "history": "Historique de 90 jours",
+          "support": "Support prioritaire"
+        }
+      },
+      "upgrade_now": "Mettre à niveau maintenant",
+      "comparison": {
+        "title": "Comparaison des fonctionnalités",
+        "feature": "Fonctionnalité",
+        "free": "Gratuit",
+        "base": "Base",
+        "pro": "Pro",
+        "sites": "Nombre de sites",
+        "email_alerts": "Alertes par e-mail",
+        "api_access": "Accès API",
+        "data_history": "Historique des données",
+        "days": "jours"
+      },
+      "footer": "💡 Tous les plans permettent l'annulation à tout moment, sans engagement à long terme",
+      "contact": "Des questions ?",
+      "contact_us": "Contactez-nous"
+    },
+    "batch_add": {
+      "title": "Ajouter des sites en lot",
+      "description": "Ajoutez jusqu'à 10 sites à la fois, prend en charge le collage en lot de la liste de domaines",
+      "quick_import_title": "💡 Conseils d'importation rapide",
+      "quick_import_description": "Copiez la liste de domaines depuis Excel ou Notepad, collez dans la première zone de saisie pour importer en lot. Formats pris en charge : un domaine par ligne, ou \"Nom, Domaine\"",
+      "batch_config_title": "Configuration en lot des clés API (Optionnel)",
+      "stripe_key_label": "Clé Stripe (Revenus)",
+      "stripe_key_placeholder": "sk_live_...",
+      "ga4_property_label": "ID de propriété GA4 (Trafic)",
+      "ga4_property_placeholder": "G-XXXXXX",
+      "apply_button": "Appliquer",
+      "add_row_button": "Ajouter une ligne ({current}/{max})",
+      "progress_text": "Ajout de sites... {success} réussi / {error} échoué",
+      "security_title": "Protection de chiffrement des données activée",
+      "security_description": "Les clés API seront stockées avec un chiffrement AES-256 de niveau militaire",
+      "cancel_button": "Annuler",
+      "submit_button": "Ajouter {count} sites",
+      "submitting_button": "Ajout en cours...",
+      "domain_label": "Domaine",
+      "domain_placeholder": "exemple.com",
+      "name_label": "Nom",
+      "name_placeholder": "Mon site web",
+      "platform_label": "Plateforme",
+      "delete_button": "Supprimer",
+      "status_pending": "En attente",
+      "status_validating": "Validation",
+      "status_success": "Succès",
+      "status_error": "Erreur",
+      "toast_limit_error": "Le nombre de sites dépasse la limite",
+      "toast_batch_error": "Échec de l'ajout en lot",
+      "toast_network_error": "Erreur réseau, veuillez réessayer",
+      "toast_success": "{count} sites ajoutés avec succès"
+    }
+  }
+}

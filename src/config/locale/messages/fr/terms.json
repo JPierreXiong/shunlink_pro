@@ -1,0 +1,67 @@
+﻿{
+  "metadata": {
+    "title": "Conditions d'Utilisation - LinkFlow AI",
+    "description": "Lisez les Conditions d'Utilisation de LinkFlow AI couvrant l'utilisation du compte, le système de crédits, le contenu interdit et la disponibilité du service."
+  },
+  "last_updated": "Dernière mise à jour : 18 mars 2026",
+  "sections": [
+    {
+      "number": "1",
+      "title": "Acceptation des Conditions",
+      "content": "En accédant ou en utilisant LinkFlow AI (\"le Service\"), vous acceptez d'être lié par ces Conditions d'Utilisation juridiquement contraignantes. LinkFlow AI est exploité par LinkFlow AI (\"nous\"). Si vous n'acceptez pas ces conditions, veuillez cesser immédiatement d'utiliser le Service."
+    },
+    {
+      "number": "2",
+      "title": "Système de Crédits",
+      "content": "LinkFlow AI fonctionne sur un système de crédits. Les crédits sont une monnaie numérique utilisée exclusivement au sein de la plateforme. 1 Crédit = 1 Soumission de Backlink Réussie. Les crédits ne sont consommés qu'après un déploiement réussi — défini comme une URL publiée en direct avec preuve de capture d'écran. Si une tâche échoue en raison d'une panne externe de la plateforme ou d'une erreur technique non imputable à votre saisie, votre crédit est immédiatement et automatiquement remboursé sur votre compte.",
+      "items": [
+        {
+          "subtitle": "Achats de Crédits",
+          "content": "Les crédits sont achetés via Creem, notre partenaire de paiement. Les crédits achetés ne sont pas remboursables une fois qu'une tâche a été exécutée avec succès avec la preuve d'une URL en direct et d'une capture d'écran. Cette politique est en place parce que l'agent IA a déjà effectué une vraie prospection de backlinks en votre nom."
+        },
+        {
+          "subtitle": "Crédit d'Essai Gratuit",
+          "content": "Chaque nouveau compte reçoit 1 Crédit Gratuit à l'inscription. Aucune carte de crédit n'est requise pour obtenir votre essai gratuit. Ce crédit vous permet de tester l'intégralité du flux de déploiement IA avant tout engagement financier."
+        }
+      ]
+    },
+    {
+      "number": "3",
+      "title": "Contenu Interdit",
+      "content": "Vous êtes seul responsable des URL et textes d'ancrage que vous soumettez. LinkFlow AI interdit strictement l'utilisation du Service pour promouvoir : les substances illégales ou drogues contrôlées ; le contenu adulte ou sexuellement explicite ; les jeux d'argent ou services de paris non autorisés ; les discours haineux, la discrimination ou le contenu promouvant la violence ; les logiciels malveillants, le phishing ou les sites web frauduleux ; tout contenu violant les lois locales, nationales ou internationales applicables. La violation de cette politique entraîne la résiliation immédiate du compte sans remboursement des crédits restants."
+    },
+    {
+      "number": "4",
+      "title": "Disponibilité du Service",
+      "content": "Bien que LinkFlow AI vise une disponibilité maximale, nous exploitons des agents IA sur des plateformes tierces (notamment Blogger, Reddit, Medium et autres). Nous ne sommes pas responsables des pannes, changements d'algorithmes ou modifications de politique de ces plateformes tierces. Si une plateforme cible devient indisponible pendant l'exécution de votre tâche, votre crédit sera automatiquement remboursé. Nous ne garantissons pas la persistance permanente des liens soumis, car les plateformes tierces peuvent supprimer du contenu à leur discrétion."
+    },
+    {
+      "number": "5",
+      "title": "Sécurité du Compte",
+      "items": [
+        {
+          "subtitle": "Responsabilité de l'Utilisateur",
+          "content": "Vous êtes seul responsable du maintien de la confidentialité et de la sécurité de vos identifiants de compte LinkFlow AI. Ne partagez pas vos identifiants de connexion avec d'autres personnes."
+        },
+        {
+          "subtitle": "Résiliation du Compte",
+          "content": "Nous nous réservons le droit de suspendre ou de résilier les comptes qui violent ces Conditions, adoptent un comportement abusif ou tentent de contourner les mesures de sécurité de la plateforme. Aucun remboursement de crédits ne sera accordé en cas de résiliation pour violation."
+        }
+      ]
+    },
+    {
+      "number": "6",
+      "title": "Paiements et Abonnements",
+      "content": "Tous les paiements sont traités de manière sécurisée via Creem (creem.io). En effectuant un achat, vous acceptez les Conditions d'Utilisation de Creem en plus des présentes Conditions. Les plans d'abonnement incluent une allocation mensuelle de crédits. Les crédits non utilisés d'un cycle d'abonnement ne sont pas reportés à la période suivante, sauf indication contraire dans les détails de votre plan."
+    },
+    {
+      "number": "7",
+      "title": "Limitation de Responsabilité",
+      "content": "LinkFlow AI est fourni 'tel quel'. Nous ne sommes pas responsables des dommages indirects, accessoires ou consécutifs découlant de votre utilisation du Service, y compris, mais sans s'y limiter, la perte de revenus commerciaux, les changements de classement SEO ou les décisions prises sur la base des résultats de déploiement de backlinks."
+    }
+  ],
+  "transparency_note": {
+    "content": "Des questions sur nos Conditions d'Utilisation ? Contactez-nous à support@linkflowai.app. Nous nous engageons à répondre dans les 2 jours ouvrables.",
+    "link_text": "support@linkflowai.app"
+  }
+}

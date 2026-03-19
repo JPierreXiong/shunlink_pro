@@ -1,0 +1,46 @@
+﻿{
+  "metadata": {
+    "title": "Contact Us - LinkFlow AI",
+    "description": "Get in touch with the LinkFlow AI team. We respond to all inquiries within 12-24 business hours."
+  },
+  "hero": {
+    "title": "Let's Build Together",
+    "description": "Have a question about your task, a feature request, or need help with your backlink strategy? Our team is here for you."
+  },
+  "channels": {
+    "items": [
+      {
+        "title": "Technical Support",
+        "description": "For failed tasks, please include your Task ID for faster resolution.",
+        "email": "support@linkflowai.app"
+      },
+      {
+        "title": "Business Hours",
+        "description": "Monday – Friday, 9:00 AM – 6:00 PM (UTC+8)",
+        "url": "mailto:support@linkflowai.app",
+        "handle": "support@linkflowai.app"
+      },
+      {
+        "title": "Partnerships",
+        "description": "For agency collaborations or reseller inquiries",
+        "email": "partners@linkflow.ai"
+      }
+    ]
+  },
+  "location": {
+    "text": "Serving SEO professionals and founders worldwide"
+  },
+  "response_times": {
+    "title": "Response Times",
+    "items": [
+      {
+        "title": "Support Requests",
+        "time": "Within 12–24 business hours"
+      },
+      {
+        "title": "Partnership Inquiries",
+        "time": "Within 2 business days"
+      }
+    ]
+  }
+}
