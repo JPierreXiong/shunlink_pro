@@ -261,26 +261,6 @@
           ]
         },
         {
-          "title": "Legal",
-          "children": [
-            {
-              "title": "Privacy Policy",
-              "url": "/privacy-policy",
-              "target": "_self"
-            },
-            {
-              "title": "Terms of Service",
-              "url": "/terms-of-service",
-              "target": "_self"
-            },
-            {
-              "title": "Disclaimer",
-              "url": "/disclaimer",
-              "target": "_self"
-            }
-          ]
-        },
-        {
           "title": "Powered By",
           "children": [
             {
@@ -328,6 +308,7 @@
         }
       ]
     },
+    "show_built_with": false,
     "show_theme": true,
     "show_locale": true
   }

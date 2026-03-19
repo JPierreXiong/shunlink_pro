@@ -261,26 +261,6 @@
           ]
         },
         {
-          "title": "法律",
-          "children": [
-            {
-              "title": "隐私政策",
-              "url": "/privacy-policy",
-              "target": "_self"
-            },
-            {
-              "title": "服务条款",
-              "url": "/terms-of-service",
-              "target": "_self"
-            },
-            {
-              "title": "免责声明",
-              "url": "/disclaimer",
-              "target": "_self"
-            }
-          ]
-        },
-        {
           "title": "技术支持",
           "children": [
             {
@@ -329,6 +309,7 @@
       ]
     },
     "show_theme": true,
-    "show_locale": true
+    "show_locale": true,
+    "show_built_with": false
   }
 }

@@ -261,26 +261,6 @@
           ]
         },
         {
-          "title": "Légal",
-          "children": [
-            {
-              "title": "Politique de confidentialité",
-              "url": "/privacy-policy",
-              "target": "_self"
-            },
-            {
-              "title": "Conditions d'utilisation",
-              "url": "/terms-of-service",
-              "target": "_self"
-            },
-            {
-              "title": "Avertissement",
-              "url": "/disclaimer",
-              "target": "_self"
-            }
-          ]
-        },
-        {
           "title": "Partenaires",
           "children": [
             {
@@ -329,6 +309,7 @@
       ]
     },
     "show_theme": true,
-    "show_locale": true
+    "show_locale": true,
+    "show_built_with": false
   }
 }
