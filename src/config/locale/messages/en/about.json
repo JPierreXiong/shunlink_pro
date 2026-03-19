@@ -1,23 +1,23 @@
 {
   "metadata": {
-    "title": "About Us - SoloBoard",
-    "description": "Learn about SoloBoard's mission to help solopreneurs manage multiple SaaS products efficiently. Built by founders, for founders."
+    "title": "About Us - LinkFlow AI",
+    "description": "Learn about LinkFlow AI's mission to help SEO professionals manage multiple SaaS products efficiently. Built by founders, for founders."
   },
   "hero": {
     "title": "Built for the Army of One",
-    "description": "SoloBoard was born out of a simple frustration: Managing 10 SaaS products shouldn't feel like a chore."
+    "description": "LinkFlow AI was born out of a simple frustration: Managing 10 SaaS products shouldn't feel like a chore."
   },
   "story": {
     "title": "Our Story",
     "paragraph1": "As a serial entrepreneur, I found myself wasting hours every week manually checking different admin panels. I realized that as my portfolio grew, my focus vanished. I didn't need more complex analytics; I needed a <strong>Pulse Monitor</strong>.",
-    "paragraph2": "SoloBoard is our answer to the chaos. Built on top of robust technologies like <strong>Neon</strong> and <strong>ShipAny</strong>, we provide independent founders with the clarity they need to scale. We aren't just a dashboard; we are your digital command center, helping you spend less time monitoring and more time building."
+    "paragraph2": "LinkFlow AI is our answer to the chaos. Built on top of robust technologies like <strong>Neon</strong> and <strong>ShipAny</strong>, we provide independent founders with the clarity they need to scale. We aren't just a dashboard; we are your digital command center, helping you spend less time monitoring and more time building."
   },
   "values": {
     "title": "Our Values",
     "items": [
       {
         "title": "Founder-First Design",
-        "description": "Every feature is designed with the solopreneur's workflow in mind. No bloat, no complexity—just what you need."
+        "description": "Every feature is designed with the SEO professional's workflow in mind. No bloat, no complexity—just what you need."
       },
       {
         "title": "Transparency",
@@ -52,7 +52,7 @@
   },
   "cta": {
     "title": "Join the Journey",
-    "description": "Follow our build-in-public journey and be part of the community shaping SoloBoard's future.",
+    "description": "Follow our build-in-public journey and be part of the community shaping LinkFlow AI's future.",
     "buttons": {
       "twitter": "Follow on Twitter",
       "signup": "Start for Free"

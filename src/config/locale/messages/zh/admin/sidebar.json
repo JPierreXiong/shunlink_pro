@@ -1,7 +1,7 @@
 {
   "header": {
     "brand": {
-      "title": "SoloBoard",
+      "title": "LinkFlow AI",
       "logo": null,
       "url": "/admin"
     },
@@ -66,7 +66,7 @@
           ]
         },
         {
-          "title": "SoloBoard",
+          "title": "LinkFlow AI",
           "icon": "Shield",
           "children": [
             {
@@ -134,19 +134,19 @@
         },
         {
           "title": "GitHub",
-          "url": "https://github.com/JPierreXiong/SoloBoard_CC_C",
+          "url": "https://github.com/JPierreXiong/LinkFlow AI_CC_C",
           "icon": "Github",
           "target": "_blank"
         },
         {
           "title": "推特",
-          "url": "https://twitter.com/SoloBoardApp",
+          "url": "https://twitter.com/LinkFlow AIApp",
           "icon": "RiTwitterXFill",
           "target": "_blank"
         },
         {
           "title": "邮箱",
-          "url": "mailto:support@soloboard.app",
+          "url": "mailto:support@linkflowai.app",
           "icon": "Mail",
           "target": "_blank"
         }

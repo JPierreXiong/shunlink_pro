@@ -1,6 +1,9 @@
 import { Metadata } from 'next';
-import { User, Eye, Shield } from 'lucide-react';
+import { Bot, Shield, Zap } from 'lucide-react';
 import Script from 'next/script';
+import { envConfigs } from '@/config';
+
+const APP_URL = 'https://www.linkflowai.app';
 
 export async function generateMetadata({
   params,
@@ -12,35 +15,35 @@ export async function generateMetadata({
   const isFr = locale === 'fr';
 
   const title = isZh
-    ? 'SoloBoard 是什么 — 专为独立创业者打造的多站点监控仪表盘'
+    ? 'LinkFlow AI 是什么 — AI 驱动的外链自动化部署平台'
     : isFr
-      ? "À propos de SoloBoard — Tableau de bord de surveillance pour solopreneurs"
-      : 'About SoloBoard — Multi-Site Monitoring Dashboard Built for Solo Founders';
+      ? 'À propos de LinkFlow AI — Plateforme de Déploiement de Backlinks par IA'
+      : 'About LinkFlow AI — AI-Powered Backlink Deployment Platform';
 
   const description = isZh
-    ? 'SoloBoard 由独立创业者创建，帮助您在一个仪表盘中监控 GA4 流量、Stripe/Creem 收入和网站在线状态，每天节省 2 小时以上。'
+    ? 'LinkFlow AI 由 SEO 老兵和 AI 工程师打造，使用 AI 智能体在 48 小时内自动部署高权重外链，每条均附带实时截图证明。'
     : isFr
-      ? "SoloBoard est construit par des solopreneurs pour des solopreneurs. Surveillez GA4, Stripe, Creem et la disponibilité de vos sites en un seul endroit."
-      : 'SoloBoard is built by solo founders for solo founders. Monitor GA4 traffic, Stripe & Creem revenue, and site uptime from one dashboard — saving you 2+ hours daily.';
+      ? "LinkFlow AI est construit par des vétérans SEO et des ingénieurs IA. Déployez automatiquement des backlinks haute autorité en 48h avec preuve par capture d'écran."
+      : 'LinkFlow AI is built by SEO veterans and AI engineers. We automate high-authority backlink deployment using AI agents — every submission comes with a live URL and screenshot proof.';
 
   const url = locale === 'en'
-    ? 'https://www.soloboard.app/about'
-    : `https://www.soloboard.app/${locale}/about`;
+    ? `${APP_URL}/about`
+    : `${APP_URL}/${locale}/about`;
 
   return {
     title,
     description,
     keywords: isZh
-      ? 'SoloBoard介绍, 独立创业者工具, 多站点监控, 网站仪表盘, 关于我们'
+      ? 'LinkFlow AI介绍, AI外链工具, 自动化外链建设, 外链部署平台, 关于我们'
       : isFr
-        ? 'à propos SoloBoard, outil solopreneur, surveillance multi-sites, tableau de bord'
-        : 'about SoloBoard, solopreneur monitoring tool, multi-site dashboard, solo founder tools',
+        ? 'à propos LinkFlow AI, automatisation backlinks, outil SEO IA'
+        : 'about LinkFlow AI, AI backlink builder, automated link building, SEO automation platform',
     alternates: {
       canonical: url,
       languages: {
-        en: 'https://www.soloboard.app/about',
-        zh: 'https://www.soloboard.app/zh/about',
-        fr: 'https://www.soloboard.app/fr/about',
+        'en-US': `${APP_URL}/about`,
+        'zh-CN': `${APP_URL}/zh/about`,
+        'fr-FR': `${APP_URL}/fr/about`,
       },
     },
     openGraph: {
@@ -48,8 +51,8 @@ export async function generateMetadata({
       url,
       title,
       description,
-      siteName: 'SoloBoard',
-      images: [{ url: 'https://www.soloboard.app/logo.png', width: 1200, height: 630, alt: 'SoloBoard' }],
+      siteName: 'LinkFlow AI',
+      images: [{ url: `${APP_URL}/logo.png`, width: 1200, height: 630, alt: 'LinkFlow AI' }],
     },
   };
 }
@@ -60,30 +63,32 @@ export default async function AboutPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  const appUrl = envConfigs.app_url || APP_URL;
+
   const breadcrumbSchema = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.soloboard.app' },
-      { '@type': 'ListItem', position: 2, name: 'About', item: `https://www.soloboard.app${locale === 'en' ? '' : `/${locale}`}/about` },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: appUrl },
+      { '@type': 'ListItem', position: 2, name: 'About', item: `${appUrl}${locale === 'en' ? '' : `/${locale}`}/about` },
     ],
   };
 
   const values = [
     {
-      title: 'Founder-First Design',
-      description: 'Every feature is designed with the solopreneur\'s workflow in mind. No bloat, no complexity—just what you need.',
-      icon: User,
-    },
-    {
-      title: 'Transparency',
-      description: 'We build in public. Follow our journey on Twitter/X and see how we\'re constantly improving based on real user feedback.',
-      icon: Eye,
-    },
-    {
-      title: 'Security by Default',
-      description: 'Your data security isn\'t an afterthought—it\'s our foundation. AES-256 encryption and read-only access ensure your business stays safe.',
+      title: 'Proof-First Delivery',
+      description: 'Every backlink comes with a live URL and a cloud-hosted screenshot. No guesswork — transparent evidence for every credit spent.',
       icon: Shield,
+    },
+    {
+      title: 'Human-Like AI Agents',
+      description: 'Powered by CrewAI, our agents simulate authentic human interactions — mouse movements, scrolling, natural typing delays — staying invisible to search engine algorithms.',
+      icon: Bot,
+    },
+    {
+      title: '48-Hour Guarantee',
+      description: 'From submission to live proof in under 48 hours. If the task fails due to platform downtime, your credit is automatically refunded. Zero risk.',
+      icon: Zap,
     },
   ];
 
@@ -95,127 +100,83 @@ export default async function AboutPage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       <div className="container mx-auto px-4 py-16 max-w-4xl">
-      {/* Header */}
-      <div className="text-center mb-16">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4">
-          Built for the Army of One
-        </h1>
-        <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-          SoloBoard was born out of a simple frustration: Managing 10 SaaS products shouldn't feel like a chore.
-        </p>
-      </div>
+        {/* Header */}
+        <div className="text-center mb-16">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+            Built for SEO Professionals. Powered by AI.
+          </h1>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            LinkFlow AI was born from a simple problem: high-authority backlink outreach takes weeks and costs thousands. We automated it.
+          </p>
+        </div>
 
-      {/* Story */}
-      <div className="prose prose-lg dark:prose-invert max-w-none mb-16">
-        <p className="text-lg leading-relaxed">
-          As a serial entrepreneur, I found myself wasting hours every week manually checking different admin panels. 
-          I realized that as my portfolio grew, my focus vanished. I didn't need more complex analytics; I needed a <strong>Pulse Monitor</strong>.
-        </p>
-        <p className="text-lg leading-relaxed mt-6">
-          SoloBoard is our answer to the chaos. Built on top of robust technologies like <strong>Neon</strong> and <strong>ShipAny</strong>, 
-          we provide independent founders with the clarity they need to scale. We aren't just a dashboard; we are your digital command center, 
-          helping you spend less time monitoring and more time building.
-        </p>
-      </div>
+        {/* Story */}
+        <div className="prose prose-lg dark:prose-invert max-w-none mb-16">
+          <p className="text-lg leading-relaxed">
+            As SEO practitioners, we spent months manually reaching out to blog editors, waiting for approvals, and paying premium prices for guest posts — only to get no proof the link was ever live. We built LinkFlow AI to solve exactly that.
+          </p>
+          <p className="text-lg leading-relaxed mt-6">
+            LinkFlow AI uses <strong>CrewAI-powered agents</strong> that mimic real human behavior to publish contextual backlinks on DA 50+ platforms — Blogger, Reddit, Medium, and more. Every task returns a <strong>Proof Report</strong> with the live URL and a high-resolution screenshot stored securely on the cloud.
+          </p>
+        </div>
 
-      {/* Values */}
-      <div className="mb-16">
-        <h2 className="text-3xl font-bold text-center mb-12">Our Values</h2>
-        <div className="grid md:grid-cols-3 gap-8">
-          {values.map((value, index) => {
-            const Icon = value.icon;
-            return (
-              <div
-                key={index}
-                className="p-6 border rounded-lg hover:shadow-lg transition-shadow"
-              >
-                <div className="flex justify-center mb-4">
-                  <div className="p-3 bg-primary/10 rounded-lg">
-                    <Icon className="w-8 h-8 text-primary" />
+        {/* Values */}
+        <div className="mb-16">
+          <h2 className="text-3xl font-bold text-center mb-12">Our Principles</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            {values.map((value, index) => {
+              const Icon = value.icon;
+              return (
+                <div
+                  key={index}
+                  className="p-6 border rounded-lg hover:shadow-lg transition-shadow"
+                >
+                  <div className="flex justify-center mb-4">
+                    <div className="p-3 bg-primary/10 rounded-lg">
+                      <Icon className="w-8 h-8 text-primary" />
+                    </div>
                   </div>
+                  <h3 className="font-semibold text-xl text-center mb-3">{value.title}</h3>
+                  <p className="text-muted-foreground text-center">{value.description}</p>
                 </div>
-                <h3 className="font-semibold text-xl text-center mb-3">
-                  {value.title}
-                </h3>
-                <p className="text-muted-foreground text-center">
-                  {value.description}
-                </p>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
-      </div>
 
-      {/* Tech Stack */}
-      <div className="bg-muted/50 rounded-lg p-8 mb-16">
-        <h2 className="text-2xl font-bold text-center mb-6">Built on Solid Foundations</h2>
-        <div className="grid md:grid-cols-4 gap-6 text-center">
-          <div>
-            <p className="font-semibold mb-2">Next.js 16</p>
-            <p className="text-sm text-muted-foreground">Lightning-fast performance</p>
-          </div>
-          <div>
-            <p className="font-semibold mb-2">Neon PostgreSQL</p>
-            <p className="text-sm text-muted-foreground">Serverless database</p>
-          </div>
-          <div>
-            <p className="font-semibold mb-2">ShipAny Framework</p>
-            <p className="text-sm text-muted-foreground">Rapid development</p>
-          </div>
-          <div>
-            <p className="font-semibold mb-2">Vercel</p>
-            <p className="text-sm text-muted-foreground">Global edge network</p>
+        {/* Tech Stack */}
+        <div className="bg-muted/50 rounded-lg p-8 mb-16">
+          <h2 className="text-2xl font-bold text-center mb-6">Built on Solid Foundations</h2>
+          <div className="grid md:grid-cols-4 gap-6 text-center">
+            <div><p className="font-semibold mb-2">Next.js 15</p><p className="text-sm text-muted-foreground">Lightning-fast performance</p></div>
+            <div><p className="font-semibold mb-2">CrewAI Agents</p><p className="text-sm text-muted-foreground">Human-like automation</p></div>
+            <div><p className="font-semibold mb-2">Neon PostgreSQL</p><p className="text-sm text-muted-foreground">Serverless database</p></div>
+            <div><p className="font-semibold mb-2">Vercel Edge</p><p className="text-sm text-muted-foreground">Global CDN delivery</p></div>
           </div>
         </div>
-      </div>
 
-      {/* CTA */}
-      <div className="text-center">
-        <h2 className="text-2xl font-bold mb-4">Join the Journey</h2>
-        <p className="text-muted-foreground mb-6">
-          Follow our build-in-public journey and be part of the community shaping SoloBoard's future.
-        </p>
-        <div className="flex gap-4 justify-center">
-          <a
-            href="https://twitter.com/SoloBoardApp"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors"
-          >
-            Follow on Twitter
-          </a>
-          <a
-            href="/sign-up"
-            className="px-6 py-3 border rounded-lg hover:bg-muted transition-colors"
-          >
-            Start for Free
-          </a>
+        {/* CTA */}
+        <div className="text-center">
+          <h2 className="text-2xl font-bold mb-4">Start Deploying Backlinks Today</h2>
+          <p className="text-muted-foreground mb-6">
+            Join SEO professionals who trust LinkFlow AI for transparent, automated backlink deployment with proof.
+          </p>
+          <div className="flex gap-4 justify-center">
+            <a
+              href="/sign-up"
+              className="px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors"
+            >
+              Get 1 Free Credit
+            </a>
+            <a
+              href="/platforms"
+              className="px-6 py-3 border rounded-lg hover:bg-muted transition-colors"
+            >
+              View Platforms
+            </a>
+          </div>
         </div>
-      </div>
       </div>
     </>
   );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

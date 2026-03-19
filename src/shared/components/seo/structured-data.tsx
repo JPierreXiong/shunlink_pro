@@ -1,6 +1,6 @@
 /**
  * SEO Structured Data (JSON-LD)
- * 为搜索引擎提供结构化数据，增强 SEO 效果
+ * Provides structured data for search engines to enhance SEO
  */
 
 import { envConfigs } from '@/config';
@@ -11,8 +11,8 @@ interface StructuredDataProps {
 }
 
 function StructuredData({ type, data }: StructuredDataProps) {
-  const baseUrl = envConfigs.app_url || 'https://www.soloboard.app';
-  const appName = envConfigs.app_name || 'SoloBoard';
+  const baseUrl = envConfigs.app_url || 'https://www.linkflowai.app';
+  const appName = envConfigs.app_name || 'LinkFlow AI';
 
   let structuredData: Record<string, any> = {};
 
@@ -41,11 +41,7 @@ function StructuredData({ type, data }: StructuredDataProps) {
         name: appName,
         url: baseUrl,
         logo: `${baseUrl}/logo.png`,
-        sameAs: [
-          // Add your social media links here
-          // 'https://twitter.com/yourhandle',
-          // 'https://facebook.com/yourpage',
-        ],
+        sameAs: [],
         contactPoint: {
           '@type': 'ContactPoint',
           contactType: 'Customer Service',
@@ -122,13 +118,10 @@ function StructuredData({ type, data }: StructuredDataProps) {
   );
 }
 
-/**
- * 预设的结构化数据组件
- */
 export function WebsiteStructuredData() {
-  const baseUrl = envConfigs.app_url || 'https://www.soloboard.app';
-  const appName = envConfigs.app_name || 'SoloBoard';
-  
+  const baseUrl = envConfigs.app_url || 'https://www.linkflowai.app';
+  const appName = envConfigs.app_name || 'LinkFlow AI';
+
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
@@ -143,7 +136,7 @@ export function WebsiteStructuredData() {
       'query-input': 'required name=search_term_string',
     },
   };
-  
+
   return (
     <script
       type="application/ld+json"
@@ -153,9 +146,9 @@ export function WebsiteStructuredData() {
 }
 
 export function OrganizationStructuredData() {
-  const baseUrl = envConfigs.app_url || 'https://www.soloboard.app';
-  const appName = envConfigs.app_name || 'SoloBoard';
-  
+  const baseUrl = envConfigs.app_url || 'https://www.linkflowai.app';
+  const appName = envConfigs.app_name || 'LinkFlow AI';
+
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
@@ -167,19 +160,17 @@ export function OrganizationStructuredData() {
       width: 512,
       height: 512,
     },
-    sameAs: [
-      'https://twitter.com/SoloBoardApp',
-    ],
+    sameAs: [],
     contactPoint: {
       '@type': 'ContactPoint',
       contactType: 'Customer Service',
-      email: 'support@soloboard.app',
+      email: 'support@linkflowai.app',
       url: `${baseUrl}/contact`,
       availableLanguage: ['English', 'Chinese', 'French'],
     },
-    description: 'SoloBoard is a multi-site monitoring dashboard for solo entrepreneurs. Track GA4 analytics, Stripe & Creem revenue, and uptime for all your websites in one place.',
+    description: 'LinkFlow AI is an AI-powered backlink deployment platform. Deploy AI agents to secure high-authority backlinks in 48 hours with live URL and screenshot proof.',
   };
-  
+
   return (
     <script
       type="application/ld+json"
@@ -189,25 +180,25 @@ export function OrganizationStructuredData() {
 }
 
 export function SoftwareAppStructuredData() {
-  const baseUrl = envConfigs.app_url || 'https://www.soloboard.app';
+  const baseUrl = envConfigs.app_url || 'https://www.linkflowai.app';
 
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
-    name: 'SoloBoard',
+    name: 'LinkFlow AI',
     url: baseUrl,
     applicationCategory: 'BusinessApplication',
     operatingSystem: 'Web',
-    description: 'Multi-site monitoring dashboard for solo entrepreneurs. Track GA4 traffic, Stripe & Creem revenue, and uptime for up to 10 websites in one beautiful dashboard.',
+    description: 'AI-powered backlink deployment platform. Deploy AI agents to secure high-authority backlinks in 48 hours. Every submission comes with a live URL and screenshot proof. No manual outreach needed.',
     featureList: [
-      'Google Analytics 4 (GA4) integration',
-      'Stripe revenue tracking',
-      'Creem payment monitoring',
-      'Website uptime monitoring',
-      'Multi-site dashboard (up to 10 sites)',
-      'Real-time data sync',
-      'Email alerts',
-      'AES-256 encrypted API key storage',
+      'AI Backlink Deployment',
+      '48-Hour Delivery Guarantee',
+      'Real-time Screenshot Proof',
+      'DA 50+ Platform Library',
+      'Human-Like CrewAI Agents',
+      'Full Anchor Text Control',
+      'Automatic Credit Refund on Failure',
+      'Privacy-First OAuth Signup',
     ],
     offers: [
       {
@@ -215,27 +206,27 @@ export function SoftwareAppStructuredData() {
         name: 'Free Plan',
         price: '0',
         priceCurrency: 'USD',
-        description: 'Monitor 3 websites, 48-hour data sync',
+        description: '1 free credit on signup — no credit card required',
       },
       {
         '@type': 'Offer',
         name: 'Base Plan',
         price: '19.9',
         priceCurrency: 'USD',
-        description: 'Monitor 5 websites, 6-hour data sync',
+        description: '100 credits/month — 48-hour delivery with screenshot proof',
       },
       {
         '@type': 'Offer',
         name: 'Pro Plan',
         price: '39.9',
         priceCurrency: 'USD',
-        description: 'Monitor 10 websites, 60-minute real-time sync',
+        description: '500 credits/month — priority queue, API access, unlimited history',
       },
     ],
     screenshot: `${baseUrl}/imgs/features/admin.png`,
     publisher: {
       '@type': 'Organization',
-      name: 'SoloBoard',
+      name: 'LinkFlow AI',
       url: baseUrl,
     },
   };
@@ -271,4 +262,3 @@ export function BreadcrumbStructuredData(props: {
 }) {
   return <StructuredData type="breadcrumb" data={props} />;
 }
-

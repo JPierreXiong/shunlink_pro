@@ -5,11 +5,9 @@ export const runtime = 'edge';
 export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url);
-    
-    // Get parameters from URL
-    const title = searchParams.get('title') || 'Monitor All Your Websites';
-    const subtitle = searchParams.get('subtitle') || 'in One Dashboard';
-    const page = searchParams.get('page') || 'home';
+
+    const title = searchParams.get('title') || 'Backlinks on Autopilot.';
+    const subtitle = searchParams.get('subtitle') || 'Proof in Every Post.';
 
     return new ImageResponse(
       (
@@ -21,8 +19,8 @@ export async function GET(request: Request) {
             flexDirection: 'column',
             alignItems: 'center',
             justifyContent: 'center',
-            backgroundColor: '#0f172a',
-            backgroundImage: 'linear-gradient(135deg, #1e3a2e 0%, #4a5d23 100%)',
+            backgroundColor: '#0a0f1e',
+            backgroundImage: 'linear-gradient(135deg, #0d1b2a 0%, #1a2744 100%)',
             padding: '60px',
           }}
         >
@@ -34,13 +32,12 @@ export async function GET(request: Request) {
               marginBottom: 50,
             }}
           >
-            {/* Logo Circle */}
             <div
               style={{
                 width: 80,
                 height: 80,
                 borderRadius: '50%',
-                background: 'linear-gradient(135deg, #2d5016 0%, #c9a961 100%)',
+                background: 'linear-gradient(135deg, #2563eb 0%, #7c3aed 100%)',
                 marginRight: 24,
                 display: 'flex',
                 alignItems: 'center',
@@ -54,20 +51,19 @@ export async function GET(request: Request) {
                   fontWeight: 'bold',
                 }}
               >
-                S
+                L
               </div>
             </div>
-            
-            {/* Brand Name */}
+
             <div
               style={{
-                fontSize: 56,
+                fontSize: 52,
                 fontWeight: 'bold',
                 color: '#fff',
                 letterSpacing: '-0.02em',
               }}
             >
-              SoloBoard
+              LinkFlow AI
             </div>
           </div>
 
@@ -90,7 +86,7 @@ export async function GET(request: Request) {
           <div
             style={{
               fontSize: 42,
-              color: '#c9a961',
+              color: '#60a5fa',
               textAlign: 'center',
               marginBottom: 60,
               fontWeight: 500,
@@ -99,7 +95,7 @@ export async function GET(request: Request) {
             {subtitle}
           </div>
 
-          {/* Features Grid */}
+          {/* Features */}
           <div
             style={{
               display: 'flex',
@@ -111,48 +107,17 @@ export async function GET(request: Request) {
           >
             <div style={{ display: 'flex', alignItems: 'center' }}>
               <span style={{ color: '#4ade80', marginRight: 8 }}>✓</span>
-              GA4 Analytics
+              48-Hour Delivery
             </div>
             <div style={{ display: 'flex', alignItems: 'center' }}>
               <span style={{ color: '#4ade80', marginRight: 8 }}>✓</span>
-              Revenue Tracking
+              Screenshot Proof
             </div>
             <div style={{ display: 'flex', alignItems: 'center' }}>
               <span style={{ color: '#4ade80', marginRight: 8 }}>✓</span>
-              Uptime Monitoring
+              DA 50+ Platforms
             </div>
           </div>
-
-          {/* Dashboard Preview (Simple Grid) */}
-          {page === 'home' && (
-            <div
-              style={{
-                display: 'flex',
-                gap: 12,
-                marginBottom: 40,
-              }}
-            >
-              {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((i) => (
-                <div
-                  key={i}
-                  style={{
-                    width: 80,
-                    height: 80,
-                    background: 'rgba(255, 255, 255, 0.1)',
-                    borderRadius: 8,
-                    border: '2px solid rgba(201, 169, 97, 0.3)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    color: '#64748b',
-                    fontSize: 14,
-                  }}
-                >
-                  {i}
-                </div>
-              ))}
-            </div>
-          )}
 
           {/* URL */}
           <div
@@ -164,7 +129,7 @@ export async function GET(request: Request) {
               letterSpacing: '0.05em',
             }}
           >
-            www.soloboard.app
+            www.linkflowai.app
           </div>
         </div>
       ),
@@ -180,5 +145,3 @@ export async function GET(request: Request) {
     });
   }
 }
-
-
