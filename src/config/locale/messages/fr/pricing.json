@@ -1,12 +1,12 @@
 {
   "metadata": {
-    "title": "Tarifs — Plans SoloBoard | Gratuit, Base 19,9$, Pro 39,9$",
-    "description": "Commencez gratuitement ou choisissez un plan payant. SoloBoard Gratuit surveille 3 sites, Base (19,9$/mois) couvre 5 sites avec sync 6h, Pro (39,9$/mois) offre 10 sites avec sync temps réel 60 min. Sans carte bancaire.",
-    "keywords": "tarifs SoloBoard, plans surveillance sites, coût tableau de bord multi-sites, plan SEO professional, prix tableau de bord GA4, abonnement surveillance uptime"
+    "title": "Tarifs — Plans LinkFlow AI | Gratuit, Base 19,9$, Pro 39,9$",
+    "description": "Commencez gratuitement ou choisissez un plan payant. LinkFlow AI Gratuit surveille 3 sites, Base (19,9$/mois) couvre 5 sites avec sync 6h, Pro (39,9$/mois) offre 10 sites avec sync temps réel 60 min. Sans carte bancaire.",
+    "keywords": "tarifs LinkFlow AI, plans surveillance sites, coût tableau de bord multi-sites, plan SEO professional, prix tableau de bord GA4, abonnement surveillance uptime"
   },
   "pricing": {
     "id": "pricing",
-    "sr_only_title": "Tarification SoloBoard",
+    "sr_only_title": "Tarification LinkFlow AI",
     "title": "Tarification",
     "description": "Surveillez tous vos sites dans un seul tableau de bord. Commencez gratuitement, passez à un plan supérieur quand vous êtes prêt.",
     "groups": [
@@ -45,7 +45,7 @@
           "icon": "LayoutDashboard"
         },
         "product_id": "linkflowai-free",
-        "product_name": "SoloBoard Gratuit",
+        "product_name": "LinkFlow AI Gratuit",
         "group": "monthly",
         "plan_name": "Gratuit"
       },
