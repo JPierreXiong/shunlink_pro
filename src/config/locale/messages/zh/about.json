@@ -1,16 +1,16 @@
 {
   "metadata": {
-    "title": "关于我们 - SoloBoard",
-    "description": "了解 SoloBoard 的使命：帮助独立创业者高效管理多个 SaaS 产品。由创始人打造，为创始人服务。"
+    "title": "关于我们 - LinkFlow AI",
+    "description": "了解 LinkFlow AI 的使命：帮助独立创业者高效管理多个 SaaS 产品。由创始人打造，为创始人服务。"
   },
   "hero": {
     "title": "为一人军队打造",
-    "description": "SoloBoard 诞生于一个简单的烦恼：管理多个 SaaS 产品不该是一项全职工作。"
+    "description": "LinkFlow AI 诞生于一个简单的烦恼：管理多个 SaaS 产品不该是一项全职工作。"
   },
   "story": {
     "title": "我们的故事",
     "paragraph1": "作为独立创始人，我们发现自己花费在不同仪表盘（Stripe、PostHog、GitHub、Google Analytics）之间反复登录的时间，竟然比实际构建业务的时间还要多。我们意识到，我们需要的不是又一个复杂的企业级 BI 工具，而是一个能一眼看清所有核心指标的脉搏监测器。",
-    "paragraph2": "SoloBoard 是我们对混乱的回答。基于 Neon 和 ShipAny 等强大技术构建，我们为独立创始人提供扩展所需的清晰度。我们不仅仅是一个仪表盘；我们是您的数字指挥中心，帮助您减少监控时间，增加构建时间。"
+    "paragraph2": "LinkFlow AI 是我们对混乱的回答。基于 Neon 和 ShipAny 等强大技术构建，我们为独立创始人提供扩展所需的清晰度。我们不仅仅是一个仪表盘；我们是您的数字指挥中心，帮助您减少监控时间，增加构建时间。"
   },
   "values": {
     "title": "我们的价值观",
@@ -52,7 +52,7 @@
   },
   "cta": {
     "title": "加入旅程",
-    "description": "关注我们的公开构建旅程，成为塑造 SoloBoard 未来的社区一员。",
+    "description": "关注我们的公开构建旅程，成为塑造 LinkFlow AI 未来的社区一员。",
     "buttons": {
       "twitter": "在 Twitter 上关注",
       "signup": "免费开始"

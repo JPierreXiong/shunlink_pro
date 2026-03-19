@@ -1,12 +1,12 @@
 {
   "metadata": {
-    "title": "Pricing — SoloBoard Plans & Features | Free, Base $19.9, Pro $39.9",
-    "description": "Start free or choose a paid plan. SoloBoard Free monitors 3 sites, Base ($19.9/mo) covers 5 sites with 6-hour sync, Pro ($39.9/mo) gives you 10 sites with 60-min real-time sync. No credit card required.",
-    "keywords": "SoloBoard pricing, website monitoring plans, multi-site dashboard cost, solopreneur monitoring plan, GA4 dashboard pricing, uptime monitoring subscription"
+    "title": "Pricing — LinkFlow AI Plans & Features | Free, Base $19.9, Pro $39.9",
+    "description": "Start free or choose a paid plan. LinkFlow AI Free monitors 3 sites, Base ($19.9/mo) covers 5 sites with 6-hour sync, Pro ($39.9/mo) gives you 10 sites with 60-min real-time sync. No credit card required.",
+    "keywords": "LinkFlow AI pricing, website monitoring plans, multi-site dashboard cost, SEO professional monitoring plan, GA4 dashboard pricing, uptime monitoring subscription"
   },
   "pricing": {
     "id": "pricing",
-    "sr_only_title": "SoloBoard Pricing",
+    "sr_only_title": "LinkFlow AI Pricing",
     "title": "Pricing",
     "description": "Monitor all your sites in one dashboard. Start free, upgrade when ready.",
     "groups": [
@@ -44,8 +44,8 @@
           "url": "/sign-up",
           "icon": "LayoutDashboard"
         },
-        "product_id": "soloboard-free",
-        "product_name": "SoloBoard Free",
+        "product_id": "linkflowai-free",
+        "product_name": "LinkFlow AI Free",
         "group": "monthly",
         "plan_name": "Free"
       },
@@ -77,7 +77,7 @@
           "icon": "Zap"
         },
         "product_id": "prod_3heGlzk0u0XpC3jpb4j7mK",
-        "product_name": "SoloBoard Base",
+        "product_name": "LinkFlow AI Base",
         "payment_product_id": "prod_3heGlzk0u0XpC3jpb4j7mK",
         "group": "monthly",
         "plan_name": "Base"
@@ -110,7 +110,7 @@
           "icon": "Crown"
         },
         "product_id": "prod_1jssoS0uMCEc6s6Z1RHObl",
-        "product_name": "SoloBoard Pro",
+        "product_name": "LinkFlow AI Pro",
         "payment_product_id": "prod_1jssoS0uMCEc6s6Z1RHObl",
         "group": "monthly",
         "plan_name": "Pro"

@@ -1,6 +1,6 @@
 /**
  * SEO Data Configuration
- * Multi-language structured data for SoloBoard Command Center
+ * Multi-language structured data for LinkFlow AI
  */
 
 export const getFaqSchema = (locale: string) => {
@@ -14,65 +14,65 @@ export const getFaqSchema = (locale: string) => {
       {
         '@type': 'Question',
         name: isZh
-          ? '什么是死信开关？'
+          ? '这些外链会导致我的网站被惩罚吗？'
           : isFr
-            ? "Qu'est-ce qu'un Dead Man's Switch ?"
-            : "What is a Dead Man's Switch?",
+            ? 'Ces liens vont-ils pénaliser mon site ?'
+            : 'Will these links get my site penalized?',
         acceptedAnswer: {
           '@type': 'Answer',
           text: isZh
-            ? '死信开关是一个自动化系统，如果您在预设的时间内未进行检入（登录），系统将触发预设操作（如释放加密金库）。'
+            ? '不会。LinkFlow AI 使用模拟自然人类交互的 Agentic 工作流，专注于高质量平台和上下文相关性放置，确保搜索引擎安全。'
             : isFr
-              ? "Un Dead Man's Switch est un système automatisé qui déclenche une action prédéfinie si vous ne vous connectez pas dans un délai spécifique."
-              : "A Dead Man's Switch is an automated system that triggers a pre-set action if you fail to check in within a specific timeframe.",
+              ? "Non. LinkFlow AI utilise des Workflows Agentiques qui imitent les interactions humaines naturelles pour garantir la sécurité SEO."
+              : 'No. LinkFlow AI uses Agentic Workflows that mimic natural human interactions — mouse movements, scrolling, and delays — to ensure search engine safety.',
         },
       },
       {
         '@type': 'Question',
         name: isZh
-          ? 'SoloBoard 真的无法看到我的密码吗？'
+          ? '我如何确认外链已上线？'
           : isFr
-            ? 'SoloBoard peut-il vraiment voir mon mot de passe ?'
-            : 'Is my master password truly safe with SoloBoard?',
+            ? 'Comment savoir si le lien est en ligne ?'
+            : 'How do I know the link is live?',
         acceptedAnswer: {
           '@type': 'Answer',
           text: isZh
-            ? '是的。我们采用零知识加密。您的主密码仅用于本地加密，永远不会离开您的设备。'
+            ? '每个成功任务均生成一份《证明报告》，包含实时 URL 和存储在安全云端的高清截图。您可独立验证，随时可查。'
             : isFr
-              ? 'Oui. Nous utilisons le chiffrement Zero-Knowledge. Votre mot de passe principal est uniquement utilisé pour le chiffrement local et ne quitte jamais votre appareil.'
-              : 'Yes. We use Zero-Knowledge encryption. Your master password is only used for local encryption and never leaves your device.',
+              ? 'Chaque tâche réussie génère un Rapport de Preuve contenant l\'URL en direct et une capture d\'écran haute résolution stockée sur notre cloud sécurisé.'
+              : 'Every successful task generates a Proof Report containing the Live URL and a high-resolution screenshot stored on our secure cloud. Evidence you can verify independently at any time.',
         },
       },
       {
         '@type': 'Question',
         name: isZh
-          ? '如果丢失了主密码怎么办？'
+          ? '什么是 48 小时承诺？'
           : isFr
-            ? 'Que se passe-t-il si je perds mon mot de passe principal ?'
-            : 'What happens if I lose my master password?',
+            ? "Qu'est-ce que la Garantie 48 heures ?"
+            : 'What is the 48-Hour Guarantee?',
         acceptedAnswer: {
           '@type': 'Answer',
           text: isZh
-            ? '由于零知识架构，我们无法恢复您的主密码。请务必安全保存您的恢复包（Recovery Kit）PDF 文件。'
+            ? '从您提交任务那一刻起，AI 立即开始部署。我们保证在 48 小时内完成提交并提供实时截图证明。如果任务因平台问题失败，积分将立即退还。'
             : isFr
-              ? "En raison de l'architecture zero-knowledge, nous ne pouvons pas récupérer votre mot de passe principal. Veuillez conserver en sécurité vos fichiers PDF de Kit de Récupération."
-              : 'Due to zero-knowledge architecture, we cannot recover your master password. Please securely store your Recovery Kit PDF files.',
+              ? "Dès que vous soumettez une tâche, notre IA démarre immédiatement. Nous garantissons une soumission réussie avec preuve en 48 heures. En cas d'échec, votre crédit est instantanément remboursé."
+              : 'From the moment you submit a task, our AI starts deployment immediately. We guarantee a successful submission with a live screenshot proof within 48 hours. If the task fails, your credit is instantly refunded.',
         },
       },
       {
         '@type': 'Question',
         name: isZh
-          ? '心跳检测的频率是多少？'
+          ? '有免费试用吗？'
           : isFr
-            ? 'Quelle est la fréquence de vérification du battement de cœur ?'
-            : 'How often do I need to check in?',
+            ? 'Proposez-vous un essai gratuit ?'
+            : 'Do you offer a free trial?',
         acceptedAnswer: {
           '@type': 'Answer',
           text: isZh
-            ? 'Free 计划需要每 180 天检入一次，Base 计划每 90 天，Pro 计划每 30 天。'
+            ? '有。每个新账户注册即送 1 个免费积分——无需信用卡——可用于在真实外链任务上体验我们 AI 的精准度。'
             : isFr
-              ? 'Le plan gratuit nécessite une vérification tous les 180 jours, le plan de base tous les 90 jours et le plan Pro tous les 30 jours.'
-              : 'Free plan requires check-in every 180 days, Base plan every 90 days, and Pro plan every 30 days.',
+              ? "Oui. Chaque nouveau compte reçoit 1 Crédit Gratuit à l'inscription — sans carte de crédit — pour tester la précision de notre IA sur une vraie tâche de backlink."
+              : 'Yes. Every new account gets 1 Free Credit on signup — no credit card required — to experience our AI precision on a real backlink task.',
         },
       },
     ],
@@ -86,21 +86,18 @@ export const getOrgSchema = (locale: string) => {
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'SoloBoard',
+    name: 'LinkFlow AI',
     description: isZh
-      ? '领先的多站点监控与管理平台'
+      ? 'AI 驱动的高权重外链自动部署平台'
       : isFr
-        ? "Plateforme leader de surveillance et de gestion multi-sites"
-        : 'Leading Multi-Site Monitoring & Management Platform',
-    url: 'https://www.soloboard.app',
-    logo: 'https://www.soloboard.app/logo.png',
-    sameAs: [
-      // Add your social media links here when available
-      // 'https://twitter.com/soloboard_app',
-    ],
+        ? 'Plateforme de déploiement automatisé de backlinks haute autorité par IA'
+        : 'AI-Powered High-Authority Backlink Deployment Platform',
+    url: 'https://www.linkflowai.app',
+    logo: 'https://www.linkflowai.app/logo.png',
+    sameAs: [],
     contactPoint: {
       '@type': 'ContactPoint',
-      email: 'support@soloboard.app',
+      email: 'support@linkflowai.app',
       contactType: 'customer service',
     },
   };
@@ -113,9 +110,9 @@ export const getSoftwareSchema = (locale: string) => {
   return {
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
-    name: isZh ? 'SoloBoard 命令中心' : isFr ? 'SoloBoard Centre de Commande' : 'SoloBoard Command Center',
+    name: isZh ? 'LinkFlow AI 外链部署平台' : isFr ? 'LinkFlow AI Plateforme de Backlinks' : 'LinkFlow AI Backlink Platform',
     operatingSystem: 'Web',
-    applicationCategory: 'SecurityApplication',
+    applicationCategory: 'BusinessApplication',
     offers: {
       '@type': 'Offer',
       price: '0.00',

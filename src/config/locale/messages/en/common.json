@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "title": "SoloBoard — Multi-Site Monitoring Dashboard for Solo Entrepreneurs",
-    "description": "Monitor GA4 traffic, Stripe & Creem revenue, and uptime for up to 10 websites — all in one dashboard. Save 2+ hours daily. Free plan available.",
-    "keywords": "multi-site monitoring dashboard, GA4 analytics dashboard, Stripe revenue tracker, uptime monitoring tool, solopreneur tools, website analytics aggregator, SaaS dashboard, Creem revenue tracking, website uptime monitor, solo founder dashboard"
+    "title": "LinkFlow AI — AI-Powered Backlink Deployment Platform",
+    "description": "Deploy AI agents to secure high-authority backlinks in 48 hours with live proof — all in one dashboard. Save 2+ hours daily. Free plan available.",
+    "keywords": "AI backlink deployment, automated backlinks, SEO link building, Stripe revenue tracker, uptime monitoring tool, backlink proof, high authority backlinks, linkflow ai, automated SEO"
   },
   "sign": {
     "sign_in_title": "Sign In",
@@ -45,18 +45,18 @@
   },
   "shipany": {
     "page": {
-      "title": "Add Website",
+      "title": "New Task",
       "subtitle": "Monitor your website"
     }
   },
-  "soloboard": {
-    "title": "SoloBoard Dashboard",
-    "description": "Monitor all your sites in one place. Track GA4 analytics, payment revenue, and uptime status.",
+  "linkflowai": {
+    "title": "LinkFlow AI Dashboard",
+    "description": "Manage your backlink tasks and track deployment results in one place.",
     "enter_dashboard": "Enter Dashboard",
     "view_pricing": "View Pricing",
     "page": {
-      "title": "Monitor All Your Sites",
-      "subtitle": "Track revenue, traffic, and uptime status for all your websites in one place"
+      "title": "Manage Your Backlink Tasks",
+      "subtitle": "Track deployment status, live URLs, and screenshot proof for all your backlink tasks"
     },
     "refresh": "Refresh",
     "loading": "Loading sites...",
@@ -65,11 +65,11 @@
       "retry": "Try Again"
     },
     "empty_state": {
-      "title": "No websites yet",
-      "description": "Add your first website to start monitoring revenue, traffic, and uptime status.",
-      "add_button": "Add Your First Website"
+      "title": "No tasks yet",
+      "description": "Submit your first backlink task to start deploying AI-powered backlinks with proof.",
+      "add_button": "Deploy Your First Backlink"
     },
-    "add_button": "Add Website",
+    "add_button": "New Task",
     "add_single_site": "Add Single Site",
     "batch_add_sites": "Batch Add Sites",
     "site_card": {
@@ -125,7 +125,7 @@
       }
     },
     "upgrade_dialog": {
-      "title": "Upgrade to Add More Sites",
+      "title": "Upgrade to Deploy More Backlinks",
       "description": "Your {plan} plan has reached the limit of {limit} sites",
       "current_limit": "Current Limit",
       "usage": "Used {current} / {limit} site quota",
@@ -180,7 +180,7 @@
       "contact_us": "Contact Us"
     },
     "batch_add": {
-      "title": "Batch Add Websites",
+      "title": "Batch New Tasks",
       "description": "Add up to 10 websites at once, supports batch paste of domain list",
       "quick_import_title": "💡 Quick Import Tips",
       "quick_import_description": "Copy domain list from Excel or Notepad, paste into the first input box to batch import. Supported formats: one domain per line, or \"Name, Domain\"",

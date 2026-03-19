@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "title": "SoloBoard — 独立创业者的多站点监控仪表盘",
+    "title": "LinkFlow AI — 独立创业者的多站点监控仪表盘",
     "description": "一个仪表盘同时监控最多 10 个网站的 GA4 流量、Stripe/Creem 收入和在线状态。每天节省 2 小时以上。免费方案可用。",
     "keywords": "多站点监控仪表盘, GA4分析仪表盘, Stripe收入追踪, 在线监控工具, 独立创业者工具, 网站分析聚合, SaaS仪表盘, 网站收入追踪, 网站在线监控, 独立开发者工具"
   },
@@ -43,8 +43,8 @@
     "title": "我们检测到您的浏览器语言是 {locale}。是否切换？",
     "switch_to": "切换到 {locale}"
   },
-  "soloboard": {
-    "title": "SoloBoard 仪表盘",
+  "linkflowai": {
+    "title": "LinkFlow AI 仪表盘",
     "description": "在一个地方监控所有网站。追踪 GA4 分析、支付收入和在线状态。",
     "enter_dashboard": "进入仪表盘",
     "view_pricing": "查看定价",

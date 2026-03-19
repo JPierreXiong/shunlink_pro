@@ -7,7 +7,6 @@ import {
   FAQ,
   Features,
   Hero,
-  ZeroKnowledgeSecurity,
 } from '@/themes/default/blocks';
 
 export default async function LandingPage({
@@ -18,15 +17,15 @@ export default async function LandingPage({
   page: Landing;
 }) {
   // JSON-LD structured data for SEO
-  const appUrl = envConfigs.app_url || 'https://soloboard.app';
-  
+  const appUrl = envConfigs.app_url || 'https://www.linkflowai.app';
+
   // SoftwareApplication JSON-LD
   const jsonLdSoftware = {
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
-    name: 'SoloBoard',
+    name: 'LinkFlow AI',
     description:
-      'All-in-one dashboard for solopreneurs. Monitor traffic, revenue, and site health for all your SaaS products in one unified dashboard. Connect Google Analytics, Stripe, Shopify, and more.',
+      'AI-powered backlink deployment platform. Deploy AI agents to secure high-authority backlinks in 48 hours with live URL and screenshot proof. No manual outreach needed.',
     applicationCategory: 'BusinessApplication',
     operatingSystem: 'Web Browser',
     offers: {
@@ -35,12 +34,12 @@ export default async function LandingPage({
       priceCurrency: 'USD',
     },
     featureList: [
-      'Multi-site monitoring',
-      'Real-time analytics',
-      'Revenue tracking',
-      'Site health monitoring',
-      'Google Analytics integration',
-      'Stripe integration',
+      'AI-powered backlink deployment',
+      '48-hour delivery guarantee',
+      'Screenshot proof for every link',
+      'DA 50+ platform library',
+      'Human-like AI agents',
+      'Credit-based system',
     ],
     url: appUrl,
   };
@@ -81,18 +80,11 @@ export default async function LandingPage({
 
       {page.hero && <Hero hero={page.hero} />}
       
-      {/* SoloBoard: How It Works Section */}
+      {/* How It Works Section */}
       {page['how-it-works'] && <Features features={page['how-it-works']} className="bg-muted" />}
-      
-      {/* SoloBoard: Zero-Knowledge Security Section */}
-      {page['zero-knowledge-security'] && (
-        <ZeroKnowledgeSecurity features={page['zero-knowledge-security']} />
-      )}
-      
-      {/* SoloBoard: Technical Architecture Section */}
-      {page['technical-architecture'] && (
-        <Features features={page['technical-architecture']} className="bg-muted" />
-      )}
+
+      {/* Features Section */}
+      {page['features'] && <Features features={page['features']} />}
       
       {page.faq && <FAQ faq={page.faq} />}
       {page.cta && <CTA cta={page.cta} className="bg-muted" />}

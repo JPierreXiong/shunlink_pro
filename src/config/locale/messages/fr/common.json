@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "title": "SoloBoard — Tableau de bord de surveillance multi-sites pour solopreneurs",
+    "title": "LinkFlow AI — Tableau de bord de surveillance multi-sites pour SEO professionals",
     "description": "Surveillez le trafic GA4, les revenus Stripe & Creem et la disponibilité de 10 sites en un seul tableau de bord. Économisez 2h+ par jour. Plan gratuit disponible.",
-    "keywords": "tableau de bord surveillance multi-sites, tableau de bord GA4, suivi revenus Stripe, outil surveillance disponibilité, outils solopreneur, agrégateur analytics, tableau de bord SaaS, suivi revenus Creem, surveillance uptime, tableau de bord fondateur"
+    "keywords": "tableau de bord surveillance multi-sites, tableau de bord GA4, suivi revenus Stripe, outil surveillance disponibilité, outils SEO professional, agrégateur analytics, tableau de bord SaaS, suivi revenus Creem, surveillance uptime, tableau de bord fondateur"
   },
   "sign": {
     "sign_in_title": "Se connecter",
@@ -43,8 +43,8 @@
     "title": "Nous avons détecté que la langue de votre navigateur est {locale}. Voulez-vous changer ?",
     "switch_to": "Passer à {locale}"
   },
-  "soloboard": {
-    "title": "Tableau de bord SoloBoard",
+  "linkflowai": {
+    "title": "Tableau de bord LinkFlow AI",
     "description": "Surveillez tous vos sites en un seul endroit. Suivez les analyses GA4, les revenus de paiement et l'état en ligne.",
     "enter_dashboard": "Accéder au tableau de bord",
     "view_pricing": "Voir les tarifs",

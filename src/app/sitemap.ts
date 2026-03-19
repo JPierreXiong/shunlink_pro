@@ -5,15 +5,13 @@ const LAST_MODIFIED_HIGH = new Date('2026-03-15');
 const LAST_MODIFIED_LEGAL = new Date('2026-01-01');
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = envConfigs.app_url || 'https://www.soloboard.app';
+  const baseUrl = envConfigs.app_url || 'https://www.linkflowai.app';
   const locales = ['en', 'zh', 'fr'];
 
-  // Priority and frequency config per route
   const routeConfig: Record<string, { priority: number; changeFrequency: MetadataRoute.Sitemap[0]['changeFrequency']; lastModified: Date }> = {
     '':                  { priority: 1.0, changeFrequency: 'weekly',  lastModified: LAST_MODIFIED_HIGH },
     '/pricing':          { priority: 0.9, changeFrequency: 'weekly',  lastModified: LAST_MODIFIED_HIGH },
-    '/soloboard':        { priority: 0.9, changeFrequency: 'weekly',  lastModified: LAST_MODIFIED_HIGH },
-    '/faq':              { priority: 0.8, changeFrequency: 'monthly', lastModified: LAST_MODIFIED_HIGH },
+    '/platforms':        { priority: 0.9, changeFrequency: 'weekly',  lastModified: LAST_MODIFIED_HIGH },
     '/blog':             { priority: 0.8, changeFrequency: 'daily',   lastModified: LAST_MODIFIED_HIGH },
     '/about':            { priority: 0.7, changeFrequency: 'monthly', lastModified: LAST_MODIFIED_HIGH },
     '/contact':          { priority: 0.7, changeFrequency: 'monthly', lastModified: LAST_MODIFIED_HIGH },
@@ -25,14 +23,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const sitemapEntries: MetadataRoute.Sitemap = [];
 
   Object.entries(routeConfig).forEach(([route, config]) => {
-    // Build hreflang alternates for this route
     const alternates: Record<string, string> = { 'x-default': `${baseUrl}${route || '/'}` };
     locales.forEach((loc) => {
       const locPath = loc === 'en' ? `${baseUrl}${route || '/'}` : `${baseUrl}/${loc}${route}`;
       alternates[loc === 'zh' ? 'zh-CN' : loc === 'fr' ? 'fr-FR' : 'en-US'] = locPath;
     });
 
-    // Add one entry per locale
     locales.forEach((locale) => {
       const url = locale === 'en'
         ? `${baseUrl}${route || '/'}`
