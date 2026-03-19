@@ -1,133 +1,121 @@
 {
   "metadata": {
-    "title": "定价方案 — LinkFlow AI | 免费版、基础版 $19.9、专业版 $39.9",
-    "description": "免费开始或选择付费方案。免费版监控 3 个站点，基础版（$19.9/月）最多 5 个站点每 6 小时同步，专业版（$39.9/月）最多 10 个站点每 60 分钟实时同步。无需绑定信用卡。",
-    "keywords": "LinkFlow AI定价, 网站监控方案, 多站点仪表盘费用, 独立创业者监控计划, GA4仪表盘价格, 在线监控订阅"
+    "title": "定价方案 — ShunLink Pro | 体验版 $5、入门版 $19、专业版 $49",
+    "description": "以 5 美元一次性体验我们的 AI 外链机器人。入门版（$19/月）每月构建 10 条语境外链，专业版（$49/月）提供 30 条高质量外链并支持 AI 内容改写。",
+    "keywords": "外链自动化定价, AI外链构建工具, 语境外链订阅, Web2.0外链方案, ShunLink Pro定价"
   },
   "pricing": {
     "id": "pricing",
-    "sr_only_title": "LinkFlow AI 定价",
+    "sr_only_title": "ShunLink Pro 定价",
     "title": "定价",
-    "description": "在一个仪表盘中监控所有网站。免费开始，准备好后升级。",
+    "description": "真实的自动化外链。透明的提交截图。随时可取消。",
     "groups": [
       {
         "name": "monthly",
-        "title": "月付",
+        "title": "所有方案",
         "is_featured": true,
-        "label": "灵活"
+        "label": "透明定价"
       }
     ],
     "items": [
       {
-        "title": "免费版",
-        "description": "非常适合试用",
-        "label": "开始使用",
-        "features_title": "包含",
+        "title": "一次性体验",
+        "description": "先看效果，再决定是否订阅",
+        "label": "零风险",
+        "features_title": "包含内容",
         "features": [
-          "1 个项目",
-          "3 个数据源（GA4/Stripe/在线监控）",
-          "48 小时自动刷新",
-          "7 天数据缓存",
-          "基础仪表盘",
-          "社区支持"
+          "3 条高质量 Web 2.0 外链",
+          "24\u201348 小时交付",
+          "实时状态 + 截图报告",
+          "一次性付款 \u2014 无需订阅"
         ],
-        "interval": "month",
-        "amount": 0,
+        "interval": "one_time",
+        "amount": 500,
         "currency": "USD",
-        "price": "$0",
+        "price": "$5",
         "original_price": "",
-        "unit": "/ 永久",
+        "unit": "一次性",
         "is_featured": false,
-        "tip": "非常适合试用服务！",
+        "tip": "咖啡价格体验 \u2014 亲眼看机器人跑起来再决定。",
         "button": {
-          "title": "免费开始",
-          "url": "/sign-up",
-          "icon": "LayoutDashboard"
-        },
-        "product_id": "linkflowai-free",
-        "product_name": "LinkFlow AI 免费版",
-        "group": "monthly",
-        "plan_name": "免费版"
-      },
-      {
-        "title": "基础版",
-        "description": "适合成长中的创业者",
-        "label": "热门",
-        "features_title": "免费版的所有功能，加上",
-        "features": [
-          "5 个项目",
-          "所有数据源（+ Shopify/Lemon Squeezy）",
-          "6 小时自动刷新",
-          "1 年历史数据",
-          "高级分析",
-          "邮件警报",
-          "优先支持"
-        ],
-        "interval": "month",
-        "amount": 1990,
-        "currency": "USD",
-        "price": "$19.9",
-        "original_price": "",
-        "unit": "/ 月",
-        "is_featured": true,
-        "tip": "最适合独立创业者！",
-        "button": {
-          "title": "获取基础版",
+          "title": "立即体验 \u2014 $5",
           "url": "/#pricing",
           "icon": "Zap"
         },
-        "product_id": "prod_3heGlzk0u0XpC3jpb4j7mK",
-        "product_name": "LinkFlow AI 基础版",
-        "payment_product_id": "prod_3heGlzk0u0XpC3jpb4j7mK",
+        "product_id": "shunlink-trial",
+        "product_name": "ShunLink Pro 体验版",
+        "credits": 3,
+        "valid_days": 7,
         "group": "monthly",
-        "plan_name": "基础版"
+        "plan_name": "体验版"
       },
       {
-        "title": "专业版",
-        "description": "适合高级用户",
-        "label": "高级",
-        "features_title": "基础版的所有功能，加上",
+        "title": "入门版",
+        "description": "适合正在积累 SEO 权重的独立站长",
+        "label": "热门",
+        "features_title": "体验版全部内容，加上",
         "features": [
-          "10 个项目",
-          "60 分钟实时同步",
-          "永久历史记录",
-          "白标和自定义域名",
-          "团队协作",
-          "API 访问",
-          "专属支持"
+          "每月 10 条语境外链",
+          "Web 2.0 & 文档平台",
+          "48 小时交付保证",
+          "邮件支持"
         ],
         "interval": "month",
-        "amount": 3990,
+        "amount": 1900,
         "currency": "USD",
-        "price": "$39.9",
+        "price": "$19",
+        "original_price": "",
+        "unit": "/ 月",
+        "is_featured": true,
+        "tip": "最适合独立建站的创业者持续提升域名权重。",
+        "button": {
+          "title": "开始使用",
+          "url": "/#pricing",
+          "icon": "LayoutDashboard"
+        },
+        "product_id": "shunlink-starter",
+        "product_name": "ShunLink Pro 入门版",
+        "credits": 10,
+        "valid_days": 30,
+        "group": "monthly",
+        "plan_name": "入门版"
+      },
+      {
+        "title": "专业成长版",
+        "description": "需要规模化外链的高级用户",
+        "label": "高级",
+        "features_title": "入门版全部内容，加上",
+        "features": [
+          "每月 30 条高质量外链",
+          "社交媒体与论坛平台覆盖",
+          "优先 24 小时交付",
+          "每次提交 AI 内容改写",
+          "专属客服支持"
+        ],
+        "interval": "month",
+        "amount": 4900,
+        "currency": "USD",
+        "price": "$49",
         "original_price": "",
         "unit": "/ 月",
         "is_featured": false,
-        "tip": "非常适合代理机构！",
+        "tip": "非常适合代理机构和需要规模化的 SaaS 创始人。",
         "button": {
-          "title": "获取专业版",
+          "title": "升级专业版",
           "url": "/#pricing",
           "icon": "Crown"
         },
-        "product_id": "prod_1jssoS0uMCEc6s6Z1RHObl",
-        "product_name": "LinkFlow AI 专业版",
-        "payment_product_id": "prod_1jssoS0uMCEc6s6Z1RHObl",
+        "product_id": "shunlink-pro",
+        "product_name": "ShunLink Pro 专业成长版",
+        "credits": 30,
+        "valid_days": 30,
         "group": "monthly",
         "plan_name": "专业版"
       }
     ]
   },
   "page": {
-    "current_plan": "当前计划",
+    "current_plan": "当前方案",
     "processing": "处理中"
   }
 }
-
-
-
-
-
-
-
-
-

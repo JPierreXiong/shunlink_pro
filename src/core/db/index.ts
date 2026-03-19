@@ -1,10 +1,16 @@
 import { drizzle } from 'drizzle-orm/postgres-js';
 import { drizzle as drizzleSQLite } from 'drizzle-orm/libsql';
+import { drizzle as drizzleNeon } from 'drizzle-orm/neon-http';
+import { neon, neonConfig } from '@neondatabase/serverless';
 import postgres from 'postgres';
 import { createClient } from '@libsql/client';
 
 import { envConfigs } from '@/config';
 import { isCloudflareWorker } from '@/shared/lib/env';
+
+// Enable HTTP connection caching for Neon in Vercel Serverless
+// This pipelines concurrent requests and avoids TCP connection exhaustion
+neonConfig.fetchConnectionCache = true;
 
 // Use 'any' type to allow both PostgreSQL and SQLite drizzle instances
 // Both have compatible query APIs (.select(), .from(), etc.)
@@ -100,8 +106,16 @@ export function db(): Database {
     return dbInstance;
   }
 
-  // Non-singleton mode: create new connection each time (good for serverless)
-  // In serverless, the connection will be cleaned up when the function instance is destroyed
+  // Non-singleton mode: Neon HTTP driver for Vercel Serverless
+  // Uses HTTP pipelining instead of TCP — survives 10-60s Vercel timeout,
+  // does NOT occupy a persistent Neon connection slot.
+  // Falls back to postgres.js TCP for non-Neon PostgreSQL providers.
+  const isNeon = databaseUrl.includes('neon.tech') || databaseUrl.includes('-pooler.');
+  if (isNeon) {
+    const sql = neon(databaseUrl);
+    return drizzleNeon(sql) as Database;
+  }
+
   const serverlessClient = postgres(databaseUrl, {
     prepare: false,
     max: 1, // Use single connection in serverless

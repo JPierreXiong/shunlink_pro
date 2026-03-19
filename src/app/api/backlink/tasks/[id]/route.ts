@@ -1,10 +1,66 @@
 export const dynamic = 'force-dynamic';
 
 import { NextRequest, NextResponse } from 'next/server';
-import { eq } from 'drizzle-orm';
+import { eq, and } from 'drizzle-orm';
 import { db } from '@/core/db';
-import { backlinkTasks } from '@/config/db/schema';
-import { getUserInfo } from '@/shared/models/user';
+import { backlinkTasks, backlinkPlatforms } from '@/config/db/schema';
+import { auth } from '@/shared/lib/auth';
+
+// GET /api/backlink/tasks/[id] — TaskCard polls this for real-time status
+export async function GET(
+  req: NextRequest,
+  { params }: { params: Promise<{ id: string }> }
+) {
+  try {
+    const session = await auth.api.getSession({ headers: req.headers });
+    const user = session?.user;
+    if (!user?.id) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    }
+
+    const { id } = await params;
+
+    const rows = await db()
+      .select({
+        id: backlinkTasks.id,
+        targetUrl: backlinkTasks.targetUrl,
+        anchorText: backlinkTasks.anchorText,
+        agentPersona: backlinkTasks.agentPersona,
+        aiOptimize: backlinkTasks.aiOptimize,
+        status: backlinkTasks.status,
+        screenshotUrl: backlinkTasks.screenshotUrl,
+        liveUrl: backlinkTasks.liveUrl,
+        retryCount: backlinkTasks.retryCount,
+        isRefunded: backlinkTasks.isRefunded,
+        slaDue: backlinkTasks.slaDue,
+        errorMessage: backlinkTasks.errorMessage,
+        agentLog: backlinkTasks.agentLog,
+        createdAt: backlinkTasks.createdAt,
+        updatedAt: backlinkTasks.updatedAt,
+        platformId: backlinkTasks.platformId,
+        platformName: backlinkPlatforms.name,
+        platformSlug: backlinkPlatforms.slug,
+      })
+      .from(backlinkTasks)
+      .leftJoin(backlinkPlatforms, eq(backlinkTasks.platformId, backlinkPlatforms.id))
+      .where(
+        and(
+          eq(backlinkTasks.id, id),
+          eq(backlinkTasks.userId, user.id)
+        )
+      )
+      .limit(1);
+
+    if (!rows.length) {
+      return NextResponse.json({ error: 'Task not found' }, { status: 404 });
+    }
+
+    return NextResponse.json({ success: true, task: rows[0] });
+  } catch (error) {
+    console.error('[backlink/tasks/[id] GET]', error);
+    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
+  }
+}
 
 // PATCH /api/backlink/tasks/[id] — Python Worker updates task status/proof
 export async function PATCH(

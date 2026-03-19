@@ -1,117 +1,114 @@
 {
   "metadata": {
-    "title": "Tarifs — Plans LinkFlow AI | Gratuit, Base 19,9$, Pro 39,9$",
-    "description": "Commencez gratuitement ou choisissez un plan payant. LinkFlow AI Gratuit surveille 3 sites, Base (19,9$/mois) couvre 5 sites avec sync 6h, Pro (39,9$/mois) offre 10 sites avec sync temps réel 60 min. Sans carte bancaire.",
-    "keywords": "tarifs LinkFlow AI, plans surveillance sites, coût tableau de bord multi-sites, plan SEO professional, prix tableau de bord GA4, abonnement surveillance uptime"
+    "title": "Tarifs — ShunLink Pro | Essai $5, Starter $19, Pro $49",
+    "description": "Essayez pour 5$ et regardez notre agent IA construire de vrais backlinks. Starter ($19/mois) : 10 liens contextuels, Pro ($49/mois) : 30 backlinks premium avec réécriture IA.",
+    "keywords": "tarifs backlink automatique, constructeur backlinks IA, abonnement backlinks contextuels, plan Web 2.0 backlinks, tarifs ShunLink Pro"
   },
   "pricing": {
     "id": "pricing",
-    "sr_only_title": "Tarification LinkFlow AI",
+    "sr_only_title": "Tarification ShunLink Pro",
     "title": "Tarification",
-    "description": "Surveillez tous vos sites dans un seul tableau de bord. Commencez gratuitement, passez à un plan supérieur quand vous êtes prêt.",
+    "description": "De vrais backlinks automatisés. Preuve transparente. Sans engagement.",
     "groups": [
       {
         "name": "monthly",
-        "title": "Mensuel",
+        "title": "Tous les plans",
         "is_featured": true,
-        "label": "Flexible"
+        "label": "Transparent"
       }
     ],
     "items": [
       {
-        "title": "Gratuit",
-        "description": "Parfait pour essayer",
-        "label": "Commencer",
+        "title": "Essai unique",
+        "description": "Voyez le résultat avant de vous engager",
+        "label": "Sans risque",
         "features_title": "Inclus",
         "features": [
-          "1 projet",
-          "3 sources de données (GA4/Stripe/Uptime)",
-          "Actualisation automatique toutes les 48h",
-          "Cache de données de 7 jours",
-          "Tableau de bord basique",
-          "Support communautaire"
+          "3 liens Web 2.0 de haute qualité",
+          "Livraison 24-48h",
+          "Rapport en direct + captures d'écran",
+          "Paiement unique — sans abonnement"
         ],
-        "interval": "month",
-        "amount": 0,
+        "interval": "one_time",
+        "amount": 500,
         "currency": "USD",
-        "price": "$0",
+        "price": "$5",
         "original_price": "",
-        "unit": "/ pour toujours",
+        "unit": "unique",
         "is_featured": false,
-        "tip": "Parfait pour essayer le service !",
+        "tip": "Garantie café — regardez le bot tourner avant de vous abonner.",
         "button": {
-          "title": "Commencer Gratuitement",
-          "url": "/sign-up",
-          "icon": "LayoutDashboard"
-        },
-        "product_id": "linkflowai-free",
-        "product_name": "LinkFlow AI Gratuit",
-        "group": "monthly",
-        "plan_name": "Gratuit"
-      },
-      {
-        "title": "Base",
-        "description": "Pour les entrepreneurs en croissance",
-        "label": "Populaire",
-        "features_title": "Tout dans Gratuit, plus",
-        "features": [
-          "5 projets",
-          "Toutes les sources de données (+ Shopify/Lemon Squeezy)",
-          "Actualisation automatique toutes les 6h",
-          "Historique de données d'1 an",
-          "Analyses avancées",
-          "Alertes par e-mail",
-          "Support prioritaire"
-        ],
-        "interval": "month",
-        "amount": 1990,
-        "currency": "USD",
-        "price": "$19.9",
-        "original_price": "",
-        "unit": "/ mois",
-        "is_featured": true,
-        "tip": "Idéal pour les SEO professionals !",
-        "button": {
-          "title": "Obtenir Base",
+          "title": "Essayer maintenant — $5",
           "url": "/#pricing",
           "icon": "Zap"
         },
-        "product_id": "prod_3heGlzk0u0XpC3jpb4j7mK",
-        "product_name": "LinkFlow AI Base",
-        "payment_product_id": "prod_3heGlzk0u0XpC3jpb4j7mK",
+        "product_id": "shunlink-trial",
+        "product_name": "ShunLink Pro Essai",
+        "credits": 3,
+        "valid_days": 7,
         "group": "monthly",
-        "plan_name": "Base"
+        "plan_name": "Essai"
       },
       {
-        "title": "Pro",
-        "description": "Pour les utilisateurs avancés",
-        "label": "Premium",
-        "features_title": "Tout dans Base, plus",
+        "title": "Starter",
+        "description": "Pour les fondateurs qui développent leur SEO",
+        "label": "Populaire",
+        "features_title": "Tout dans Essai, plus",
         "features": [
-          "10 projets",
-          "Synchronisation en temps réel toutes les 60 min",
-          "Historique permanent",
-          "Marque blanche et domaine personnalisé",
-          "Collaboration d'équipe",
-          "Accès API",
+          "10 backlinks contextuels / mois",
+          "Plateformes Web 2.0 et documents",
+          "Livraison garantie sous 48h",
+          "Support par e-mail"
+        ],
+        "interval": "month",
+        "amount": 1900,
+        "currency": "USD",
+        "price": "$19",
+        "original_price": "",
+        "unit": "/ mois",
+        "is_featured": true,
+        "tip": "Idéal pour les fondateurs solo qui construisent leur autorité de domaine.",
+        "button": {
+          "title": "Commencer",
+          "url": "/#pricing",
+          "icon": "LayoutDashboard"
+        },
+        "product_id": "shunlink-starter",
+        "product_name": "ShunLink Pro Starter",
+        "credits": 10,
+        "valid_days": 30,
+        "group": "monthly",
+        "plan_name": "Starter"
+      },
+      {
+        "title": "Pro Growth",
+        "description": "Pour les utilisateurs qui ont besoin de volume",
+        "label": "Premium",
+        "features_title": "Tout dans Starter, plus",
+        "features": [
+          "30 backlinks premium / mois",
+          "Plateformes sociales et forums",
+          "Livraison prioritaire sous 24h",
+          "Réécriture IA de contenu à chaque soumission",
           "Support dédié"
         ],
         "interval": "month",
-        "amount": 3990,
+        "amount": 4900,
         "currency": "USD",
-        "price": "$39.9",
+        "price": "$49",
         "original_price": "",
         "unit": "/ mois",
         "is_featured": false,
-        "tip": "Parfait pour les agences !",
+        "tip": "Parfait pour les agences et fondateurs SaaS qui passent à l'échelle.",
         "button": {
-          "title": "Obtenir Pro",
+          "title": "Passer Pro",
           "url": "/#pricing",
           "icon": "Crown"
         },
-        "product_id": "prod_1jssoS0uMCEc6s6Z1RHObl",
-        "product_name": "LinkFlow AI Pro",
-        "payment_product_id": "prod_1jssoS0uMCEc6s6Z1RHObl",
+        "product_id": "shunlink-pro",
+        "product_name": "ShunLink Pro Growth",
+        "credits": 30,
+        "valid_days": 30,
         "group": "monthly",
         "plan_name": "Pro"
       }
@@ -122,12 +119,3 @@
     "processing": "Traitement"
   }
 }
-
-
-
-
-
-
-
-
-

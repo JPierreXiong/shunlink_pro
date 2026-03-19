@@ -1,117 +1,114 @@
 {
   "metadata": {
-    "title": "Pricing — LinkFlow AI Plans & Features | Free, Base $19.9, Pro $39.9",
-    "description": "Start free or choose a paid plan. LinkFlow AI Free monitors 3 sites, Base ($19.9/mo) covers 5 sites with 6-hour sync, Pro ($39.9/mo) gives you 10 sites with 60-min real-time sync. No credit card required.",
-    "keywords": "LinkFlow AI pricing, website monitoring plans, multi-site dashboard cost, SEO professional monitoring plan, GA4 dashboard pricing, uptime monitoring subscription"
+    "title": "Pricing — ShunLink Pro | Trial $5, Starter $19, Pro $49",
+    "description": "Start with a $5 one-time trial and see real backlinks built by our AI agent. Starter ($19/mo) gives 10 contextual links, Pro ($49/mo) delivers 30 premium backlinks with AI content rewriting.",
+    "keywords": "backlink automation pricing, AI backlink builder cost, contextual backlinks subscription, Web 2.0 backlinks plan, ShunLink Pro pricing"
   },
   "pricing": {
     "id": "pricing",
-    "sr_only_title": "LinkFlow AI Pricing",
+    "sr_only_title": "ShunLink Pro Pricing",
     "title": "Pricing",
-    "description": "Monitor all your sites in one dashboard. Start free, upgrade when ready.",
+    "description": "Real automated backlinks. Transparent proof. No lock-in.",
     "groups": [
       {
         "name": "monthly",
-        "title": "Monthly",
+        "title": "All Plans",
         "is_featured": true,
-        "label": "Flexible"
+        "label": "Transparent"
       }
     ],
     "items": [
       {
-        "title": "Free",
-        "description": "Perfect for trying out",
-        "label": "Get Started",
+        "title": "One-time Trial",
+        "description": "See it work before you commit",
+        "label": "No Risk",
         "features_title": "Includes",
         "features": [
-          "1 project",
-          "3 data sources (GA4/Stripe/Uptime)",
-          "48-hour auto-refresh",
-          "7-day data cache",
-          "Basic dashboard",
-          "Community support"
+          "3 High-Quality Web 2.0 Links",
+          "24\u201348h Delivery",
+          "Live Status + Screenshot Report",
+          "One-time Payment \u2014 No Subscription"
         ],
-        "interval": "month",
-        "amount": 0,
+        "interval": "one_time",
+        "amount": 500,
         "currency": "USD",
-        "price": "$0",
+        "price": "$5",
         "original_price": "",
-        "unit": "/ forever",
+        "unit": "one-time",
         "is_featured": false,
-        "tip": "Perfect for trying out the service!",
+        "tip": "Coffee-price guarantee \u2014 see the bot run before committing.",
         "button": {
-          "title": "Start Free",
-          "url": "/sign-up",
-          "icon": "LayoutDashboard"
-        },
-        "product_id": "linkflowai-free",
-        "product_name": "LinkFlow AI Free",
-        "group": "monthly",
-        "plan_name": "Free"
-      },
-      {
-        "title": "Base",
-        "description": "For growing entrepreneurs",
-        "label": "Popular",
-        "features_title": "Everything in Free, plus",
-        "features": [
-          "5 projects",
-          "All data sources (+ Shopify/Lemon Squeezy)",
-          "6-hour auto-refresh",
-          "1-year history data",
-          "Advanced analytics",
-          "Email alerts",
-          "Priority support"
-        ],
-        "interval": "month",
-        "amount": 1990,
-        "currency": "USD",
-        "price": "$19.9",
-        "original_price": "",
-        "unit": "/ month",
-        "is_featured": true,
-        "tip": "Best for solo entrepreneurs!",
-        "button": {
-          "title": "Get Base",
+          "title": "Try it Now \u2014 $5",
           "url": "/#pricing",
           "icon": "Zap"
         },
-        "product_id": "prod_3heGlzk0u0XpC3jpb4j7mK",
-        "product_name": "LinkFlow AI Base",
-        "payment_product_id": "prod_3heGlzk0u0XpC3jpb4j7mK",
+        "product_id": "shunlink-trial",
+        "product_name": "ShunLink Pro Trial",
+        "credits": 3,
+        "valid_days": 7,
         "group": "monthly",
-        "plan_name": "Base"
+        "plan_name": "Trial"
       },
       {
-        "title": "Pro",
-        "description": "For power users",
-        "label": "Premium",
-        "features_title": "Everything in Base, plus",
+        "title": "Starter",
+        "description": "For indie founders growing their SEO",
+        "label": "Popular",
+        "features_title": "Everything in Trial, plus",
         "features": [
-          "10 projects",
-          "60-minute real-time sync",
-          "Permanent history",
-          "White-label & custom domain",
-          "Team collaboration",
-          "API access",
-          "Dedicated support"
+          "10 Contextual Backlinks / month",
+          "Web 2.0 & Doc Platforms",
+          "48h Guaranteed Delivery",
+          "Email Support"
         ],
         "interval": "month",
-        "amount": 3990,
+        "amount": 1900,
         "currency": "USD",
-        "price": "$39.9",
+        "price": "$19",
+        "original_price": "",
+        "unit": "/ month",
+        "is_featured": true,
+        "tip": "Best for solo founders building domain authority.",
+        "button": {
+          "title": "Get Started",
+          "url": "/#pricing",
+          "icon": "LayoutDashboard"
+        },
+        "product_id": "shunlink-starter",
+        "product_name": "ShunLink Pro Starter",
+        "credits": 10,
+        "valid_days": 30,
+        "group": "monthly",
+        "plan_name": "Starter"
+      },
+      {
+        "title": "Pro Growth",
+        "description": "For power users who need scale",
+        "label": "Premium",
+        "features_title": "Everything in Starter, plus",
+        "features": [
+          "30 Premium Backlinks / month",
+          "Social & Forum Platform Inclusion",
+          "Priority 24h Delivery",
+          "AI Content Rewriting per Submission",
+          "Dedicated Support"
+        ],
+        "interval": "month",
+        "amount": 4900,
+        "currency": "USD",
+        "price": "$49",
         "original_price": "",
         "unit": "/ month",
         "is_featured": false,
-        "tip": "Perfect for agencies!",
+        "tip": "Perfect for agencies and SaaS founders at scale.",
         "button": {
-          "title": "Get Pro",
+          "title": "Go Pro",
           "url": "/#pricing",
           "icon": "Crown"
         },
-        "product_id": "prod_1jssoS0uMCEc6s6Z1RHObl",
-        "product_name": "LinkFlow AI Pro",
-        "payment_product_id": "prod_1jssoS0uMCEc6s6Z1RHObl",
+        "product_id": "shunlink-pro",
+        "product_name": "ShunLink Pro Growth",
+        "credits": 30,
+        "valid_days": 30,
         "group": "monthly",
         "plan_name": "Pro"
       }

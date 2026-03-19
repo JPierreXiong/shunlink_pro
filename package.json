@@ -65,6 +65,7 @@
     "@google-analytics/data": "^4.8.0",
     "@hookform/resolvers": "^5.2.1",
     "@libsql/client": "^0.15.9",
+    "@neondatabase/serverless": "^1.0.2",
     "@next/bundle-analyzer": "16.0.0",
     "@next/third-parties": "16.0.0",
     "@openrouter/ai-sdk-provider": "^1.2.0",

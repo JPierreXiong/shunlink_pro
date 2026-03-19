@@ -2,8 +2,18 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ExternalLink, Image as ImageIcon, Send, Clock, CheckCircle, XCircle, AlertTriangle, Loader2 } from 'lucide-react';
+import {
+  ExternalLink,
+  Image as ImageIcon,
+  Send,
+  Clock,
+  CheckCircle,
+  XCircle,
+  AlertTriangle,
+  Loader2,
+} from 'lucide-react';
 import useSWR from 'swr';
+import { TerminalLog } from './TerminalLog';
 
 export type TaskStatus = 'pending' | 'processing' | 'need_2fa' | 'success' | 'failed';
 
@@ -18,6 +28,7 @@ export interface Task {
   isRefunded: boolean;
   slaDue?: string | null;
   errorMessage?: string | null;
+  agentLog?: string | null;
   createdAt: string;
   platformName?: string | null;
   platformSlug?: string | null;
@@ -29,7 +40,10 @@ interface TaskCardProps {
   onRefresh?: () => void;
 }
 
-const STATUS_CONFIG: Record<TaskStatus, { color: string; bg: string; border: string; label: string; progress: number; icon: React.ReactNode }> = {
+const STATUS_CONFIG: Record<
+  TaskStatus,
+  { color: string; bg: string; border: string; label: string; progress: number; icon: React.ReactNode }
+> = {
   pending: {
     color: 'text-amber-400',
     bg: 'bg-amber-400/10',
@@ -86,6 +100,8 @@ const fetcher = (url: string) => fetch(url).then((r) => r.json());
 export function TaskCard({ task: initialTask, onViewProof, onRefresh }: TaskCardProps) {
   const [twoFaCode, setTwoFaCode] = useState('');
   const [submitting2fa, setSubmitting2fa] = useState(false);
+  const [shook, setShook] = useState(false);
+  const [prevStatus, setPrevStatus] = useState<TaskStatus>(initialTask.status);
 
   const shouldPoll = !['success', 'failed'].includes(initialTask.status);
 
@@ -98,6 +114,19 @@ export function TaskCard({ task: initialTask, onViewProof, onRefresh }: TaskCard
   const task = data?.task ?? initialTask;
   const cfg = STATUS_CONFIG[task.status];
   const currentStep = STATUS_TO_STEP[task.status];
+  const is2FA = task.status === 'need_2fa';
+  const isProcessing = task.status === 'processing';
+
+  // Shake when transitioning into need_2fa
+  useEffect(() => {
+    if (task.status !== prevStatus) {
+      setPrevStatus(task.status);
+      if (task.status === 'need_2fa') {
+        setShook(true);
+        setTimeout(() => setShook(false), 600);
+      }
+    }
+  }, [task.status, prevStatus]);
 
   const slaMs = task.slaDue ? new Date(task.slaDue).getTime() - Date.now() : null;
   const slaHours = slaMs ? Math.max(0, Math.floor(slaMs / 3600000)) : null;
@@ -120,22 +149,50 @@ export function TaskCard({ task: initialTask, onViewProof, onRefresh }: TaskCard
     }
   }
 
-  const is2FA = task.status === 'need_2fa';
-
   return (
     <motion.div
       initial={{ opacity: 0, y: 16 }}
-      animate={{ opacity: 1, y: 0 }}
-      className={`relative overflow-hidden rounded-2xl border bg-white/5 backdrop-blur-xl p-5 shadow-xl transition-all ${
-        is2FA ? 'border-rose-500/50 shadow-rose-500/10' : 'border-white/10 hover:border-white/20'
+      animate={{
+        opacity: 1,
+        y: 0,
+        x: shook ? [-7, 7, -5, 5, -3, 3, 0] : 0,
+      }}
+      transition={shook ? { duration: 0.5 } : { duration: 0.3 }}
+      className={`relative overflow-hidden rounded-2xl border bg-white/5 backdrop-blur-xl p-5 shadow-xl transition-colors ${
+        is2FA
+          ? 'border-rose-500/50 shadow-rose-500/10'
+          : isProcessing
+          ? 'border-cyan-500/30'
+          : 'border-white/10 hover:border-white/20'
       }`}
     >
-      {/* 2FA breathing glow */}
+      {/* Processing — cyan breathing glow */}
+      {isProcessing && (
+        <motion.div
+          className="absolute inset-0 rounded-2xl pointer-events-none"
+          animate={{
+            boxShadow: [
+              '0 0 0px rgba(6,182,212,0)',
+              '0 0 24px rgba(6,182,212,0.22)',
+              '0 0 0px rgba(6,182,212,0)',
+            ],
+          }}
+          transition={{ duration: 2.4, repeat: Infinity, ease: 'easeInOut' }}
+        />
+      )}
+
+      {/* 2FA — red breathing glow */}
       {is2FA && (
         <motion.div
           className="absolute inset-0 rounded-2xl pointer-events-none"
-          animate={{ boxShadow: ['0 0 0px rgba(244,63,94,0)', '0 0 20px rgba(244,63,94,0.25)', '0 0 0px rgba(244,63,94,0)'] }}
-          transition={{ duration: 2, repeat: Infinity }}
+          animate={{
+            boxShadow: [
+              '0 0 0px rgba(244,63,94,0)',
+              '0 0 24px rgba(244,63,94,0.28)',
+              '0 0 0px rgba(244,63,94,0)',
+            ],
+          }}
+          transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
         />
       )}
 
@@ -144,9 +201,11 @@ export function TaskCard({ task: initialTask, onViewProof, onRefresh }: TaskCard
         <div className="flex-1 min-w-0 mr-3">
           <p className="text-xs font-mono text-white/40 mb-0.5">Task {task.id.slice(0, 8).toUpperCase()}</p>
           <p className="text-sm font-medium text-white truncate">{task.targetUrl}</p>
-          <p className="text-xs text-white/50 mt-0.5">"{task.anchorText}"</p>
+          <p className="text-xs text-white/50 mt-0.5">&quot;{task.anchorText}&quot;</p>
         </div>
-        <div className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold ${cfg.bg} ${cfg.color} ${cfg.border} border`}>
+        <div
+          className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold border ${cfg.bg} ${cfg.color} ${cfg.border}`}
+        >
           {cfg.icon}
           <span>{cfg.label}</span>
           {task.isRefunded && <span className="ml-1 text-white/40">(Refunded)</span>}
@@ -168,18 +227,33 @@ export function TaskCard({ task: initialTask, onViewProof, onRefresh }: TaskCard
       <div className="flex items-center justify-between mb-4">
         {STEPS.map((step, i) => (
           <div key={step} className="flex items-center gap-1">
-            <div className={`w-2 h-2 rounded-full transition-colors ${
-              task.status === 'failed' ? 'bg-slate-600'
-              : i <= currentStep ? 'bg-cyan-400' : 'bg-white/10'
-            }`} />
-            <span className={`text-[10px] ${
-              task.status === 'failed' ? 'text-slate-600'
-              : i <= currentStep ? 'text-cyan-400' : 'text-white/30'
-            }`}>{step}</span>
+            <div
+              className={`w-2 h-2 rounded-full transition-colors ${
+                task.status === 'failed'
+                  ? 'bg-slate-600'
+                  : i <= currentStep
+                  ? 'bg-cyan-400'
+                  : 'bg-white/10'
+              }`}
+            />
+            <span
+              className={`text-[10px] ${
+                task.status === 'failed'
+                  ? 'text-slate-600'
+                  : i <= currentStep
+                  ? 'text-cyan-400'
+                  : 'text-white/30'
+              }`}
+            >
+              {step}
+            </span>
             {i < STEPS.length - 1 && <div className="w-6 h-px bg-white/10 mx-1" />}
           </div>
         ))}
       </div>
+
+      {/* AI Terminal Log */}
+      <TerminalLog status={task.status} agentLog={task.agentLog} />
 
       {/* 2FA input */}
       <AnimatePresence>
@@ -190,7 +264,12 @@ export function TaskCard({ task: initialTask, onViewProof, onRefresh }: TaskCard
             exit={{ height: 0, opacity: 0 }}
             className="mb-4 rounded-xl border border-rose-500/30 bg-rose-500/10 p-3"
           >
-            <p className="text-xs text-rose-300 font-medium mb-2">⚠ Agent is waiting for a 2FA code:</p>
+            <p className="text-xs text-rose-300 font-medium mb-2">
+              ⚠ Your AI Agent is waiting for your permission to proceed.
+            </p>
+            <p className="text-[11px] text-rose-200/60 mb-2">
+              Check your email for the verification code.
+            </p>
             <div className="flex gap-2">
               <input
                 type="text"
@@ -199,7 +278,7 @@ export function TaskCard({ task: initialTask, onViewProof, onRefresh }: TaskCard
                 onChange={(e) => setTwoFaCode(e.target.value)}
                 onKeyDown={(e) => e.key === 'Enter' && handle2FASubmit()}
                 placeholder="6-digit code"
-                className="flex-1 bg-black/40 border border-white/10 rounded-lg px-3 py-2 text-sm text-white placeholder-white/20 outline-none focus:border-rose-400/60"
+                className="flex-1 bg-black/40 border border-white/10 rounded-lg px-3 py-2 text-sm text-white placeholder-white/20 outline-none focus:border-rose-400/60 font-mono tracking-widest"
               />
               <button
                 onClick={handle2FASubmit}
@@ -222,6 +301,9 @@ export function TaskCard({ task: initialTask, onViewProof, onRefresh }: TaskCard
             <p className="text-amber-400/60">SLA: {slaHours}h {slaMins}m remaining</p>
           )}
           {task.platformName && <p>{task.platformName}</p>}
+          {task.errorMessage && (
+            <p className="text-rose-400/70 truncate max-w-[180px]">{task.errorMessage}</p>
+          )}
         </div>
         <div className="flex gap-2">
           {task.liveUrl && (
@@ -249,6 +331,3 @@ export function TaskCard({ task: initialTask, onViewProof, onRefresh }: TaskCard
     </motion.div>
   );
 }
-
-
-
