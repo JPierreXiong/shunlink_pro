@@ -52,7 +52,12 @@
     "predeploy": "pnpm run check-env && pnpm run build",
     "qstash:setup": "tsx scripts/setup-qstash-schedules.ts setup",
     "qstash:list": "tsx scripts/setup-qstash-schedules.ts list",
-    "qstash:delete": "tsx scripts/setup-qstash-schedules.ts delete"
+    "qstash:delete": "tsx scripts/setup-qstash-schedules.ts delete",
+    "verify-database": "npx tsx scripts/verify-database.ts",
+    "test:creem-integration": "npx tsx scripts/test-creem-integration.ts",
+    "init:database": "npx tsx scripts/init-database.ts",
+    "e2e:customer-flow": "npx tsx scripts/e2e-test-customer-flow.ts",
+    "upload-to-github": "npx tsx scripts/upload-to-github.ts"
   },
   "dependencies": {
     "@ai-sdk/react": "^2.0.89",
