@@ -1,204 +1,334 @@
-# 🚀 SoloBoard 快速参考卡
+# LinkFlow AI - 快速参考指南
 
-## ✅ 已完成功能速查
+## 🎯 5 分钟快速开始
 
-### 网站管理
-```
-✅ 添加网站 (单个/批量)
-✅ 删除网站 (需输入域名确认)
-✅ 重复检测 (自动)
-✅ 订阅限制 (Free:1, Base:5, Pro:∞)
-✅ 网站详情页
-✅ API 配置管理
+### 1. 环境配置
+```bash
+# 创建 .env.local 文件（参考下面的配置）
+# 复制所有必需的环境变量
 ```
 
-### 数据监控
-```
-✅ Uptime 监控 (自动)
-⚠️ 收入数据 (需配置 Stripe/Lemon/Shopify)
-⚠️ 流量数据 (需配置 GA4)
-✅ 历史数据 (30 天)
-✅ 数据导出 (CSV/JSON/PDF)
+### 2. 启动应用
+```bash
+# Linux/Mac
+./start-dev.sh
+
+# Windows
+start-dev.bat
+
+# 或手动启动
+pnpm install
+pnpm run db:push
+pnpm run dev
 ```
 
-### 报警系统 🆕
-```
-✅ 报警规则 (4 种类型)
-✅ 邮件通知 (4 种模板)
-✅ QStash 调度 (每 5-30 分钟)
-✅ 报警历史
-⏳ UI 界面 (待实现)
-⏳ Telegram 通知 (待实现)
-```
+### 3. 访问应用
+- 应用: http://localhost:3003
+- 数据库: `pnpm run db:studio`
 
-### 认证 & 支付 (ShipAny)
-```
-✅ 注册/登录
-✅ Stripe/Creem/PayPal
-✅ 订阅管理
-✅ 权限控制
+---
+
+## 🔑 环境变量速查表
+
+```env
+# 数据库 (Neon PostgreSQL)
+DATABASE_URL=postgresql://neondb_owner:npg_6r3PnCxiIbTt@ep-sweet-block-ah1rvh25-pooler.c-3.us-east-1.aws.neon.tech/neondb?sslmode=require
+
+# Creem 支付
+CREEM_ENABLED=true
+CREEM_API_KEY=creem_test_1o4mxoT3PFuKs0dpWApGQf
+CREEM_WEBHOOK_SECRET=whsec_1rF4xvsHn7bm7tgE2dzV1N
+CREEM_PRODUCT_IDS={"trial_usd":"prod_4Y4lBGKsdhfOD7ejD3ztv8","base_usd":"prod_2g7Mu4ZN8dpgRFmgUJSKMJ","pro_usd":"prod_4Q8J71fNF2Tuig6WDe1Y3H"}
+
+# 认证
+BETTER_AUTH_SECRET=test-secret-key-change-in-production
+BETTER_AUTH_URL=http://localhost:3003
+
+# 应用
+NEXT_PUBLIC_APP_URL=http://localhost:3003
+APP_URL=http://localhost:3003
+APP_NAME=LinkFlow AI
+DEFAULT_LOCALE=en
+
+# Cloudinary
+CLOUDINARY_URL=cloudinary://964981846976821:5sZ5IKvDvIRJpXqM3FvqtQ_fAeM@dhdqvckri
+NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME=dhdqvckri
 ```
 
 ---
 
-## 📋 快速命令
+## 📋 常用命令
 
 ### 开发
 ```bash
-pnpm dev                    # 启动开发服务器
-pnpm build                  # 构建生产版本
-pnpm db:studio              # 打开数据库管理界面
+pnpm run dev              # 启动开发服务器
+pnpm run build            # 构建生产版本
+pnpm run start            # 启动生产服务器
+```
+
+### 代码质量
+```bash
+pnpm run lint             # 运行 linter
+pnpm run lint:fix         # 修复 lint 错误
+pnpm run type-check       # 类型检查
+pnpm run format           # 格式化代码
+pnpm run check            # 运行所有检查
 ```
 
 ### 数据库
 ```bash
-pnpm db:generate            # 生成迁移文件
-pnpm db:push                # 执行迁移
+pnpm run db:generate      # 生成迁移
+pnpm run db:push          # 推送迁移到数据库
+pnpm run db:migrate       # 执行迁移
+pnpm run db:studio        # 打开数据库管理界面
+pnpm run test:db          # 测试数据库连接
 ```
 
-### QStash 报警
+### 测试
 ```bash
-pnpm tsx scripts/setup-qstash-alerts.ts        # 创建调度
-pnpm tsx scripts/setup-qstash-alerts.ts list   # 列出调度
-pnpm tsx scripts/setup-qstash-alerts.ts reset  # 重置调度
-pnpm tsx scripts/test-alert-system.ts          # 测试报警
+pnpm run verify-database           # 验证数据库
+pnpm run test:creem-integration    # 测试 Creem 集成
 ```
 
-### 部署
+---
+
+## 🧪 测试账户
+
+### 用户账户
+```
+Email: test@example.com
+Password: TestPassword123!
+```
+
+### Creem 测试卡
+```
+卡号: 4242 4242 4242 4242
+过期: 12/25
+CVC: 123
+```
+
+### Creem 产品链接
+- Trial ($5): https://www.creem.io/test/payment/prod_4Y4lBGKsdhfOD7ejD3ztv8
+- Base ($19.90): https://www.creem.io/test/payment/prod_2g7Mu4ZN8dpgRFmgUJSKMJ
+- Pro ($49.90): https://www.creem.io/test/payment/prod_4Q8J71fNF2Tuig6WDe1Y3H
+
+---
+
+## 🔍 故障排查
+
+### 问题: 数据库连接失败
 ```bash
-vercel --prod               # 部署到生产环境
-vercel env add KEY          # 添加环境变量
-vercel logs                 # 查看日志
+# 检查 DATABASE_URL
+echo $DATABASE_URL
+
+# 测试连接
+pnpm run test:db
+
+# 重新推送迁移
+pnpm run db:push --force
 ```
 
----
-
-## 🔑 必需环境变量
-
+### 问题: 认证失败
 ```bash
-# 数据库
-DATABASE_URL=postgresql://...
+# 检查 BETTER_AUTH_SECRET
+echo $BETTER_AUTH_SECRET
 
-# 认证
-BETTER_AUTH_SECRET=xxx
+# 重启开发服务器
+# Ctrl+C 停止，然后重新运行 pnpm run dev
+```
 
-# 支付
-STRIPE_SECRET_KEY=sk_xxx
-CREEM_API_KEY=xxx
-PAYPAL_CLIENT_ID=xxx
-PAYPAL_CLIENT_SECRET=xxx
+### 问题: 支付失败
+```bash
+# 检查 Creem 配置
+pnpm run test:creem-integration
 
-# 邮件 (报警)
-RESEND_API_KEY=re_xxx
-RESEND_FROM_EMAIL=alerts@soloboard.com
+# 验证产品 ID
+echo $CREEM_PRODUCT_IDS
+```
 
-# Cron
-CRON_SECRET=xxx
+### 问题: 构建失败
+```bash
+# 清除缓存
+rm -rf .next node_modules
 
-# QStash (报警)
-QSTASH_TOKEN=xxx
-QSTASH_CURRENT_SIGNING_KEY=xxx
-QSTASH_NEXT_SIGNING_KEY=xxx
+# 重新安装和构建
+pnpm install
+pnpm run build
 ```
 
 ---
 
-## 🎯 API 端点速查
+## 📊 API 端点
 
-### 网站管理
+### 认证
 ```
-GET    /api/soloboard/sites
-POST   /api/soloboard/sites
-GET    /api/soloboard/sites/[id]
-PATCH  /api/soloboard/sites/[id]
-DELETE /api/soloboard/sites/[id]
-```
-
-### 报警系统
-```
-GET    /api/soloboard/alerts/rules
-POST   /api/soloboard/alerts/rules
-PATCH  /api/soloboard/alerts/rules/[id]
-DELETE /api/soloboard/alerts/rules/[id]
-GET    /api/soloboard/alerts/history
-GET    /api/cron/check-alerts?type=offline
+POST   /api/auth/sign-up          # 注册
+POST   /api/auth/sign-in          # 登录
+POST   /api/auth/sign-out         # 登出
+GET    /api/auth/session          # 获取会话
 ```
 
----
+### 支付
+```
+POST   /api/payment/checkout      # 创建支付
+GET    /api/payment/order/:id     # 获取订单
+POST   /api/payment/notify/creem  # Creem Webhook
+```
 
-## 📊 报警类型
-
-| 类型 | 说明 | 频率建议 |
-|------|------|----------|
-| `offline` | 网站宕机 | 每 5 分钟 |
-| `revenue_drop` | 收入下降 | 每 30 分钟 |
-| `traffic_spike` | 流量激增 | 每 30 分钟 |
-| `no_sales` | 无销售 | 每天 1 次 |
-
----
-
-## 💰 成本速查
-
-| 方案 | 频率 | 成本/月 | 适合 |
-|------|------|---------|------|
-| 免费 | 每 6 小时 | $0 | 个人项目 |
-| 基础 | 每 5-30 分钟 | $4-5 | 小团队 |
-| 专业 | 每 1-5 分钟 | $30+ | 企业 |
+### 用户
+```
+GET    /api/user/profile          # 获取用户信息
+PUT    /api/user/profile          # 更新用户信息
+GET    /api/user/credits          # 获取积分
+```
 
 ---
 
-## 🐛 常见问题
+## 🌐 页面路由
 
-### 1. 看不到真实数据？
-**原因**: 未配置 API  
-**解决**: 进入站点详情 → 设置 → 配置 Stripe/GA4
+### 公开页面
+```
+/                          # 首页
+/pricing                   # 定价页面
+/platforms                 # 支持的平台
+/about                     # 关于我们
+/faq                       # 常见问题
+```
 
-### 2. 删除按钮在哪？
-**位置**: Dashboard → 网站卡片 → 右侧三点菜单 → Delete
+### 认证页面
+```
+/sign-up                   # 注册
+/sign-in                   # 登录
+/forgot-password           # 忘记密码
+```
 
-### 3. 报警不工作？
-**检查**:
-1. QStash 是否配置？
-2. RESEND_API_KEY 是否设置？
-3. 是否创建了报警规则？
-
-### 4. 401 Unauthorized？
-**检查**:
-1. CRON_SECRET 是否正确？
-2. QStash 签名是否验证？
-
----
-
-## 📚 文档索引
-
-- [总结报告](./FINAL_SUMMARY.md) - 完整功能清单
-- [报警系统](./ALERT_SYSTEM_COMPLETE.md) - 报警系统详解
-- [QStash 配置](./ALERT_SYSTEM_QSTASH_PLAN.md) - QStash 配置方案
-- [实现状态](./IMPLEMENTATION_STATUS.md) - 实现状态追踪
-- [SoloBoard 说明](./README_SOLOBOARD.md) - 项目介绍
+### 用户页面
+```
+/dashboard                 # 仪表板
+/settings                  # 设置
+/settings/billing          # 账单
+/settings/profile          # 个人资料
+```
 
 ---
 
-## ⏳ 待办事项
+## 📱 多语言支持
 
-- [ ] 配置 QStash Token
-- [ ] 创建 QStash 调度任务
-- [ ] 配置 Resend API Key
-- [ ] 测试报警流程
-- [ ] 实现报警规则 UI
-- [ ] 完善 GA4 集成
-- [ ] 添加 Telegram 通知
+### 支持的语言
+- English (en)
+- 中文 (zh)
+- Français (fr)
 
----
-
-## 🎉 完成度
-
-**总体**: 90% ✅  
-**核心功能**: 100% ✅  
-**可选功能**: 70% ⚠️
-
-**状态**: 可以部署使用 ✅
+### 切换语言
+```
+http://localhost:3003/en/pricing
+http://localhost:3003/zh/pricing
+http://localhost:3003/fr/pricing
+```
 
 ---
 
-**快速开始**: `pnpm dev` → 访问 `/soloboard`
+## 🚀 部署到 Vercel
+
+### 快速部署
+```bash
+# 1. 上传到 GitHub
+git add .
+git commit -m "feat: LinkFlow AI"
+git push origin main
+
+# 2. 在 Vercel 中导入仓库
+# https://vercel.com/new
+
+# 3. 配置环境变量
+# 添加所有 .env.local 中的变量
+
+# 4. 部署
+# Vercel 会自动部署
+```
+
+### 部署后验证
+```bash
+# 检查应用
+curl https://linkflowai.vercel.app
+
+# 检查数据库
+# 访问 /api/health
+
+# 检查支付
+# 测试 Creem 支付流程
+```
+
+---
+
+## 📈 性能优化
+
+### 已实现的优化
+- ✅ Next.js 15 (最新版本)
+- ✅ 图片优化 (Cloudinary)
+- ✅ 代码分割
+- ✅ 缓存策略
+- ✅ CDN 部署 (Vercel Edge)
+
+### 监控指标
+```bash
+# 访问 Vercel Analytics
+https://vercel.com/dashboard
+
+# 检查 Core Web Vitals
+# LCP (Largest Contentful Paint): < 2.5s
+# FID (First Input Delay): < 100ms
+# CLS (Cumulative Layout Shift): < 0.1
+```
+
+---
+
+## 🔐 安全最佳实践
+
+### 已实现
+- ✅ HTTPS 加密
+- ✅ 环境变量隔离
+- ✅ CORS 配置
+- ✅ 密码加密
+- ✅ 会话管理
+
+### 待实现
+- [ ] 速率限制
+- [ ] DDoS 防护
+- [ ] WAF 配置
+- [ ] 审计日志
+- [ ] 安全头配置
+
+---
+
+## 📞 获取帮助
+
+### 文档
+1. [E2E_TEST_PLAN.md](./E2E_TEST_PLAN.md) - 端测计划
+2. [GITHUB_UPLOAD_GUIDE.md](./GITHUB_UPLOAD_GUIDE.md) - GitHub 上传指南
+3. [PROJECT_DELIVERY_CHECKLIST.md](./PROJECT_DELIVERY_CHECKLIST.md) - 项目交付清单
+
+### 外部资源
+- [Next.js 文档](https://nextjs.org/docs)
+- [Creem API 文档](https://www.creem.io/docs)
+- [Neon 文档](https://neon.tech/docs)
+- [Vercel 文档](https://vercel.com/docs)
+
+### 联系方式
+- GitHub Issues: https://github.com/JPierreXiong/shunlink_pro/issues
+- Email: support@linkflowai.app
+
+---
+
+## 🎯 下一步
+
+1. ✅ 完成本地测试
+2. ✅ 上传到 GitHub
+3. ✅ 部署到 Vercel
+4. ✅ 配置生产环境
+5. ✅ 启动营销活动
+
+---
+
+**最后更新**: 2026-03-20  
+**版本**: 1.0.0

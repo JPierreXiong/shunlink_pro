@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import Script from 'next/script';
+import { PageBreadcrumb } from '@/shared/components/seo/page-breadcrumb';
 import {
   Accordion,
   AccordionContent,
@@ -216,12 +217,20 @@ export default async function FAQPage({
     })),
   };
 
+  const breadcrumbLabel =
+    locale === 'zh' ? '常见问题' : locale === 'fr' ? 'FAQ' : 'FAQ';
+
   return (
     <>
       <Script
         id="faq-schema"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
+      <PageBreadcrumb
+        locale={locale}
+        items={[{ name: breadcrumbLabel, href: '/faq' }]}
       />
 
       <div className="container mx-auto px-4 py-16 max-w-4xl">

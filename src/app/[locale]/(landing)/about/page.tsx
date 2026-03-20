@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import { Bot, Shield, Zap } from 'lucide-react';
 import Script from 'next/script';
 import { envConfigs } from '@/config';
+import { PageBreadcrumb } from '@/shared/components/seo/page-breadcrumb';
 
 const APP_URL = 'https://www.linkflowai.app';
 
@@ -92,6 +93,9 @@ export default async function AboutPage({
     },
   ];
 
+  const breadcrumbLabel =
+    locale === 'zh' ? '关于我们' : locale === 'fr' ? 'À propos' : 'About';
+
   return (
     <>
       <Script
@@ -99,6 +103,12 @@ export default async function AboutPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
+
+      <PageBreadcrumb
+        locale={locale}
+        items={[{ name: breadcrumbLabel, href: '/about' }]}
+      />
+
       <div className="container mx-auto px-4 py-16 max-w-4xl">
         {/* Header */}
         <div className="text-center mb-16">

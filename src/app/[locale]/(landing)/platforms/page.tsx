@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { CheckCircle, ExternalLink, Zap } from 'lucide-react';
+import { PageBreadcrumb } from '@/shared/components/seo/page-breadcrumb';
 
 export const metadata: Metadata = {
   title: 'Supported SEO Platforms | LinkFlow AI',
@@ -35,10 +36,22 @@ async function getPlatforms() {
   }
 }
 
-export default async function PlatformsPage() {
+export default async function PlatformsPage({
+  params,
+}: {
+  params?: Promise<{ locale: string }>;
+}) {
+  const { locale } = params ? await params : { locale: 'en' };
   const platforms = await getPlatforms();
+  const breadcrumbLabel =
+    locale === 'zh' ? '支持平台' : locale === 'fr' ? 'Plateformes' : 'Platforms';
 
   return (
+    <>
+      <PageBreadcrumb
+        locale={locale}
+        items={[{ name: breadcrumbLabel, href: '/platforms' }]}
+      />
     <div className="min-h-screen bg-[#070b14]">
       <div className="max-w-5xl mx-auto px-4 py-16">
         {/* Hero */}
@@ -145,8 +158,10 @@ export default async function PlatformsPage() {
         </div>
       </div>
     </div>
+    </>
   );
 }
+
 
 
 
