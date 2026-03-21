@@ -1,0 +1,17 @@
+{
+  "timestamp": "2026-03-20T12:05:18.050Z",
+  "summary": {
+    "passed": 0,
+    "failed": 1,
+    "total": 1
+  },
+  "testUser": {},
+  "results": [
+    {
+      "name": "用户注册",
+      "status": "fail",
+      "message": "Error",
+      "details": {}
+    }
+  ]
+}

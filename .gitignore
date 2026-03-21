@@ -131,3 +131,5 @@ start.log
 docs/*.md
 scripts/*.md
 supabase/functions/*/README.md
+
+.vercel

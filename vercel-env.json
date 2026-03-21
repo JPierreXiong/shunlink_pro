@@ -1,0 +1,18 @@
+{
+  "env": {
+    "DATABASE_URL": "postgresql://neondb_owner:npg_6r3PnCxiIbTt@ep-sweet-block-ah1rvh25-pooler.c-3.us-east-1.aws.neon.tech/neondb?sslmode=require",
+    "DATABASE_PROVIDER": "postgresql",
+    "AUTH_SECRET": "shunlink-dev-secret-change-in-production-32chars",
+    "AUTH_URL": "https://linkflowai.vercel.app",
+    "NEXT_PUBLIC_APP_URL": "https://linkflowai.vercel.app",
+    "CREEM_ENABLED": "true",
+    "CREEM_API_KEY": "creem_test_1o4mxoT3PFuKs0dpWApGQf",
+    "CREEM_WEBHOOK_SECRET": "whsec_1rF4xvsHn7bm7tgE2dzV1N",
+    "CREEM_ENVIRONMENT": "sandbox",
+    "DEFAULT_PAYMENT_PROVIDER": "creem",
+    "CREEM_PRODUCT_IDS": "{\"shunlink-trial_usd\":\"prod_4Y4lBGKsdhfOD7ejD3ztv8\",\"shunlink-starter_usd\":\"prod_2g7Mu4ZN8dpgRFmgUJSKMJ\",\"shunlink-pro_usd\":\"prod_4Q8J71fNF2Tuig6WDe1Y3H\"}"
+  }
+}
+
+
+
