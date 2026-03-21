@@ -16,7 +16,7 @@ export const envConfigs = {
   get database_provider() { return process.env.DATABASE_PROVIDER ?? 'postgresql'; },
   get db_singleton_enabled() { return process.env.DB_SINGLETON_ENABLED || 'false'; },
   get auth_url() { return process.env.AUTH_URL || process.env.NEXT_PUBLIC_APP_URL || ''; },
-  get auth_secret() { return process.env.AUTH_SECRET ?? ''; },
+  get auth_secret() { return process.env.BETTER_AUTH_SECRET ?? process.env.AUTH_SECRET ?? ''; },
   // Creem Payment Configuration
   get creem_api_key() { return process.env.CREEM_API_KEY ?? ''; },
   get creem_environment() { return process.env.CREEM_ENVIRONMENT ?? 'sandbox'; },

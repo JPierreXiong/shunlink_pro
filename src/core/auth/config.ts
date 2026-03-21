@@ -45,6 +45,7 @@ export const authOptions = {
   trustedOrigins: [
     envConfigs.app_url,
     'https://linkflowai.app',
+    'https://linkflowai-app.vercel.app',
     'http://localhost:3003',
     'http://localhost:3000',
   ].filter(Boolean),
