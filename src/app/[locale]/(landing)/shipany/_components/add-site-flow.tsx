@@ -114,7 +114,7 @@ export function AddSiteFlow() {
     
     setIsProbing(true);
     try {
-      const response = await fetch(`/api/soloboard/probe?domain=${encodeURIComponent(domain)}`);
+      const response = await fetch(`/api/backlink/probe?domain=${encodeURIComponent(domain)}`);
       const data = await response.json();
       setProbeResult(data);
       
@@ -141,7 +141,7 @@ export function AddSiteFlow() {
   const handleSubmit = async () => {
     setIsSubmitting(true);
     try {
-      const response = await fetch('/api/soloboard/sites/add', {
+      const response = await fetch('/api/backlink/tasks', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -160,7 +160,7 @@ export function AddSiteFlow() {
         const data = await response.json();
         setStep(4); // 完成页
         // 2秒后跳转到 Dashboard
-        setTimeout(() => router.push('/soloboard'), 2000);
+        setTimeout(() => router.push('/dashboard/tasks'), 2000);
       } else {
         const error = await response.json();
         throw new Error(error.error || 'Failed to add site');
@@ -550,7 +550,7 @@ export function AddSiteFlow() {
                   </ul>
                 </div>
 
-                <Button size="lg" className="w-full max-w-sm" onClick={() => router.push('/soloboard')}>
+                <Button size="lg" className="w-full max-w-sm" onClick={() => router.push('/dashboard/tasks')}>
                   {t('step4.view_dashboard')}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>

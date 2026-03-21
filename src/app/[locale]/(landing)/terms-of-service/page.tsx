@@ -39,7 +39,7 @@ export default async function TermsOfServicePage({
           <FileText className="w-16 h-16 text-primary" />
         </div>
         <h1 className="text-4xl md:text-5xl font-bold mb-4">
-          {t('metadata.title').replace(' - SoloBoard', '')}
+          {t('metadata.title').replace(' - LinkFlow AI', '')}
         </h1>
         <p className="text-muted-foreground">{t('last_updated')}</p>
       </div>

@@ -2,7 +2,7 @@
   "sidebar": {
     "header": {
       "brand": {
-        "title": "SoloBoard Chat",
+        "title": "LinkFlow AI Chat",
         "logo": null,
         "url": "/chat"
       },
@@ -75,7 +75,7 @@
           },
           {
             "title": "Email",
-            "url": "mailto:support@soloboard.app",
+            "url": "mailto:support@linkflowai.app",
             "icon": "Mail",
             "target": "_blank"
           }

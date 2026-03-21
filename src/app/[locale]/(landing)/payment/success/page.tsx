@@ -185,10 +185,10 @@ export default function PaymentSuccessPage() {
               <h4 className="font-semibold">接下来您可以：</h4>
               
               <div className="grid gap-3">
-                <Link href="/soloboard">
+                <Link href="/dashboard/tasks">
                   <Button className="w-full" size="lg" disabled={checkingStatus}>
                     <ArrowRight className="mr-2 h-5 w-5" />
-                    开始使用 SoloBoard
+                    开始使用 LinkFlow
                   </Button>
                 </Link>
 
@@ -203,7 +203,7 @@ export default function PaymentSuccessPage() {
 
             {/* 提示信息 */}
             <div className="text-center text-sm text-muted-foreground pt-4 border-t">
-              <p>✨ 欢迎加入 SoloBoard {subscription?.planName || 'Pro'} 会员</p>
+              <p>✨ 欢迎加入 LinkFlow {subscription?.planName || 'Pro'} 会员</p>
               <p className="mt-1">如有问题，请联系客服</p>
             </div>
           </CardContent>

@@ -70,23 +70,23 @@
           "icon": "Shield",
           "children": [
             {
-              "title": "看板",
-              "url": "/admin/soloboard",
+              "title": "任务看板",
+              "url": "/admin/dashboard",
               "icon": "LayoutDashboard"
             },
             {
-              "title": "站点管理",
-              "url": "/admin/soloboard/sites",
+              "title": "外链任务",
+              "url": "/dashboard/tasks",
               "icon": "Globe"
             },
             {
-              "title": "报警历史",
-              "url": "/admin/soloboard/alerts",
+              "title": "平台管理",
+              "url": "/platforms",
               "icon": "Bell"
             },
             {
-              "title": "自定义报表",
-              "url": "/admin/soloboard/reports",
+              "title": "报表分析",
+              "url": "/admin/dashboard",
               "icon": "FileText"
             }
           ]

@@ -75,7 +75,7 @@ export default function PaymentCancelPage() {
             {/* 帮助信息 */}
             <div className="text-center text-sm text-muted-foreground pt-4 border-t">
               <p>如需帮助，请联系客服</p>
-              <p className="mt-1">邮箱: support@soloboard.app</p>
+              <p className="mt-1">邮箱: support@linkflowai.app</p>
             </div>
           </CardContent>
         </Card>

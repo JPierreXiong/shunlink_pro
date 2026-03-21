@@ -2,7 +2,7 @@
   "sidebar": {
     "header": {
       "brand": {
-        "title": "SoloBoard Chat",
+        "title": "LinkFlow AI Chat",
         "logo": null,
         "url": "/chat"
       },
@@ -57,25 +57,25 @@
           },
           {
             "title": "GitHub",
-            "url": "https://github.com/JPierreXiong/SoloBoard_CC_C",
+            "url": "https://github.com/JPierreXiong/linkflowai_app",
             "icon": "Github",
             "target": "_blank"
           },
           {
             "title": "推特",
-            "url": "https://twitter.com/SoloBoardApp",
+            "url": "https://twitter.com/linkflowaiapp",
             "icon": "RiTwitterXFill",
             "target": "_blank"
           },
           {
             "title": "Discord",
-            "url": "https://discord.gg/soloboard",
+            "url": "https://discord.gg/linkflowai",
             "icon": "RiDiscordFill",
             "target": "_blank"
           },
           {
             "title": "邮箱",
-            "url": "mailto:support@soloboard.app",
+            "url": "mailto:support@linkflowai.app",
             "icon": "Mail",
             "target": "_blank"
           }

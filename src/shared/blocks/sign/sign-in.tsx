@@ -99,8 +99,8 @@ export function SignIn({
           if (processedCallbackUrl && processedCallbackUrl !== '/') {
             window.location.href = processedCallbackUrl;
           } else {
-            // 默认跳转到 SoloBoard dashboard
-            window.location.href = '/soloboard';
+            // 默认跳转到 LinkFlow 任务中心
+            window.location.href = '/dashboard/tasks';
           }
         },
         onError: (e: any) => {

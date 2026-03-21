@@ -34,6 +34,6 @@ export default async function SignInPage({
 
   const configs = await getConfigs();
 
-  // Default redirect to SoloBoard Dashboard after sign in
-  return <SignIn configs={configs} callbackUrl={callbackUrl || '/soloboard'} />;
+  // Default redirect to LinkFlow Tasks after sign in
+  return <SignIn configs={configs} callbackUrl={callbackUrl || '/dashboard/tasks'} />;
 }

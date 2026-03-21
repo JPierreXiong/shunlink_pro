@@ -10,7 +10,7 @@ export function baseOptions(locale: string): BaseLayoutProps {
     nav: {
       title: (
         <span className="text-primary text-lg font-bold">
-          SoloBoard
+          LinkFlow AI
         </span>
       ),
       transparentMode: 'top',
