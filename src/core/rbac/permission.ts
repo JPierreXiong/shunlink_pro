@@ -61,7 +61,7 @@ export const PERMISSIONS = {
   AITASKS_WRITE: 'admin.ai-tasks.write',
   AITASKS_DELETE: 'admin.ai-tasks.delete',
 
-  // SoloBoard Admin
+  // dashboard Admin
   DIGITAL_HEIRLOOM_READ: 'admin.digital-heirloom.read',
   DIGITAL_HEIRLOOM_COMPENSATE: 'admin.digital-heirloom.compensate',
   DIGITAL_HEIRLOOM_PAUSE: 'admin.digital-heirloom.pause',
@@ -344,3 +344,4 @@ export function withRole<T extends (...args: any[]) => any>(
     return handler(...args);
   }) as T;
 }
+

@@ -1,5 +1,5 @@
 /**
- * Chat Library Component - Not used in SoloBoard
+ * Chat Library Component - Not used in dashboard
  * This file exists only to prevent build errors from legacy subtitle extract code
  */
 
@@ -10,8 +10,9 @@ export function ChatLibrary() {
     <div className="p-4">
       <h2 className="mb-2 text-lg font-semibold">Chat Library</h2>
       <p className="text-sm text-muted-foreground">
-        Chat library is not available in SoloBoard.
+        Chat library is not available in dashboard.
       </p>
     </div>
   );
 }
+

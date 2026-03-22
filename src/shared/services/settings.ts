@@ -165,7 +165,7 @@ const settingsConfig: Setting[] = [
   // Resend
   { name: 'resend_api_key', title: 'Resend API Key', type: 'password', group: 'resend', tab: 'email', placeholder: 're_...' },
   { name: 'resend_sender_email', title: 'Sender Email', type: 'text', group: 'resend', tab: 'email', placeholder: 'noreply@yourdomain.com' },
-  { name: 'resend_sender_name', title: 'Sender Name', type: 'text', group: 'resend', tab: 'email', placeholder: 'SoloBoard' },
+  { name: 'resend_sender_name', title: 'Sender Name', type: 'text', group: 'resend', tab: 'email', placeholder: 'dashboard' },
 
   // Cloudflare R2
   { name: 'r2_account_id', title: 'Account ID', type: 'text', group: 'r2', tab: 'storage', placeholder: 'your-account-id' },
@@ -267,4 +267,5 @@ export async function getSettingTabs(activeTab: string): Promise<SettingTab[]> {
     is_active: tab.name === activeTab,
   }));
 }
+
 

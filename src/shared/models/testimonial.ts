@@ -1,5 +1,5 @@
 /**
- * Testimonial Model - Not used in SoloBoard
+ * Testimonial Model - Not used in dashboard
  * This file exists only to prevent build errors from legacy subtitle extract code
  */
 
@@ -35,30 +35,31 @@ interface GetTestimonialsParams {
 }
 
 export async function getTestimonials(params: GetTestimonialsParams = {}): Promise<Testimonial[]> {
-  // Testimonials are not available in SoloBoard
+  // Testimonials are not available in dashboard
   return [];
 }
 
 export async function getTestimonialsCount(params: { status?: TestimonialStatus; language?: string } = {}): Promise<number> {
-  // Testimonials are not available in SoloBoard
+  // Testimonials are not available in dashboard
   return 0;
 }
 
 export async function findTestimonialById(id: string): Promise<Testimonial | null> {
-  // Testimonials are not available in SoloBoard
+  // Testimonials are not available in dashboard
   return null;
 }
 
 export async function createTestimonial(data: Partial<Testimonial>): Promise<Testimonial> {
-  throw new Error('Testimonials are not available in SoloBoard');
+  throw new Error('Testimonials are not available in dashboard');
 }
 
 export async function updateTestimonialById(id: string, data: Partial<Testimonial>): Promise<void> {
-  // Testimonials are not available in SoloBoard
+  // Testimonials are not available in dashboard
   // No-op
 }
 
 export async function deleteTestimonialById(id: string): Promise<void> {
-  // Testimonials are not available in SoloBoard
+  // Testimonials are not available in dashboard
   // No-op
 }
+

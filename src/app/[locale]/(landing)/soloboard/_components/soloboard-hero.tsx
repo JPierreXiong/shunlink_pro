@@ -5,7 +5,7 @@ import { LayoutDashboard } from 'lucide-react';
 import Link from 'next/link';
 
 export function SoloBoardHero() {
-  const t = useTranslations('common.soloboard');
+  const t = useTranslations('common.dashboard');
 
   return (
     <div className="py-20">

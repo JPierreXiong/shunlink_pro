@@ -1,26 +1,21 @@
-/**
- * SoloBoard - Cron Job: 数据同步 + 邮件告警
+﻿/**
+ * dashboard - Cron Job: 数据同步 + 邮件告警
  * 
- * QStash 定时任务：
- * - 免费用户: 每天 2 次（9:00, 21:00）
- * - 付费用户: 每天 8 次（每 3 小时）
- * 
- * 功能：
- * 1. 同步站点数据
+ * QStash 定时任务�? * - 免费用户: 每天 2 次（9:00, 21:00�? * - 付费用户: 每天 8 次（�?3 小时�? * 
+ * 功能�? * 1. 同步站点数据
  * 2. 检测异常（宕机、无销售、流量骤降）
- * 3. 发送邮件告警
- * 
+ * 3. 发送邮件告�? * 
  * 查询参数:
  * - plan: 'free' | 'paid' | 'all' (默认: 'all')
  */
 
 import { NextRequest, NextResponse } from 'next/server';
-import { syncAllSites } from '@/shared/services/soloboard/sync-service';
+import { syncAllSites } from '@/shared/services/dashboard/sync-service';
 import { db } from '@/core/db';
 import { monitoredSites, siteMetricsDaily, user } from '@/config/db/schema';
 import { eq, and, gte, desc, inArray } from 'drizzle-orm';
-import { detectAnomaly, calculateHistoricalAverage } from '@/shared/services/soloboard/anomaly-detection';
-import { sendAlert } from '@/shared/services/soloboard/email-alert-service';
+import { detectAnomaly, calculateHistoricalAverage } from '@/shared/services/dashboard/anomaly-detection';
+import { sendAlert } from '@/shared/services/dashboard/email-alert-service';
 import { verifyQStashSignature, verifyCronSecret } from '@/shared/lib/qstash-verify';
 
 export const runtime = 'nodejs';
@@ -30,8 +25,7 @@ export const maxDuration = 300; // 5 分钟超时
 /**
  * Cron Job 处理函数
  * 
- * 安全验证：
- * 1. QStash 签名验证（推荐）
+ * 安全验证�? * 1. QStash 签名验证（推荐）
  * 2. Authorization header 中的 Bearer Token（备用）
  */
 export async function GET(request: NextRequest) {
@@ -67,13 +61,11 @@ export async function GET(request: NextRequest) {
     
     console.log(`🚀 [Cron] Starting site data sync for plan: ${planType}...`);
     
-    // 1. 执行同步（按计划类型过滤）
-    const syncResult = await syncSitesByPlan(planType);
-    console.log('✅ [Cron] Sync completed:', syncResult);
+    // 1. 执行同步（按计划类型过滤�?    const syncResult = await syncSitesByPlan(planType);
+    console.log('�?[Cron] Sync completed:', syncResult);
     
-    // 2. 检查站点的异常并发送告警
-    const alertsResult = await checkAndSendAlerts(planType);
-    console.log('✅ [Cron] Alerts check completed:', alertsResult);
+    // 2. 检查站点的异常并发送告�?    const alertsResult = await checkAndSendAlerts(planType);
+    console.log('�?[Cron] Alerts check completed:', alertsResult);
     
     return NextResponse.json({
       success: true,
@@ -84,7 +76,7 @@ export async function GET(request: NextRequest) {
       timestamp: new Date().toISOString(),
     });
   } catch (error) {
-    console.error('❌ [Cron] Sync failed:', error);
+    console.error('�?[Cron] Sync failed:', error);
     
     return NextResponse.json(
       {
@@ -98,8 +90,7 @@ export async function GET(request: NextRequest) {
 }
 
 /**
- * 按计划类型同步站点
- */
+ * 按计划类型同步站�? */
 async function syncSitesByPlan(planType: string) {
   try {
     // 构建用户计划过滤条件
@@ -110,8 +101,7 @@ async function syncSitesByPlan(planType: string) {
       userPlanFilter = inArray(user.plan, ['base', 'pro']);
     }
     
-    // 获取符合条件的站点
-    const sitesQuery = db()
+    // 获取符合条件的站�?    const sitesQuery = db()
       .select({
         site: monitoredSites,
         user: user,
@@ -132,8 +122,7 @@ async function syncSitesByPlan(planType: string) {
     
     console.log(`📊 [Sync] Found ${sites.length} sites for plan: ${planType}`);
     
-    // 过滤出有 API 配置的站点
-    const sitesToSync = sites.filter(s => {
+    // 过滤出有 API 配置的站�?    const sitesToSync = sites.filter(s => {
       const apiConfig = s.site.apiConfig as any;
       return apiConfig && Object.keys(apiConfig).length > 0;
     });
@@ -149,13 +138,12 @@ async function syncSitesByPlan(planType: string) {
       syncResult,
     };
   } catch (error) {
-    console.error('❌ [Sync] Failed to sync sites:', error);
+    console.error('�?[Sync] Failed to sync sites:', error);
     throw error;
   }
 }
 /**
- * 检查所有站点的异常并发送告警
- */
+ * 检查所有站点的异常并发送告�? */
 async function checkAndSendAlerts(planType: string = 'all') {
   try {
     // 构建查询条件
@@ -171,8 +159,7 @@ async function checkAndSendAlerts(planType: string = 'all') {
       .innerJoin(user, eq(monitoredSites.userId, user.id))
       .where(and(...conditions));
     
-    // 按计划类型过滤
-    const sites = sitesData.filter(s => {
+    // 按计划类型过�?    const sites = sitesData.filter(s => {
       if (planType === 'free') return s.user.plan === 'free';
       if (planType === 'paid') return s.user.plan === 'base' || s.user.plan === 'pro';
       return true;
@@ -185,12 +172,10 @@ async function checkAndSendAlerts(planType: string = 'all') {
       total: 0,
     };
     
-    // 获取7天前的日期
-    const sevenDaysAgo = new Date();
+    // 获取7天前的日�?    const sevenDaysAgo = new Date();
     sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
     
-    // 检查每个站点
-    for (const { site, user: siteUser } of sites) {
+    // 检查每个站�?    for (const { site, user: siteUser } of sites) {
       try {
         if (!siteUser || !siteUser.email) {
           console.log(`⚠️ [Alert] No user email for site ${site.name}`);
@@ -209,22 +194,19 @@ async function checkAndSendAlerts(planType: string = 'all') {
           )
           .orderBy(desc(siteMetricsDaily.date));
         
-        // 计算历史平均值
-        const historical = calculateHistoricalAverage(
+        // 计算历史平均�?        const historical = calculateHistoricalAverage(
           historyData.map(d => ({
             revenue: d.revenue || 0,
             visitors: d.visitors || 0,
           }))
         );
         
-        // 获取今日数据（从 lastSnapshot 或最新的 metrics）
-        const todayData = site.lastSnapshot as any || {};
+        // 获取今日数据（从 lastSnapshot 或最新的 metrics�?        const todayData = site.lastSnapshot as any || {};
         const todayRevenue = todayData.revenue?.today || 0;
         const todayVisitors = todayData.visitors?.today || 0;
         const uptimeStatus = site.lastSyncStatus === 'success' ? 'up' : 'down';
         
-        // 检测异常
-        const anomaly = detectAnomaly(
+        // 检测异�?        const anomaly = detectAnomaly(
           {
             revenue: todayRevenue,
             visitors: todayVisitors,
@@ -233,8 +215,7 @@ async function checkAndSendAlerts(planType: string = 'all') {
           historical
         );
         
-        // 发送告警
-        if (anomaly.alert) {
+        // 发送告�?        if (anomaly.alert) {
           const alertConfig = {
             userId: site.userId,
             userEmail: siteUser.email,
@@ -262,11 +243,11 @@ async function checkAndSendAlerts(planType: string = 'all') {
             if (anomaly.alert.type === 'no_sales') alertsSent.noSales++;
             if (anomaly.alert.type === 'low_traffic') alertsSent.trafficDrop++;
             
-            console.log(`✅ [Alert] Sent ${anomaly.alert.type} alert for ${site.name}`);
+            console.log(`�?[Alert] Sent ${anomaly.alert.type} alert for ${site.name}`);
           }
         }
       } catch (error) {
-        console.error(`❌ [Alert] Failed to check site ${site.name}:`, error);
+        console.error(`�?[Alert] Failed to check site ${site.name}:`, error);
       }
     }
     
@@ -275,7 +256,7 @@ async function checkAndSendAlerts(planType: string = 'all') {
       alertsSent,
     };
   } catch (error) {
-    console.error('❌ [Alert] Failed to check alerts:', error);
+    console.error('�?[Alert] Failed to check alerts:', error);
     return {
       sitesChecked: 0,
       alertsSent: { downtime: 0, noSales: 0, trafficDrop: 0, total: 0 },
@@ -283,4 +264,5 @@ async function checkAndSendAlerts(planType: string = 'all') {
     };
   }
 }
+
 

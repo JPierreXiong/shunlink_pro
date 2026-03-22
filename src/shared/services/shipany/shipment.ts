@@ -1,6 +1,6 @@
 /**
  * ShipAny API Service
- * Used for SoloBoard physical asset shipping
+ * Used for dashboard physical asset shipping
  *
  * Note: This service does not modify the ShipAny core structure,
  * it only serves as a calling wrapper following the ShipAny API spec.
@@ -155,7 +155,7 @@ function getShipAnyConfig() {
  */
 function getDefaultSender() {
   return {
-    name: process.env.SHIPANY_SENDER_NAME || 'SoloBoard Vault',
+    name: process.env.SHIPANY_SENDER_NAME || 'dashboard Vault',
     phone: process.env.SHIPANY_SENDER_PHONE || '',
     email: process.env.SHIPANY_SENDER_EMAIL,
     address: {
@@ -382,11 +382,11 @@ export async function getShipAnyOrderStatus(
 }
 
 // ============================================
-// SoloBoard-specific wrapper functions
+// dashboard-specific wrapper functions
 // ============================================
 
 /**
- * Create a logistics order for SoloBoard
+ * Create a logistics order for dashboard
  * Wraps the conversion from beneficiary info to ShipAny order
  *
  * @param beneficiary Beneficiary info (from database)
@@ -464,3 +464,4 @@ export async function createLegacyAssetShipment(
 
   return createShipAnyOrder(payload);
 }
+

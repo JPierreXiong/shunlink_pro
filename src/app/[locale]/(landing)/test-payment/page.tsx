@@ -75,7 +75,7 @@ export default function TestPaymentPage() {
       // 2. 检查站点和权限
       console.log('🔍 检查站点权限...');
       try {
-        const sitesRes = await fetch('/api/soloboard/sites');
+        const sitesRes = await fetch('/api/dashboard/sites');
         if (sitesRes.ok) {
           const sitesData = await sitesRes.json();
           testReport.sites = sitesData.sites || [];
@@ -320,7 +320,7 @@ export default function TestPaymentPage() {
           </CardHeader>
           <CardContent className="flex flex-wrap gap-3">
             <Button asChild variant="default">
-              <a href="/soloboard">前往 Dashboard</a>
+              <a href="/dashboard">前往 Dashboard</a>
             </Button>
             <Button asChild variant="outline">
               <a href="/settings/billing">查看 Billing</a>

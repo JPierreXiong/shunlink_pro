@@ -1,5 +1,5 @@
 /**
- * Media Task Result Component - Not used in SoloBoard
+ * Media Task Result Component - Not used in dashboard
  * This file exists only to prevent build errors from legacy subtitle extract code
  */
 
@@ -13,7 +13,8 @@ interface MediaTaskResultProps {
 export function MediaTaskResult({ mediaTaskId, taskId }: MediaTaskResultProps) {
   return (
     <div className="text-sm text-muted-foreground">
-      Media tasks are not available in SoloBoard.
+      Media tasks are not available in dashboard.
     </div>
   );
 }
+

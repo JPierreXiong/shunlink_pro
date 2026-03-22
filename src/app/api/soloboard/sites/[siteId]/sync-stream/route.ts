@@ -1,5 +1,5 @@
 /**
- * POST /api/soloboard/sites/[siteId]/sync-stream
+ * POST /api/dashboard/sites/[siteId]/sync-stream
  * 流式同步站点数据 - 实时反馈每个步骤
  * 
  * 使用 Server-Sent Events (SSE) 返回实时进度

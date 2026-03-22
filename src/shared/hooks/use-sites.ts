@@ -1,7 +1,6 @@
-/**
+﻿/**
  * Custom Hook: useSites
- * 获取所有站点数据
- */
+ * 获取所有站点数�? */
 
 'use client';
 
@@ -50,7 +49,7 @@ export function useSites(): UseSitesReturn {
       setIsLoading(true);
       setError(null);
 
-      const response = await fetch('/api/soloboard/dashboard');
+      const response = await fetch('/api/dashboard/dashboard');
       
       if (!response.ok) {
         throw new Error('Failed to fetch sites');
@@ -84,4 +83,5 @@ export function useSites(): UseSitesReturn {
     refetch: fetchSites,
   };
 }
+
 

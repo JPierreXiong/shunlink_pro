@@ -1,7 +1,7 @@
-/**
+﻿/**
  * Alert History API
  * 
- * GET /api/soloboard/alerts/history - 获取报警历史
+ * GET /api/dashboard/alerts/history - 获取报警历史
  */
 
 import { NextRequest, NextResponse } from 'next/server';
@@ -64,6 +64,7 @@ export async function GET(request: NextRequest) {
     );
   }
 }
+
 
 
 

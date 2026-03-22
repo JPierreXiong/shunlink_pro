@@ -1,14 +1,11 @@
 /**
- * SoloBoard - 自动网站监控服务
+ * dashboard - 自动网站监控服务
  * 
  * 功能：客户输入网址，自动抓取和监控网站信息
  * 
  * 支持的指标：
- * - 网站状态（在线/离线）
- * - 响应时间
- * - SSL 证书状态
- * - 页面标题和描述
- * - 关键词排名（可选）
+ * - 网站状态（在线/离线�? * - 响应时间
+ * - SSL 证书状�? * - 页面标题和描�? * - 关键词排名（可选）
  * - 页面加载速度
  * - SEO 分数
  */
@@ -24,8 +21,7 @@ export interface AutoMonitorConfig {
 }
 
 export interface WebsiteMetrics {
-  // 基础状态
-  isOnline: boolean;
+  // 基础状�?  isOnline: boolean;
   statusCode: number;
   responseTime: number;
   
@@ -56,8 +52,7 @@ export interface WebsiteMetrics {
   imageCount: number;
   linkCount: number;
   
-  // 技术栈检测
-  technologies: string[];
+  // 技术栈检�?  technologies: string[];
   
   lastCheck: string;
 }
@@ -72,7 +67,7 @@ export async function autoMonitorWebsite(config: AutoMonitorConfig): Promise<Web
   const startTime = Date.now();
   
   try {
-    // 1. 发送 HTTP 请求
+    // 1. 发�?HTTP 请求
     const response = await axios.get(config.url, {
       timeout: 30000,
       validateStatus: () => true, // 接受所有状态码
@@ -94,8 +89,7 @@ export async function autoMonitorWebsite(config: AutoMonitorConfig): Promise<Web
                    $('link[rel="shortcut icon"]').attr('href') || 
                    '/favicon.ico';
     
-    // 4. SEO 检查
-    const metaTags = {
+    // 4. SEO 检�?    const metaTags = {
       hasTitle: $('title').length > 0,
       hasDescription: $('meta[name="description"]').length > 0,
       hasKeywords: $('meta[name="keywords"]').length > 0,
@@ -119,8 +113,7 @@ export async function autoMonitorWebsite(config: AutoMonitorConfig): Promise<Web
     // 7. 检测技术栈
     const technologies = detectTechnologies($, response.headers);
     
-    // 8. SSL 检查
-    const sslValid = config.url.startsWith('https://');
+    // 8. SSL 检�?    const sslValid = config.url.startsWith('https://');
     
     // 9. 页面大小
     const pageSize = Buffer.byteLength(response.data, 'utf8');
@@ -146,8 +139,7 @@ export async function autoMonitorWebsite(config: AutoMonitorConfig): Promise<Web
   } catch (error) {
     console.error('Auto Monitor Error:', error);
     
-    // 返回离线状态
-    return {
+    // 返回离线状�?    return {
       isOnline: false,
       statusCode: 0,
       responseTime: Date.now() - startTime,
@@ -178,7 +170,7 @@ export async function autoMonitorWebsite(config: AutoMonitorConfig): Promise<Web
 function detectTechnologies($: cheerio.CheerioAPI, headers: any): string[] {
   const technologies: string[] = [];
   
-  // 检测 JavaScript 框架
+  // 检�?JavaScript 框架
   if ($('script[src*="react"]').length > 0 || $('[data-reactroot]').length > 0) {
     technologies.push('React');
   }
@@ -192,7 +184,7 @@ function detectTechnologies($: cheerio.CheerioAPI, headers: any): string[] {
     technologies.push('jQuery');
   }
   
-  // 检测 CSS 框架
+  // 检�?CSS 框架
   if ($('link[href*="bootstrap"]').length > 0 || $('[class*="bootstrap"]').length > 0) {
     technologies.push('Bootstrap');
   }
@@ -200,8 +192,7 @@ function detectTechnologies($: cheerio.CheerioAPI, headers: any): string[] {
     technologies.push('Tailwind CSS');
   }
   
-  // 检测分析工具
-  if ($('script[src*="google-analytics"]').length > 0 || $('script[src*="gtag"]').length > 0) {
+  // 检测分析工�?  if ($('script[src*="google-analytics"]').length > 0 || $('script[src*="gtag"]').length > 0) {
     technologies.push('Google Analytics');
   }
   if ($('script[src*="facebook"]').length > 0) {
@@ -216,7 +207,7 @@ function detectTechnologies($: cheerio.CheerioAPI, headers: any): string[] {
     if (serverHeader.includes('cloudflare')) technologies.push('Cloudflare');
   }
   
-  // 检测 CMS
+  // 检�?CMS
   if ($('meta[name="generator"]').attr('content')?.includes('WordPress')) {
     technologies.push('WordPress');
   }
@@ -281,6 +272,7 @@ export async function batchMonitorWebsites(urls: string[]): Promise<WebsiteMetri
     }
   });
 }
+
 
 
 

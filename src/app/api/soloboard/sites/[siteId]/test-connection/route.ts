@@ -1,5 +1,5 @@
 /**
- * POST /api/soloboard/sites/[siteId]/test-connection
+ * POST /api/dashboard/sites/[siteId]/test-connection
  * 测试 API 连接
  */
 

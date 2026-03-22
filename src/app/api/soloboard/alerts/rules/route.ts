@@ -1,8 +1,7 @@
-/**
+﻿/**
  * Alert Rules API
  * 
- * GET /api/soloboard/alerts/rules - 获取用户的所有报警规则
- * POST /api/soloboard/alerts/rules - 创建新的报警规则
+ * GET /api/dashboard/alerts/rules - 获取用户的所有报警规�? * POST /api/dashboard/alerts/rules - 创建新的报警规则
  */
 
 import { NextRequest, NextResponse } from 'next/server';
@@ -16,8 +15,7 @@ export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 
 /**
- * 获取用户的所有报警规则
- */
+ * 获取用户的所有报警规�? */
 export async function GET(request: NextRequest) {
   try {
     const session = await auth.api.getSession({
@@ -143,6 +141,7 @@ export async function POST(request: NextRequest) {
     );
   }
 }
+
 
 
 

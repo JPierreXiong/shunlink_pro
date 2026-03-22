@@ -133,7 +133,7 @@ export function SiteCard({ site, onRefresh }: SiteCardProps) {
 
     setIsDeleting(true);
     try {
-      const response = await fetch(`/api/soloboard/sites/${site.id}`, {
+      const response = await fetch(`/api/dashboard/sites/${site.id}`, {
         method: 'DELETE',
       });
 

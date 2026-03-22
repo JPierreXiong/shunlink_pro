@@ -1,5 +1,5 @@
 /**
- * AI Task Model - Not used in SoloBoard
+ * AI Task Model - Not used in dashboard
  * This file exists only to prevent build errors from legacy subtitle extract code
  */
 
@@ -33,21 +33,22 @@ interface GetAITasksParams {
 }
 
 export async function getAITasks(params: GetAITasksParams = {}): Promise<AITask[]> {
-  // AI tasks are not available in SoloBoard
+  // AI tasks are not available in dashboard
   return [];
 }
 
 export async function getAITasksCount(params: { userId?: string; mediaType?: string } = {}): Promise<number> {
-  // AI tasks are not available in SoloBoard
+  // AI tasks are not available in dashboard
   return 0;
 }
 
 export async function findAITaskById(id: string): Promise<AITask | null> {
-  // AI tasks are not available in SoloBoard
+  // AI tasks are not available in dashboard
   return null;
 }
 
 export async function updateAITaskById(id: string, data: Partial<AITask>): Promise<void> {
-  // AI tasks are not available in SoloBoard
+  // AI tasks are not available in dashboard
   // No-op
 }
+

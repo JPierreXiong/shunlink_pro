@@ -2,8 +2,8 @@
  * Plan limits service
  * Handles user plan type retrieval and limit checking
  * 
- * Note: This is a simplified implementation for SoloBoard
- * The original media extraction features are not part of SoloBoard
+ * Note: This is a simplified implementation for dashboard
+ * The original media extraction features are not part of dashboard
  */
 
 import { db } from '@/core/db';
@@ -173,4 +173,5 @@ export async function checkAllPlanLimits(
  * Re-export from plans config for convenience
  */
 export { getEstimatedCreditsCost } from '@/shared/config/plans';
+
 

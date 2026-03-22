@@ -1,5 +1,5 @@
 /**
- * POST /api/soloboard/sites/[siteId]/sync
+ * POST /api/dashboard/sites/[siteId]/sync
  * 手动同步站点数据
  * 
  * 功能：

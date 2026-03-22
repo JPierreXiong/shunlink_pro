@@ -1,39 +1,35 @@
-/**
+﻿/**
  * Cron Job: Check Alert Rules
  * 
- * 定时检查所有报警规则
- * 支持 QStash 和 Vercel Cron 两种方式
+ * 定时检查所有报警规�? * 支持 QStash �?Vercel Cron 两种方式
  * 
  * QStash 调度:
- * - 宕机检测: 每 5 分钟
- * - 收入/流量: 每 30 分钟
- * - 无销售: 每天 1 次
- * 
+ * - 宕机检�? �?5 分钟
+ * - 收入/流量: �?30 分钟
+ * - 无销�? 每天 1 �? * 
  * 使用方式:
  * GET /api/cron/check-alerts?type=offline
  * GET /api/cron/check-alerts?type=revenue_drop,traffic_spike
- * GET /api/cron/check-alerts (检查所有类型)
+ * GET /api/cron/check-alerts (检查所有类�?
  */
 
 import { NextRequest, NextResponse } from 'next/server';
 import { db } from '@/core/db';
 import { alertRules, monitoredSites, alertHistory } from '@/config/db/schema';
 import { eq, and, inArray } from 'drizzle-orm';
-import { sendAlert } from '@/shared/services/soloboard/email-alert-service';
+import { sendAlert } from '@/shared/services/dashboard/email-alert-service';
 import { verifyQStashSignature, verifyCronSecret } from '@/shared/lib/qstash-verify';
 import { nanoid } from 'nanoid';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
-export const maxDuration = 60; // 最长执行 60 秒
-
+export const maxDuration = 60; // 最长执�?60 �?
 /**
  * Cron Job 入口
  */
 export async function GET(request: NextRequest) {
   try {
-    // 验证请求来源（QStash 或 Cron Secret）
-    const authHeader = request.headers.get('authorization');
+    // 验证请求来源（QStash �?Cron Secret�?    const authHeader = request.headers.get('authorization');
     const qstashSignature = request.headers.get('upstash-signature');
     
     let isAuthorized = false;
@@ -65,8 +61,7 @@ export async function GET(request: NextRequest) {
     console.log('🔔 Starting alert check...');
     const startTime = Date.now();
     
-    // 获取查询参数：检查类型
-    const { searchParams } = new URL(request.url);
+    // 获取查询参数：检查类�?    const { searchParams } = new URL(request.url);
     const typeParam = searchParams.get('type');
     const types = typeParam ? typeParam.split(',') : [];
     
@@ -78,8 +73,7 @@ export async function GET(request: NextRequest) {
       conditions.push(inArray(alertRules.type, types));
     }
     
-    // 获取启用的报警规则
-    const rules = await db()
+    // 获取启用的报警规�?    const rules = await db()
       .select()
       .from(alertRules)
       .where(and(...conditions));
@@ -90,8 +84,7 @@ export async function GET(request: NextRequest) {
     let triggeredCount = 0;
     const errors: string[] = [];
     
-    // 检查每个规则
-    for (const rule of rules) {
+    // 检查每个规�?    for (const rule of rules) {
       try {
         checkedCount++;
         
@@ -107,8 +100,7 @@ export async function GET(request: NextRequest) {
           continue;
         }
         
-        // 检查是否应该触发报警
-        const shouldTrigger = await evaluateAlertRule(rule, site);
+        // 检查是否应该触发报�?        const shouldTrigger = await evaluateAlertRule(rule, site);
         
         if (shouldTrigger && canTriggerAlert(rule)) {
           // 触发报警
@@ -124,7 +116,7 @@ export async function GET(request: NextRequest) {
     
     const duration = Date.now() - startTime;
     
-    console.log(`✅ Alert check completed: ${checkedCount} checked, ${triggeredCount} triggered, ${duration}ms`);
+    console.log(`�?Alert check completed: ${checkedCount} checked, ${triggeredCount} triggered, ${duration}ms`);
     
     return NextResponse.json({
       success: true,
@@ -171,8 +163,7 @@ async function evaluateAlertRule(rule: any, site: any): Promise<boolean> {
 }
 
 /**
- * 检查网站是否离线
- */
+ * 检查网站是否离�? */
 async function checkOfflineAlert(site: any): Promise<boolean> {
   try {
     const url = site.url || `https://${site.domain}`;
@@ -188,33 +179,28 @@ async function checkOfflineAlert(site: any): Promise<boolean> {
 }
 
 /**
- * 检查收入下降
- */
+ * 检查收入下�? */
 async function checkRevenueDropAlert(site: any, threshold: number): Promise<boolean> {
   // TODO: 实现收入下降检测逻辑
-  // 需要查询历史数据并计算平均值
-  return false;
+  // 需要查询历史数据并计算平均�?  return false;
 }
 
 /**
- * 检查流量激增
- */
+ * 检查流量激�? */
 async function checkTrafficSpikeAlert(site: any, threshold: number): Promise<boolean> {
   // TODO: 实现流量激增检测逻辑
   return false;
 }
 
 /**
- * 检查无销售
- */
+ * 检查无销�? */
 async function checkNoSalesAlert(site: any): Promise<boolean> {
   // TODO: 实现无销售检测逻辑
   return false;
 }
 
 /**
- * 检查是否可以触发报警（频率限制）
- */
+ * 检查是否可以触发报警（频率限制�? */
 function canTriggerAlert(rule: any): boolean {
   if (!rule.lastTriggeredAt) {
     return true;
@@ -232,8 +218,7 @@ function canTriggerAlert(rule: any): boolean {
       return timeDiff > 24 * 60 * 60 * 1000; // 24 小时
     
     case 'weekly':
-      return timeDiff > 7 * 24 * 60 * 60 * 1000; // 7 天
-    
+      return timeDiff > 7 * 24 * 60 * 60 * 1000; // 7 �?    
     default:
       return false;
   }
@@ -247,12 +232,10 @@ async function triggerAlert(rule: any, site: any): Promise<void> {
   const historyId = nanoid();
   
   try {
-    // 发送邮件报警
-    if (channels.includes('email')) {
+    // 发送邮件报�?    if (channels.includes('email')) {
       const result = await sendAlert({
         userId: rule.userId,
-        userEmail: site.userEmail || 'support@soloboard.app', // TODO: 从 user 表获取
-        userName: site.userName,
+        userEmail: site.userEmail || 'support@dashboard.app', // TODO: �?user 表获�?        userName: site.userName,
         siteName: site.name,
         siteUrl: site.url || site.domain,
         alertType: rule.type,
@@ -283,13 +266,12 @@ async function triggerAlert(rule: any, site: any): Promise<void> {
       createdAt: new Date(),
     });
     
-    // 更新最后触发时间
-    await db()
+    // 更新最后触发时�?    await db()
       .update(alertRules)
       .set({ lastTriggeredAt: new Date() })
       .where(eq(alertRules.id, rule.id));
     
-    console.log(`✅ Alert triggered: ${rule.type} for site ${site.name}`);
+    console.log(`�?Alert triggered: ${rule.type} for site ${site.name}`);
   } catch (error) {
     console.error(`Failed to trigger alert:`, error);
     
@@ -307,4 +289,5 @@ async function triggerAlert(rule: any, site: any): Promise<void> {
     });
   }
 }
+
 

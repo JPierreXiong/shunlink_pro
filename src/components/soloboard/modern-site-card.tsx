@@ -1,12 +1,8 @@
 /**
- * SoloBoard - 现代化站点卡片组件
- * 
- * 设计理念：
- * - 一秒看现状：大字报核心指标
- * - 状态呼吸灯：实时在线状态
- * - 迷你趋势图：24 小时波形
- * - 悬浮操作：快捷跳转后台
- */
+ * dashboard - 现代化站点卡片组�? * 
+ * 设计理念�? * - 一秒看现状：大字报核心指标
+ * - 状态呼吸灯：实时在线状�? * - 迷你趋势图：24 小时波形
+ * - 悬浮操作：快捷跳转后�? */
 
 'use client';
 
@@ -49,8 +45,7 @@ interface SiteCardProps {
     secondaryValue: number;
     secondaryLabel: string;
     secondaryUnit?: string;
-    trend?: number; // 百分比变化
-    sparkline?: number[]; // 24 小时波形数据
+    trend?: number; // 百分比变�?    sparkline?: number[]; // 24 小时波形数据
   };
   lastSync?: Date;
   onRefresh?: () => void;
@@ -71,8 +66,7 @@ export function SiteCard({
   onDelete,
   onViewDetails,
 }: SiteCardProps) {
-  // 状态颜色映射
-  const statusConfig = {
+  // 状态颜色映�?  const statusConfig = {
     online: {
       color: 'bg-green-500',
       pingColor: 'bg-green-400',
@@ -103,12 +97,12 @@ export function SiteCard({
 
   return (
     <Card className="group relative overflow-hidden border-border/50 bg-card hover:border-primary/50 hover:shadow-xl transition-all duration-300">
-      {/* 顶部渐变装饰条 */}
+      {/* 顶部渐变装饰�?*/}
       <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary/50 via-primary to-primary/50 opacity-0 group-hover:opacity-100 transition-opacity" />
 
       <CardHeader className="pb-3">
         <div className="flex items-start justify-between">
-          {/* 左侧：网站信息 */}
+          {/* 左侧：网站信�?*/}
           <div className="flex items-center gap-3 flex-1 min-w-0">
             {/* Favicon */}
             <div className="relative flex-shrink-0">
@@ -136,7 +130,7 @@ export function SiteCard({
               </span>
             </div>
 
-            {/* 网站名称和 URL */}
+            {/* 网站名称�?URL */}
             <div className="flex-1 min-w-0">
               <h3 className="font-semibold text-sm truncate text-foreground">
                 {name}
@@ -147,7 +141,7 @@ export function SiteCard({
             </div>
           </div>
 
-          {/* 右侧：操作菜单 */}
+          {/* 右侧：操作菜�?*/}
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button
@@ -224,7 +218,7 @@ export function SiteCard({
           </div>
         )}
 
-        {/* 迷你波形图 (Sparkline) */}
+        {/* 迷你波形�?(Sparkline) */}
         {metrics.sparkline && metrics.sparkline.length > 0 && (
           <div className="relative">
             <div className="flex items-end gap-[2px] h-12 w-full bg-secondary/20 rounded-md px-1 py-1">
@@ -238,13 +232,13 @@ export function SiteCard({
               ))}
             </div>
             <div className="absolute bottom-0 left-0 right-0 flex justify-between px-1 text-[9px] text-muted-foreground">
-              <span>24h 前</span>
+              <span>24h �?/span>
               <span>现在</span>
             </div>
           </div>
         )}
 
-        {/* 底部信息栏 */}
+        {/* 底部信息�?*/}
         <div className="flex items-center justify-between pt-2 border-t border-border/50">
           {/* 平台标识 */}
           <Badge variant="secondary" className="text-[10px] px-2 py-0.5 font-medium">
@@ -263,12 +257,12 @@ export function SiteCard({
           </Button>
         </div>
 
-        {/* 最后同步时间 */}
+        {/* 最后同步时�?*/}
         {lastSync && (
           <div className="flex items-center gap-1 text-[10px] text-muted-foreground">
             <Activity className="w-3 h-3" />
             <span>
-              最后同步: {new Date(lastSync).toLocaleTimeString('zh-CN')}
+              最后同�? {new Date(lastSync).toLocaleTimeString('zh-CN')}
             </span>
           </div>
         )}
@@ -276,6 +270,7 @@ export function SiteCard({
     </Card>
   );
 }
+
 
 
 

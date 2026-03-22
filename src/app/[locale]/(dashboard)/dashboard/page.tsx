@@ -47,7 +47,7 @@ export default function SoloBoardDashboardPage() {
 
   // 使用 SWR 实现实时数据刷新
   const { data, error, mutate, isLoading } = useSWR<SitesResponse>(
-    '/api/soloboard/sites',
+    '/api/dashboard/sites',
     fetcher,
     {
       refreshInterval: 30000, // 每 30 秒自动刷新

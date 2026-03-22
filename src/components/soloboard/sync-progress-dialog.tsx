@@ -1,11 +1,8 @@
-/**
+﻿/**
  * Sync Progress Dialog
- * 同步进度对话框
- * 
- * 功能：
- * 1. 实时显示同步进度
- * 2. 分步骤展示（Stripe、GA4、Uptime、Database）
- * 3. 每个步骤的状态指示器
+ * 同步进度对话�? * 
+ * 功能�? * 1. 实时显示同步进度
+ * 2. 分步骤展示（Stripe、GA4、Uptime、Database�? * 3. 每个步骤的状态指示器
  * 4. 错误信息展示
  */
 
@@ -60,20 +57,18 @@ export function SyncProgressDialog({ siteId, open, onClose, onComplete }: SyncPr
 
   useEffect(() => {
     if (!open) {
-      // 重置状态
-      setSteps({});
+      // 重置状�?      setSteps({});
       setIsComplete(false);
       setProgress(0);
       return;
     }
 
-    // 开始同步
-    startSync();
+    // 开始同�?    startSync();
   }, [open, siteId]);
 
   const startSync = async () => {
     try {
-      const response = await fetch(`/api/soloboard/sites/${siteId}/sync-stream`, {
+      const response = await fetch(`/api/dashboard/sites/${siteId}/sync-stream`, {
         method: 'POST',
       });
 
@@ -231,6 +226,7 @@ export function SyncProgressDialog({ siteId, open, onClose, onComplete }: SyncPr
     </Dialog>
   );
 }
+
 
 
 

@@ -1,12 +1,11 @@
-/**
- * 3 步向导式批量添加站点对话框
- * Wizard-Style Batch Add Sites Dialog
+﻿/**
+ * 3 步向导式批量添加站点对话�? * Wizard-Style Batch Add Sites Dialog
  * 
  * Step 1: 域名矩阵 - 批量输入 + 自动验证 + Logo 预览
  * Step 2: 秘钥映射 - 全局/单独配置 + 智能平台识别
- * Step 3: 指标激活 - 选择追踪指标
+ * Step 3: 指标激�?- 选择追踪指标
  * 
- * 不改变 ShipAny 结构 - 独立组件
+ * 不改�?ShipAny 结构 - 独立组件
  */
 
 'use client';
@@ -89,12 +88,12 @@ export function WizardBatchAddDialog({ onSuccess, onClose }: WizardBatchAddDialo
     const lines = domainInput.split('\n').map(line => line.trim()).filter(line => line);
     
     if (lines.length === 0) {
-      toast.error('请输入至少一个域名');
+      toast.error('请输入至少一个域�?);
       return;
     }
     
     if (lines.length > 10) {
-      toast.error('最多支持 10 个域名');
+      toast.error('最多支�?10 个域�?);
       return;
     }
     
@@ -102,8 +101,7 @@ export function WizardBatchAddDialog({ onSuccess, onClose }: WizardBatchAddDialo
     const newDomains: DomainInfo[] = [];
     
     try {
-      // 并发验证所有域名
-      const validationPromises = lines.map(async (line) => {
+      // 并发验证所有域�?      const validationPromises = lines.map(async (line) => {
         const domain = line.replace(/^https?:\/\//, '').replace(/\/$/, '');
         const name = domain.split('.')[0];
         
@@ -114,8 +112,7 @@ export function WizardBatchAddDialog({ onSuccess, onClose }: WizardBatchAddDialo
         };
         
         try {
-          // 1. 检查域名可访问性
-          const url = `https://${domain}`;
+          // 1. 检查域名可访问�?          const url = `https://${domain}`;
           const response = await fetch(url, { 
             method: 'HEAD',
             mode: 'no-cors',
@@ -145,7 +142,7 @@ export function WizardBatchAddDialog({ onSuccess, onClose }: WizardBatchAddDialo
       setDomains(results);
       
       const onlineCount = results.filter(d => d.status === 'online').length;
-      toast.success(`验证完成！${onlineCount}/${results.length} 个站点在线`);
+      toast.success(`验证完成�?{onlineCount}/${results.length} 个站点在线`);
       
     } catch (error) {
       toast.error('验证失败，请重试');
@@ -182,7 +179,7 @@ export function WizardBatchAddDialog({ onSuccess, onClose }: WizardBatchAddDialo
       newConfigs.set(domain.domain, { ...globalApiKeys });
     });
     setIndividualConfigs(newConfigs);
-    toast.success('已应用全局配置到所有站点');
+    toast.success('已应用全局配置到所有站�?);
   };
 
   const updateIndividualConfig = (domain: string, keys: Partial<ApiKeyConfig>) => {
@@ -216,8 +213,8 @@ export function WizardBatchAddDialog({ onSuccess, onClose }: WizardBatchAddDialo
         };
       });
       
-      // 提交到 API
-      const response = await fetch('/api/soloboard/sites/batch', {
+      // 提交�?API
+      const response = await fetch('/api/dashboard/sites/batch', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ sites }),
@@ -260,11 +257,10 @@ export function WizardBatchAddDialog({ onSuccess, onClose }: WizardBatchAddDialo
         </div>
         <h2 className="text-2xl font-bold">批量添加网站</h2>
         <p className="text-sm text-muted-foreground">
-          3 步快速配置，一次性添加最多 10 个网站
-        </p>
+          3 步快速配置，一次性添加最�?10 个网�?        </p>
       </div>
 
-      {/* 步骤指示器 */}
+      {/* 步骤指示�?*/}
       <div className="flex items-center justify-center gap-4">
         {[1, 2, 3].map((step) => (
           <div key={step} className="flex items-center gap-2">
@@ -311,7 +307,7 @@ export function WizardBatchAddDialog({ onSuccess, onClose }: WizardBatchAddDialo
         />
       )}
 
-      {/* Step 3: 指标激活 */}
+      {/* Step 3: 指标激�?*/}
       {currentStep === 3 && (
         <Step3MetricsSelection
           selectedMetrics={selectedMetrics}
@@ -350,8 +346,7 @@ function Step1DomainGrid({
               📋 批量粘贴域名
             </h4>
             <p className="text-sm text-blue-700 dark:text-blue-300">
-              每行一个域名，最多 10 个。系统将自动验证可访问性并获取 Logo。
-            </p>
+              每行一个域名，最�?10 个。系统将自动验证可访问性并获取 Logo�?            </p>
           </div>
         </div>
       </div>
@@ -367,7 +362,7 @@ function Step1DomainGrid({
           disabled={isValidating || domains.length > 0}
         />
         <p className="text-xs text-muted-foreground">
-          支持格式：example.com 或 https://example.com
+          支持格式：example.com �?https://example.com
         </p>
       </div>
 
@@ -381,13 +376,12 @@ function Step1DomainGrid({
           {isValidating ? (
             <>
               <Loader2 className="h-5 w-5 mr-2 animate-spin" />
-              验证中...
+              验证�?..
             </>
           ) : (
             <>
               <CheckCircle2 className="h-5 w-5 mr-2" />
-              验证域名并继续
-            </>
+              验证域名并继�?            </>
           )}
         </Button>
       ) : (
@@ -423,7 +417,7 @@ function Step1DomainGrid({
                   {domain.detectedPlatforms && domain.detectedPlatforms.length > 0 && (
                     <p className="text-xs text-muted-foreground">
                       检测到: {domain.detectedPlatforms.join(', ')} 
-                      {domain.confidence && ` (${domain.confidence}% 置信度)`}
+                      {domain.confidence && ` (${domain.confidence}% 置信�?`}
                     </p>
                   )}
                 </div>
@@ -432,7 +426,7 @@ function Step1DomainGrid({
                   {domain.status === 'online' ? (
                     <span className="text-green-600">🟢 在线</span>
                   ) : (
-                    <span className="text-red-600">❌ 离线</span>
+                    <span className="text-red-600">�?离线</span>
                   )}
                 </div>
               </div>
@@ -454,8 +448,7 @@ function Step1DomainGrid({
               className="flex-1"
               size="lg"
             >
-              下一步：配置数据源
-              <ArrowRight className="h-5 w-5 ml-2" />
+              下一步：配置数据�?              <ArrowRight className="h-5 w-5 ml-2" />
             </Button>
           </div>
         </>
@@ -487,10 +480,9 @@ function Step2KeyMapping({
           <ShieldCheck className="h-5 w-5 text-yellow-600 dark:text-yellow-400 flex-shrink-0 mt-0.5" />
           <div>
             <h4 className="font-semibold text-yellow-900 dark:text-yellow-100 mb-1">
-              🔑 配置数据源
-            </h4>
+              🔑 配置数据�?            </h4>
             <p className="text-sm text-yellow-700 dark:text-yellow-300">
-              选择全局设置（所有站点使用相同 API Key）或单独设置（每个站点不同）
+              选择全局设置（所有站点使用相�?API Key）或单独设置（每个站点不同）
             </p>
           </div>
         </div>
@@ -500,11 +492,11 @@ function Step2KeyMapping({
       <RadioGroup value={configMode} onValueChange={(value: any) => setConfigMode(value)}>
         <div className="flex items-center space-x-2">
           <RadioGroupItem value="global" id="global" />
-          <Label htmlFor="global">⚪ 全局设置（推荐）</Label>
+          <Label htmlFor="global">�?全局设置（推荐）</Label>
         </div>
         <div className="flex items-center space-x-2">
           <RadioGroupItem value="individual" id="individual" />
-          <Label htmlFor="individual">⚫ 单独设置</Label>
+          <Label htmlFor="individual">�?单独设置</Label>
         </div>
       </RadioGroup>
 
@@ -538,8 +530,7 @@ function Step2KeyMapping({
             className="w-full"
             size="sm"
           >
-            应用到所有 {domains.length} 个站点
-          </Button>
+            应用到所�?{domains.length} 个站�?          </Button>
         </div>
       )}
 
@@ -572,8 +563,7 @@ function Step2KeyMapping({
       <div className="flex gap-3">
         <Button variant="outline" onClick={onPrev} className="flex-1">
           <ArrowLeft className="h-4 w-4 mr-2" />
-          上一步
-        </Button>
+          上一�?        </Button>
         <Button onClick={onNext} className="flex-1" size="lg">
           下一步：选择指标
           <ArrowRight className="h-5 w-5 ml-2" />
@@ -599,9 +589,9 @@ function Step3MetricsSelection({
 }: any) {
   const metrics = [
     { id: 'revenue', label: '💰 销售额 (Revenue)', icon: TrendingUp },
-    { id: 'visitors', label: '👥 访客数 (Visitors)', icon: Users },
-    { id: 'uptime', label: '⚡ 响应速度 (Speed)', icon: Activity },
-    { id: 'conversion', label: '📊 转化率 (Conversion)', icon: BarChart3 },
+    { id: 'visitors', label: '👥 访客�?(Visitors)', icon: Users },
+    { id: 'uptime', label: '�?响应速度 (Speed)', icon: Activity },
+    { id: 'conversion', label: '📊 转化�?(Conversion)', icon: BarChart3 },
     { id: 'alerts', label: '🔔 告警通知 (Alerts)', icon: Bell },
   ];
 
@@ -657,7 +647,7 @@ function Step3MetricsSelection({
         <div className="space-y-2">
           <Progress value={submitProgress} />
           <p className="text-sm text-center text-muted-foreground">
-            正在添加 {domains.length} 个站点...
+            正在添加 {domains.length} 个站�?..
           </p>
         </div>
       )}
@@ -667,11 +657,9 @@ function Step3MetricsSelection({
           <ShieldCheck className="h-6 w-6 text-blue-600 dark:text-blue-400" />
           <div>
             <h4 className="font-bold text-blue-900 dark:text-blue-100 text-sm">
-              数据加密保护已激活
-            </h4>
+              数据加密保护已激�?            </h4>
             <p className="text-xs text-blue-700 dark:text-blue-300">
-              API Keys 将通过 AES-256 军事级加密存储
-            </p>
+              API Keys 将通过 AES-256 军事级加密存�?            </p>
           </div>
         </div>
       </div>
@@ -679,8 +667,7 @@ function Step3MetricsSelection({
       <div className="flex gap-3">
         <Button variant="outline" onClick={onPrev} disabled={isSubmitting} className="flex-1">
           <ArrowLeft className="h-4 w-4 mr-2" />
-          上一步
-        </Button>
+          上一�?        </Button>
         <Button variant="outline" onClick={onClose} disabled={isSubmitting}>
           取消
         </Button>
@@ -693,19 +680,19 @@ function Step3MetricsSelection({
           {isSubmitting ? (
             <>
               <Loader2 className="h-5 w-5 mr-2 animate-spin" />
-              添加中...
+              添加�?..
             </>
           ) : (
             <>
               <CheckCircle2 className="h-5 w-5 mr-2" />
-              完成并添加 {domains.length} 个站点
-            </>
+              完成并添�?{domains.length} 个站�?            </>
           )}
         </Button>
       </div>
     </div>
   );
 }
+
 
 
 

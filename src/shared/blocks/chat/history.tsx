@@ -1,5 +1,5 @@
 /**
- * Chat History Component - Not used in SoloBoard
+ * Chat History Component - Not used in dashboard
  * This file exists only to prevent build errors from legacy subtitle extract code
  */
 
@@ -11,9 +11,10 @@ export function ChatHistory() {
       <div className="text-center">
         <h1 className="mb-4 text-2xl font-bold">Chat History Not Available</h1>
         <p className="text-muted-foreground">
-          Chat history functionality is not available in SoloBoard.
+          Chat history functionality is not available in dashboard.
         </p>
       </div>
     </div>
   );
 }
+

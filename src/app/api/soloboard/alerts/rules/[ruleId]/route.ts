@@ -1,8 +1,8 @@
 /**
  * Alert Rule Management API
  * 
- * PATCH /api/soloboard/alerts/rules/[ruleId] - 更新报警规则
- * DELETE /api/soloboard/alerts/rules/[ruleId] - 删除报警规则
+ * PATCH /api/dashboard/alerts/rules/[ruleId] - 更新报警规则
+ * DELETE /api/dashboard/alerts/rules/[ruleId] - 删除报警规则
  */
 
 import { NextRequest, NextResponse } from 'next/server';

@@ -1,11 +1,9 @@
-/**
- * SoloBoard - API: 获取用户的所有监控站点
+﻿/**
+ * dashboard - API: 获取用户的所有监控站�? * 
+ * GET /api/dashboard/sites
+ * POST /api/dashboard/sites - 添加新站点（带订阅限制检查）
  * 
- * GET /api/soloboard/sites
- * POST /api/soloboard/sites - 添加新站点（带订阅限制检查）
- * 
- * 返回用户的所有站点及其最新快照数据
- */
+ * 返回用户的所有站点及其最新快照数�? */
 
 import { NextRequest, NextResponse } from 'next/server';
 import { db } from '@/core/db';
@@ -20,8 +18,7 @@ export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 
 /**
- * 获取用户的所有监控站点
- */
+ * 获取用户的所有监控站�? */
 export async function GET(request: NextRequest) {
   try {
     // 1. 验证用户身份
@@ -36,8 +33,7 @@ export async function GET(request: NextRequest) {
       );
     }
     
-    // 2. 查询用户的所有站点
-    const sites = await db().select().from(monitoredSites)
+    // 2. 查询用户的所有站�?    const sites = await db().select().from(monitoredSites)
       .where(eq(monitoredSites.userId, session.user.id))
       .orderBy(desc(monitoredSites.createdAt));
     
@@ -46,8 +42,7 @@ export async function GET(request: NextRequest) {
     const planName = currentSubscription?.planName || null;
     const limitCheck = canAddMoreSites(sites.length, planName);
     
-    // 4. 格式化数据（移除敏感信息）
-    const sanitizedSites = sites.map((site: any) => ({
+    // 4. 格式化数据（移除敏感信息�?    const sanitizedSites = sites.map((site: any) => ({
       id: site.id,
       name: site.name,
       url: site.url || `https://${site.domain}`,
@@ -108,8 +103,7 @@ export async function POST(request: NextRequest) {
       );
     }
     
-    // 2. 解析请求体
-    const body = await request.json();
+    // 2. 解析请求�?    const body = await request.json();
     const { name, url, domain, platform = 'UPTIME', apiConfig = {} } = body;
     
     // 3. 验证必填字段
@@ -131,8 +125,7 @@ export async function POST(request: NextRequest) {
       }
     }
     
-    // 5. 🎯 检查重复域名
-    const existingSites = await db().select()
+    // 5. 🎯 检查重复域�?    const existingSites = await db().select()
       .from(monitoredSites)
       .where(eq(monitoredSites.userId, session.user.id));
     
@@ -152,13 +145,11 @@ export async function POST(request: NextRequest) {
       );
     }
     
-    // 6. 🎯 P2: 检查用户站点数量限制（订阅限制）
-    // 获取用户当前订阅计划
+    // 6. 🎯 P2: 检查用户站点数量限制（订阅限制�?    // 获取用户当前订阅计划
     const currentSubscription = await getCurrentSubscription(session.user.id);
     const planName = currentSubscription?.planName || null;
     
-    // 检查是否可以添加更多站点
-    const limitCheck = canAddMoreSites(existingSites.length, planName);
+    // 检查是否可以添加更多站�?    const limitCheck = canAddMoreSites(existingSites.length, planName);
     
     if (!limitCheck.canAdd) {
       return NextResponse.json(
@@ -174,8 +165,7 @@ export async function POST(request: NextRequest) {
       );
     }
     
-    // 7. 创建新站点记录
-    const siteId = nanoid();
+    // 7. 创建新站点记�?    const siteId = nanoid();
     
     await db().insert(monitoredSites).values({
       id: siteId,
@@ -222,3 +212,4 @@ export async function POST(request: NextRequest) {
     );
   }
 }
+

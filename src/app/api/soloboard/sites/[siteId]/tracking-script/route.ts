@@ -1,6 +1,6 @@
 /**
  * Tracking Script 生成 API
- * GET /api/soloboard/sites/[siteId]/tracking-script
+ * GET /api/dashboard/sites/[siteId]/tracking-script
  * 
  * 功能:
  * 1. 生成唯一的 tracking script ID
@@ -76,7 +76,7 @@ export async function GET(
     }
 
     // 4. 生成 tracking script
-    const appUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://soloboard.app';
+    const appUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://dashboard.app';
     
     const trackingScript = `<!-- SoloBoard Tracking Script -->
 <script>
@@ -208,7 +208,7 @@ export async function GET(
 
 /**
  * 禁用 tracking script
- * DELETE /api/soloboard/sites/[siteId]/tracking-script
+ * DELETE /api/dashboard/sites/[siteId]/tracking-script
  */
 export async function DELETE(
   request: NextRequest,

@@ -37,8 +37,8 @@ import {
 } from '@/shared/components/ui/alert-dialog';
 import { motion } from 'framer-motion';
 import { useSites } from '@/shared/hooks/use-sites';
-import { SimpleAddSiteDialog } from '@/components/soloboard/simple-add-site-dialog';
-import { WizardBatchAddDialog } from '@/components/soloboard/wizard-batch-add-dialog';
+import { SimpleAddSiteDialog } from '@/components/dashboard/simple-add-site-dialog';
+import { WizardBatchAddDialog } from '@/components/dashboard/wizard-batch-add-dialog';
 import { toast } from 'sonner';
 
 type SiteStatus = 'online' | 'offline' | 'warning';
@@ -55,7 +55,7 @@ interface Site {
 }
 
 export function SoloBoardDashboard() {
-  const t = useTranslations('common.soloboard');
+  const t = useTranslations('common.dashboard');
   const { sites, summary, isLoading, error, refetch } = useSites();
   const [isAddDialogOpen, setIsAddDialogOpen] = useState(false);
   const [isBatchAddOpen, setIsBatchAddOpen] = useState(false);
@@ -94,7 +94,7 @@ export function SoloBoardDashboard() {
     
     setIsDeleting(true);
     try {
-      const response = await fetch(`/api/soloboard/sites/${siteToDelete}`, {
+      const response = await fetch(`/api/dashboard/sites/${siteToDelete}`, {
         method: 'DELETE',
       });
       
@@ -513,7 +513,7 @@ function SiteCard({ site, t, onDelete }: { site: Site; t: any; onDelete: (siteId
               </p>
             </div>
             <div className="flex items-center gap-2">
-              <Link href={`/soloboard/${site.id}`}>
+              <Link href={`/dashboard/${site.id}`}>
                 <Button variant="outline" size="sm" className="hover:bg-accent transition-colors">
                   {t('site_card.view_details')}
                 </Button>

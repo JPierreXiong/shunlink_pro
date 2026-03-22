@@ -43,7 +43,7 @@ export function AddSiteDialog({ open, onClose, onSuccess }: AddSiteDialogProps) 
   const handleSubmit = async () => {
     setIsSubmitting(true);
     try {
-      const response = await fetch('/api/soloboard/sites', {
+      const response = await fetch('/api/dashboard/sites', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

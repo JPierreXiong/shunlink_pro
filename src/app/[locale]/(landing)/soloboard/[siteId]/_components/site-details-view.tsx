@@ -29,8 +29,8 @@ import {
 import Link from 'next/link';
 import { useSiteHistory } from '@/shared/hooks/use-site-history';
 import { toast } from 'sonner';
-import { SiteSettingsDialog } from '@/components/soloboard/site-settings-dialog';
-import { SyncProgressDialog } from '@/components/soloboard/sync-progress-dialog';
+import { SiteSettingsDialog } from '@/components/dashboard/site-settings-dialog';
+import { SyncProgressDialog } from '@/components/dashboard/sync-progress-dialog';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -65,8 +65,8 @@ interface SiteInfo {
 }
 
 export function SiteDetailsView({ siteId }: SiteDetailsViewProps) {
-  const t = useTranslations('common.soloboard');
-  const tStatus = useTranslations('common.soloboard.status');
+  const t = useTranslations('common.dashboard');
+  const tStatus = useTranslations('common.dashboard.status');
   const router = useRouter();
   const { history, isLoading: historyLoading, error: historyError, refetch: refetchHistory } = useSiteHistory(siteId, 30);
   const [siteInfo, setSiteInfo] = useState<SiteInfo | null>(null);
@@ -83,7 +83,7 @@ export function SiteDetailsView({ siteId }: SiteDetailsViewProps) {
     const fetchSiteInfo = async () => {
       try {
         setIsLoading(true);
-        const response = await fetch(`/api/soloboard/sites/${siteId}/metrics`);
+        const response = await fetch(`/api/dashboard/sites/${siteId}/metrics`);
         
         if (!response.ok) {
           throw new Error('Failed to fetch site info');
@@ -113,7 +113,7 @@ export function SiteDetailsView({ siteId }: SiteDetailsViewProps) {
     refetchHistory();
     
     // 重新获取站点信息
-    const siteResponse = await fetch(`/api/soloboard/sites/${siteId}/metrics`);
+    const siteResponse = await fetch(`/api/dashboard/sites/${siteId}/metrics`);
     if (siteResponse.ok) {
       const data = await siteResponse.json();
       setSiteInfo(data.site);
@@ -125,7 +125,7 @@ export function SiteDetailsView({ siteId }: SiteDetailsViewProps) {
     try {
       toast.loading(`Exporting ${format.toUpperCase()}...`);
       
-      const response = await fetch(`/api/soloboard/sites/${siteId}/export?format=${format}`);
+      const response = await fetch(`/api/dashboard/sites/${siteId}/export?format=${format}`);
       
       if (!response.ok) {
         throw new Error('Export failed');
@@ -159,13 +159,13 @@ export function SiteDetailsView({ siteId }: SiteDetailsViewProps) {
     
     setIsDeleting(true);
     try {
-      const response = await fetch(`/api/soloboard/sites/${siteId}`, {
+      const response = await fetch(`/api/dashboard/sites/${siteId}`, {
         method: 'DELETE',
       });
       
       if (response.ok) {
         toast.success('Website deleted successfully!');
-        router.push('/soloboard');
+        router.push('/dashboard');
       } else {
         const data = await response.json();
         toast.error(data.error || 'Failed to delete website');
@@ -197,7 +197,7 @@ export function SiteDetailsView({ siteId }: SiteDetailsViewProps) {
             <AlertCircle className="h-12 w-12 text-destructive mb-4" />
             <h3 className="text-xl font-semibold mb-2">Error Loading Site</h3>
             <p className="text-muted-foreground mb-6">{error || 'Site not found'}</p>
-            <Link href="/soloboard">
+            <Link href="/dashboard">
               <Button>Back to Dashboard</Button>
             </Link>
           </CardContent>
@@ -245,7 +245,7 @@ export function SiteDetailsView({ siteId }: SiteDetailsViewProps) {
       {/* Header */}
       <div className="flex items-center justify-between mb-8">
         <div className="flex items-center gap-4">
-          <Link href="/soloboard">
+          <Link href="/dashboard">
             <Button variant="outline" size="sm" className="gap-2">
               <ArrowLeft className="h-4 w-4" />
               {t('site_details.back')}

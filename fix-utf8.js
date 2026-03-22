@@ -1,0 +1,28 @@
+const fs = require('fs');
+const path = require('path');
+
+const files = [
+  'src/components/soloboard/site-settings-dialog.tsx',
+  'src/components/soloboard/sync-progress-dialog.tsx',
+  'src/components/soloboard/wizard-batch-add-dialog.tsx',
+  'src/shared/hooks/use-sites.ts'
+];
+
+files.forEach(f => {
+  const fullPath = path.join(process.cwd(), f);
+  try {
+    if (fs.existsSync(fullPath)) {
+      const content = fs.readFileSync(fullPath, 'utf8');
+      const fixed = content.replace(/soloboard/g, 'dashboard');
+      fs.writeFileSync(fullPath, fixed, 'utf8');
+      console.log(`✓ Fixed: ${f}`);
+    } else {
+      console.log(`✗ Not found: ${f}`);
+    }
+  } catch(e) {
+    console.error(`✗ Error: ${f} - ${e.message}`);
+  }
+});
+
+console.log('\nDone!');
+

@@ -16,7 +16,7 @@ interface PageProps {
 
 export async function generateMetadata({ params }: PageProps) {
   const { locale } = await params;
-  const t = await getTranslations('common.soloboard');
+  const t = await getTranslations('common.dashboard');
 
   return {
     title: `${t('site_details.title')} - SoloBoard`,

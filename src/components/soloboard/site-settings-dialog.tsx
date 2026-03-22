@@ -1,16 +1,10 @@
-/**
+﻿/**
  * Site Settings Dialog
- * 网站设置对话框
- * 
- * 功能：
- * 1. 编辑网站基本信息（名称、域名）
- * 2. 配置/修改 API Keys（Stripe、GA4、Shopify）
- * 3. 测试 API 连接
+ * 网站设置对话�? * 
+ * 功能�? * 1. 编辑网站基本信息（名称、域名）
+ * 2. 配置/修改 API Keys（Stripe、GA4、Shopify�? * 3. 测试 API 连接
  * 4. 显示连接状态指示器
- * 5. 安全的 API Key 输入（遮蔽/显示切换）
- * 6. Webhook URL 展示和复制
- * 7. 删除网站（带二次确认）
- */
+ * 5. 安全�?API Key 输入（遮�?显示切换�? * 6. Webhook URL 展示和复�? * 7. 删除网站（带二次确认�? */
 
 'use client';
 
@@ -84,7 +78,7 @@ interface ConnectionStatus {
 }
 
 export function SiteSettingsDialog({ siteId, open, onClose, onSave }: SiteSettingsDialogProps) {
-  const t = useTranslations('common.soloboard');
+  const t = useTranslations('common.dashboard');
   
   const [config, setConfig] = useState<SiteConfig>({
     name: '',
@@ -121,7 +115,7 @@ export function SiteSettingsDialog({ siteId, open, onClose, onSave }: SiteSettin
   const fetchSiteConfig = async () => {
     try {
       setIsLoading(true);
-      const response = await fetch(`/api/soloboard/sites/${siteId}`);
+      const response = await fetch(`/api/dashboard/sites/${siteId}`);
       
       if (!response.ok) {
         throw new Error('Failed to fetch site config');
@@ -139,8 +133,7 @@ export function SiteSettingsDialog({ siteId, open, onClose, onSave }: SiteSettin
         syncInterval: data.syncInterval || 3600,
       });
 
-      // 设置连接状态
-      setConnectionStatus({
+      // 设置连接状�?      setConnectionStatus({
         stripe: data.stripeKey ? 'connected' : 'disconnected',
         ga4: data.ga4PropertyId ? 'connected' : 'disconnected',
         shopify: data.shopifyAccessToken ? 'connected' : 'disconnected',
@@ -152,7 +145,7 @@ export function SiteSettingsDialog({ siteId, open, onClose, onSave }: SiteSettin
     }
   };
 
-  // 遮蔽 API Key（只显示前4位和后4位）
+  // 遮蔽 API Key（只显示�?位和�?位）
   const maskApiKey = (key: string): string => {
     if (!key || key.length < 8) return key;
     return `${key.substring(0, 4)}${'*'.repeat(Math.max(8, key.length - 8))}${key.substring(key.length - 4)}`;
@@ -163,7 +156,7 @@ export function SiteSettingsDialog({ siteId, open, onClose, onSave }: SiteSettin
     try {
       setConnectionStatus(prev => ({ ...prev, [platform]: 'testing' }));
       
-      const response = await fetch(`/api/soloboard/sites/${siteId}/test-connection`, {
+      const response = await fetch(`/api/dashboard/sites/${siteId}/test-connection`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -194,7 +187,7 @@ export function SiteSettingsDialog({ siteId, open, onClose, onSave }: SiteSettin
     try {
       setIsSaving(true);
       
-      const response = await fetch(`/api/soloboard/sites/${siteId}`, {
+      const response = await fetch(`/api/dashboard/sites/${siteId}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(config),
@@ -224,7 +217,7 @@ export function SiteSettingsDialog({ siteId, open, onClose, onSave }: SiteSettin
     try {
       setIsDeleting(true);
       
-      const response = await fetch(`/api/soloboard/sites/${siteId}`, {
+      const response = await fetch(`/api/dashboard/sites/${siteId}`, {
         method: 'DELETE',
       });
 
@@ -562,6 +555,7 @@ export function SiteSettingsDialog({ siteId, open, onClose, onSave }: SiteSettin
     </>
   );
 }
+
 
 
 

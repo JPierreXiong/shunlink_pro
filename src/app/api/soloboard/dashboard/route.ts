@@ -1,7 +1,6 @@
-/**
+﻿/**
  * API: Get All Sites with Metrics
- * 获取用户所有站点及其实时指标
- * 
+ * 获取用户所有站点及其实时指�? * 
  * 🔧 优化版：简化错误处理，优雅降级
  */
 
@@ -10,8 +9,8 @@ import { auth } from '@/core/auth';
 import { db } from '@/core/db';
 import { monitoredSites, siteMetricsDaily } from '@/config/db/schema';
 import { eq, and, gte, desc } from 'drizzle-orm';
-import { aggregateSiteData } from '@/shared/services/soloboard/aggregation-service';
-import { detectAnomaly, calculateHistoricalAverage } from '@/shared/services/soloboard/anomaly-detection';
+import { aggregateSiteData } from '@/shared/services/dashboard/aggregation-service';
+import { detectAnomaly, calculateHistoricalAverage } from '@/shared/services/dashboard/anomaly-detection';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -27,8 +26,7 @@ export async function GET(request: NextRequest) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    // 从数据库获取用户的所有站点
-    let userSites = [];
+    // 从数据库获取用户的所有站�?    let userSites = [];
     try {
       userSites = await db()
         .select()
@@ -36,8 +34,7 @@ export async function GET(request: NextRequest) {
         .where(eq(monitoredSites.userId, session.user.id));
     } catch (dbError) {
       console.error('Database error:', dbError);
-      // 返回空数据而不是错误，让前端显示空状态
-      return NextResponse.json({
+      // 返回空数据而不是错误，让前端显示空状�?      return NextResponse.json({
         sites: [],
         summary: {
           totalSites: 0,
@@ -63,12 +60,10 @@ export async function GET(request: NextRequest) {
       });
     }
 
-    // 获取7天前的日期
-    const sevenDaysAgo = new Date();
+    // 获取7天前的日�?    const sevenDaysAgo = new Date();
     sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
 
-    // 并行获取所有站点的实时数据和历史数据
-    const sites = await Promise.all(
+    // 并行获取所有站点的实时数据和历史数�?    const sites = await Promise.all(
       userSites.map(async (site) => {
         const apiConfig = site.apiConfig as any || {};
         const platforms = apiConfig.platforms || {};
@@ -88,10 +83,9 @@ export async function GET(request: NextRequest) {
           });
         } catch (error) {
           console.error(`Error fetching live metrics for ${site.domain || site.url}:`, error);
-          // 继续使用默认值
-        }
+          // 继续使用默认�?        }
 
-        // 2. 获取历史数据（最近7天）- 优雅降级
+        // 2. 获取历史数据（最�?天）- 优雅降级
         let historyData: any[] = [];
         try {
           historyData = await db()
@@ -106,19 +100,16 @@ export async function GET(request: NextRequest) {
             .orderBy(desc(siteMetricsDaily.date));
         } catch (error) {
           console.error(`Error fetching history for ${site.domain || site.url}:`, error);
-          // 继续使用空数组
-        }
+          // 继续使用空数�?        }
 
-        // 3. 计算历史平均值
-        const historical = calculateHistoricalAverage(
+        // 3. 计算历史平均�?        const historical = calculateHistoricalAverage(
           historyData.map(d => ({
             revenue: d.revenue || 0,
             visitors: d.visitors || 0,
           }))
         );
 
-        // 4. 异常检测
-        const anomaly = detectAnomaly(
+        // 4. 异常检�?        const anomaly = detectAnomaly(
           {
             revenue: liveMetrics.revenue.today,
             visitors: liveMetrics.visitors.today,
@@ -144,8 +135,7 @@ export async function GET(request: NextRequest) {
       })
     );
 
-    // 计算汇总数据
-    const summary = {
+    // 计算汇总数�?    const summary = {
       totalSites: sites.length,
       totalRevenue: sites.reduce((sum, site) => sum + site.todayRevenue, 0),
       totalVisitors: sites.reduce((sum, site) => sum + site.todayVisitors, 0),
@@ -177,4 +167,5 @@ export async function GET(request: NextRequest) {
     );
   }
 }
+
 

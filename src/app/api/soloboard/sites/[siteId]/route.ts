@@ -1,11 +1,11 @@
 /**
- * GET /api/soloboard/sites/[siteId]
+ * GET /api/dashboard/sites/[siteId]
  * 获取站点配置信息
  * 
- * PATCH /api/soloboard/sites/[siteId]
+ * PATCH /api/dashboard/sites/[siteId]
  * 更新站点配置
  * 
- * DELETE /api/soloboard/sites/[siteId]
+ * DELETE /api/dashboard/sites/[siteId]
  * 删除监控站点
  */
 

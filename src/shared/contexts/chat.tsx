@@ -1,5 +1,5 @@
 /**
- * Chat Context - Not used in SoloBoard
+ * Chat Context - Not used in dashboard
  * This file exists only to prevent build errors from legacy subtitle extract code
  */
 
@@ -8,7 +8,7 @@
 import { createContext, useContext, ReactNode } from 'react';
 
 interface ChatContextValue {
-  // Chat context is not used in SoloBoard
+  // Chat context is not used in dashboard
 }
 
 const ChatContext = createContext<ChatContextValue | undefined>(undefined);
@@ -25,3 +25,4 @@ export function useChatContext() {
   }
   return context;
 }
+

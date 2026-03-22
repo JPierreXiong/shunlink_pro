@@ -1,27 +1,27 @@
-﻿{
+{
   "metadata": {
-    "title": "Politique de Confidentialité - LinkFlow AI",
-    "description": "Découvrez comment LinkFlow AI protège votre vie privée grâce à une collecte minimale de données, la conformité RGPD et des principes de confidentialité totale."
+    "title": "Politique de Confidentialit�� - LinkFlow AI",
+    "description": "D��couvrez comment LinkFlow AI prot��ge votre vie priv��e grace �� une collecte minimale de donn��es, la conformit�� RGPD et des principes de confidentialit�� totale."
   },
-  "last_updated": "Dernière mise à jour : 18 mars 2026",
+  "last_updated": "Derni��re mise �� jour : 18 mars 2026",
   "introduction": {
     "title": "Introduction",
-    "content": "LinkFlow AI (\"nous\") respecte votre vie privée et s'engage à protéger vos données personnelles. Cette Politique de Confidentialité explique comment nous collectons, utilisons et protégeons les informations lorsque vous utilisez notre plateforme de déploiement de backlinks propulsée par l'IA. Nous opérons selon des principes stricts de minimisation des données — nous ne collectons que ce qui est nécessaire pour fournir le service."
+    "content": "LinkFlow AI (\"nous\") respecte votre vie priv��e et s'engage �� prot��ger vos donn��es personnelles. Cette Politique de Confidentialit�� explique comment nous collectons, utilisons et prot��geons les informations lorsque vous utilisez notre plateforme de d��ploiement de backlinks propuls��e par l'IA. Nous op��rons selon des principes stricts de minimisation des donn��es �� nous ne collectons que ce qui est n��cessaire pour fournir le service."
   },
   "data_collection": {
-    "title": "Données que Nous Collectons",
+    "title": "Donn��es que Nous Collectons",
     "items": [
       {
         "subtitle": "Informations de Compte",
-        "content": "Lors de l'inscription, nous collectons uniquement votre adresse e-mail via Google OAuth ou GitHub OAuth. Nous ne collectons ni ne stockons votre mot de passe. Toutes les données de paiement sont traitées exclusivement par notre processeur de paiement Creem et ne sont pas conservées sur nos serveurs."
+        "content": "Lors de l'inscription, nous collectons uniquement votre adresse e-mail via Google OAuth ou GitHub OAuth. Nous ne collectons ni ne stockons votre mot de passe. Toutes les donn��es de paiement sont trait��es exclusivement par notre processeur de paiement Creem et ne sont pas conserv��es sur nos serveurs."
       },
       {
-        "subtitle": "Données de Tâches et de Backlinks",
-        "content": "Lorsque vous soumettez une tâche de backlink, nous stockons votre URL cible et votre texte d'ancrage pour réaliser le déploiement. Les captures d'écran et URL de preuve en direct générées lors d'une soumission réussie sont stockées via Cloudinary. Ces données ne sont conservées que tant que votre compte est actif."
+        "subtitle": "Donn��es de Taches et de Backlinks",
+        "content": "Lorsque vous soumettez une tache de backlink, nous stockons votre URL cible et votre texte d'ancrage pour r��aliser le d��ploiement. Les captures d'��cran et URL de preuve en direct g��n��r��es lors d'une soumission r��ussie sont stock��es via Cloudinary. Ces donn��es ne sont conserv��es que tant que votre compte est actif."
       },
       {
-        "subtitle": "Données d'Utilisation",
-        "content": "Nous collectons des données techniques anonymes (type de navigateur, type d'appareil, interactions avec les pages) pour optimiser les performances de la plateforme et améliorer la qualité du service. Ces données ne peuvent pas être utilisées pour vous identifier personnellement."
+        "subtitle": "Donn��es d'Utilisation",
+        "content": "Nous collectons des donn��es techniques anonymes (type de navigateur, type d'appareil, interactions avec les pages) pour optimiser les performances de la plateforme et am��liorer la qualit�� du service. Ces donn��es ne peuvent pas ��tre utilis��es pour vous identifier personnellement."
       },
       {
         "subtitle": "Cookies et Sessions",
@@ -30,44 +30,45 @@
     ]
   },
   "data_usage": {
-    "title": "Comment Nous Utilisons Vos Données",
+    "title": "Comment Nous Utilisons Vos Donn��es",
     "items": [
       {
         "subtitle": "Prestation de Service",
-        "content": "Votre e-mail et vos données de tâches sont utilisés uniquement pour exploiter la plateforme, authentifier votre compte et vous fournir des résultats de déploiement de backlinks avec preuve de capture d'écran."
+        "content": "Votre e-mail et vos donn��es de taches sont utilis��s uniquement pour exploiter la plateforme, authentifier votre compte et vous fournir des r��sultats de d��ploiement de backlinks avec preuve de capture d'��cran."
       },
       {
-        "subtitle": "Gestion du Système de Crédits",
-        "content": "Nous suivons les soldes de crédits et les historiques de tâches pour gérer avec précision votre compte. Les transactions de crédits sont enregistrées pour la transparence de facturation et la résolution des litiges."
+        "subtitle": "Gestion du Syst��me de Cr��dits",
+        "content": "Nous suivons les soldes de cr��dits et les historiques de taches pour g��rer avec pr��cision votre compte. Les transactions de cr��dits sont enregistr��es pour la transparence de facturation et la r��solution des litiges."
       },
       {
-        "subtitle": "Aucune Vente de Données",
-        "content": "Nous ne vendons, ne louons, ne partageons jamais vos données, et ne les utilisons pas à des fins d'analyse de marché ou à toute fin commerciale autre que la fourniture du service LinkFlow AI. Vos URL cibles et textes d'ancrage sont privés et ne sont jamais divulgués à des tiers."
+        "subtitle": "Aucune Vente de Donn��es",
+        "content": "Nous ne vendons, ne louons, ne partageons jamais vos donn��es, et ne les utilisons pas �� des fins d'analyse de march�� ou �� toute fin commerciale autre que la fourniture du service LinkFlow AI. Vos URL cibles et textes d'ancrage sont priv��s et ne sont jamais divulgu��s �� des tiers."
       }
     ]
   },
   "third_party": {
     "title": "Services Tiers",
-    "content": "LinkFlow AI utilise les services tiers suivants pour fonctionner : Cloudinary pour le stockage des captures d'écran et des images, Neon pour l'hébergement de la base de données chiffrée, et Creem pour le traitement sécurisé des paiements. Chaque fournisseur est contractuellement tenu de traiter vos données en conformité avec les lois de confidentialité applicables. Nous ne partageons vos données qu'au strict minimum nécessaire au bon fonctionnement de ces services."
+    "content": "LinkFlow AI utilise les services tiers suivants pour fonctionner : Cloudinary pour le stockage des captures d'��cran et des images, Neon pour l'h��bergement de la base de donn��es chiffr��e, et Creem pour le traitement s��curis�� des paiements. Chaque fournisseur est contractuellement tenu de traiter vos donn��es en conformit�� avec les lois de confidentialit�� applicables. Nous ne partageons vos donn��es qu'au strict minimum n��cessaire au bon fonctionnement de ces services."
   },
   "data_minimization": {
-    "title": "Principe de Minimisation des Données",
-    "content": "Nous nous engageons à ne collecter que ce dont nous avons besoin. Nous ne stockons pas vos mots de passe. Nous ne stockons pas vos données de carte bancaire. Nous ne surveillons pas le contenu des sites web pour lesquels vous soumettez des tâches. Les agents IA opèrent sur les cibles de prospection que vous fournissez, et ces données opérationnelles ne sont jamais partagées, analysées à des fins publicitaires, ni vendues."
+    "title": "Principe de Minimisation des Donn��es",
+    "content": "Nous nous engageons �� ne collecter que ce dont nous avons besoin. Nous ne stockons pas vos mots de passe. Nous ne stockons pas vos donn��es de carte bancaire. Nous ne surveillons pas le contenu des sites web pour lesquels vous soumettez des taches. Les agents IA op��rent sur les cibles de prospection que vous fournissez, et ces donn��es op��rationnelles ne sont jamais partag��es, analys��es �� des fins publicitaires, ni vendues."
   },
   "data_retention": {
-    "title": "Conservation des Données",
-    "content": "Vos données de tâches de backlinks, captures d'écran et informations de compte ne sont conservées que tant que votre compte est actif. Après suppression du compte, toutes les données associées sont définitivement effacées de nos serveurs et du stockage Cloudinary dans un délai de 30 jours. Vous pouvez demander la suppression complète de vos données à tout moment via votre tableau de bord ou en écrivant à support@linkflowai.app."
+    "title": "Conservation des Donn��es",
+    "content": "Vos donn��es de taches de backlinks, captures d'��cran et informations de compte ne sont conserv��es que tant que votre compte est actif. Apr��s suppression du compte, toutes les donn��es associ��es sont d��finitivement effac��es de nos serveurs et du stockage Cloudinary dans un d��lai de 30 jours. Vous pouvez demander la suppression compl��te de vos donn��es �� tout moment via votre tableau de bord ou en ��crivant �� support@linkflowai.app."
   },
   "compliance": {
-    "title": "Conformité RGPD et Internationale",
-    "content": "LinkFlow AI s'engage à respecter le Règlement Général sur la Protection des Données (RGPD) et les normes mondiales de confidentialité applicables. Vous avez le droit d'accéder, de corriger, d'exporter ou de supprimer définitivement vos données personnelles à tout moment. Pour exercer ces droits, contactez-nous à support@linkflowai.app. Nous répondrons dans les 2 jours ouvrables."
+    "title": "Conformit�� RGPD et Internationale",
+    "content": "LinkFlow AI s'engage �� respecter le R��glement G��n��ral sur la Protection des Donn��es (RGPD) et les normes mondiales de confidentialit�� applicables. Vous avez le droit d'acc��der, de corriger, d'exporter ou de supprimer d��finitivement vos donn��es personnelles �� tout moment. Pour exercer ces droits, contactez-nous �� support@linkflowai.app. Nous r��pondrons dans les 2 jours ouvrables."
   },
   "cookies": {
     "title": "Cookies et Stockage Local",
-    "content": "LinkFlow AI utilise les cookies et le stockage local du navigateur uniquement pour maintenir votre session authentifiée et mémoriser vos préférences. Nous n'utilisons aucun cookie publicitaire tiers ni aucune technologie de suivi comportemental."
+    "content": "LinkFlow AI utilise les cookies et le stockage local du navigateur uniquement pour maintenir votre session authentifi��e et m��moriser vos pr��f��rences. Nous n'utilisons aucun cookie publicitaire tiers ni aucune technologie de suivi comportemental."
   },
   "transparency_note": {
-    "content": "Des questions sur nos pratiques de confidentialité ? Contactez-nous à support@linkflowai.app. Nous répondrons dans les 2 jours ouvrables.",
+    "content": "Des questions sur nos pratiques de confidentialit�� ? Contactez-nous �� support@linkflowai.app. Nous r��pondrons dans les 2 jours ouvrables.",
     "link_text": "support@linkflowai.app"
   }
 }
+

@@ -1,14 +1,11 @@
-/**
+﻿/**
  * 批量添加站点 API
- * POST /api/soloboard/sites/batch
+ * POST /api/dashboard/sites/batch
  * 
  * 功能:
- * 1. 一次性提交最多 10 个站点
- * 2. 并发验证 API Key
- * 3. 订阅限制检查
- * 4. 部分成功/失败处理
- * 5. 事务性创建
- */
+ * 1. 一次性提交最�?10 个站�? * 2. 并发验证 API Key
+ * 3. 订阅限制检�? * 4. 部分成功/失败处理
+ * 5. 事务性创�? */
 
 import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@/core/auth';
@@ -38,8 +35,7 @@ async function validateStripeKey(key: string): Promise<boolean> {
 
 // 验证 GA4 Property ID
 async function validateGA4Property(propertyId: string): Promise<boolean> {
-  // GA4 验证需要 Service Account，这里简单检查格式
-  return /^G-[A-Z0-9]+$/.test(propertyId);
+  // GA4 验证需�?Service Account，这里简单检查格�?  return /^G-[A-Z0-9]+$/.test(propertyId);
 }
 
 // 验证 Shopify Access Token
@@ -90,8 +86,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // 2. 解析请求体
-    const { sites } = await request.json();
+    // 2. 解析请求�?    const { sites } = await request.json();
 
     if (!Array.isArray(sites) || sites.length === 0) {
       return NextResponse.json(
@@ -107,8 +102,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // 3. 检查订阅限制
-    const existingSites = await db()
+    // 3. 检查订阅限�?    const existingSites = await db()
       .select()
       .from(monitoredSites)
       .where(eq(monitoredSites.userId, session.user.id));
@@ -132,8 +126,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // 4. 并发验证和创建站点
-    const results = await Promise.allSettled(
+    // 4. 并发验证和创建站�?    const results = await Promise.allSettled(
       sites.map(async (site: any) => {
         try {
           // 验证必填字段
@@ -222,8 +215,7 @@ export async function POST(request: NextRequest) {
       })
     );
 
-    // 5. 汇总结果
-    const successful = results.filter(r => r.status === 'fulfilled').length;
+    // 5. 汇总结�?    const successful = results.filter(r => r.status === 'fulfilled').length;
     const failed = results.filter(r => r.status === 'rejected').length;
 
     const formattedResults = results.map((result, index) => {
@@ -261,6 +253,7 @@ export async function POST(request: NextRequest) {
     );
   }
 }
+
 
 
 

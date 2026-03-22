@@ -11,7 +11,7 @@ import { headers } from 'next/headers';
 import { auth } from '@/core/auth';
 import { envConfigs } from '@/config';
 import { defaultLocale } from '@/config/locale';
-import { SoloBoardDashboard } from './_components/soloboard-dashboard';
+import { SoloBoardDashboard } from './_components/dashboard-dashboard';
 import { BreadcrumbSchema } from '@/shared/components/seo/breadcrumb-schema';
 
 export async function generateMetadata({
@@ -20,7 +20,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  const t = await getTranslations('common.soloboard.page');
+  const t = await getTranslations('common.dashboard.page');
 
   return {
     title: t('title'),
@@ -28,8 +28,8 @@ export async function generateMetadata({
     alternates: {
       canonical:
         locale !== defaultLocale
-          ? `${envConfigs.app_url}/${locale}/soloboard`
-          : `${envConfigs.app_url}/soloboard`,
+          ? `${envConfigs.app_url}/${locale}/dashboard`
+          : `${envConfigs.app_url}/dashboard`,
     },
   };
 }
@@ -48,7 +48,7 @@ export default async function SoloBoardPage({
   
   // 未登录用户重定向到登录页
   if (!session?.user) {
-    redirect(`/${locale}/sign-in?callbackUrl=/${locale}/soloboard`);
+    redirect(`/${locale}/sign-in?callbackUrl=/${locale}/dashboard`);
   }
   
   // Prepare breadcrumb data for SEO
@@ -62,8 +62,8 @@ export default async function SoloBoardPage({
     { 
       name: 'Dashboard', 
       url: locale === defaultLocale 
-        ? `${envConfigs.app_url}/soloboard` 
-        : `${envConfigs.app_url}/${locale}/soloboard` 
+        ? `${envConfigs.app_url}/dashboard` 
+        : `${envConfigs.app_url}/${locale}/dashboard` 
     },
   ];
   

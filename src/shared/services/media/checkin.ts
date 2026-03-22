@@ -1,8 +1,8 @@
 /**
- * Media Checkin Service - Not used in SoloBoard
+ * Media Checkin Service - Not used in dashboard
  * This file exists only to prevent build errors from legacy subtitle extract code
  * 
- * Note: SoloBoard has its own check-in functionality at:
+ * Note: dashboard has its own check-in functionality at:
  * - Frontend: src/app/[locale]/(dashboard)/digital-heirloom/check-in/page.tsx
  * - API: /api/digital-heirloom/vault/heartbeat
  */
@@ -14,11 +14,12 @@ export interface CheckinResult {
 }
 
 export async function canCheckInToday(userId: string): Promise<boolean> {
-  // Media check-in is not available in SoloBoard
+  // Media check-in is not available in dashboard
   return false;
 }
 
 export async function performDailyCheckin(userId: string): Promise<CheckinResult> {
-  // Media check-in is not available in SoloBoard
-  throw new Error('Media check-in is not available in SoloBoard. Use SoloBoard check-in instead.');
+  // Media check-in is not available in dashboard
+  throw new Error('Media check-in is not available in dashboard. Use dashboard check-in instead.');
 }
+

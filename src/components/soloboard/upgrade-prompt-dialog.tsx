@@ -1,6 +1,5 @@
 /**
- * 升级提示对话框
- * 当用户达到站点限制时显示
+ * 升级提示对话�? * 当用户达到站点限制时显示
  */
 
 'use client';
@@ -33,7 +32,7 @@ export function UpgradePromptDialog({
   currentCount,
   limit,
 }: UpgradePromptDialogProps) {
-  const t = useTranslations('common.soloboard.upgrade_dialog');
+  const t = useTranslations('common.dashboard.upgrade_dialog');
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
@@ -48,7 +47,7 @@ export function UpgradePromptDialog({
         </DialogHeader>
 
         <div className="space-y-6">
-          {/* 当前状态 */}
+          {/* 当前状�?*/}
           <div className="bg-yellow-50 dark:bg-yellow-950 border border-yellow-200 dark:border-yellow-800 rounded-lg p-4">
             <div className="flex items-center gap-2 mb-2">
               <AlertCircle className="h-5 w-5 text-yellow-600 dark:text-yellow-400" />
@@ -210,19 +209,19 @@ export function UpgradePromptDialog({
                   <td className="p-3">{t('comparison.sites')}</td>
                   <td className="text-center p-3">1</td>
                   <td className="text-center p-3 bg-blue-50 dark:bg-blue-950 font-semibold">5</td>
-                  <td className="text-center p-3 bg-purple-50 dark:bg-purple-950 font-semibold">∞</td>
+                  <td className="text-center p-3 bg-purple-50 dark:bg-purple-950 font-semibold">�?/td>
                 </tr>
                 <tr className="border-t">
                   <td className="p-3">{t('comparison.email_alerts')}</td>
-                  <td className="text-center p-3">❌</td>
-                  <td className="text-center p-3 bg-blue-50 dark:bg-blue-950">✅</td>
-                  <td className="text-center p-3 bg-purple-50 dark:bg-purple-950">✅</td>
+                  <td className="text-center p-3">�?/td>
+                  <td className="text-center p-3 bg-blue-50 dark:bg-blue-950">�?/td>
+                  <td className="text-center p-3 bg-purple-50 dark:bg-purple-950">�?/td>
                 </tr>
                 <tr className="border-t">
                   <td className="p-3">{t('comparison.api_access')}</td>
-                  <td className="text-center p-3">❌</td>
-                  <td className="text-center p-3 bg-blue-50 dark:bg-blue-950">❌</td>
-                  <td className="text-center p-3 bg-purple-50 dark:bg-purple-950">✅</td>
+                  <td className="text-center p-3">�?/td>
+                  <td className="text-center p-3 bg-blue-50 dark:bg-blue-950">�?/td>
+                  <td className="text-center p-3 bg-purple-50 dark:bg-purple-950">�?/td>
                 </tr>
                 <tr className="border-t">
                   <td className="p-3">{t('comparison.data_history')}</td>
@@ -246,4 +245,5 @@ export function UpgradePromptDialog({
     </Dialog>
   );
 }
+
 

@@ -30,7 +30,7 @@ export function useSiteHistory(siteId: string, days: number = 30): UseSiteHistor
       setIsLoading(true);
       setError(null);
 
-      const response = await fetch(`/api/soloboard/sites/${siteId}/history?days=${days}`);
+      const response = await fetch(`/api/dashboard/sites/${siteId}/history?days=${days}`);
       
       if (!response.ok) {
         throw new Error('Failed to fetch site history');
@@ -61,6 +61,7 @@ export function useSiteHistory(siteId: string, days: number = 30): UseSiteHistor
     refetch: fetchHistory,
   };
 }
+
 
 
 

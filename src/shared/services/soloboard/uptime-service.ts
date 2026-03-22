@@ -24,7 +24,7 @@ export async function checkUptime(url: string): Promise<UptimeResult> {
       method: 'HEAD',
       signal: controller.signal,
       headers: {
-        'User-Agent': 'SoloBoard-Monitor/1.0',
+        'User-Agent': 'dashboard-Monitor/1.0',
       },
     });
 
@@ -62,6 +62,7 @@ export async function checkMultipleSites(
 
   return new Map(results);
 }
+
 
 
 

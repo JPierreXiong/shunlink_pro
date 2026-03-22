@@ -43,7 +43,7 @@ export function MetricsChart({ siteId, platform }: MetricsChartProps) {
     setLoading(true);
     try {
       const response = await fetch(
-        `/api/soloboard/sites/${siteId}/history?range=${timeRange}`
+        `/api/dashboard/sites/${siteId}/history?range=${timeRange}`
       );
       const result = await response.json();
 

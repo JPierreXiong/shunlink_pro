@@ -469,15 +469,12 @@ export const userRole = pgTable(
 );
 
 // ============================================
-// ⚠️ 已删除 - Digital Heirloom 项目不需要
-// 以下表定义已删除：
-// - aiTask (AI 任务表)
-// - chat (AI 聊天表)
-// - chatMessage (AI 聊天消息表)
-// - mediaTasks (媒体任务表)
+// ⚠️ 已删�?- Digital Heirloom 项目不需�?// 以下表定义已删除�?// - aiTask (AI 任务�?
+// - chat (AI 聊天�?
+// - chatMessage (AI 聊天消息�?
+// - mediaTasks (媒体任务�?
 // 删除日期: 2025-01-15
-// 原因: 项目转向 Digital Heirloom，不再需要这些功能
-// ============================================
+// 原因: 项目转向 Digital Heirloom，不再需要这些功�?// ============================================
 
 export const dailyCheckins = pgTable(
   'daily_checkins',
@@ -497,7 +494,7 @@ export const dailyCheckins = pgTable(
 );
 
 // ============================================
-// SoloBoard - Website Monitoring Tables
+// dashboard - Website Monitoring Tables
 // ============================================
 
 export const monitoredSites = pgTable(
@@ -595,8 +592,7 @@ export const syncLogs = pgTable(
 );
 
 // ============================================
-// Alert Rules - 提醒规则表
-// ============================================
+// Alert Rules - 提醒规则�?// ============================================
 
 export const alertRules = pgTable(
   'alert_rules',
@@ -630,8 +626,7 @@ export const alertRules = pgTable(
 );
 
 // ============================================
-// Alert History - 提醒历史表
-// ============================================
+// Alert History - 提醒历史�?// ============================================
 
 export const alertHistory = pgTable(
   'alert_history',
@@ -739,4 +734,5 @@ export { user as userTable };
 export { session as sessionTable };
 export { account as accountTable };
 export { verification as verificationTable };
+
 

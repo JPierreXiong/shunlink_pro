@@ -1,15 +1,13 @@
 /**
- * 批量添加站点对话框
- * Batch Add Sites Dialog
+ * 批量添加站点对话�? * Batch Add Sites Dialog
  * 
  * 功能:
  * 1. 批量粘贴域名 (从剪贴板)
- * 2. 表格式编辑 (最多 10 行)
+ * 2. 表格式编�?(最�?10 �?
  * 3. 批量应用 API Key
- * 4. 实时验证状态
- * 5. 并发提交
+ * 4. 实时验证状�? * 5. 并发提交
  * 
- * 不改变 ShipAny 结构 - 独立组件
+ * 不改�?ShipAny 结构 - 独立组件
  */
 
 'use client';
@@ -61,7 +59,7 @@ interface BatchAddSitesDialogProps {
 }
 
 export function BatchAddSitesDialog({ onSuccess, onClose }: BatchAddSitesDialogProps) {
-  const t = useTranslations('common.soloboard.batch_add');
+  const t = useTranslations('common.dashboard.batch_add');
   
   const [sites, setSites] = useState<BatchSite[]>([
     { domain: '', platform: 'UPTIME', status: 'pending' }
@@ -86,7 +84,7 @@ export function BatchAddSitesDialog({ onSuccess, onClose }: BatchAddSitesDialogP
       
       // 解析域名列表
       const newSites: BatchSite[] = lines.slice(0, 10).map(line => {
-        // 支持格式: "domain.com" 或 "Name, domain.com"
+        // 支持格式: "domain.com" �?"Name, domain.com"
         const parts = line.split(',').map(p => p.trim());
         const domain = parts.length > 1 ? parts[1] : parts[0];
         const name = parts.length > 1 ? parts[0] : domain;
@@ -164,7 +162,7 @@ export function BatchAddSitesDialog({ onSuccess, onClose }: BatchAddSitesDialogP
     setProgress(0);
 
     try {
-      const response = await fetch('/api/soloboard/sites/batch', {
+      const response = await fetch('/api/dashboard/sites/batch', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ sites: validSites }),
@@ -173,8 +171,7 @@ export function BatchAddSitesDialog({ onSuccess, onClose }: BatchAddSitesDialogP
       const data = await response.json();
 
       if (response.ok) {
-        // 更新每个站点的状态
-        const updatedSites = sites.map((site, index) => {
+        // 更新每个站点的状�?        const updatedSites = sites.map((site, index) => {
           const result = data.results?.[index];
           if (!result) return site;
           
@@ -247,7 +244,7 @@ export function BatchAddSitesDialog({ onSuccess, onClose }: BatchAddSitesDialogP
         </div>
       </div>
 
-      {/* 批量配置区 */}
+      {/* 批量配置�?*/}
       <div className="p-4 bg-gray-50 dark:bg-gray-900 rounded-xl space-y-3">
         <h3 className="font-semibold text-sm text-gray-700 dark:text-gray-300 mb-3">
           {t('batch_config_title')}
@@ -379,8 +376,7 @@ export function BatchAddSitesDialog({ onSuccess, onClose }: BatchAddSitesDialogP
   );
 }
 
-// 站点行组件
-function SiteRow({
+// 站点行组�?function SiteRow({
   site,
   index,
   onUpdate,
@@ -395,7 +391,7 @@ function SiteRow({
   onPaste?: (e: React.ClipboardEvent) => void;
   disabled?: boolean;
 }) {
-  const t = useTranslations('common.soloboard.batch_add');
+  const t = useTranslations('common.dashboard.batch_add');
   
   const statusIcons = {
     pending: <AlertCircle className="h-4 w-4 text-gray-400" />,
@@ -414,7 +410,7 @@ function SiteRow({
 
   return (
     <div className="flex items-center gap-2 p-3 bg-white dark:bg-gray-800 rounded-lg border">
-      {/* 状态图标 */}
+      {/* 状态图�?*/}
       <div className="flex-shrink-0">
         {statusIcons[site.status]}
       </div>
@@ -465,4 +461,5 @@ function SiteRow({
     </div>
   );
 }
+
 

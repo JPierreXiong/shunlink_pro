@@ -133,3 +133,5 @@ scripts/*.md
 supabase/functions/*/README.md
 
 .vercel
+
+.vercel

@@ -1,5 +1,5 @@
 /**
- * Chat Box Component - Not used in SoloBoard
+ * Chat Box Component - Not used in dashboard
  * This file exists only to prevent build errors from legacy subtitle extract code
  */
 
@@ -19,9 +19,10 @@ export function ChatBox({ initialChat, initialMessages }: ChatBoxProps) {
       <div className="text-center">
         <h1 className="mb-4 text-2xl font-bold">Chat Not Available</h1>
         <p className="text-muted-foreground">
-          Chat functionality is not available in SoloBoard.
+          Chat functionality is not available in dashboard.
         </p>
       </div>
     </div>
   );
 }
+

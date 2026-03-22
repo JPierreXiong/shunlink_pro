@@ -79,7 +79,7 @@ export function SiteGrid({ sites: initialSites, onRefresh }: SiteGridProps) {
 
     // TODO: 保存新的排序到后端
     try {
-      // await fetch('/api/soloboard/sites/reorder', {
+      // await fetch('/api/dashboard/sites/reorder', {
       //   method: 'POST',
       //   headers: { 'Content-Type': 'application/json' },
       //   body: JSON.stringify({

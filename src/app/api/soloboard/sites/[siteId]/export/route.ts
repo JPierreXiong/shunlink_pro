@@ -1,7 +1,7 @@
 /**
  * Export API Route
  * 
- * GET /api/soloboard/sites/[siteId]/export?format=csv|json|pdf&start=YYYY-MM-DD&end=YYYY-MM-DD
+ * GET /api/dashboard/sites/[siteId]/export?format=csv|json|pdf&start=YYYY-MM-DD&end=YYYY-MM-DD
  * 
  * 用途：导出网站数据为 CSV/JSON/PDF 格式
  * 优化：添加生成进度反馈，使用流式响应

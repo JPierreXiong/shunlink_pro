@@ -1,15 +1,13 @@
-/**
+﻿/**
  * Vercel Cron Job: Store Daily Metrics
- * 每日凌晨 00:00 执行，存储 Base/Pro 用户的历史数据
- * 
- * 配置在 vercel.json 中
- */
+ * 每日凌晨 00:00 执行，存�?Base/Pro 用户的历史数�? * 
+ * 配置�?vercel.json �? */
 
 import { NextRequest, NextResponse } from 'next/server';
 import { db } from '@/core/db';
 import { monitoredSites, siteMetricsDaily, users } from '@/config/db/schema';
 import { eq, inArray } from 'drizzle-orm';
-import { aggregateSiteData } from '@/shared/services/soloboard/aggregation-service';
+import { aggregateSiteData } from '@/shared/services/dashboard/aggregation-service';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -27,7 +25,7 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    // 2. 获取所有 Base 和 Pro 用户
+    // 2. 获取所�?Base �?Pro 用户
     const paidUsers = await db()
       .select({ id: users.id })
       .from(users)
@@ -43,8 +41,7 @@ export async function GET(request: NextRequest) {
 
     const paidUserIds = paidUsers.map(u => u.id);
 
-    // 3. 获取这些用户的所有站点
-    const sitesToSnapshot = await db()
+    // 3. 获取这些用户的所有站�?    const sitesToSnapshot = await db()
       .select()
       .from(monitoredSites)
       .where(inArray(monitoredSites.userId, paidUserIds));
@@ -54,8 +51,7 @@ export async function GET(request: NextRequest) {
     yesterday.setDate(yesterday.getDate() - 1);
     yesterday.setHours(0, 0, 0, 0);
 
-    // 5. 并行获取所有站点的数据并存储
-    const snapshots = await Promise.all(
+    // 5. 并行获取所有站点的数据并存�?    const snapshots = await Promise.all(
       sitesToSnapshot.map(async (site) => {
         try {
           const apiConfig = site.apiConfig as any || {};
@@ -108,6 +104,7 @@ export async function GET(request: NextRequest) {
     );
   }
 }
+
 
 
 

@@ -1,5 +1,5 @@
 /**
- * SoloBoard - Uptime 监控服务
+ * dashboard - Uptime 监控服务
  * 
  * 用于检查网站是否在线及响应时间
  * 
@@ -16,12 +16,10 @@ export interface UptimeMetrics {
   responseTime: number; // 响应时间（毫秒）
   statusCode?: number; // HTTP 状态码
   errorMessage?: string; // 错误信息
-  updatedAt: string; // 更新时间（ISO 8601）
-}
+  updatedAt: string; // 更新时间（ISO 8601�?}
 
 /**
- * 检查网站 Uptime 状态
- * 
+ * 检查网�?Uptime 状�? * 
  * @param config - Uptime 配置
  * @returns Uptime 指标数据
  */
@@ -32,13 +30,12 @@ export async function fetchUptimeMetrics(
   
   try {
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 秒超时
-    
+    const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 秒超�?    
     const response = await fetch(config.url, {
       method: 'HEAD', // 使用 HEAD 请求，不下载内容
       signal: controller.signal,
       headers: {
-        'User-Agent': 'SoloBoard-Uptime-Monitor/1.0',
+        'User-Agent': 'dashboard-Uptime-Monitor/1.0',
       },
     });
     
@@ -83,11 +80,9 @@ export async function validateUptimeConfig(
 }
 
 /**
- * 格式化 Uptime 指标为显示文本
- * 
+ * 格式�?Uptime 指标为显示文�? * 
  * @param metrics - Uptime 指标数据
- * @returns 格式化后的文本对象
- */
+ * @returns 格式化后的文本对�? */
 export function formatUptimeMetrics(metrics: UptimeMetrics) {
   return {
     status: metrics.isOnline ? '🟢 Online' : '🔴 Offline',
@@ -95,6 +90,7 @@ export function formatUptimeMetrics(metrics: UptimeMetrics) {
     statusCode: metrics.statusCode ? `HTTP ${metrics.statusCode}` : 'N/A',
   };
 }
+
 
 
 
