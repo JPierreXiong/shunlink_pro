@@ -3,9 +3,9 @@ export const dynamic = 'force-dynamic';
 import { NextRequest } from 'next/server';
 import {
   paymentManager,
-  PaymentEventType,
-  createAlipayProvider
+  PaymentEventType
 } from '@/extensions/payment';
+import { createAlipayProvider } from '@/extensions/payment/alipay';
 
 function initializeAlipay() {
   if (process.env.ALIPAY_APP_ID) {
