@@ -1,0 +1,27 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "shunlink-base",
+  "main": ".cfbuild/worker.js",
+  "compatibility_date": "2026-03-26",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "binding": "ASSETS",
+    "directory": ".cfbuild/assets"
+  },
+  "observability": {
+    "enabled": true
+  },
+  "vars": {
+    "NEXT_PUBLIC_APP_URL": "https://linkflowai.vercel.app",
+    "NEXT_PUBLIC_APP_NAME": "ShunLink Pro",
+    "NEXT_PUBLIC_THEME": "default",
+    "NEXT_PUBLIC_APPEARANCE": "system",
+    "NEXT_PUBLIC_DEFAULT_LOCALE": "en",
+    "DATABASE_PROVIDER": "postgresql",
+    "DB_SINGLETON_ENABLED": "false",
+    "CREEM_ENVIRONMENT": "sandbox",
+    "CREEM_ENABLED": "true",
+    "DEFAULT_PAYMENT_PROVIDER": "creem"
+  }
+}
+
