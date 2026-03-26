@@ -129,6 +129,32 @@ export async function getAllConfigs(): Promise<Configs> {
     envPaymentConfigs.select_payment_enabled = process.env.SELECT_PAYMENT_ENABLED;
   }
 
+  // Auth configuration from environment variables
+  if (process.env.EMAIL_AUTH_ENABLED !== undefined) {
+    envPaymentConfigs.email_auth_enabled = process.env.EMAIL_AUTH_ENABLED;
+  }
+  if (process.env.GOOGLE_AUTH_ENABLED !== undefined) {
+    envPaymentConfigs.google_auth_enabled = process.env.GOOGLE_AUTH_ENABLED;
+  }
+  if (process.env.GOOGLE_CLIENT_ID !== undefined) {
+    envPaymentConfigs.google_client_id = process.env.GOOGLE_CLIENT_ID;
+  }
+  if (process.env.GOOGLE_CLIENT_SECRET !== undefined) {
+    envPaymentConfigs.google_client_secret = process.env.GOOGLE_CLIENT_SECRET;
+  }
+  if (process.env.GOOGLE_ONE_TAP_ENABLED !== undefined) {
+    envPaymentConfigs.google_one_tap_enabled = process.env.GOOGLE_ONE_TAP_ENABLED;
+  }
+  if (process.env.GITHUB_AUTH_ENABLED !== undefined) {
+    envPaymentConfigs.github_auth_enabled = process.env.GITHUB_AUTH_ENABLED;
+  }
+  if (process.env.GITHUB_CLIENT_ID !== undefined) {
+    envPaymentConfigs.github_client_id = process.env.GITHUB_CLIENT_ID;
+  }
+  if (process.env.GITHUB_CLIENT_SECRET !== undefined) {
+    envPaymentConfigs.github_client_secret = process.env.GITHUB_CLIENT_SECRET;
+  }
+
   const configs = {
     ...envConfigs,
     ...dbConfigs,
@@ -176,6 +202,15 @@ export async function getPublicConfigs(): Promise<Configs> {
   }
   if (process.env.PAYPAL_ENABLED !== undefined && publicSettingNames.includes('paypal_enabled')) {
     publicConfigs.paypal_enabled = process.env.PAYPAL_ENABLED;
+  }
+  if (process.env.EMAIL_AUTH_ENABLED !== undefined && publicSettingNames.includes('email_auth_enabled')) {
+    publicConfigs.email_auth_enabled = process.env.EMAIL_AUTH_ENABLED;
+  }
+  if (process.env.GOOGLE_AUTH_ENABLED !== undefined && publicSettingNames.includes('google_auth_enabled')) {
+    publicConfigs.google_auth_enabled = process.env.GOOGLE_AUTH_ENABLED;
+  }
+  if (process.env.GITHUB_AUTH_ENABLED !== undefined && publicSettingNames.includes('github_auth_enabled')) {
+    publicConfigs.github_auth_enabled = process.env.GITHUB_AUTH_ENABLED;
   }
 
   const configs = {

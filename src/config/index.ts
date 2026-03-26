@@ -8,13 +8,14 @@ export type ConfigMap = Record<string, string>;
 // This fixes issues with dotenv loading order in scripts
 export const envConfigs = {
   get app_url() { return process.env.NEXT_PUBLIC_APP_URL ?? 'http://localhost:3000'; },
-  get app_name() { return process.env.NEXT_PUBLIC_APP_NAME ?? 'Command Center'; },
+  get app_name() { return process.env.NEXT_PUBLIC_APP_NAME ?? 'LinkFlow AI'; },
   get theme() { return process.env.NEXT_PUBLIC_THEME ?? 'default'; },
   get appearance() { return process.env.NEXT_PUBLIC_APPEARANCE ?? 'system'; },
   get locale() { return process.env.NEXT_PUBLIC_DEFAULT_LOCALE ?? 'en'; },
   get database_url() { return process.env.DATABASE_URL ?? ''; },
   get database_provider() { return process.env.DATABASE_PROVIDER ?? 'postgresql'; },
   get db_singleton_enabled() { return process.env.DB_SINGLETON_ENABLED || 'false'; },
+  get hyperdrive_connection_string() { return process.env.HYPERDRIVE_CONNECTION_STRING ?? ''; },
   get auth_url() { return process.env.AUTH_URL || process.env.NEXT_PUBLIC_APP_URL || ''; },
   get auth_secret() { return process.env.BETTER_AUTH_SECRET ?? process.env.AUTH_SECRET ?? ''; },
   // Creem Payment Configuration

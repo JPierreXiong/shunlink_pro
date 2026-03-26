@@ -8,6 +8,40 @@ import { getUuid } from '@/shared/lib/hash';
 import { getRemainingCredits, consumeCredits } from '@/shared/models/credit';
 import { auth } from '@/shared/lib/auth';
 
+let ratelimit: { limit: (key: string) => Promise<{ success: boolean }> } | null = null;
+
+async function ensureRatelimit() {
+  if (ratelimit !== null) return ratelimit;
+
+  const hasUpstash =
+    process.env.UPSTASH_REDIS_REST_URL && process.env.UPSTASH_REDIS_REST_TOKEN;
+
+  if (!hasUpstash) {
+    ratelimit = null;
+    return ratelimit;
+  }
+
+  try {
+    const dynamicImport = new Function('m', 'return import(m)') as (
+      moduleName: string
+    ) => Promise<any>;
+
+    const [{ Ratelimit }, { Redis }] = await Promise.all([
+      dynamicImport('@upstash/ratelimit'),
+      dynamicImport('@upstash/redis'),
+    ]);
+
+    ratelimit = new Ratelimit({
+      redis: Redis.fromEnv(),
+      limiter: Ratelimit.slidingWindow(5, '60 s'),
+    });
+    return ratelimit;
+  } catch {
+    ratelimit = null;
+    return ratelimit;
+  }
+}
+
 // GET /api/backlink/tasks - list current user's tasks
 export async function GET(req: NextRequest) {
   try {
@@ -75,6 +109,17 @@ export async function POST(req: NextRequest) {
 
     const body = await req.json();
     const { targetUrl, anchorText, platformId, agentPersona = 'professional', aiOptimize = true } = body;
+
+    const limiter = await ensureRatelimit();
+    if (limiter) {
+      const { success } = await limiter.limit(`backlink-task:${user.id}`);
+      if (!success) {
+        return NextResponse.json(
+          { error: 'Rate limit exceeded. Max 5 task submissions per minute.' },
+          { status: 429 }
+        );
+      }
+    }
 
     if (!targetUrl || !anchorText) {
       return NextResponse.json(

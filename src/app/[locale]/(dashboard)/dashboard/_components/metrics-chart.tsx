@@ -1,5 +1,5 @@
 /**
- * SoloBoard - 趋势图表组件
+ * LinkFlow AI - 趋势图表组件
  * 
  * 使用 Recharts 显示站点指标的历史趋势
  */

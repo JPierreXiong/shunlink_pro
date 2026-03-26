@@ -3,8 +3,10 @@ export const dynamic = 'force-dynamic';
 import { NextRequest, NextResponse } from 'next/server';
 import { eq, and } from 'drizzle-orm';
 import { db } from '@/core/db';
-import { backlinkTasks, backlinkPlatforms } from '@/config/db/schema';
+import { backlinkTasks, backlinkPlatforms, credit } from '@/config/db/schema';
 import { auth } from '@/shared/lib/auth';
+import { getSnowId, getUuid } from '@/shared/lib/hash';
+import { CreditStatus, CreditTransactionType } from '@/shared/models/credit';
 
 // GET /api/backlink/tasks/[id] — TaskCard polls this for real-time status
 export async function GET(
@@ -97,11 +99,66 @@ export async function PATCH(
     if (browserFingerprint !== undefined) updateData.browserFingerprint = browserFingerprint;
     if (proxyIp !== undefined) updateData.proxyIp = proxyIp;
 
-    const [updated] = await db()
-      .update(backlinkTasks)
-      .set(updateData)
-      .where(eq(backlinkTasks.id, id))
-      .returning();
+    const updated = await db().transaction(async (tx: any) => {
+      const [currentTask] = await tx
+        .select({
+          id: backlinkTasks.id,
+          userId: backlinkTasks.userId,
+          retryCount: backlinkTasks.retryCount,
+          isRefunded: backlinkTasks.isRefunded,
+        })
+        .from(backlinkTasks)
+        .where(eq(backlinkTasks.id, id))
+        .limit(1);
+
+      if (!currentTask) {
+        return null;
+      }
+
+      const [updatedTask] = await tx
+        .update(backlinkTasks)
+        .set(updateData)
+        .where(eq(backlinkTasks.id, id))
+        .returning();
+
+      if (!updatedTask) {
+        return null;
+      }
+
+      const effectiveRetryCount =
+        retryCount !== undefined ? retryCount : (updatedTask.retryCount ?? currentTask.retryCount ?? 0);
+      const shouldRefund =
+        updatedTask.status === 'failed' && effectiveRetryCount >= 3 && !updatedTask.isRefunded;
+
+      if (!shouldRefund) {
+        return updatedTask;
+      }
+
+      const [refundLockedTask] = await tx
+        .update(backlinkTasks)
+        .set({ isRefunded: true })
+        .where(and(eq(backlinkTasks.id, id), eq(backlinkTasks.isRefunded, false)))
+        .returning();
+
+      if (refundLockedTask) {
+        await tx.insert(credit).values({
+          id: getUuid(),
+          transactionNo: getSnowId(),
+          transactionType: CreditTransactionType.GRANT,
+          transactionScene: 'refund',
+          userId: currentTask.userId,
+          status: CreditStatus.ACTIVE,
+          credits: 1,
+          remainingCredits: 1,
+          description: `Auto-refund for failed task ${id.slice(0, 8)}`,
+          metadata: JSON.stringify({ taskId: id, reason: 'max_retries_exceeded' }),
+        });
+
+        return refundLockedTask;
+      }
+
+      return updatedTask;
+    });
 
     if (!updated) {
       return NextResponse.json({ error: 'Task not found' }, { status: 404 });

@@ -78,16 +78,44 @@ export default async function LandingPage({
         />
       )}
 
-      {page.hero && <Hero hero={page.hero} />}
-      
-      {/* How It Works Section */}
-      {page['how-it-works'] && <Features features={page['how-it-works']} className="bg-muted" />}
+      <div className="mx-auto max-w-6xl px-4 pt-6 pb-10 md:pt-10 md:pb-14">
+        <div className="rounded-3xl border border-white/10 bg-white/5 backdrop-blur-md shadow-[0_16px_48px_rgba(0,0,0,0.26)]">
+          <div
+            aria-hidden
+            className="mx-auto h-px w-[min(92%,920px)] bg-gradient-to-r from-transparent via-white/24 to-transparent"
+          />
+          {page.hero && <Hero hero={page.hero} />}
 
-      {/* Features Section */}
-      {page['features'] && <Features features={page['features']} />}
-      
-      {page.faq && <FAQ faq={page.faq} />}
-      {page.cta && <CTA cta={page.cta} className="bg-muted" />}
+          {/* 功能区全部写在 Hero 下方，保留 Header / Hero / Footer 结构 */}
+          {page['how-it-works'] && (
+            <Features
+              features={page['how-it-works']}
+              className="rounded-none border-x-0 border-t border-white/10 bg-transparent"
+            />
+          )}
+
+          {page.features && (
+            <Features
+              features={page.features}
+              className="rounded-none border-x-0 border-t border-white/10 bg-transparent"
+            />
+          )}
+
+          {page.faq && (
+            <FAQ
+              faq={page.faq}
+              className="rounded-none border-x-0 border-t border-white/10 bg-transparent"
+            />
+          )}
+
+          {page.cta && (
+            <CTA
+              cta={page.cta}
+              className="rounded-none border-x-0 border-t border-white/10 bg-transparent"
+            />
+          )}
+        </div>
+      </div>
     </>
   );
 }

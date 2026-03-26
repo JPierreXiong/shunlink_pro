@@ -57,7 +57,7 @@ export default function TasksPage() {
         <div className="flex items-center justify-between mb-10">
           <div>
             <h1 className="text-3xl font-black text-white tracking-tight" style={{ fontFamily: 'Syne, sans-serif' }}>
-              Command Center
+              LinkFlow AI
             </h1>
             <p className="text-white/40 text-sm mt-1">Monitor your AI backlink deployments in real-time</p>
           </div>
@@ -164,6 +164,7 @@ export default function TasksPage() {
     </div>
   );
 }
+
 
 
 

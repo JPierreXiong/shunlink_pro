@@ -1,0 +1,7 @@
+本项目部署在 Cloudflare Pages/Workers。必须遵守 Edge Runtime 规范。
+严禁新增 Node 专属内置模块依赖（例如 fs、net、tls、child_process）。
+所有运行时敏感配置优先从环境变量读取，避免硬编码。
+数据库连接优先使用 HYPERDRIVE_CONNECTION_STRING（Cloudflare Hyperdrive），回退 DATABASE_URL（Neon）。
+支付 Creem 与物流 Shipany 保持现有结构，不重构业务协议，只做运行时兼容修改。
+
+

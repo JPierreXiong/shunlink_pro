@@ -48,7 +48,7 @@ export function Hero({
     <>
       <section
         id={hero.id}
-        className={`pt-24 pb-8 md:pt-36 md:pb-8 ${hero.className} ${className}`}
+        className={`pt-[7.25rem] pb-8 md:pt-40 md:pb-8 ${hero.className} ${className}`}
       >
         {hero.announcement && (
           <motion.div {...createFadeInVariant(0)}>

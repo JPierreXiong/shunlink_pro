@@ -6,3 +6,10 @@ const cols = await sql`SELECT column_name, data_type, is_nullable, column_defaul
 console.log('=== order table columns ===');
 cols.forEach(c => console.log(`  ${c.column_name} | ${c.data_type} | nullable=${c.is_nullable} | default=${c.column_default}`));
 
+
+
+
+
+
+
+

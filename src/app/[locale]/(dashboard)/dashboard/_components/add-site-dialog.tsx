@@ -1,5 +1,5 @@
 /**
- * SoloBoard - 添加站点对话框
+ * LinkFlow AI - 添加站点对话框
  * 
  * 支持添加 GA4, Stripe, Uptime 等平台
  */

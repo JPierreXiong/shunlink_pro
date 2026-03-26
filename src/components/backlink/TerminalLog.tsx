@@ -12,37 +12,35 @@ interface LogLine {
 
 const STATUS_LOGS: Record<TaskStatus, string[]> = {
   pending: [
-    'Initializing agent runtime...',
-    'Agent is warming up — entering queue...',
-    'Waiting for worker slot...',
+    'AI Agent boot sequence started...',
+    'Routing task to available operator thread...',
+    'Preflight checks passed. Waiting in dispatch queue...',
   ],
   processing: [
-    'Worker claimed task. Spinning up headless browser...',
-    'Selecting optimal platform for your niche...',
-    'Loading target platform with human-like delay...',
-    'Bypassing bot detection layer... Success.',
-    'Human-mimicry scroll initiated on platform page...',
-    'Analyzing post context for anchor placement...',
-    'Drafting contextual content around anchor text...',
-    'Simulating natural typing at 42 WPM...',
-    'Submitting post with optimized surrounding content...',
-    'Awaiting platform confirmation response...',
+    'AI Agent analyzing DOM structure and anti-bot signals...',
+    'Evaluating platform templates for natural anchor placement...',
+    'Loading target platform with human-like pacing profile...',
+    'Calibrating stealth fingerprint and interaction cadence...',
+    'Generating context-rich paragraph around target anchor...',
+    'Simulating editorial typing flow at variable speed...',
+    'Submitting draft and waiting for publication acknowledgement...',
+    'Verifying post visibility and indexing footprint...',
   ],
   need_2fa: [
-    'Platform triggered security checkpoint.',
-    'Agent is paused — awaiting your verification code.',
-    'Your AI Agent is waiting for your permission to proceed.',
+    'Security challenge detected: 2FA gate intercepted.',
+    'Agent execution paused. Human confirmation required.',
+    'Awaiting your verification code to resume autonomous flow.',
   ],
   success: [
-    'Post confirmed live on platform.',
-    'Capturing high-resolution screenshot evidence...',
-    'Uploading proof to secure cloud storage...',
-    'Backlink deployment complete. SLA met.',
+    'Live post detected and backlink signature validated.',
+    'Capturing screenshot evidence for audit trail...',
+    'Uploading proof artifacts to secure storage...',
+    'Mission complete. SLA target preserved.',
   ],
   failed: [
-    'Agent encountered an unrecoverable error.',
-    'Credit refund has been initiated.',
-    'Please retry or contact support.',
+    'Execution halted due to unrecoverable platform response.',
+    'Failure state confirmed. Refund pipeline triggered if eligible.',
+    'Task closed. Ready for retry with adjusted strategy.',
   ],
 };
 
@@ -165,6 +163,8 @@ export function TerminalLog({ status, agentLog }: TerminalLogProps) {
     </div>
   );
 }
+
+
 
 
 

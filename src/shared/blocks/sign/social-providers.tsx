@@ -74,7 +74,7 @@ export function SocialProviders({
 
   const providers: ButtonType[] = [];
 
-  if (configs.google_auth_enabled === 'true') {
+  if (configs.google_auth_enabled === 'true' || !!configs.google_client_id) {
     providers.push({
       name: 'google',
       title: t('google_sign_in_title'),

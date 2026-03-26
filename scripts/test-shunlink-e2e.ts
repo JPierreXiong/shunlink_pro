@@ -18,7 +18,7 @@ const getUuid = () => uuidv4();
 const getSnowId = () => { const g = new SnowflakeIdv1({ workerId: 1 }); return String(g.NextId()); };
 
 const TS = Date.now();
-const APP = (process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3003').replace(/\/+$/, '');
+const APP = (process.env.NEXT_PUBLIC_APP_URL || 'https://linkflowai.vercel.app').replace(/\/+$/, '');
 const CFG = {
   appUrl: APP, workerSecret: process.env.WORKER_SECRET || '',
   email: `shunlink_e2e_${TS}@test.dev`, password: 'E2eTest123456!', name: 'ShunLink E2E',
@@ -42,13 +42,34 @@ async function api(path: string, method: string, body?: unknown, extra?: Record<
   const h: Record<string,string> = { 'Content-Type': 'application/json' };
   if (S.cookie) h['Cookie'] = S.cookie;
   if (extra) Object.assign(h, extra);
-  const res = await fetch(CFG.appUrl + path, { method, headers: h, body: body ? JSON.stringify(body) : undefined } as any);
-  const sc = res.headers.get('set-cookie') ?? '';
-  const m = sc.match(/better-auth\.session_token=([^;]+)/);
-  if (m) S.cookie = 'better-auth.session_token=' + m[1];
+
+  const res = await fetch(CFG.appUrl + path, {
+    method,
+    headers: h,
+    body: body ? JSON.stringify(body) : undefined,
+  } as any);
+
+  // better-auth may return cookie names as:
+  // - better-auth.session_token
+  // - __Secure-better-auth.session_token
+  // also may return multiple Set-Cookie headers.
+  const setCookieHeaders = (res.headers as any).getSetCookie?.() as string[] | undefined;
+  const setCookieRaw = setCookieHeaders?.length
+    ? setCookieHeaders.join('; ')
+    : (res.headers.get('set-cookie') ?? '');
+
+  const tokenMatch = setCookieRaw.match(/(?:__Secure-)?better-auth\.session_token=([^;]+)/);
+  if (tokenMatch) {
+    const cookieName = setCookieRaw.includes('__Secure-better-auth.session_token=')
+      ? '__Secure-better-auth.session_token'
+      : 'better-auth.session_token';
+    S.cookie = `${cookieName}=${tokenMatch[1]}`;
+  }
+
   const data = await res.json().catch(() => ({}));
   return { status: res.status, ok: res.ok, data };
 }
+
 
 async function s0_db(): Promise<boolean> {
   step(0, 'DB Connection');

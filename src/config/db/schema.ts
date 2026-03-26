@@ -671,6 +671,13 @@ export const backlinkPlatforms = pgTable(
     description: text('description'),
     iconUrl: text('icon_url'),
     homeUrl: text('home_url'),
+    loginUrl: text('login_url'),
+    selectors: jsonb('selectors').$type<{
+      username_input?: string;
+      password_input?: string;
+      submit_btn?: string;
+      post_editor?: string;
+    }>(),
     successRate: integer('success_rate').default(85), // percentage 0-100
     totalTasks: integer('total_tasks').default(0),
     isActive: boolean('is_active').notNull().default(true),

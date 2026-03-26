@@ -7,7 +7,7 @@
 
 import axios from 'axios';
 
-const BASE_URL = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3003';
+const BASE_URL = process.env.E2E_BASE_URL || process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3011';
 
 interface TestResult {
   name: string;
@@ -43,7 +43,7 @@ async function testUserSignup() {
     const email = `test-${Date.now()}@example.com`;
     const password = 'TestPassword123!';
 
-    const response = await axios.post(`${BASE_URL}/api/auth/sign-up`, {
+    const response = await axios.post(`${BASE_URL}/api/auth/sign-up/email`, {
       email,
       password,
       name: 'Test Customer',
@@ -85,7 +85,7 @@ async function testUserSignin() {
   try {
     await log('测试 2: 用户登录', 'info');
 
-    const response = await axios.post(`${BASE_URL}/api/auth/sign-in`, {
+    const response = await axios.post(`${BASE_URL}/api/auth/sign-in/email`, {
       email: testUser.email,
       password: testUser.password,
     });
@@ -453,6 +453,7 @@ runE2ETests().catch((error) => {
   console.error('❌ 测试执行失败:', error);
   process.exit(1);
 });
+
 
 
 

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   ExternalLink,
@@ -61,9 +61,9 @@ const STATUS_CONFIG: Record<
     icon: <Loader2 size={14} className="animate-spin" />,
   },
   need_2fa: {
-    color: 'text-rose-400',
-    bg: 'bg-rose-400/10',
-    border: 'border-rose-500/40',
+    color: 'text-amber-300',
+    bg: 'bg-amber-400/10',
+    border: 'border-amber-400/40',
     label: 'Action Required',
     progress: 50,
     icon: <AlertTriangle size={14} />,
@@ -97,11 +97,36 @@ const STATUS_TO_STEP: Record<TaskStatus, number> = {
 
 const fetcher = (url: string) => fetch(url).then((r) => r.json());
 
+const TOTAL_SLA_MS = 48 * 60 * 60 * 1000;
+const URGENCY_WINDOW_MS = 6 * 60 * 60 * 1000;
+
+function mixHexColor(from: string, to: string, ratio: number) {
+  const safeRatio = Math.min(1, Math.max(0, ratio));
+  const parse = (hex: string) => parseInt(hex.replace('#', ''), 16);
+  const fromNum = parse(from);
+  const toNum = parse(to);
+
+  const fr = (fromNum >> 16) & 255;
+  const fg = (fromNum >> 8) & 255;
+  const fb = fromNum & 255;
+
+  const tr = (toNum >> 16) & 255;
+  const tg = (toNum >> 8) & 255;
+  const tb = toNum & 255;
+
+  const r = Math.round(fr + (tr - fr) * safeRatio);
+  const g = Math.round(fg + (tg - fg) * safeRatio);
+  const b = Math.round(fb + (tb - fb) * safeRatio);
+
+  return `rgb(${r}, ${g}, ${b})`;
+}
+
 export function TaskCard({ task: initialTask, onViewProof, onRefresh }: TaskCardProps) {
   const [twoFaCode, setTwoFaCode] = useState('');
   const [submitting2fa, setSubmitting2fa] = useState(false);
   const [shook, setShook] = useState(false);
   const [prevStatus, setPrevStatus] = useState<TaskStatus>(initialTask.status);
+  const [nowMs, setNowMs] = useState(() => Date.now());
 
   const shouldPoll = !['success', 'failed'].includes(initialTask.status);
 
@@ -117,6 +142,12 @@ export function TaskCard({ task: initialTask, onViewProof, onRefresh }: TaskCard
   const is2FA = task.status === 'need_2fa';
   const isProcessing = task.status === 'processing';
 
+  useEffect(() => {
+    if (task.status === 'success' || task.status === 'failed' || !task.slaDue) return;
+    const timer = setInterval(() => setNowMs(Date.now()), 1000);
+    return () => clearInterval(timer);
+  }, [task.status, task.slaDue]);
+
   // Shake when transitioning into need_2fa
   useEffect(() => {
     if (task.status !== prevStatus) {
@@ -128,9 +159,19 @@ export function TaskCard({ task: initialTask, onViewProof, onRefresh }: TaskCard
     }
   }, [task.status, prevStatus]);
 
-  const slaMs = task.slaDue ? new Date(task.slaDue).getTime() - Date.now() : null;
-  const slaHours = slaMs ? Math.max(0, Math.floor(slaMs / 3600000)) : null;
-  const slaMins = slaMs ? Math.max(0, Math.floor((slaMs % 3600000) / 60000)) : null;
+  const slaMs = task.slaDue ? new Date(task.slaDue).getTime() - nowMs : null;
+  const slaHours = slaMs !== null ? Math.max(0, Math.floor(slaMs / 3600000)) : null;
+  const slaMins = slaMs !== null ? Math.max(0, Math.floor((slaMs % 3600000) / 60000)) : null;
+  const slaSecs = slaMs !== null ? Math.max(0, Math.floor((slaMs % 60000) / 1000)) : null;
+
+  const urgencyRatio = useMemo(() => {
+    if (slaMs === null) return 0;
+    const elapsed = Math.max(0, TOTAL_SLA_MS - slaMs);
+    return Math.min(1, elapsed / TOTAL_SLA_MS);
+  }, [slaMs]);
+
+  const isNearSla = task.status === 'processing' && slaMs !== null && slaMs <= URGENCY_WINDOW_MS;
+  const slaColor = mixHexColor('#9CA3AF', '#FF3B30', urgencyRatio);
 
   async function handle2FASubmit() {
     if (!twoFaCode.trim()) return;
@@ -160,7 +201,7 @@ export function TaskCard({ task: initialTask, onViewProof, onRefresh }: TaskCard
       transition={shook ? { duration: 0.5 } : { duration: 0.3 }}
       className={`relative overflow-hidden rounded-2xl border bg-white/5 backdrop-blur-xl p-5 shadow-xl transition-colors ${
         is2FA
-          ? 'border-rose-500/50 shadow-rose-500/10'
+          ? 'border-amber-400/60 shadow-amber-300/15'
           : isProcessing
           ? 'border-cyan-500/30'
           : 'border-white/10 hover:border-white/20'
@@ -181,15 +222,15 @@ export function TaskCard({ task: initialTask, onViewProof, onRefresh }: TaskCard
         />
       )}
 
-      {/* 2FA — red breathing glow */}
+      {/* 2FA — amber breathing glow */}
       {is2FA && (
         <motion.div
           className="absolute inset-0 rounded-2xl pointer-events-none"
           animate={{
             boxShadow: [
-              '0 0 0px rgba(244,63,94,0)',
-              '0 0 24px rgba(244,63,94,0.28)',
-              '0 0 0px rgba(244,63,94,0)',
+              '0 0 0px rgba(245,158,11,0)',
+              '0 0 24px rgba(245,158,11,0.30)',
+              '0 0 0px rgba(245,158,11,0)',
             ],
           }}
           transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
@@ -262,12 +303,12 @@ export function TaskCard({ task: initialTask, onViewProof, onRefresh }: TaskCard
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            className="mb-4 rounded-xl border border-rose-500/30 bg-rose-500/10 p-3"
+            className="mb-4 rounded-xl border border-amber-400/35 bg-amber-400/10 p-3"
           >
-            <p className="text-xs text-rose-300 font-medium mb-2">
+            <p className="text-xs text-amber-200 font-medium mb-2">
               ⚠ Your AI Agent is waiting for your permission to proceed.
             </p>
-            <p className="text-[11px] text-rose-200/60 mb-2">
+            <p className="text-[11px] text-amber-100/70 mb-2">
               Check your email for the verification code.
             </p>
             <div className="flex gap-2">
@@ -278,12 +319,12 @@ export function TaskCard({ task: initialTask, onViewProof, onRefresh }: TaskCard
                 onChange={(e) => setTwoFaCode(e.target.value)}
                 onKeyDown={(e) => e.key === 'Enter' && handle2FASubmit()}
                 placeholder="6-digit code"
-                className="flex-1 bg-black/40 border border-white/10 rounded-lg px-3 py-2 text-sm text-white placeholder-white/20 outline-none focus:border-rose-400/60 font-mono tracking-widest"
+                className="flex-1 bg-black/40 border border-white/10 rounded-lg px-3 py-2 text-sm text-white placeholder-white/20 outline-none focus:border-amber-400/70 font-mono tracking-widest"
               />
               <button
                 onClick={handle2FASubmit}
                 disabled={submitting2fa || !twoFaCode.trim()}
-                className="flex items-center gap-1.5 bg-rose-600 hover:bg-rose-500 disabled:opacity-50 text-white text-xs font-semibold px-4 py-2 rounded-lg transition-colors"
+                className="flex items-center gap-1.5 bg-amber-500 hover:bg-amber-400 disabled:opacity-50 text-black text-xs font-semibold px-4 py-2 rounded-lg transition-colors"
               >
                 {submitting2fa ? <Loader2 size={14} className="animate-spin" /> : <Send size={14} />}
                 Submit
@@ -298,7 +339,14 @@ export function TaskCard({ task: initialTask, onViewProof, onRefresh }: TaskCard
         <div className="text-[10px] text-white/30 font-mono space-y-0.5">
           <p>{new Date(task.createdAt).toLocaleString()}</p>
           {slaHours !== null && task.status !== 'success' && task.status !== 'failed' && (
-            <p className="text-amber-400/60">SLA: {slaHours}h {slaMins}m remaining</p>
+            <motion.p
+              className="font-semibold"
+              style={{ color: slaColor }}
+              animate={isNearSla ? { opacity: [0.65, 1, 0.65] } : { opacity: 1 }}
+              transition={isNearSla ? { duration: 1.8, repeat: Infinity, ease: 'easeInOut' } : undefined}
+            >
+              SLA: {slaHours}h {slaMins}m {slaSecs}s remaining
+            </motion.p>
           )}
           {task.platformName && <p>{task.platformName}</p>}
           {task.errorMessage && (

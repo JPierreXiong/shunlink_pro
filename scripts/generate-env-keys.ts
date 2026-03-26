@@ -1,5 +1,5 @@
 /**
- * SoloBoard - 环境变量生成脚本
+ * LinkFlow AI - 环境变量生成脚本
  * 
  * 用于快速生成所需的加密密钥
  * 
@@ -9,7 +9,7 @@
 
 import { randomBytes } from 'crypto';
 
-console.log('🔐 SoloBoard - 环境变量密钥生成器\n');
+console.log('🔐 LinkFlow AI - 环境变量密钥生成器\n');
 console.log('=' .repeat(60));
 
 // 生成 32 字节的随机密钥
@@ -26,7 +26,7 @@ const keys = {
 
 console.log('\n📋 复制以下内容到你的 .env.local 文件：\n');
 console.log('# ============================================');
-console.log('# SoloBoard - 自动生成的密钥');
+console.log('# LinkFlow AI - 自动生成的密钥');
 console.log('# 生成时间:', new Date().toISOString());
 console.log('# ============================================\n');
 
@@ -47,7 +47,7 @@ console.log('# 应用 URL');
 console.log('NEXT_PUBLIC_APP_URL=http://localhost:3000\n');
 
 console.log('# 数据库连接');
-console.log('DATABASE_URL=postgresql://user:password@host:5432/soloboard\n');
+console.log('DATABASE_URL=postgresql://user:password@host:5432/linkflowai\n');
 
 console.log('# 存储（Vercel Blob）');
 console.log('BLOB_READ_WRITE_TOKEN=your-vercel-blob-token\n');

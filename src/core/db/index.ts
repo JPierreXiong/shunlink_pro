@@ -21,8 +21,9 @@ let dbInstance: Database | null = null;
 let client: ReturnType<typeof postgres> | ReturnType<typeof createClient> | null = null;
 
 export function db(): Database {
-  let databaseUrl = envConfigs.database_url;
   const provider = envConfigs.database_provider;
+  let databaseUrl =
+    envConfigs.hyperdrive_connection_string || envConfigs.database_url;
 
   // Support SQLite for local development
   if (provider === 'sqlite' || provider === 'turso') {
@@ -55,18 +56,10 @@ export function db(): Database {
   }
 
   // PostgreSQL support (original code)
-  let isHyperdrive = false;
+  const isHyperdrive = Boolean(envConfigs.hyperdrive_connection_string);
 
-  if (isCloudflareWorker) {
-    const { env }: { env: any } = { env: {} };
-    // Detect if set Hyperdrive
-    isHyperdrive = 'HYPERDRIVE' in env;
-
-    if (isHyperdrive) {
-      const hyperdrive = env.HYPERDRIVE;
-      databaseUrl = hyperdrive.connectionString;
-      console.log('using Hyperdrive connection');
-    }
+  if (isHyperdrive) {
+    console.log('using Hyperdrive connection');
   }
 
   if (!databaseUrl) {

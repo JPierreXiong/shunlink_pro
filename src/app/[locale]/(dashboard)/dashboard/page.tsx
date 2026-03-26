@@ -1,5 +1,5 @@
 /**
- * SoloBoard - 多站点监控仪表盘
+ * LinkFlow AI - 多站点监控仪表盘
  * 
  * 九宫格布局，实时显示所有监控站点的关键指标
  * 
@@ -40,7 +40,7 @@ interface SitesResponse {
 // SWR fetcher
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
-export default function SoloBoardDashboardPage() {
+export default function LinkFlowAIDashboardPage() {
   const t = useTranslations('dashboard');
   const [isAddDialogOpen, setIsAddDialogOpen] = useState(false);
   const [isRefreshing, setIsRefreshing] = useState(false);

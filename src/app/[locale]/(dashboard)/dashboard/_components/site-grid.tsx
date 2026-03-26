@@ -1,5 +1,5 @@
 /**
- * SoloBoard - 九宫格布局组件
+ * LinkFlow AI - 九宫格布局组件
  * 
  * 使用 @dnd-kit 实现拖拽排序
  */

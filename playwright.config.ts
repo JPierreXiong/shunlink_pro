@@ -7,7 +7,7 @@ export default defineConfig({
   workers: 1,
   reporter: [['list'], ['json', { outputFile: 'e2e/test-results.json' }]],
   use: {
-    baseURL: 'https://www.soloboard.app',
+    baseURL: 'https://linkflowai.vercel.app',
     ignoreHTTPSErrors: true,
     actionTimeout: 15000,
   },
@@ -18,7 +18,3 @@ export default defineConfig({
     },
   ],
 });
-
-
-
-

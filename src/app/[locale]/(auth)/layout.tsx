@@ -15,7 +15,7 @@ export default function AuthLayout({
       <div className="absolute top-4 left-4">
         <BrandLogo
           brand={{
-            title: 'Command Center',
+            title: 'LinkFlow AI',
             logo: undefined, // Remove logo
             url: '/',
             target: '_self',

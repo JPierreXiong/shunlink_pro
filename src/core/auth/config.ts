@@ -48,6 +48,8 @@ export const authOptions = {
     'https://linkflowai-app.vercel.app',
     'http://localhost:3003',
     'http://localhost:3000',
+    'http://localhost:8787',
+    'http://127.0.0.1:8787',
   ].filter(Boolean),
   // Add database connection for session persistence
   database: envConfigs.database_url
@@ -90,7 +92,8 @@ export async function getAuthOptions() {
     },
     socialProviders: await getSocialProviders(configs),
     plugins:
-      configs.google_client_id && configs.google_one_tap_enabled === 'true'
+      (configs.google_client_id || process.env.GOOGLE_CLIENT_ID) &&
+      configs.google_one_tap_enabled === 'true'
         ? [oneTap()]
         : [],
   };
@@ -100,10 +103,15 @@ export async function getSocialProviders(configs: Record<string, string>) {
   // get configs from db
   const providers: any = {};
 
-  if (configs.google_client_id && configs.google_client_secret) {
+  const googleClientId =
+    configs.google_client_id || process.env.GOOGLE_CLIENT_ID || '';
+  const googleClientSecret =
+    configs.google_client_secret || process.env.GOOGLE_CLIENT_SECRET || '';
+
+  if (googleClientId && googleClientSecret) {
     providers.google = {
-      clientId: configs.google_client_id,
-      clientSecret: configs.google_client_secret,
+      clientId: googleClientId,
+      clientSecret: googleClientSecret,
     };
   }
 
