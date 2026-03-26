@@ -19,6 +19,9 @@
   "scripts": {
     "dev": "next dev -p 3003",
     "build": "next build",
+    "fix-edge": "node scripts/fix-edge-runtime.mjs",
+    "cf-pages-build": "pnpm run fix-edge && pnpm run build && npx -y @cloudflare/next-on-pages",
+    "cf-pages-deploy": "npx wrangler pages deploy .vercel/output/static",
     "build:with-nft": "next build && node scripts/generate-middleware-nft.js || true",
     "build:fast": "NODE_OPTIONS='--max-old-space-size=4096' next build && node scripts/generate-middleware-nft.js",
     "start": "next start",
