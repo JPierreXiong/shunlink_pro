@@ -25,7 +25,7 @@ const optionalEnvs = {
   QSTASH_NEXT_SIGNING_KEY: 'Upstash QStash 下一个签名密钥',
   QSTASH_URL: 'Upstash QStash API URL',
   
-  // Creem 支付 (用于 SoloBoard 自己收款)
+  // Creem 支付 (用于 LinkFlow AI 收款)
   CREEM_API_KEY: 'Creem 支付平台 API 密钥',
   CREEM_SIGNING_SECRET: 'Creem Webhook 签名密钥',
   
@@ -34,7 +34,7 @@ const optionalEnvs = {
   STRIPE_SIGNING_SECRET: 'Stripe Webhook 签名密钥',
 };
 
-console.log('🔍 开始检查 SoloBoard 环境变量配置...\n');
+console.log('🔍 开始检查 LinkFlow AI 环境变量配置...\n');
 
 // 检查必需的环境变量
 const missing = [];

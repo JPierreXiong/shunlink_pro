@@ -1,12 +1,9 @@
 import { redirect } from 'next/navigation';
 
 /**
- * Media Tasks Page - Redirected to Digital Heirloom Dashboard
+ * Media Tasks Page - Redirected to dashboard
  * 
- * This page has been redirected to align with Digital Heirloom's core business logic.
- * The old AI media extraction history functionality is no longer available.
- * 
- * Note: This redirect does not affect ShipAny structure.
+ * The old media task history page now routes users to dashboard.
  */
 export default async function MediaTasksPage({
   params,
@@ -15,8 +12,8 @@ export default async function MediaTasksPage({
 }) {
   const { locale } = await params;
   
-  // Redirect to Digital Heirloom Dashboard
-  redirect(`/${locale}/digital-heirloom/dashboard`);
+  // Redirect to dashboard
+  redirect(`/${locale}/dashboard`);
 }
 
 

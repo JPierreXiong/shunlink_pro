@@ -24,11 +24,11 @@ async function configureCreem() {
     const creemConfigs = {
       creem_enabled: 'true',
       creem_environment: 'production', // 使用生产环境
-      creem_api_key: 'creem_2HGGaY2qzPVRkCP0kESZXU', // Digital Heirloom API Key
-      creem_signing_secret: 'whsec_567Ldwvldo5m33S87geqWy', // Digital Heirloom Webhook Secret
+      creem_api_key: 'your-creem-api-key-here', // Set your own Creem API key
+      creem_signing_secret: 'your-creem-signing-secret-here', // Set your own webhook signing secret
       creem_product_ids: JSON.stringify({
-        'digital-heirloom-base-annual': 'prod_4oN2BFtSPSpAnYcvUN0uoi', // Base (Standard) Product: $49/year
-        'digital-heirloom-pro-annual': 'prod_4epepOcgUjSjPoWmAnBaFt', // Pro (Family/Premium) Product: $149/year
+        'linkflow-base-annual': 'prod_your_base_plan_id', // Base plan product ID
+        'linkflow-pro-annual': 'prod_your_pro_plan_id', // Pro plan product ID
       }, null, 2),
       default_payment_provider: 'creem',
     };
@@ -67,8 +67,8 @@ async function configureCreem() {
     console.log('   2. 确保 creem_enabled 已启用');
     console.log('   3. 测试支付流程');
     console.log('   4. 在 Creem Dashboard 配置 Webhook:');
-    console.log('      URL: https://www.digitalheirloom.app/api/payment/notify/creem');
-    console.log('      Secret: whsec_567Ldwvldo5m33S87geqWy');
+    console.log('      URL: https://your-domain.com/api/payment/notify/creem');
+    console.log('      Secret: your-creem-signing-secret-here');
     console.log('   5. 在 Vercel Dashboard 配置环境变量（见 VERCEL_CONFIGURATION_GUIDE.md）');
     
     // Close database connection if needed

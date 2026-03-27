@@ -2,12 +2,9 @@ import { redirect } from 'next/navigation';
 import { setRequestLocale } from 'next-intl/server';
 
 /**
- * AI Media Extractor Page - Redirected to Digital Heirloom Dashboard
+ * AI Media Extractor Page - Redirected to dashboard
  * 
- * This page has been redirected to align with Digital Heirloom's core business logic.
- * The old AI media extraction functionality is no longer available.
- * 
- * Note: This redirect does not affect ShipAny structure.
+ * The old media extraction page now routes users to dashboard.
  */
 export default async function AiMediaExtractorPage({
   params,
@@ -17,8 +14,8 @@ export default async function AiMediaExtractorPage({
   const { locale } = await params;
   setRequestLocale(locale);
 
-  // Redirect to Digital Heirloom Dashboard
-  redirect(`/${locale}/digital-heirloom/dashboard`);
+  // Redirect to dashboard
+  redirect(`/${locale}/dashboard`);
 }
 
 

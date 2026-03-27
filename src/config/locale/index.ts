@@ -42,15 +42,15 @@ export const localeMessagesPaths = [
   'admin/credits',
   'admin/settings',
   'admin/apikeys',
-  // 'admin/ai-tasks', // 已删除 - Digital Heirloom 项目不需要
-  // 'admin/chats', // 已删除 - Digital Heirloom 项目不需要
-  // 'ai/music', // 已删除 - Digital Heirloom 项目不需要
-  // 'ai/chat', // 已删除 - Digital Heirloom 项目不需要
-  // 'ai/image', // 已删除 - Digital Heirloom 项目不需要
-  // 'ai/media', // 已删除 - Digital Heirloom 项目不需要
+  // 'admin/ai-tasks', // 已删除 - 当前项目不需要
+  // 'admin/chats', // 已删除 - 当前项目不需要
+  // 'ai/music', // 已删除 - 当前项目不需要
+  // 'ai/chat', // 已删除 - 当前项目不需要
+  // 'ai/image', // 已删除 - 当前项目不需要
+  // 'ai/media', // 已删除 - 当前项目不需要
   'activity/sidebar',
-  // 'activity/ai-tasks', // 已删除 - Digital Heirloom 项目不需要
-  // 'activity/chats', // 已删除 - Digital Heirloom 项目不需要
+  // 'activity/ai-tasks', // 已删除 - 当前项目不需要
+  // 'activity/chats', // 已删除 - 当前项目不需要
   'privacy',
   'terms',
   'disclaimer',

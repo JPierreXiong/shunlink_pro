@@ -1,4 +1,4 @@
-// Activity 页面已简化 - Digital Heirloom 项目不需要 AI Tasks
+// Activity 页面已简化 - 当前项目不需要 AI Tasks
 // 如果需要 Activity 页面，可以重定向到其他页面或显示空页面
 export default async function ActivityPage({
   params,

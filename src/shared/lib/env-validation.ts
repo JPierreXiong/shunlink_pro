@@ -9,7 +9,7 @@ const REQUIRED_ENV_VARS = {
   // 基础配置
   NEXT_PUBLIC_APP_URL: 'http://localhost:3000',
   
-  // 数据库配置（Digital Heirloom 必需）
+  // 数据库配置（当前项目必需）
   DATABASE_URL: undefined,
   
   // 认证配置（必需）
