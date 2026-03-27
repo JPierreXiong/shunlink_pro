@@ -12,8 +12,10 @@ const withNextIntl = createNextIntlPlugin('./src/core/i18n/request.ts');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // output: process.env.VERCEL ? undefined : 'standalone',
-  output: process.env.VERCEL ? undefined : (process.env.DOCKER ? 'standalone' : undefined),
+  // OpenNext (Cloudflare) requires standalone output
+  output: process.env.VERCEL ? undefined : 'standalone',
+  // Disable file tracing to avoid Windows ENOENT errors on .nft.json files
+  outputFileTracing: false,
   reactStrictMode: false,
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
   images: {

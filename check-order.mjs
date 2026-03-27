@@ -14,3 +14,6 @@ cols.forEach(c => console.log(`  ${c.column_name} | ${c.data_type} | nullable=${
 
 
 
+
+
+

@@ -6,6 +6,4 @@ const cloudflareConfig = defineCloudflareConfig({
 
 export default {
   ...cloudflareConfig,
-  // Windows EBUSY workaround: avoid default .open-next directory lock
-  buildOutputPath: '.cfbuild',
 };
