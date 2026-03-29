@@ -1,0 +1,203 @@
+[
+  {
+    "id": 1,
+    "site_name": "WordPress.com",
+    "base_url": "https://wordpress.com",
+    "category": "Blog",
+    "domain_authority": 98,
+    "logo_url": "https://s.w.org/favicon.ico",
+    "login_required": true,
+    "selector_config": {
+      "login_url": "https://wordpress.com/log-in",
+      "username_sel": "#usernameOrEmail",
+      "password_sel": "#password",
+      "submit_sel": ".login__form-action button[type=submit]",
+      "new_post_url": "https://wordpress.com/post/new",
+      "title_sel": ".editor-post-title__input",
+      "content_sel": ".block-editor-rich-text__editable",
+      "publish_sel": ".editor-post-publish-button",
+      "success_indicator": ".editor-post-publish-panel"
+    }
+  },
+  {
+    "id": 2,
+    "site_name": "Blogger",
+    "base_url": "https://www.blogger.com",
+    "category": "Blog",
+    "domain_authority": 95,
+    "logo_url": "https://www.blogger.com/favicon.ico",
+    "login_required": true,
+    "selector_config": {
+      "login_url": "https://accounts.google.com/ServiceLogin?service=blogger",
+      "username_sel": "#identifierId",
+      "username_next_sel": "#identifierNext button",
+      "password_sel": "input[type=password]",
+      "submit_sel": "#passwordNext button",
+      "new_post_url": "https://draft.blogger.com/blog/post/create",
+      "title_sel": "[data-testid=title-input], textarea[placeholder*='Title']",
+      "content_sel": "[aria-label='Post body'], .editable",
+      "publish_sel": "[data-testid=publish-button], button[jsname='publish']",
+      "success_indicator": ".notification-container"
+    }
+  },
+  {
+    "id": 3,
+    "site_name": "Medium",
+    "base_url": "https://medium.com",
+    "category": "Blog",
+    "domain_authority": 95,
+    "logo_url": "https://medium.com/favicon.ico",
+    "login_required": true,
+    "selector_config": {
+      "login_url": "https://medium.com/m/signin",
+      "new_post_url": "https://medium.com/new-story",
+      "title_sel": "h3[data-testid=post-title-input], .graf--title",
+      "content_sel": ".graf--p:first-of-type, [contenteditable=true]",
+      "publish_sel": "button[data-testid=post-settings-button]",
+      "publish_confirm_sel": "button[data-testid=publish-to-medium-button]",
+      "success_indicator": ".postPublish"
+    }
+  },
+  {
+    "id": 4,
+    "site_name": "Tumblr",
+    "base_url": "https://www.tumblr.com",
+    "category": "Blog",
+    "domain_authority": 94,
+    "logo_url": "https://assets.tumblr.com/images/favicons/favicon.ico",
+    "login_required": true,
+    "selector_config": {
+      "login_url": "https://www.tumblr.com/login",
+      "username_sel": "#signup_email, input[name=email]",
+      "password_sel": "#signup_password, input[name=password]",
+      "submit_sel": ".login_btn, button[type=submit]",
+      "new_post_url": "https://www.tumblr.com/new/text",
+      "title_sel": "[name=title], .post_title",
+      "content_sel": ".post_body .editor, [contenteditable=true]",
+      "publish_sel": "#create_post, .post_submit button",
+      "success_indicator": ".post_success"
+    }
+  },
+  {
+    "id": 5,
+    "site_name": "LiveJournal",
+    "base_url": "https://www.livejournal.com",
+    "category": "Blog",
+    "domain_authority": 88,
+    "logo_url": "https://www.livejournal.com/favicon.ico",
+    "login_required": true,
+    "selector_config": {
+      "login_url": "https://www.livejournal.com/login.bml",
+      "username_sel": "#user",
+      "password_sel": "#password",
+      "submit_sel": "[name='action:login']",
+      "new_post_url": "https://www.livejournal.com/update.bml",
+      "title_sel": "#subject",
+      "content_sel": "#draft, #entry",
+      "publish_sel": "[name='action:update']",
+      "success_indicator": ".success"
+    }
+  },
+  {
+    "id": 6,
+    "site_name": "HubPages",
+    "base_url": "https://hubpages.com",
+    "category": "Web2.0",
+    "domain_authority": 86,
+    "logo_url": "https://hubpages.com/favicon.ico",
+    "login_required": true,
+    "selector_config": {
+      "login_url": "https://hubpages.com/user/login",
+      "username_sel": "#email",
+      "password_sel": "#password",
+      "submit_sel": ".login-btn, button[type=submit]",
+      "new_post_url": "https://hubpages.com/my/hubs/new",
+      "title_sel": "[name=title], #hub-title",
+      "content_sel": ".ql-editor, .hub-body",
+      "publish_sel": ".publish-hub, #submit-hub",
+      "success_indicator": ".hub-published"
+    }
+  },
+  {
+    "id": 7,
+    "site_name": "Vocal.media",
+    "base_url": "https://vocal.media",
+    "category": "Blog",
+    "domain_authority": 74,
+    "logo_url": "https://vocal.media/favicon.ico",
+    "login_required": true,
+    "selector_config": {
+      "login_url": "https://vocal.media/login",
+      "username_sel": "input[type=email]",
+      "password_sel": "input[type=password]",
+      "submit_sel": "button[type=submit]",
+      "new_post_url": "https://vocal.media/create-story",
+      "title_sel": "[placeholder='Title'], input[name=title]",
+      "content_sel": "[contenteditable=true], .DraftEditor-root",
+      "publish_sel": "[data-testid=publish], button.publish",
+      "success_indicator": ".story-published"
+    }
+  },
+  {
+    "id": 8,
+    "site_name": "Weebly",
+    "base_url": "https://www.weebly.com",
+    "category": "Web2.0",
+    "domain_authority": 92,
+    "logo_url": "https://www.weebly.com/favicon.ico",
+    "login_required": true,
+    "selector_config": {
+      "login_url": "https://www.weebly.com/app#login",
+      "username_sel": "#loginEmail",
+      "password_sel": "#loginPassword",
+      "submit_sel": "#loginButton",
+      "new_post_url": "https://www.weebly.com/app#page/new/blog-post",
+      "title_sel": ".page-title input, [data-id=title]",
+      "content_sel": ".content-editor, [data-id=content]",
+      "publish_sel": ".publish-button, #publishButton",
+      "success_indicator": ".toast-success"
+    }
+  },
+  {
+    "id": 9,
+    "site_name": "Quora Spaces",
+    "base_url": "https://www.quora.com",
+    "category": "Social",
+    "domain_authority": 93,
+    "logo_url": "https://www.quora.com/favicon.ico",
+    "login_required": true,
+    "selector_config": {
+      "login_url": "https://www.quora.com/",
+      "username_sel": "input[name=email], .email input",
+      "password_sel": "input[name=password], .password input",
+      "submit_sel": "button[type=submit].LoginButton",
+      "new_post_url": "https://www.quora.com/create-post",
+      "title_sel": "[contenteditable=true]:first-child",
+      "content_sel": ".q-text [contenteditable=true]",
+      "publish_sel": "[data-testid=submit-button], button.qui-btn-primary",
+      "success_indicator": ".post-success"
+    }
+  },
+  {
+    "id": 10,
+    "site_name": "Wix Blog",
+    "base_url": "https://www.wix.com",
+    "category": "Web2.0",
+    "domain_authority": 92,
+    "logo_url": "https://www.wix.com/favicon.ico",
+    "login_required": true,
+    "selector_config": {
+      "login_url": "https://users.wix.com/signin",
+      "username_sel": "#input_emailAddress",
+      "password_sel": "#input_password",
+      "submit_sel": "[data-hook=login-button]",
+      "new_post_url": "https://manage.wix.com/new-post",
+      "title_sel": "[data-hook=post-title], .public-DraftEditorPlaceholder-inner",
+      "content_sel": "[data-hook=ricos-editor] [contenteditable=true]",
+      "publish_sel": "[data-hook=publish-button]",
+      "success_indicator": "[data-hook=post-published-panel]"
+    }
+  }
+]
+
+

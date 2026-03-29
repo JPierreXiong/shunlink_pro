@@ -1,0 +1,25 @@
+# 核心框架
+crewai==0.28.8
+langchain==0.1.16
+langchain-openai==0.1.8
+
+# 浏览器自动化
+playwright==1.42.0
+playwright-stealth==1.0.6
+
+# 数据库与异步
+psycopg2-binary==2.9.9
+sqlalchemy==2.0.23
+python-dotenv==1.0.0
+
+# 图像与云存储
+cloudinary==1.38.0
+Pillow==10.2.0
+
+# 工具类
+pydantic==2.6.4
+requests==2.31.0
+rich==13.7.0
+
+# 日志
+python-json-logger==2.0.7
